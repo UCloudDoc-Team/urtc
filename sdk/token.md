@@ -43,35 +43,37 @@ Headerbase64=base64(jsonmsg) ;
 
 时间戳为UTC时间，精确到秒，截取最后10位，作为最终的时间戳。  
 伪代码如下：  
+``` 
 unixts = getutctimes()    
 unixts=format(“%10u”, unixts)    
-
+```
   - 随机数生成
 
 随机生成32位的无符号整形数，然后转为16进制，保持8位长度，作为随机数。    
-伪代码如下：    
+伪代码如下： 
+``` 
 random = random()    
 random=format(“%08x”, random)    
-
+```
 #### 2.3.3 签名生成
 
 1\. 格式化字符串： 
 
 ``` 
-    strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
+strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
 ```
 
 2\. 通过sha1 编码 加密key 为seckey  
 ``` 
-    sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
+sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
 ```
 3\. 拼接加密串  
 ``` 
-    signture = format(“%s%d%d”, sign, unixts, random)\\
+signture = format(“%s%d%d”, sign, unixts, random)\\
 ```
 #### 2.3.4 拼接最终的Token
 ``` 
-    token = header+ “.”+ signture\\
+token = header+ “.”+ signture\\
 ```
 ### 2.4 参考实现代码
 
