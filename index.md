@@ -14,5 +14,7 @@
 \*[](/video/urtc/sdk/windows)  
 \*[](/video/urtc/sdk/web)
 
+[什么是URTC](/introduction/concept.md)
+
     *[[video:urtc:sdk:electron|]]
     *[[video:urtc:faq|]]
