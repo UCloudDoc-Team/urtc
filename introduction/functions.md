@@ -55,7 +55,7 @@
 URTC支持Windows、web、electron、android、ios平台的接入，接入版本号如下表所示：
 
 平台     | SDK 兼容性                             | 开发指南
-- | :-: | :-: | :-: | -:
+-|-|-
 android  | 支持android 4.4及以上版本              | [](/video/urtc/sdk/android)
 IOS      | 支持IOS 8.0 及以上版本的 iPhone 或者 iPad | [](/video/urtc/sdk/ios)
 Windows  | 支持Windows 7及以上版本                | [](/video/urtc/sdk/windows)
