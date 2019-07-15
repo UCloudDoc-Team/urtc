@@ -52,9 +52,11 @@ Commond + B，提示Build Success，表示SDK集成成功。
 ```
 
 ### 5.2. 设置 userId 和 roomId，获取AppID;  
-`UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
+```
+UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
 initWithUserId:userId appId:appId roomId:roomId]];
-` 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
+```
+务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
 ``` objc
 engine.delegate = self;
@@ -62,14 +64,16 @@ engine.delegate = self;
 
 ### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。  
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
-`self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
+
+```
+self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
 self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
 self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
 self.engine.isOnlyAudio = NO;//将启用纯音频模式 默认为NO
 self.engine.isDebug = NO;//是否开启日志
 self.engine.videoProfile = UCloudRtcEngine_VideoProfile_360P_1;//设置视频分辨率
 self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
-`
+```
 
 ## 6\. 建立通话
 
@@ -84,10 +88,13 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 ### 6.2. 发布本地流  
 1）自动发布模式下，joinRoom成功后，即可发布本地流，无需再次调用publish接口；    
 2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；    
-`[self.engine publish];
-` 
+``` objc
+[self.engine publish];
+```
 3）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
-`- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager
+
+``` objc
+- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager
 didChangePublishState:(UCloudRtcEnginePublishState)publishState {
 switch (publishState) {
 case UCloudRtcEnginePublishStateUnPublish:
@@ -124,21 +131,27 @@ default:
 break;
 }
 }
-` 
+``` 
 ### 6.3. 取消发布本地流  
-`[self.engine unPublish];
-` 
+
+``` objc
+[self.engine unPublish];
+```
 ### 6.4. 订阅远程流  
-1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；  
-2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；    
-`[self.engine subscribeMethod:remoteStream];
-` 
-3）订阅成功，在回调事件中调用渲染接口即可。    
-`-(void)uCloudRtcEngine:(UCloudRtcEngine *)channel
+1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
+2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
+
+``` objc
+[self.engine subscribeMethod:remoteStream];
+```
+3）订阅成功，在回调事件中调用渲染接口即可。  
+
+``` objc
+-(void)uCloudRtcEngine:(UCloudRtcEngine *)channel
 didSubscribe:(UCloudRtcStream *)stream{
 [self reloadVideos];
 }
-` 
+```
 ### 6.5. 取消订阅远程流
 
 ``` objc
