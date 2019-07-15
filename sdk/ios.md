@@ -21,24 +21,24 @@
 下载SDK,得到的UCloudRtcSdk\_ios.framework为动态库；  
 ### 4.2. 创建新的工程
 使用XCode创建一个新的工程UCloudRtcSdk-ios-demo；  
-![创建新的工程.png](images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png)
+![创建新的工程.png](/images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png)
 ### 4.3. 加入动态库带工程中
 将已下载的动态库UCloudRtcSdk\_ios.framework加入到UCloudRtcSdk-ios-demo工程中Embedded Binaries；  
-![](images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
+![加入动态库到工程中](/images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
 ### 4.4. 打开Xcode
 打开Xcode，选择：项目TARGET -\>General
 -\>Deployment Target,设置8.0或以上版本；  
-![设置版本号.png](设置版本号.png) 
+![设置版本号.png](/images/sdk/%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC%E5%8F%B7.png) 
 ### 4.5. 使用动态库不需要添加其他库依赖
 ### 4.6. 关闭Bitcode（目前SDK版本不支持Bitcode） 
-![关闭bitcode.png](关闭bitcode.png) 
+![关闭bitcode.png](/images/sdk/%E5%85%B3%E9%97%ADbitcode.png) 
 ### 4.7. 编辑info.plist，申请摄像头、麦克风权限
 Privacy - Camera Usage Description  
 Privacy - Microphone Usage Description  
-![编辑info.plist.png](编辑info.plist.png) 
+![编辑info.plist.png](/images/sdk/%E7%BC%96%E8%BE%91info.plist.png) 
 ### 4.8. 打开后台音频权限
 为保障APP退入手机后台之后，通话可以保持不中断，建议开启后台音频权限，SDK默认进入后台之后继续推送音频流。  
-![打开后台音频权限.png](打开后台音频权限.png) 
+![打开后台音频权限.png](/images/sdk/%E6%89%93%E5%BC%80%E5%90%8E%E5%8F%B0%E9%9F%B3%E9%A2%91%E6%9D%83%E9%99%90.png) 
 ### 4.9. 集成成功
 按照上述步骤完成UCloudRtcSdk-ios-demo的前期SDK集成准备之后，请使用Xcode连接iPhone真机，在真机调试环境下，执行编译
 Commond + B，提示Build Success，表示SDK集成成功。  
