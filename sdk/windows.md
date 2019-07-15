@@ -13,11 +13,11 @@
   - Visual Studio 2015 及其它c++ 开发环境  
   - Win32 Platform  
 ## 4\. 搭建开发环境
-  - 导入 SDK\\
-### 4.1. 将 sdk/include 目录添加到项目的 INCLUDE 目录下。  
-### 4.2. 将 sdk/lib 目录放入项目的 LIB 目录下。  
-### 4.3. 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
-## 5\. 初始化 =====
+  - 导入 SDK
+4.1. 将 sdk/include 目录添加到项目的 INCLUDE 目录下。  
+4.2. 将 sdk/lib 目录放入项目的 LIB 目录下。  
+4.3. 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
+## 5\. 初始化
 
 ### 5.1. 继承实现UCloudRtcEventListener，用作事件处理
 
