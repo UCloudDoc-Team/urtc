@@ -10,10 +10,8 @@
 ## 2\. 集成SDK
 
   - 可使用script直接引入  
-    \* 建议使用chrome60以上版本
-
-
-
+  - 建议使用chrome60以上版本
+  
 ``` javascript
  <script src="urtcsdk-1.0.1.js"></script>
 ```
@@ -34,35 +32,33 @@ UCloudRtcEngine.init({
 
 ## 4\. 建立通话
 
-  - 登陆房间  
-    `UCloudRtcEngine.joinRoom({
-                                                    token: getToken//初始化时获得的token
-                                    }).then(function(e){
-                                                    //加入房间成功
-                                    },function(err){
-                                                    //加入房间失败
-                                    })
-    `
-  - 获取本地音视频流  
-    `UCloudRtcEngine.getLocalStream({
-                                                    media_data:’videoProfile640*360’,//推流相关配置的属性（分辨率宽度*分辨率高度）
-                                                    video_enable:true,//是否采集视频
-                                                    audio_enable:true,//是否采集音频
-                                                    media_type:1 //MediaType 1 cam 2 desktop
-                                    }).then(function(data){
-                                                //音视频流数据
-                                    },function(e){
-                                                    //错误信息
-                                    })
+### 4.1.登陆房间  
+
+``` javascript
+UCloudRtcEngine.joinRoom({
+            token: getToken//初始化时获得的token
+        }).then(function(e){
+            //加入房间成功
+        },function(err){
+            //加入房间失败
+        })
+```
+### 4.2.获取本地音视频流  
+``` javascript
+UCloudRtcEngine.getLocalStream({
+            media_data:’videoProfile640*360’,//推流相关配置的属性（分辨率宽度*分辨率高度）
+            video_enable:true,//是否采集视频
+            audio_enable:true,//是否采集音频
+            media_type:1 //MediaType 1 cam 2 desktop
+        }).then(function(data){
+           //音视频流数据
+        },function(e){
+            //错误信息
+        })
     
-    `
+```
 
-
-
-  - 发布本地流  
-
-
-
+### 4.3. 发布本地流 
 ``` javascript
 UCloudRtcEngine.leaveRoom({
             user_id:user_id,//用户id
@@ -78,9 +74,7 @@ UCloudRtcEngine.leaveRoom({
 
 ```
 
-  - 订阅远端流  
-
-
+### 4.4.订阅远端流  
 
 ``` javascript
 UCloudRtcEngine.subscribe({
@@ -98,7 +92,7 @@ UCloudRtcEngine.subscribe({
 
 ```
 
-    *获取本地音量数据
+### 4.5.获取本地音量数据
 
 ``` javascript
 UCloudRtcEngine.getAudioVolum().then(function(data){
@@ -109,9 +103,7 @@ UCloudRtcEngine.getAudioVolum().then(function(data){
 
 ```
 
-  - 关闭/打开本地音视频
-
-
+### 4.6.关闭/打开本地音视频
 
 ``` javascript
 UCloudRtcEngine.activeMute({
@@ -128,9 +120,7 @@ UCloudRtcEngine.activeMute({
 
 ```
 
-  - 枚举本地媒体设备  
-
-
+### 4.7.枚举本地媒体设备  
 
 ``` javascript
 UCloudRtcEngine.getLocalDevices().then(function(e){
@@ -145,9 +135,7 @@ UCloudRtcEngine.getLocalDevices().then(function(e){
 
 ```
 
-  - 离开房间  
-
-
+### 4.8.离开房间  
 
 ``` javascript
 UCloudRtcEngine.leaveRoom({
