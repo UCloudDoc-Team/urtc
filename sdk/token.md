@@ -16,7 +16,7 @@
 
 Token采用类jwt 格式：分为头部和数据载荷，形式如下：  
 header（头部）.signture(数据载荷部分)。  
-\=== 2.3.1 header 生成 ===
+#### 2.3.1 header 生成
 
 header 部分采用为json 字符串，然后进行base64 编码，json字符串格式如下：  
 `
