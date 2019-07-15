@@ -21,10 +21,10 @@
 下载SDK,得到的UCloudRtcSdk\_ios.framework为动态库；  
 ### 4.2. 创建新的工程
 使用XCode创建一个新的工程UCloudRtcSdk-ios-demo；  
-![创建新的工程.png](创建新的工程.png) 
+[创建新的工程.png][images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png]
 ### 4.3. 加入动态库带工程中
 将已下载的动态库UCloudRtcSdk\_ios.framework加入到UCloudRtcSdk-ios-demo工程中Embedded Binaries；  
-![加入动态库到工程中.png](加入动态库到工程中.png) 
+[images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png]
 ### 4.4. 打开Xcode
 打开Xcode，选择：项目TARGET -\>General
 -\>Deployment Target,设置8.0或以上版本；  
