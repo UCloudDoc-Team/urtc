@@ -3,18 +3,16 @@
 # 实时音视频URTC
 
 **目录**  
-\*[](/video/urtc/introduction/concept)  
-\*[](/video/urtc/introduction/functions)  
-\*[](/video/urtc/introduction/structure)  
-\* [](/video/urtc/scenario)  
-\* [](/video/urtc/price)  
-\* [](/video/urtc/quick)  
-\*[](/video/urtc/sdk/android)  
-\*[](/video/urtc/sdk/ios)  
-\*[](/video/urtc/sdk/windows)  
-\*[](/video/urtc/sdk/web)
 
-[什么是URTC](/introduction/concept.md)
-
-    *[[video:urtc:sdk:electron|]]
-    *[[video:urtc:faq|]]
+    [什么是URTC](/introduction/concept.md)
+    [产品功能（公测中）](/introduction/functions.md)
+    [产品架构](/introduction/structure.md)
+    [使用场景](/scenario.md)
+    [产品价格](/price.md)
+    [快速上手](/quick.md)
+    [Android SDK指南](/sdk/android.md)
+    [IOS SDK 指南](/sdk/ios.md)
+    [Windows SDK指南](/sdk/windows.md)
+    [WEB SDK指南](/sdk/web.md)
+    [Electron SDK指南](/sdk/electron.md)
+    [FAQ](faq.md)
