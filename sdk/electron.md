@@ -18,9 +18,8 @@
 
   - Visual Studio 2015 开发环境  
   - Win32 Platform  
-    \==== 3.2 Javascript 开发 ====
-  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，
-    拷贝pulgin到自己的目录下  
+### 3.2 Javascript 开发
+  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下  
 
 注意：请保持路径正确，或者更改为自己的目录地址。UCloudRtcElectronEngine.js 中node文件引用路径为
 ./plugin/lib/release/UCloudRtcElectronEngine.node。  
@@ -31,7 +30,7 @@
 
 ### 4.1 实现eventcallback funtion实现回调处理
 
-``` 
+```  javascript
 
 var eventMap={
     5000:function(){
@@ -108,7 +107,7 @@ initEngine = (eventId,objectStr)=>{
 
 ### 4.2 调用接口初始化
 
-``` 
+```  javascript
 
 urtcSdk.InitRtcEngine(initEngine);
 urtcSdk.SetSdkMode(1) ; 
@@ -123,11 +122,9 @@ urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 
 ## 5\. 建立通话
 
-  - 加入房间  
+### 5.1 加入房间  
 
-
-
-``` 
+```  javascript
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -139,31 +136,25 @@ urtcSdk.JoinRoom(jsonStr);
 
 ```
 
-  - 发布本地流  
+### 5.2 发布本地流  
 
-
-
-``` 
+```  javascript
 
 urtcSdk.PublishStream(1,this.mediaConfig.videoenable, this.mediaConfig.audioenable);
 
 ```
 
-  - 取消发布本地流  
+### 5.3 取消发布本地流  
 
-
-
-``` 
+```  javascript
 
 urtcSdk.UnPublishStream(1);
 
 ```
 
-  - 订阅流  
+### 5.4 订阅流  
 
-
-
-``` 
+```  javascript
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -176,11 +167,9 @@ urtcSdk. SubscribeStream (jsonStr);
 
 ```
 
-  - 取消订阅  
+### 5.5 取消订阅  
 
-
-
-``` 
+```  javascript
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -193,14 +182,12 @@ urtcSdk. UnSubscribeStream (jsonStr);
 
 ```
 
-  - 离开房间  
+### 5.6 离开房间  
 
-
-
-``` 
+```  javascript
 
 urtcSdk.LeaveRoom()
 
 ```
 
-  - 编译、运行，开始体验吧！
+### 5.7 编译、运行，开始体验吧！
