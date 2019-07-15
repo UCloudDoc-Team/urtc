@@ -65,7 +65,7 @@ engine.delegate = self;
 ### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。  
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
-```
+```objc
 self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
 self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
 self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
@@ -94,42 +94,39 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 3）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
 
 ``` objc
-- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager
-didChangePublishState:(UCloudRtcEnginePublishState)publishState {
-switch (publishState) {
-case UCloudRtcEnginePublishStateUnPublish:
-self.isConnected = NO;
-break;
-case UCloudRtcEnginePublishStatePublishing: {
-[self.bottomButton setTitle:@"正在发布..." forState:UIControlStateNormal];
-}
-break;
-case UCloudRtcEnginePublishStatePublishSucceed:{
-self.isConnected = YES;
-[self.view makeToast:@"发布成功" duration:1.5
-position:CSToastPositionCenter];
-[self.bottomButton setTitle:@"发布成功" forState:UIControlStateNormal];
-}
-break;
-case UCloudRtcEnginePublishStateRepublishing: {
-[self.bottomButton setTitle:@"正在重新发布..." forState:UIControlStateNormal];
-}
-break;
-case UCloudRtcEnginePublishStatePublishFailed: {
-self.isConnected = NO;
-[self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
-}
-break;
-case UCloudRtcEnginePublishStatePublishStoped: {
-self.isConnected = NO;
-[self.view makeToast:@"发布已停止" duration:1.5
-position:CSToastPositionCenter];
-[self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
-}
-break;
-default:
-break;
-}
+- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
+    switch (publishState) {
+        case UCloudRtcEnginePublishStateUnPublish:
+            self.isConnected = NO;
+            break;
+        case UCloudRtcEnginePublishStatePublishing: {
+            [self.bottomButton setTitle:@"正在发布..." forState:UIControlStateNormal];
+        }
+            break;
+        case UCloudRtcEnginePublishStatePublishSucceed:{
+            self.isConnected = YES;
+            [self.view makeToast:@"发布成功" duration:1.5 position:CSToastPositionCenter];
+            [self.bottomButton setTitle:@"发布成功" forState:UIControlStateNormal];
+        }
+            break;
+        case UCloudRtcEnginePublishStateRepublishing: {
+            [self.bottomButton setTitle:@"正在重新发布..." forState:UIControlStateNormal];
+        }
+            break;
+        case UCloudRtcEnginePublishStatePublishFailed: {
+            self.isConnected = NO;
+            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
+        }
+            break;
+        case UCloudRtcEnginePublishStatePublishStoped: {
+            self.isConnected = NO;
+            [self.view makeToast:@"发布已停止" duration:1.5 position:CSToastPositionCenter];
+            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
+        }
+            break;
+        default:
+            break;
+    }
 }
 ``` 
 ### 6.3. 取消发布本地流  
@@ -147,9 +144,8 @@ break;
 3）订阅成功，在回调事件中调用渲染接口即可。  
 
 ``` objc
--(void)uCloudRtcEngine:(UCloudRtcEngine *)channel
-didSubscribe:(UCloudRtcStream *)stream{
-[self reloadVideos];
+-(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
+     [self reloadVideos];
 }
 ```
 ### 6.5. 取消订阅远程流
