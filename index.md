@@ -2,11 +2,16 @@
 
 # 实时音视频URTC
 
-**目录**  
-
-  - [产品简介](/introduction/index.md)  
-  - [使用场景](/scenario.md)  
-  - [产品价格](/price.md)  
-  - [快速上手](/quick.md)  
-  - [SDK开发指南](/sdk/index.md)  
-  - [FAQ](/faq.md)  
+**目录**\\
+  *[[video:urtc:introduction:concept|]]\\
+  *[[video:urtc:introduction:functions|]]\\
+  *[[video:urtc:introduction:structure|]]\\
+  * [[video:urtc:scenario|]]\\
+  * [[video:urtc:price|]]\\
+  * [[video:urtc:quick|]]\\
+  *[[video:urtc:sdk:android|]]\\
+  *[[video:urtc:sdk:ios|]]\\
+  *[[video:urtc:sdk:windows|]]\\
+  *[[video:urtc:sdk:web|]]
+  *[[video:urtc:sdk:electron|]]
+  *[[video:urtc:faq|]] 
