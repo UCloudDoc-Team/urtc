@@ -2,21 +2,21 @@
 
 # Android SDK指南
 
-## 1\. 下载资源
+## 1. 下载资源
 
   - 可以下载Demo、SDK、API Java 文档  
     [现在下载](https://github.com/ucloud/urtc-android-demo)
 
-## 2\. 开发语言以及系统要求
+## 2. 开发语言以及系统要求
 
   - 开发语言：Java
   - 系统要求：Android4.4以上版本
 
-## 3\. 开发环境
+## 3. 开发环境
 
   - android studio 需要android SDK
 
-## 4\. 搭建开发环境
+## 4. 搭建开发环境
 
   - 下载urtc android SDK包，SDK包为aar
     格式，名称为ucloudrtclib开头加版本号加一串8位识别码，可以参考github上的接入demo。
@@ -79,7 +79,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
-## 5\. 初始化
+## 5. 初始化
 
   - 引擎环境初始化
 
@@ -153,7 +153,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
     sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
     sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
 
-## 6\. 建立通话
+## 6. 建立通话
 
   - 加入房间
 
@@ -182,7 +182,7 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 
 现在的类型包括两大类，需要传入publish接口的mtype,hasvideo,hasaudio参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的RoomActvity中的处理。
 
-1.  混合类型
+  - 混合类型
 
 
 
