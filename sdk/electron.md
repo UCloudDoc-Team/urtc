@@ -2,23 +2,25 @@
 
 # Electron SDK指南
 
-## 1\. 下载资源
+## 1. 下载资源
 
   - 可以下载Demo、SDK、API Java 文档  
     [现在下载](https://github.com/ucloud/urtc-electron-demo.git)
 
-## 2\. 开发语言以及系统要求
+## 2. 开发语言以及系统要求
 
   - 开发语言：C++ + javascript
   - 系统要求：Windows 7 及以上版本的 Windows 系统
 
-## 3\. 开发环境
+## 3. 开发环境
 
 ### 3.1 C++ 开发：自己编译electron SDK
 
   - Visual Studio 2015 开发环境  
   - Win32 Platform  
+  
 ### 3.2 Javascript 开发
+
   - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下  
 
 注意：请保持路径正确，或者更改为自己的目录地址。UCloudRtcElectronEngine.js 中node文件引用路径为
@@ -26,11 +28,11 @@
 
   - 在文件中引：import {urtcSdk} from '../ UCloudRtcElectronEngine';
 
-## 4\. 初始化
+## 4. 初始化
 
 ### 4.1 实现eventcallback funtion实现回调处理
 
-```  javascript
+```
 
 var eventMap={
     5000:function(){
@@ -107,7 +109,7 @@ initEngine = (eventId,objectStr)=>{
 
 ### 4.2 调用接口初始化
 
-```  javascript
+```
 
 urtcSdk.InitRtcEngine(initEngine);
 urtcSdk.SetSdkMode(1) ; 
@@ -120,11 +122,11 @@ urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 
 ```
 
-## 5\. 建立通话
+## 5. 建立通话
 
 ### 5.1 加入房间  
 
-```  javascript
+```
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -138,7 +140,7 @@ urtcSdk.JoinRoom(jsonStr);
 
 ### 5.2 发布本地流  
 
-```  javascript
+```
 
 urtcSdk.PublishStream(1,this.mediaConfig.videoenable, this.mediaConfig.audioenable);
 
@@ -146,15 +148,14 @@ urtcSdk.PublishStream(1,this.mediaConfig.videoenable, this.mediaConfig.audioenab
 
 ### 5.3 取消发布本地流  
 
-```  javascript
-
+```
 urtcSdk.UnPublishStream(1);
 
 ```
 
 ### 5.4 订阅流  
 
-```  javascript
+```
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -169,7 +170,7 @@ urtcSdk. SubscribeStream (jsonStr);
 
 ### 5.5 取消订阅  
 
-```  javascript
+```
 
 const jsonarg = {} ;
 jsonarg.uid = userid ;
@@ -184,7 +185,7 @@ urtcSdk. UnSubscribeStream (jsonStr);
 
 ### 5.6 离开房间  
 
-```  javascript
+```
 
 urtcSdk.LeaveRoom()
 
