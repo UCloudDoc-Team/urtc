@@ -2,11 +2,11 @@
 
 # Token生成指导
 
-## 1\. 流程图
+## 1. 流程图
 
 ![liuch.png](liuch.png)
 
-## 2\. 生成步骤
+## 2. 生成步骤
 
 ### 2.1 创建项目并复制AppID及AppKey
 
@@ -57,17 +57,17 @@ random=format(“%08x”, random)
 ```
 #### 2.3.3 签名生成
 
-1\. 格式化字符串： 
+1. 格式化字符串： 
 
 ``` 
 strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
 ```
 
-2\. 通过sha1 编码 加密key 为seckey  
+2. 通过sha1 编码 加密key 为seckey  
 ``` 
 sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
 ```
-3\. 拼接加密串  
+3. 拼接加密串  
 ``` 
 signture = format(“%s%d%d”, sign, unixts, random)\\
 ```
@@ -201,6 +201,6 @@ public class signature {
 
 ```
 
-## 3\. 申明
+## 3. 申明
 
 Token是SDK验证APP的重要参数，请注意不要明文显示、传输、保存、拷贝。
