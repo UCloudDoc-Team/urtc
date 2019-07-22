@@ -4,4 +4,4 @@
 
 **目录**    
 
-{{indexmenu>:urtc#1| nsort dsort msort}}
+{{indexmenu>:urtc#1 | nsort dsort msort}}
