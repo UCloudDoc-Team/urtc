@@ -2,23 +2,24 @@
 
 # WEB SDK指南
 
-## 1\. 下载资源
+## 1. 下载资源
 
   - 可以下载Demo、SDK、API文档  
     [现在下载](https://github.com/ucloud/urtc-js-demo.git)
 
-## 2\. 集成SDK
+## 2. 集成SDK
 
   - 可使用script直接引入  
+  
   - 建议使用chrome60以上版本
   
-``` javascript
+```
  <script src="urtcsdk-1.0.1.js"></script>
 ```
 
 ## 3\. 初始化
 
-``` javascript
+```
 var UCloudRtcEngine = new UCloudRtcEngine();
 UCloudRtcEngine.init({
         app_id: appData.appId,//项目的appid
@@ -34,7 +35,7 @@ UCloudRtcEngine.init({
 
 ### 4.1.登陆房间  
 
-``` javascript
+```
 UCloudRtcEngine.joinRoom({
             token: getToken//初始化时获得的token
         }).then(function(e){
@@ -43,8 +44,10 @@ UCloudRtcEngine.joinRoom({
             //加入房间失败
         })
 ```
+
 ### 4.2.获取本地音视频流  
-``` javascript
+
+```
 UCloudRtcEngine.getLocalStream({
             media_data:’videoProfile640*360’,//推流相关配置的属性（分辨率宽度*分辨率高度）
             video_enable:true,//是否采集视频
@@ -59,7 +62,8 @@ UCloudRtcEngine.getLocalStream({
 ```
 
 ### 4.3. 发布本地流 
-``` javascript
+
+```
 UCloudRtcEngine.leaveRoom({
             user_id:user_id,//用户id
             media_type:1,//发布的流类型 1 摄像头 2桌面
@@ -76,7 +80,7 @@ UCloudRtcEngine.leaveRoom({
 
 ### 4.4.订阅远端流  
 
-``` javascript
+```
 UCloudRtcEngine.subscribe({
             media_type: 1,//订阅的流类型 1 摄像头 2桌面
     stream_id: “stream_id”,//订阅流id
@@ -94,7 +98,7 @@ UCloudRtcEngine.subscribe({
 
 ### 4.5.获取本地音量数据
 
-``` javascript
+```
 UCloudRtcEngine.getAudioVolum().then(function(data){
                //音量数据
          },function(err){
@@ -105,7 +109,7 @@ UCloudRtcEngine.getAudioVolum().then(function(data){
 
 ### 4.6.关闭/打开本地音视频
 
-``` javascript
+```
 UCloudRtcEngine.activeMute({
             stream_id: stream_id,//媒流id
             stream_type: 1,//1 发布流 2 订阅流
@@ -122,7 +126,7 @@ UCloudRtcEngine.activeMute({
 
 ### 4.7.枚举本地媒体设备  
 
-``` javascript
+```
 UCloudRtcEngine.getLocalDevices().then(function(e){
     //成功输出本地设备数据
      //microphones 音频输入设备列表 
@@ -137,7 +141,7 @@ UCloudRtcEngine.getLocalDevices().then(function(e){
 
 ### 4.8.离开房间  
 
-``` javascript
+```
 UCloudRtcEngine.leaveRoom({
             room_id: room_id//房间id
         }).then(function(e){
