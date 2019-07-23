@@ -102,6 +102,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
         }
     }
 
+
   - 继承实现UCloudRtcSdkEventListener 实现事件处理
 
 
@@ -139,6 +140,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
                 }
             });
         }
+
 
   - 获取SDK 引擎 并进行基础配置
 
