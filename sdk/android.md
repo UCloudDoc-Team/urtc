@@ -64,6 +64,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 权限，具体可以参考
 [Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
 
+``` 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:glEsVersion="0x00020000" android:required="true" />
@@ -78,6 +79,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+```
 
 ## 5. 初始化
 
@@ -85,6 +87,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 
 主要配置android context sdkmode以及AppID ，测试用的SEC\_KEY,日志等级
 
+``` 
     public class UCloudRtcApplication extends Application {
         @Override
         public void onCreate() {
@@ -101,12 +104,12 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
             CommonUtils.mItemHeight = CommonUtils.mItemWidth;
         }
     }
-
+```
 
   - 继承实现UCloudRtcSdkEventListener 实现事件处理
 
 
-
+``` 
     UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
         public void onServerDisconnect() {
@@ -140,12 +143,11 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
                 }
             });
         }
-
+```
 
   - 获取SDK 引擎 并进行基础配置
 
-
-
+``` 
     sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
     sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
     sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
@@ -154,6 +156,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
     sdkEngine.setAutoPublish(true) ; // 是否自动发布
     sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
     sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
+```
 
 ## 6. 建立通话
 
@@ -201,7 +204,7 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 
 
 
-``` java
+```
 sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudio)
 回调事件
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -211,7 +214,7 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在onLocalPublish 回调成功后，再函数中可以调用视频渲染
 
-``` java
+```
 localrenderview.setBackgroundColor(Color.TRANSPARENT);
 sdkEngine.startPreview(info.getmMediatype(), localrenderview);
 不想渲染时可以调用停止渲染接口
@@ -222,7 +225,7 @@ sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 
 
 
-``` java
+```
 sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 回调事件
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -236,7 +239,7 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 
 
-``` java
+```
 sdkEngine.subscribe(UCloudRtcSdkStreamInfo info)
 //回调事件
 public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -246,15 +249,15 @@ public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在onSubscribeResult回调成功后，再函数中可以调用视频渲染
 
-``` java
+```
 sdkEngine. startRemoteView(UCloudRtcSdkStreamInfo info, UCloudRtcSdkSurfaceVideoView renderview)
 //不想渲染时可以调用定制渲染接口
 sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 ```
 
-\* 取消订阅媒体流
+  - 取消订阅媒体流
 
-``` java
+```
 sdkEngine. subscribe(UCloudRtcSdkStreamInfo info) 
 //回调事件
 public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info)
@@ -264,7 +267,7 @@ public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo inf
 
 权限分为发布，订阅，全部权限，全部权限包括了发布和订阅
 
-``` java
+```
 //接口
 public int setStreamRole(UCloudRtcSdkStreamRole role)
 //调用
@@ -275,7 +278,7 @@ sdkEngine.setStreamRole(mRole);
 
 
 
-``` java
+```
 sdkEngine.leaveChannel() ;
 ```
 
