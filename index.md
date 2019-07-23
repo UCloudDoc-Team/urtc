@@ -4,4 +4,4 @@
 
 **目录**    
 
-{{indexmenu>:urtc#1 | tsort}}
+{{indexmenu>:video:urtc#1 | nsort dsort msort}}
