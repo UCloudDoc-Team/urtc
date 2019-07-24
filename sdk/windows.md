@@ -5,6 +5,7 @@
 ## 1. 下载资源
 
   - 可以下载Demo、SDK、API文档  
+  
     [现在下载](https://github.com/ucloud/urtc-win-demo.git)  
     
 ## 2. 开发语言以及系统要求
@@ -20,6 +21,7 @@
 ## 4. 搭建开发环境
 
   - 导入 SDK    
+  
 1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    
 2） 将 sdk/lib 目录放入项目的 LIB 目录下。  
 3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
@@ -29,18 +31,15 @@
 ### 5.1. 继承实现UCloudRtcEventListener，用作事件处理
 
 ```
-
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 ……
 };
 UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
-
 ```
 
 ### 5.2. 初始化引擎
 
 ```
-
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
 m_rtcengine = UCloudRtcEngine::sharedInstance(UCloudRtcEventListener实现类);
 m_rtcengine->setSdkMode (1); // 1 testmode 0 normal
@@ -52,7 +51,6 @@ m_rtcengine->configLocalAudioPublish(false);
 m_rtcengine->configLocalCameraPublish(true);
 m_rtcengine->configLocalScreenPublish(false);
 m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360);
-
 ```
 
 ## 6.建立通话
