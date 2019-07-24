@@ -13,7 +13,8 @@
 
 ## 3. 开发环境  
 
-  - Xcode 9.0及以上版本；  
+  - Xcode 9.0及以上版本； 
+ 
   - Apple开发证书或个人账号；  
 
 ## 4. 搭建开发环境  
@@ -79,7 +80,7 @@ initWithUserId:userId appId:appId roomId:roomId token:@""]];
 engine.delegate = self;
 ```
 
-### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。 
+### 5.3. 调用接口初始化
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
