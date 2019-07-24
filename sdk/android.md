@@ -65,20 +65,21 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 [Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
 
 ``` 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-feature android:name="android.hardware.camera" />
+<uses-feature android:name="android.hardware.camera.autofocus" />
+<uses-feature android:glEsVersion="0x00020000" android:required="true" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.FLASHLIGHT" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.BLUETOOTH" />
+
 ```
 
 ## 5. 初始化
@@ -88,7 +89,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 主要配置android context sdkmode以及AppID ，测试用的SEC\_KEY,日志等级
 
 ``` 
-    public class UCloudRtcApplication extends Application {
+public class UCloudRtcApplication extends Application {
         @Override
         public void onCreate() {
             super.onCreate();
@@ -110,7 +111,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 
 
 ``` 
-    UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
+UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
         public void onServerDisconnect() {
             runOnUiThread(new Runnable() {
@@ -148,14 +149,14 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
   - 获取SDK 引擎 并进行基础配置
 
 ``` 
-    sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
-    sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
-    sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
-    sdkEngine.configLocalScreenPublish(false) ; // 设置桌面是否发布，作用同上
-    sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);// 流权限
-    sdkEngine.setAutoPublish(true) ; // 是否自动发布
-    sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
-    sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
+sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
+sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
+sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
+sdkEngine.configLocalScreenPublish(false) ; // 设置桌面是否发布，作用同上
+sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);// 流权限
+sdkEngine.setAutoPublish(true) ; // 是否自动发布
+sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
+sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
 ```
 
 ## 6. 建立通话
@@ -189,19 +190,14 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 
   - 混合类型
 
-
-
-``` 
  * 音频+屏幕捕捉
  * 视频+屏幕捕捉
 - 单一类型
  * 音频 （mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）
  * 视频 （mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）
  * 屏幕捕捉 （mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）
-```
 
   - 手动发布媒体流
-
 
 
 ```
@@ -223,8 +219,6 @@ sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 
   - 取消发布媒体流
 
-
-
 ```
 sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 回调事件
@@ -236,8 +230,6 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 如果配置了自动发布无需调用发布视频接口，SDK会自动发布，只需要监听事件调用渲染接口即可。
 
   - 订阅媒体流
-
-
 
 ```
 sdkEngine.subscribe(UCloudRtcSdkStreamInfo info)
