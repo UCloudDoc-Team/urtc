@@ -33,7 +33,6 @@
 ### 4.1 实现eventcallback funtion实现回调处理
 
 ```
-
 var eventMap={
     5000:function(){
         com.addLog('success',"ok");
@@ -104,13 +103,11 @@ initEngine = (eventId,objectStr)=>{
          fun(JSON.parse(objectStr),this);
     }
  }
-
 ```
 
 ### 4.2 调用接口初始化
 
 ```
-
 urtcSdk.InitRtcEngine(initEngine);
 urtcSdk.SetSdkMode(1) ; 
 urtcSdk.SetStreamRole(2) ;
@@ -119,7 +116,6 @@ urtcSdk.SetAutoPubSub(false, false) ;
 urtcSdk.SetVideoProfile(1) ;
 urtcSdk.SetScreenOutProfile(2) ;
 urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
-
 ```
 
 ## 5. 建立通话
@@ -135,15 +131,12 @@ jsonarg.appid = "URtc-h4r1txxy" ;// test appid
 const jsonStr = JSON.stringify(jsonarg) ;
 console.log("joinroom : "+ jsonStr) ;
 urtcSdk.JoinRoom(jsonStr);
-
 ```
 
 ### 5.2 发布本地流  
 
 ```
-
 urtcSdk.PublishStream(1,this.mediaConfig.videoenable, this.mediaConfig.audioenable);
-
 ```
 
 ### 5.3 取消发布本地流  
@@ -156,7 +149,6 @@ urtcSdk.UnPublishStream(1);
 ### 5.4 订阅流  
 
 ```
-
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.audio = true ;
@@ -171,7 +163,6 @@ urtcSdk. SubscribeStream (jsonStr);
 ### 5.5 取消订阅  
 
 ```
-
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.audio = true ;
@@ -180,15 +171,12 @@ jsonarg.mtype = 1;
 const jsonStr = JSON.stringify(jsonarg) ;
 console.log("joinroom : "+ jsonStr) ;
 urtcSdk. UnSubscribeStream (jsonStr);
-
 ```
 
 ### 5.6 离开房间  
 
 ```
-
 urtcSdk.LeaveRoom()
-
 ```
 
 ### 5.7 编译、运行，开始体验吧！
