@@ -2,24 +2,26 @@
 
 # IOS SDK 指南
 
-## 1. 下载资源
+## 1.下载资源
 
-  - 可以下载 Demo、SDK、API文档  
-    [现在下载](https://github.com/ucloud/urtc-ios-demo.git)
+- 可以下载 Demo、SDK、API文档  
+[现在下载](https://github.com/ucloud/urtc-ios-demo.git)
 
-## 2. 开发语言以及系统要求
 
-  - Apple设备：iPhone最低支持iPhone5；   
-  - 系统版本：最低支持iOS 8.0；   
-  - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
-  - 其他：不支持bitcode。   
+## 2.开发语言以及系统要求
 
-## 3. 开发环境  
+- Apple设备：iPhone最低支持iPhone5；   
+- 系统版本：最低支持iOS 8.0；   
+- CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
+- 其他：不支持bitcode。   
 
-  - Xcode 9.0及以上版本；  
-  - Apple开发证书或个人账号；  
 
-## 4. 搭建开发环境  
+## 3.开发环境  
+
+- Xcode 9.0及以上版本；  
+- Apple开发证书或个人账号；  
+
+## 4.搭建开发环境  
 
 ### 4.1. 得到动态库
 
