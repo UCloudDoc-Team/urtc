@@ -1,4 +1,4 @@
-{{indexmenu_n>20}}
+{{indexmenu_n>40}}
 
 # FAQ
 
