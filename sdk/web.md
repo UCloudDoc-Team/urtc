@@ -5,6 +5,7 @@
 ## 1. 下载资源
 
   - 可以下载Demo、SDK、API文档  
+  
     [现在下载](https://github.com/ucloud/urtc-js-demo.git)
 
 ## 2. 集成SDK
@@ -57,8 +58,7 @@ UCloudRtcEngine.getLocalStream({
            //音视频流数据
         },function(e){
             //错误信息
-        })
-    
+        })    
 ```
 
 ### 4.3. 发布本地流 
@@ -93,7 +93,6 @@ UCloudRtcEngine.subscribe({
         },function(err){
              //发布失败
         });
-
 ```
 
 ### 4.5.获取本地音量数据
@@ -104,7 +103,6 @@ UCloudRtcEngine.getAudioVolum().then(function(data){
          },function(err){
     //错误信息
 })
-
 ```
 
 ### 4.6.关闭/打开本地音视频
@@ -121,7 +119,6 @@ UCloudRtcEngine.activeMute({
     },function(err){
     //错误信息
 });
-
 ```
 
 ### 4.7.枚举本地媒体设备  
@@ -136,7 +133,6 @@ UCloudRtcEngine.getLocalDevices().then(function(e){
 },function(err){
     //失败
 })
-
 ```
 
 ### 4.8.离开房间  
@@ -149,5 +145,4 @@ UCloudRtcEngine.leaveRoom({
         },function(err){
              //退出失败
         });
-
 ```
