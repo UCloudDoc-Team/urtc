@@ -20,28 +20,36 @@
 
 ### 4.1. 得到动态库
 
-下载SDK,得到的UCloudRtcSdk\_mac.framework为动态库；  
+下载SDK,得到的UCloudRtcSdk\_mac.framework为动态库；    
 
 ### 4.2. 创建新的工程
 
-使用XCode创建一个新的工程UCloudRtcSdk-mac-demo；  
+使用XCode创建一个新的工程UCloudRtcSdk-mac-demo；   
 
+![](/images/sdk/MACOS/4.2.png)
 
-### 4.3. 加入动态库带工程中同时导入相关依赖库后如下图
+### 4.3. 加入动态库到工程中
 
-将已下载的动态库UCloudRtcSdk\_mac.framework加入到UCloudRtcSdk-mac-demo工程中Embedded Binaries；  
+将已下载的动态库UCloudRtcSdk\_mac.framework加入到UCloudRtcSdk-mac-demo工程中Embedded Binaries；    
+
+![](/images/sdk/MACOS/4.3.png)
 
 ### 4.4. 打开Xcode
 
-将TARGETS>GENERAL>Deployment Target 设置为10.10及以上
+将TARGETS>GENERAL>Deployment Target 设置为10.10及以上；
+
+![](/images/sdk/MACOS/4.4.png)
 
 ### 4.5. 编辑info.plist，申请摄像头、麦克风权限
 
-Privacy - Camera Usage Description  
-Privacy - Microphone Usage Description  
+Privacy - Camera Usage Description    
+Privacy - Microphone Usage Description    
+
+![](/images/sdk/MACOS/4.5.png)
 
 ### 4.6. 打开网络请求相关权限
 
+![](/images/sdk/MACOS/4.6.png)
 
 ### 4.7. 集成成功
 
@@ -64,6 +72,7 @@ Commond + B，提示Build Success，表示SDK集成成功。
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
 initWithUserId:userId appId:appId roomId:roomId token:@""]];
 ```
+
 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
 ```
@@ -93,9 +102,9 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ### 6.2. 发布本地流  
 
-1）自动发布模式下，joinRoom成功后，随即发布本地流；    
+1）自动发布模式下，joinRoom成功后，随即发布本地流；      
 
-2）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
+2）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。      
 
 ```
 - (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
