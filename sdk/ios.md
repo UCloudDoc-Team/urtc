@@ -28,16 +28,19 @@
 ### 4.2. 创建新的工程
 
 使用XCode创建一个新的工程UCloudRtcSdk-ios-demo；  
+
 ![创建新的工程.png](/images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png)
 
 ### 4.3. 加入动态库带工程中
 
 将已下载的动态库UCloudRtcSdk\_ios.framework加入到UCloudRtcSdk-ios-demo工程中Embedded Binaries；  
+
 ![加入动态库到工程中](/images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
 
 ### 4.4. 打开Xcode
 
 打开Xcode，选择：项目TARGET -\>General-\>Deployment Target,设置8.0或以上版本；  
+
 ![设置版本号.png](/images/sdk/%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC%E5%8F%B7.png) 
 
 ### 4.5. 使用动态库不需要添加其他库依赖
@@ -55,13 +58,13 @@ Privacy - Microphone Usage Description
 
 ### 4.8. 打开后台音频权限
 
-为保障APP退入手机后台之后，通话可以保持不中断，建议开启后台音频权限，SDK默认进入后台之后继续推送音频流。  
+为保障APP退入手机后台之后，通话可以保持不中断，建议开启后台音频权限，SDK默认进入后台之后继续推送音频流。
+
 ![打开后台音频权限.png](/images/sdk/%E6%89%93%E5%BC%80%E5%90%8E%E5%8F%B0%E9%9F%B3%E9%A2%91%E6%9D%83%E9%99%90.png) 
 
 ### 4.9. 集成成功
 
-按照上述步骤完成UCloudRtcSdk-ios-demo的前期SDK集成准备之后，请使用Xcode连接iPhone真机，在真机调试环境下，执行编译
-Commond + B，提示Build Success，表示SDK集成成功。  
+按照上述步骤完成UCloudRtcSdk-ios-demo的前期SDK集成准备之后，请使用Xcode连接iPhone真机，在真机调试环境下，执行编译Commond + B，提示Build Success，表示SDK集成成功。  
 
 ## 5. 初始化
 
@@ -69,7 +72,7 @@ Commond + B，提示Build Success，表示SDK集成成功。
 
 ### 5.1. 导入 SDK 头文件  
 
-``` objc
+```
 <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h>
 ```
 
@@ -79,9 +82,10 @@ Commond + B，提示Build Success，表示SDK集成成功。
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
 initWithUserId:userId appId:appId roomId:roomId]];
 ```
+
 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
-``` objc
+```
 engine.delegate = self;
 ```
 
@@ -89,7 +93,7 @@ engine.delegate = self;
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
-```objc
+```
 self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
 self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
 self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
@@ -103,22 +107,23 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 
 ### 6.1. 加入房间
 
-``` objc
+```
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
 }];
-
 ```
 
 ### 6.2. 发布本地流  
 
 1）自动发布模式下，joinRoom成功后，即可发布本地流，无需再次调用publish接口；    
-2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；    
-``` objc
+2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；
+
+```
 [self.engine publish];
 ```
+
 3）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
 
-``` objc
+```
 - (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
     switch (publishState) {
         case UCloudRtcEnginePublishStateUnPublish:
@@ -157,7 +162,7 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 
 ### 6.3. 取消发布本地流  
 
-``` objc
+```
 [self.engine unPublish];
 ```
 
@@ -166,12 +171,13 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
 2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
 
-``` objc
+```
 [self.engine subscribeMethod:remoteStream];
 ```
+
 3）订阅成功，在回调事件中调用渲染接口即可。  
 
-``` objc
+```
 -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
      [self reloadVideos];
 }
@@ -179,13 +185,13 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 
 ### 6.5. 取消订阅远程流
 
-``` objc
+```
 [self.engine unSubscribeMethod:remoteStream];
 ```
 
 ### 6.6. 离开房间
 
-``` objc
+```
 [self.engine leaveRoom];
 ```
 
