@@ -4,18 +4,18 @@
 
 ## 1. 下载资源
 
-  - 可以下载 Demo、SDK、API文档  
+  - 可以下载 Demo、SDK、API文档  \\
     [现在下载](https://github.com/ucloud/urtc-mac-demo.git)
 
 ## 2. 开发语言以及系统要求
-   
-  - 系统版本：MacOS 10.0；         
+
+  - 系统版本：MacOS 10.0；  \\       
 
 ## 3. 开发环境  
 
-  - Xcode 9.0及以上版本； 
+  - Xcode 9.0及以上版本； \\
  
-  - Apple开发证书或个人账号；  
+  - Apple开发证书或个人账号；  \\
 
 ## 4. 搭建开发环境  
 
