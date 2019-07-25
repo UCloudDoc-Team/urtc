@@ -10,15 +10,15 @@
 
 ## 2. 集成SDK
 
-  - 可使用script直接引入  
+  - 可使用script直接引入  \\
   
-  - 建议使用chrome60以上版本
+  - 建议使用chrome60以上版本    \\
   
 ```
  <script src="urtcsdk-1.0.1.js"></script>
 ```
 
-## 3\. 初始化
+## 3. 初始化
 
 ```
 var UCloudRtcEngine = new UCloudRtcEngine();
@@ -32,7 +32,7 @@ UCloudRtcEngine.init({
 })
 ```
 
-## 4\. 建立通话
+## 4. 建立通话
 
 ### 4.1.登陆房间  
 
