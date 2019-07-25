@@ -56,9 +56,9 @@ URTC支持Windows、web、electron、android、ios平台的接入，接入版本
 
 |平台     | SDK 兼容性                             | 开发指南|
 |--------|--------------------------------------|------------|
-|android  | 支持android 4.4及以上版本              | [Android SDK指南](/sdk/android.md)  |
-|MAC OS   | 支持MacOS 10.0                        | [MAC OS SDK 指南](/sdk/macos.md)  |
-|IOS      | 支持IOS 8.0 及以上版本的 iPhone 或者 iPad | [IOS SDK 指南](/sdk/ios.md)  |
-|Windows  | 支持Windows 7及以上版本                | [Windows SDK指南](/sdk/windows.md)  |
-|Web      | 支持Chrome 60及以上版本                | [WEB SDK指南](/sdk/web.md)  |
-|Electron | 支持Electron addon 2.0.7及以上版本     | [Electron SDK指南](/sdk/electron.md)  |
+|android  | 支持android 4.4及以上版本              | [Android SDK指南](/sdk/android)  |
+|MAC OS   | 支持MacOS 10.0                        | [MAC OS SDK 指南](/sdk/macos)  |
+|IOS      | 支持IOS 8.0 及以上版本的 iPhone 或者 iPad | [IOS SDK 指南](/sdk/ios)  |
+|Windows  | 支持Windows 7及以上版本                | [Windows SDK指南](/sdk/windows)  |
+|Web      | 支持Chrome 60及以上版本                | [WEB SDK指南](/sdk/web)  |
+|Electron | 支持Electron addon 2.0.7及以上版本     | [Electron SDK指南](/sdk/electron)  |
