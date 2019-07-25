@@ -4,29 +4,29 @@
 
 ## 1. 下载资源
 
-  - 可以下载Demo、SDK、API Java 文档  
+  - 可以下载Demo、SDK、API Java 文档  \\
     [现在下载](https://github.com/ucloud/urtc-electron-demo.git)
 
 ## 2. 开发语言以及系统要求
 
-  - 开发语言：C++ + javascript
-  - 系统要求：Windows 7 及以上版本的 Windows 系统
+  - 开发语言：C++ + javascript    \\
+  - 系统要求：Windows 7 及以上版本的 Windows 系统    \\
 
 ## 3. 开发环境
 
 ### 3.1 C++ 开发：自己编译electron SDK
 
-  - Visual Studio 2015 开发环境  
-  - Win32 Platform  
+  - Visual Studio 2015 开发环境  \\
+  - Win32 Platform  \\
   
 ### 3.2 Javascript 开发
 
-  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下  
+  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下  \\
 
 注意：请保持路径正确，或者更改为自己的目录地址。UCloudRtcElectronEngine.js 中node文件引用路径为
 ./plugin/lib/release/UCloudRtcElectronEngine.node。  
 
-  - 在文件中引：import {urtcSdk} from '../ UCloudRtcElectronEngine';
+  - 在文件中引：import {urtcSdk} from '../ UCloudRtcElectronEngine'。   \\
 
 ## 4. 初始化
 
@@ -123,7 +123,6 @@ urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 ### 5.1 加入房间  
 
 ```
-
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.rid = roomid ;
