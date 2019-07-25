@@ -7,7 +7,7 @@
   - 可以下载Demo、SDK、API文档  \\
   
     [现在下载](https://github.com/ucloud/urtc-win-demo.git)  \\
-    
+
 ## 2. 开发语言以及系统要求
 
   - 开发语言：C++  \\
@@ -22,9 +22,10 @@
 
   - 导入 SDK    \\
   
-1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    
-2） 将 sdk/lib 目录放入项目的 LIB 目录下。  
-3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
+1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    \\
+2） 将 sdk/lib 目录放入项目的 LIB 目录下。  \\
+3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  \\
+
 
 ## 5. 初始化
 
