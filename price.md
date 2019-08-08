@@ -29,5 +29,5 @@ URTC产品按照客户端的下行，实时计费，后付费。
  
  - 使用录制服务前，需要在控制台上，开启录制服务，并绑定存储对象。
  
- - 录像的存储，按照Ufile的计费规则单独计费，具体可查看 [Ufile计费](https://docs.ucloud.cn/storage_cdn/ufile/bill/new)。
+ - 录制的存储，按照Ufile的计费规则单独计费，具体可查看 [Ufile计费](https://docs.ucloud.cn/storage_cdn/ufile/bill/new)。
  
