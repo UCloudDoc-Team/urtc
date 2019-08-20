@@ -14,7 +14,7 @@
 
 ![](/images/download_SDK.png) 
 
-> Note
+> 
 > 
 > 下载SDK的同时，还可以查看demo。使用中有任何问题，请通过GitHub提issue，反馈给我们。
 
