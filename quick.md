@@ -12,22 +12,24 @@
 
 在控制台，【全部产品】-【视频服务】-【实时音视频】-【文档及SDK】内，下载SDK。  
 
-![download_SDK.png](download_SDK.png) 
+![](/images/download_SDK.png) 
 
-还可以查看demo，有问题请通过GitHub提issue，反馈给我们。
+> Note
+> 
+> 下载SDK的同时，还可以查看demo。使用中有任何问题，请通过GitHub提issue，反馈给我们。
 
 ## 3．创建应用
 
  - 找到【我的应用】  
 
-![creat_app.png](creat_app.png) 
+![](/images/creat_app.png) 
 
  - 点击创建应用，输入应用名称，确定后保存。  
  
-![creat_app_2.png](creat_app_2.png) 
+![](/images/creat_app_2.png) 
 
  - 确定后，自动生成AppID、AppKey，启动应用。  
  
-![app_go.png](app_go.png) 
+![](/images/app_go.png) 
 
  - 绑定AppID及AppKey到您的应用中即可开始使用。
