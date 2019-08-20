@@ -2,21 +2,21 @@
 
 # Token生成指导
 
-## 1. 流程图
+## 1. Token的使用流程图
 
 ![ ](liuch.png)
 
-## 2. 生成步骤
+## 2. Token生成步骤
 
 ### 2.1 创建项目生成AppID及AppKey
 
 创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
 
-### 2.2 sha1算法利用AppId和AppKey生成Token
+### 2.2 sha1算法生成Token
 
 **Token 生成规则**
 
-Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
+sha1算法利用AppID及AppKey生成Token，Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
 
 #### 2.2.1 生成header
 
