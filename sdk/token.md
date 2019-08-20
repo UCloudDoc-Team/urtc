@@ -10,7 +10,7 @@
 
 ### 2.1 创建项目并复制AppID及AppKey
 
-具体方法，查看[【快速开始】](/urtc/quick.md)。
+具体方法，查看 [快速开始](/urtc/quick.md)。
 
 ### 2.2 通过AppId和AppKey 通过sha1算法生成Token
 
