@@ -60,21 +60,21 @@ random=format(“%08x”, random)
 
 #### 2.3.3 签名生成
 
-**1.格式化字符串** 
+**1. 格式化字符串** 
 
 ``` 
 strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
 ```
 
 
-**2.通过sha1 编码 加密key 为seckey** 
+**2. 通过sha1 编码 加密key 为seckey** 
 
 ``` 
 sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
 ```
 
 
-**3.拼接加密串** 
+**3. 拼接加密串** 
 
 ``` 
 signture = format(“%s%d%d”, sign, unixts, random)\\
