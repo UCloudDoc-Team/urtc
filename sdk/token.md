@@ -12,7 +12,7 @@
 
 创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
 
-### 2.2 通过AppId和AppKey 通过sha1算法生成Token
+### 2.2 sha1算法利用AppId和AppKey生成Token
 
 **Token 生成规则**
 
