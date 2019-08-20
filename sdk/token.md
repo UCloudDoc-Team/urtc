@@ -12,12 +12,11 @@
 
 ### 2.2 通过AppId和AppKey 通过sha1算法生成Token
 
-### 2.3 Token 生成规则
+**Token 生成规则**
 
-Token采用类jwt 格式：分为头部和数据载荷，形式如下：  
-header（头部）.signture(数据载荷部分)。  
+Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
 
-#### 2.3.1 header 生成
+#### 2.2.1 生成header
 
 header 部分采用为json 字符串，然后进行base64 编码，json字符串格式如下： 
 
@@ -36,7 +35,7 @@ header=base64(Jsonmsg) ;
 Headerbase64=base64(jsonmsg) ;
 ```
 
-#### 2.3.2 signature生成
+#### 2.2.2 生成signature
 
   -  时间戳获取
 
@@ -58,7 +57,7 @@ random = random()
 random=format(“%08x”, random)    
 ```
 
-#### 2.3.3 签名生成
+#### 2.2.3 签名生成
 
 **1. 格式化字符串** 
 
@@ -80,13 +79,13 @@ sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
 signture = format(“%s%d%d”, sign, unixts, random)\\
 ```
 
-#### 2.3.4 拼接最终的Token
+#### 2.2.4 拼接最终的Token
 
 ``` 
 token = header+ “.”+ signture\\
 ```
 
-### 2.4 参考实现代码
+### 2.3 参考实现代码
 
   - Go 参考代码如下
 
