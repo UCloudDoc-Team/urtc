@@ -180,7 +180,7 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
 如果配置了手动发布需要调用sdkEngine引擎的publish接口 配置手动/自动发布
 
-``` java
+```
 sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
