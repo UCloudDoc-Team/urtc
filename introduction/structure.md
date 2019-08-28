@@ -3,4 +3,4 @@
 # 产品架构
 
 下图为URTC应用在在线教育的产品架构。  
-![](structure.png)
+![](/images/introduction/structure.png)
