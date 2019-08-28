@@ -20,7 +20,7 @@
 
 ## 3. 初始化
 
-```
+```js
 var UCloudRtcEngine = new UCloudRtcEngine();
 UCloudRtcEngine.init({
         app_id: appData.appId,//项目的appid
@@ -36,7 +36,7 @@ UCloudRtcEngine.init({
 
 ### 4.1.登陆房间  
 
-```
+```js
 UCloudRtcEngine.joinRoom({
             token: getToken//初始化时获得的token
         }).then(function(e){
@@ -48,7 +48,7 @@ UCloudRtcEngine.joinRoom({
 
 ### 4.2.获取本地音视频流  
 
-```
+```js
 UCloudRtcEngine.getLocalStream({
             media_data:’videoProfile640*360’,//推流相关配置的属性（分辨率宽度*分辨率高度）
             video_enable:true,//是否采集视频
@@ -63,7 +63,7 @@ UCloudRtcEngine.getLocalStream({
 
 ### 4.3. 发布本地流 
 
-```
+```js
 UCloudRtcEngine.leaveRoom({
             user_id:user_id,//用户id
             media_type:1,//发布的流类型 1 摄像头 2桌面
@@ -80,7 +80,7 @@ UCloudRtcEngine.leaveRoom({
 
 ### 4.4.订阅远端流  
 
-```
+```js
 UCloudRtcEngine.subscribe({
             media_type: 1,//订阅的流类型 1 摄像头 2桌面
     stream_id: “stream_id”,//订阅流id
@@ -97,7 +97,7 @@ UCloudRtcEngine.subscribe({
 
 ### 4.5.获取本地音量数据
 
-```
+```js
 UCloudRtcEngine.getAudioVolum().then(function(data){
                //音量数据
          },function(err){
@@ -107,7 +107,7 @@ UCloudRtcEngine.getAudioVolum().then(function(data){
 
 ### 4.6.关闭/打开本地音视频
 
-```
+```js
 UCloudRtcEngine.activeMute({
             stream_id: stream_id,//媒流id
             stream_type: 1,//1 发布流 2 订阅流
@@ -123,7 +123,7 @@ UCloudRtcEngine.activeMute({
 
 ### 4.7.枚举本地媒体设备  
 
-```
+```js
 UCloudRtcEngine.getLocalDevices().then(function(e){
     //成功输出本地设备数据
      //microphones 音频输入设备列表 
@@ -137,7 +137,7 @@ UCloudRtcEngine.getLocalDevices().then(function(e){
 
 ### 4.8.离开房间  
 
-```
+```js
 UCloudRtcEngine.leaveRoom({
             room_id: room_id//房间id
         }).then(function(e){
