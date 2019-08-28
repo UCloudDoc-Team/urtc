@@ -33,7 +33,7 @@
 
 ### 4.1 实现eventcallback funtion实现回调处理
 
-```
+```js
 var eventMap={
     5000:function(){
         com.addLog('success',"ok");
@@ -108,7 +108,7 @@ initEngine = (eventId,objectStr)=>{
 
 ### 4.2 调用接口初始化
 
-```
+```js
 urtcSdk.InitRtcEngine(initEngine);
 urtcSdk.SetSdkMode(1) ; 
 urtcSdk.SetStreamRole(2) ;
@@ -123,7 +123,7 @@ urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 
 ### 5.1 加入房间  
 
-```
+```js
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.rid = roomid ;
@@ -135,20 +135,20 @@ urtcSdk.JoinRoom(jsonStr);
 
 ### 5.2 发布本地流  
 
-```
+```js
 urtcSdk.PublishStream(1,this.mediaConfig.videoenable, this.mediaConfig.audioenable);
 ```
 
 ### 5.3 取消发布本地流  
 
-```
+```js
 urtcSdk.UnPublishStream(1);
 
 ```
 
 ### 5.4 订阅流  
 
-```
+```js
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.audio = true ;
@@ -162,7 +162,7 @@ urtcSdk. SubscribeStream (jsonStr);
 
 ### 5.5 取消订阅  
 
-```
+```js
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.audio = true ;
@@ -175,7 +175,7 @@ urtcSdk. UnSubscribeStream (jsonStr);
 
 ### 5.6 离开房间  
 
-```
+```js
 urtcSdk.LeaveRoom()
 ```
 
