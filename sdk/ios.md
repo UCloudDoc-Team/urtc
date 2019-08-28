@@ -36,7 +36,7 @@
 
 ### 4.3. 加入动态库带工程中
 
-将已下载的动态库UCloudRtcSdk\_ios.framework加入到UCloudRtcSdk-ios-demo工程中`Embedded Binaries`；  
+将已下载的动态库UCloudRtcSdk\_ios.framework加入到UCloudRtcSdk-ios-demo工程中**Embedded Binaries**；  
 
 ![加入动态库到工程中](/images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
 
