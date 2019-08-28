@@ -32,7 +32,7 @@
 
 
 
-``` 
+```js
 -keep class com.ucloudrtclib.sdkengine.**{*;}
 -keep class com.ucloudrtclib.sdkengine.define.*{*;}
 -keep enum com.ucloudrtclib.sdkengine.define.*{*;}
@@ -64,7 +64,7 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 权限，具体可以参考
 [Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
 
-``` 
+```JavaScript
 <uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 <uses-feature android:glEsVersion="0x00020000" android:required="true" />
