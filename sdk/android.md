@@ -110,7 +110,7 @@ public class UCloudRtcApplication extends Application {
   - 继承实现UCloudRtcSdkEventListener 实现事件处理
 
 
-```js 
+```js
 UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
         public void onServerDisconnect() {
@@ -148,7 +148,7 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
 
   - 获取SDK 引擎 并进行基础配置
 
-```js 
+```js
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
 sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
 sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
@@ -165,7 +165,7 @@ sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;/
 
 
 
-```js 
+```js
 UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         info.setAppId(mAppid);
         info.setToken(mRoomToken);
