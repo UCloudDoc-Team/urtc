@@ -64,7 +64,7 @@ UCloudRtcEngine.getLocalStream({
 ### 4.3. 发布本地流 
 
 ```js
-UCloudRtcEngine.leaveRoom({
+UCloudRtcEngine.publish({
             user_id:user_id,//用户id
             media_type:1,//发布的流类型 1 摄像头 2桌面
     audio: true,//是否包含音频流
