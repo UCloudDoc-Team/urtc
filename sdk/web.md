@@ -33,7 +33,7 @@ const URtcDemo = new UCloudRtcEngine();
 
 ```js
 URtcDemo.getToken({
-    app_id: appId,//控制台创建项目获取到的appkey
+    app_id: appId,//控制台创建项目获取到的appid
     room_id: roomId,//房间号
     user_id: userId,//用户id
     appkey: appkey//控制台创建项目获取到的appkey
@@ -48,7 +48,7 @@ URtcDemo.getToken({
 
 ```js
 URtcDemo.init({  
-    app_id: appId,//控制台创建项目获取到的appkey
+    app_id: appId,//控制台创建项目获取到的appid
     room_id: roomId,//房间号
     user_id: user_id,//用户id
     token: token,//getToken()获取到的token
