@@ -62,7 +62,7 @@ URtcDemo.init({
 
 ### 4.3.开启本地媒体设备
 
-``` js
+```js
 URtcDemo.getLocalStream({
     media_data: "videoProfile1280*720",//设置视频分辨率
     video_enable: true,//是否开始摄像头true/false
@@ -77,7 +77,7 @@ URtcDemo.getLocalStream({
 
 ### 4.4.加入房间
 
-``` js
+```js
 URtcDemo.joinRoom({
     token: token, //getToken()获取到的token
     role_type: 2, //用户权限0 推流 1 拉流 2 全部
@@ -91,7 +91,7 @@ URtcDemo.joinRoom({
 
 ### 4.5.发布本地流
 
-``` js
+```js
 URtcDemo.publish({  
     user_id:user_id,//用户id  
     media_type:1,//发布的流类型 1 摄像头 2桌面  
@@ -107,7 +107,7 @@ URtcDemo.publish({
 
 ### 4.6.订阅远端流 
 
-``` js
+```js
 URtcDemo.subscribe({  
  media_type: 1,//订阅的流类型 1 摄像头 2桌面  
  stream_id: “stream_id”,//订阅流id  
@@ -124,7 +124,7 @@ URtcDemo.subscribe({
 
 ### 4.7.获取本地音量数据
 
-``` js
+```js
 URtcDemo.getAudioVolum().then(function(e){  
      //音量数据  
  }).catch(function(err){
@@ -134,7 +134,7 @@ URtcDemo.getAudioVolum().then(function(e){
 
 ### 4.8.打开/关闭本地音视频
 
-``` js
+```js
 URtcDemo.activeMute({  
     stream_id: stream_id,//媒流id   
     stream_type: 1,//1 发布流 2 订阅流  
@@ -150,7 +150,7 @@ URtcDemo.activeMute({
 
 ### 4.9.枚举本地媒体设备
 
-``` js
+```js
 URtcDemo.getLocalDevices().then(function(e){  
     //成功输出本地设备数据  
     //microphones 音频输入设备列表   
@@ -164,7 +164,7 @@ URtcDemo.getLocalDevices().then(function(e){
 
 ### 4.10.离开房间
 
-``` js
+```js
 URtcDemo.leaveRoom({  
     room_id: room_id//房间id  
 }).then(function(e){  
@@ -176,7 +176,7 @@ URtcDemo.leaveRoom({
 
 ### 4.11.开始录制
 
-``` js
+```js
 URtcDemo.startRecord({
     "mimetype": 3,//1 音频 2 视频 3 音频+视频
     "mainviewuid": appData.userId,//主窗口位置用户id
@@ -196,7 +196,7 @@ URtcDemo.startRecord({
 
 ### 4.12.结束录制
 
-``` js
+```js
 URtcDemo.stopRecord().then(function (e) {
     //录制成功  
 }).catch(function(err){
