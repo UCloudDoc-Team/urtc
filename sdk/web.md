@@ -14,10 +14,10 @@
 
   - 建议使用chrome60以上版本    \\
 
-```js
+```
 npm install ucloud-rtc-sdk
 ```
->由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者  http://localhost（http://127.0.0.1）。请勿使用  HTTP协议  部署你的项目。
+>由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
 
 
 ## 3. 初始化
