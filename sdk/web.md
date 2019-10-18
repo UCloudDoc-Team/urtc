@@ -25,6 +25,8 @@ npm install ucloud-rtc-sdk
 
 ### 2.2 下载SDK包
 
+  - [下载SDK](http://urtcsdk.cn-bj.ufileos.com/URTCSdk_web.zip)
+
   - 将SDK.js 文件保存到项目文件所在的目录下
 
   - 在项目文件中，添加如下代码：
