@@ -146,6 +146,7 @@ URtcDemo.activeMute({
 }).catch(function(err){
     //报错信息 
 });
+
 ```
 
 ### 4.9.枚举本地媒体设备
