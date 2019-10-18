@@ -14,6 +14,7 @@
 
 >由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
 
+
 ### 2.1 使用npm获取SDK
 
   - 可使用npm直接引入  \\
@@ -23,8 +24,6 @@ npm install ucloud-rtc-sdk
 ```
 
 ### 2.2 下载SDK包
-
-  - 下载SDK软件包
 
   - 将SDK.js 文件保存到项目文件所在的目录下
 
