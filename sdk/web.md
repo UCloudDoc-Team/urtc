@@ -13,12 +13,14 @@
   - 可使用npm直接引入  \\
 
   - 建议使用chrome60以上版本    \\
- ```js
+
+```js
 npm install ucloud-rtc-sdk
 ```
 
 
 ## 3. 初始化
+
 
 ```js
 const URtcDemo = new UCloudRtcEngine();  
@@ -59,6 +61,7 @@ URtcDemo.init({
 ```
 
 ### 4.3.开启本地媒体设备
+
 ``` js
 URtcDemo.getLocalStream({
     media_data: "videoProfile1280*720",//设置视频分辨率
@@ -73,6 +76,7 @@ URtcDemo.getLocalStream({
 ```
 
 ### 4.4.加入房间
+
 ``` js
 URtcDemo.joinRoom({
     token: token, //getToken()获取到的token
@@ -86,6 +90,7 @@ URtcDemo.joinRoom({
 ```
 
 ### 4.5.发布本地流
+
 ``` js
 URtcDemo.publish({  
     user_id:user_id,//用户id  
@@ -101,6 +106,7 @@ URtcDemo.publish({
 ```
 
 ### 4.6.订阅远端流 
+
 ``` js
 URtcDemo.subscribe({  
  media_type: 1,//订阅的流类型 1 摄像头 2桌面  
@@ -117,6 +123,7 @@ URtcDemo.subscribe({
 ```
 
 ### 4.7.获取本地音量数据
+
 ``` js
 URtcDemo.getAudioVolum().then(function(e){  
      //音量数据  
@@ -126,6 +133,7 @@ URtcDemo.getAudioVolum().then(function(e){
 ```
 
 ### 4.8.打开/关闭本地音视频
+
 ``` js
 URtcDemo.activeMute({  
     stream_id: stream_id,//媒流id   
@@ -141,6 +149,7 @@ URtcDemo.activeMute({
 ```  
 
 ### 4.9.枚举本地媒体设备
+
 ``` js
 URtcDemo.getLocalDevices().then(function(e){  
     //成功输出本地设备数据  
@@ -154,6 +163,7 @@ URtcDemo.getLocalDevices().then(function(e){
 ``` 
 
 ### 4.10.离开房间
+
 ``` js
 URtcDemo.leaveRoom({  
     room_id: room_id//房间id  
@@ -165,6 +175,7 @@ URtcDemo.leaveRoom({
 ``` 
 
 ### 4.11.开始录制
+
 ``` js
 URtcDemo.startRecord({
     "mimetype": 3,//1 音频 2 视频 3 音频+视频
@@ -184,6 +195,7 @@ URtcDemo.startRecord({
 ``` 
 
 ### 4.12.结束录制
+
 ``` js
 URtcDemo.stopRecord().then(function (e) {
     //录制成功  
