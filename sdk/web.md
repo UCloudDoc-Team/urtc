@@ -146,7 +146,7 @@ URtcDemo.activeMute({
 }).catch(function(err){
     //报错信息 
 });
-```  
+```
 
 ### 4.9.枚举本地媒体设备
 
@@ -160,7 +160,7 @@ URtcDemo.getLocalDevices().then(function(e){
 }).catch(function(err){
     //报错信息 
 });
-``` 
+```
 
 ### 4.10.离开房间
 
@@ -172,7 +172,7 @@ URtcDemo.leaveRoom({
 },function(err){  
      //退出失败  
 }); 
-``` 
+```
 
 ### 4.11.开始录制
 
@@ -192,7 +192,7 @@ URtcDemo.startRecord({
 }).catch(function(err){
     //错误信息
 })
-``` 
+```
 
 ### 4.12.结束录制
 
