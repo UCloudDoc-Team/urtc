@@ -10,15 +10,29 @@
 
 ## 2. 集成SDK
 
-  - 可使用npm直接引入  \\
-
   - 建议使用chrome60以上版本    \\
+
+>由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
+
+### 2.1 使用npm获取SDK
+
+  - 可使用npm直接引入  \\
 
 ```
 npm install ucloud-rtc-sdk
 ```
->由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
 
+### 2.2 下载SDK包
+
+  - 下载SDK软件包
+
+  - 将SDK.js 文件保存到项目文件所在的目录下
+
+  - 在项目文件中，添加如下代码：
+
+```
+<script src="urtcsdk-1.0.1.js"></script>
+```
 
 ## 3. 初始化
 
