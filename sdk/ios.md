@@ -10,6 +10,7 @@
 
 ## 2.开发语言以及系统要求
 
+  - 支持语言：objective-c或swift;\\
   - Apple设备：iPhone最低支持iPhone5；\\
   - 系统版本：最低支持iOS 8.0；\\
   - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构； \\
