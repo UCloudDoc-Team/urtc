@@ -59,6 +59,10 @@ URtcDemo.getToken({
 })
 ```
 
+'appId'、'appkey'，需要填入 [快速上手](/video/urtc/quick.md) 创建的应用中的'AppID'、'AppKey'。
+'roomId'、'userId'房间号，是自定义的。
+
+
 ### 4.2.建立链接  
 
 ```js
@@ -76,6 +80,9 @@ URtcDemo.init({
 }) 
 ```
 
+'role_type'用于设置用户权限，推流、拉流，或者同时推拉流。
+'room_type'用于设置房间模式，1对1会议或者多人音频、视频通信，建议设置为rtc小班课；互动直播，建议设置rtc大班课。
+
 ### 4.3.开启本地媒体设备
 
 ```js
@@ -91,6 +98,9 @@ URtcDemo.getLocalStream({
 }) 
 ```
 
+'video_enable' 和 'audio_enable' 控制是否打开音频和视频设备。
+
+
 ### 4.4.加入房间
 
 ```js
@@ -104,6 +114,7 @@ URtcDemo.joinRoom({
     //报错信息 
 }) 
 ```
+
 
 ### 4.5.发布本地流
 
@@ -210,6 +221,12 @@ URtcDemo.startRecord({
     //错误信息
 })
 ```
+
+'bucket'、'region'，配置的是录制的存储位置。
+
+>
+开始录制之前，需要先在控制台上，开启录制服务，并配置可用的对象存储。
+
 
 ### 4.12.结束录制
 
