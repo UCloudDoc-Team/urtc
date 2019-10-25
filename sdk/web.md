@@ -59,7 +59,7 @@ URtcDemo.getToken({
 })
 ```
 
-`appId`、`appkey`，需要填入 [快速上手](/video/urtc/quick.md) 创建的应用中的`AppID`、`AppKey`。
+`appId`、`appkey`，需要填入 [快速上手](/video/urtc/quick.md) 创建的应用中的`AppID`、`AppKey`。  
 `roomId`、`userId`房间号，是自定义的。
 
 
@@ -80,7 +80,7 @@ URtcDemo.init({
 }) 
 ```
 
-`role_type`用于设置用户权限，推流、拉流，或者同时推拉流。
+`role_type`用于设置用户权限，推流、拉流，或者同时推拉流。  
 `room_type`用于设置房间模式，1对1会议或者多人音频、视频通信，建议设置为rtc小班课；互动直播，建议设置rtc大班课。
 
 ### 4.3.开启本地媒体设备
