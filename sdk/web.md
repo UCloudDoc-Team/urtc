@@ -4,7 +4,7 @@
 
 ## 1. 下载资源
 
-  - 可以下载Demo、SDK、API文档  
+  - 可以下载Demo、SDK、API文档。
   
     [现在下载](https://github.com/ucloud/urtc-js-demo.git)
 
