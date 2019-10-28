@@ -230,7 +230,6 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也
 会自动订阅他推的流。
 如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口 
-配置手动/自动订阅
 
 ```js
 sdkEngine.setAutoSubscribe(mScribeMode == CommonUtils.AUTO_MODE ? true : false);
