@@ -31,7 +31,7 @@
 
 ### 5.1. 继承实现UCloudRtcEventListener，用作事件处理
 
-```
+```c++
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 ……
 };
@@ -40,7 +40,7 @@ UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
 
 ### 5.2. 初始化引擎
 
-```
+```c++
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
 m_rtcengine = UCloudRtcEngine::sharedInstance(UCloudRtcEventListener实现类);
 m_rtcengine->setSdkMode (1); // 1 testmode 0 normal
@@ -58,7 +58,7 @@ m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360);
 
 ### 6.1. 加入房间
 
-```
+```c++
 tUCloudRtcAuth auth;
 auth.mAppId = appid;
 auth.mRoomId = roomid;
@@ -69,7 +69,7 @@ m_rtcengine->joinChannel(auth);
 
 ### 6.2. 发布本地流
 
-```
+```c++
 tUCloudRtcMediaConfig config;
 config.mAudioEnable = true;
 config.mVideoEnable = true;
@@ -79,7 +79,7 @@ m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,
 
 ### 6.3. 取消发布本地流
 
-```
+```c++
 tUCloudRtcVideoCanvas view;
 view.mVideoView = (int)m_localWnd->GetVideoHwnd();
 view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
@@ -89,19 +89,19 @@ m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
 
 ### 6.4. 订阅流
 
-```
+```c++
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
 ### 6.5. 取消订阅流
 
-```
+```c++
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
 ### 6.6. 离开房间
 
-```
+```c++
 m_rtcengine->leaveChannel ()
 ```
 
