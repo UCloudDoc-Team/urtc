@@ -225,7 +225,7 @@ sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-  -  订阅
+  - 自动发布
 
 如果配置了自动发布无需调用发布视频接口，SDK会自动发布，只需要监听事件调用渲染接口即可。
 
