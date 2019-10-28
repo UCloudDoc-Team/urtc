@@ -10,7 +10,7 @@
 
 ## 2.开发语言以及系统要求
 
-  - 支持语言：objective-c或swift;\\
+  - 支持语言：objective-c、swift;\\
   - Apple设备：iPhone最低支持iPhone5；\\
   - 系统版本：最低支持iOS 8.0；\\
   - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构； \\
@@ -162,14 +162,14 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
             break;
     }
 }
-```  
+```
 
 
 ### 6.3. 取消发布本地流  
 
 ```
 [self.engine unPublish];
-```  
+``` 
 
 ### 6.4. 订阅远程流  
 
@@ -186,18 +186,18 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
      [self reloadVideos];
 }
-```  
+```
 
 ### 6.5. 取消订阅远程流
 
 ```
 [self.engine unSubscribeMethod:remoteStream];
-```  
+```
 
 ### 6.6. 离开房间
 
 ```
 [self.engine leaveRoom];
-```  
+```
 
 ### 6.7. 编译、运行，开始体验吧！
