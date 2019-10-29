@@ -8,6 +8,9 @@
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
+>
+使用URTC产品之前，必须先注册并且完成实名认证。
+
 ## 2．下载SDK  
 
 在控制台，【全部产品】-【视频服务】-【实时音视频】-【文档及SDK】内，下载SDK。  
