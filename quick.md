@@ -8,8 +8,8 @@
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
->
-使用URTC产品之前，必须先注册并且完成实名认证。
+> 
+使用URTC产品之前，必须先注册并且完成实名认证。  
 
 ## 2．下载SDK  
 
