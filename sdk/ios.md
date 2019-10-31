@@ -77,20 +77,31 @@ Privacy - Microphone Usage Description
 ### 5.1. 导入 SDK 头文件  
 
 ```
-<UCloudRtcSdk_ios/UCloudRtcSdk_ios.h>
+//objective-c
+<UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
+    
+//swift
+import UCloudRtcSdk_ios
 ```
 
 ### 5.2. 设置 userId 和 roomId，获取AppID;  
 
 ```
-UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
-initWithUserId:userId appId:appId roomId:roomId]];
+//objective-c
+UCloudRtcEngine *engine = [[UCloudRtcEngine alloc] initWithUserId:userId  appId:appId roomId:roomId appKey:appKey token:token]];
+
+//swift
+UCloudRtcEngine *engine = UCloudRtcEngine.init(userId:userId, appId: appId, roomId:roomId , appKey: appKey, token:token)
 ```
 
 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
 ```
+//objective-c
 engine.delegate = self;
+
+//swift
+self.engine?.delegate = self
 ```
 
 ### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。 
@@ -98,13 +109,21 @@ engine.delegate = self;
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
 ```
-self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
-self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
-self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
-self.engine.isOnlyAudio = NO;//将启用纯音频模式 默认为NO
-self.engine.isDebug = NO;//是否开启日志
-self.engine.videoProfile = UCloudRtcEngine_VideoProfile_360P_1;//设置视频分辨率
-self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
+//objective-c
+    self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
+    self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
+    self.engine.isOnlyAudio = NO;//将启用纯音频模式 默认为NO
+    self.engine.isDebug = NO;//是否开启日志
+    self.engine.videoProfile = UCloudRtcEngine_VideoProfile_360P_1;//设置视频分辨率
+    self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
+    
+//swift
+    self.engine?.isAutoPublish = ture;//加入房间后将自动发布本地音视频 默认为YES
+    self.engine?.isAutoSubscribe = ture;//加入房间后将自动订阅远端音视频 默认为YES
+    self.engine?.isOnlyAudio = false;//将启用纯音频模式 默认为NO
+    self.engine?.isDebug = false;//是否开启日志
+    self.engine?.videoProfile = ._VideoProfile_360P_1;//设置视频分辨率
+    self.engine?.streamProfile = .streamProfileAll;//设置流权限
 ```
 
 ## 6. 建立通话
@@ -112,8 +131,12 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 ### 6.1. 加入房间
 
 ```
+//objective-c
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
-}];
+    }];
+    
+//swift 
+self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 ```
 
 ### 6.2. 发布本地流  
@@ -122,53 +145,87 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；
 
 ```
+//objective-c
 [self.engine publish];
+        
+//swift
+self.engine?.publish()
 ```
 
 3）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
 
 ```
-- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
-    switch (publishState) {
-        case UCloudRtcEnginePublishStateUnPublish:
-            self.isConnected = NO;
-            break;
-        case UCloudRtcEnginePublishStatePublishing: {
-            [self.bottomButton setTitle:@"正在发布..." forState:UIControlStateNormal];
+//objective-c
+        - (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
+            switch (publishState) {
+                        case UCloudRtcEnginePublishStateUnPublish:
+                            self.isConnected = NO;
+                        break;
+                        case UCloudRtcEnginePublishStatePublishing: {
+                            [self.bottomButton setTitle:@"正在发布..." forState:UIControlStateNormal];
+                        }
+                        break;
+                        case UCloudRtcEnginePublishStatePublishSucceed:{
+                            self.isConnected = YES;
+                            [self.view makeToast:@"发布成功" duration:1.5 position:CSToastPositionCenter];
+                            [self.bottomButton setTitle:@"发布成功" forState:UIControlStateNormal];
+                        }
+                        break;
+                        case UCloudRtcEnginePublishStateRepublishing: {
+                            [self.bottomButton setTitle:@"正在重新发布..." forState:UIControlStateNormal];
+                        }
+                        break;
+                        case UCloudRtcEnginePublishStatePublishFailed: {
+                        self.isConnected = NO;
+                            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
+                        }
+                        break;
+                        case UCloudRtcEnginePublishStatePublishStoped: {
+                        self.isConnected = NO;
+                            [self.view makeToast:@"发布已停止" duration:1.5 position:CSToastPositionCenter];
+                            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
+                        }
+                        break;
+                        default:
+                        break;
+                    }                               
+                }
+                
+//swift
+        func uCloudRtcEngine(_ manager: UCloudRtcEngine, didChange publishState: UCloudRtcEnginePublishState) {
+            switch publishState {
+                case .unPublish:
+                    self.isConnected = false
+                case .publishing:
+                    CBToast.showToastAction(message: "正在发布...")
+                case .publishSucceed:
+                    CBToast.showToastAction(message: "发布成功")
+                    self.isConnected = true;
+                    self.bottomButton?.setTitle("发布成功", for: .normal)
+                case .republishing:
+                    self.bottomButton?.setTitle("正在重新发布...", for: .normal)
+                case .publishFailed:
+                    self.isConnected = false;
+                    CBToast.showToastAction(message: "开始发布")
+                case .publishStoped:
+                    self.isConnected = false;
+                    CBToast.showToastAction(message: "发布已停止")
+                    self.bottomButton?.setTitle("开始发布", for: .normal)
+                default:
+                break
+            }
         }
-            break;
-        case UCloudRtcEnginePublishStatePublishSucceed:{
-            self.isConnected = YES;
-            [self.view makeToast:@"发布成功" duration:1.5 position:CSToastPositionCenter];
-            [self.bottomButton setTitle:@"发布成功" forState:UIControlStateNormal];
-        }
-            break;
-        case UCloudRtcEnginePublishStateRepublishing: {
-            [self.bottomButton setTitle:@"正在重新发布..." forState:UIControlStateNormal];
-        }
-            break;
-        case UCloudRtcEnginePublishStatePublishFailed: {
-            self.isConnected = NO;
-            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
-        }
-            break;
-        case UCloudRtcEnginePublishStatePublishStoped: {
-            self.isConnected = NO;
-            [self.view makeToast:@"发布已停止" duration:1.5 position:CSToastPositionCenter];
-            [self.bottomButton setTitle:@"开始发布" forState:UIControlStateNormal];
-        }
-            break;
-        default:
-            break;
-    }
-}
 ```
 
 
 ### 6.3. 取消发布本地流  
 
 ```
+//objective-c
 [self.engine unPublish];
+    
+//swift
+self.engine?.unPublish()
 ``` 
 
 ### 6.4. 订阅远程流  
@@ -177,27 +234,46 @@ self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
 2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
 
 ```
+//objective-c
 [self.engine subscribeMethod:remoteStream];
+        
+//swift
+self.engine?.subscribeMethod(remoteStream)
 ```
 
 3）订阅成功，在回调事件中调用渲染接口即可。  
 
 ```
--(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
-     [self reloadVideos];
+//objective-c
+        -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
+            [self reloadVideos];
+        }
+        
+//swift
+        func uCloudRtcEngine(_ channel: UCloudRtcEngine, didSubscribe stream: UCloudRtcStream) {
+            self.reloadVideos()
+        }
 }
 ```
 
 ### 6.5. 取消订阅远程流
 
 ```
+ //objective-c
 [self.engine unSubscribeMethod:remoteStream];
+    
+//swift
+self.engine?.unSubscribeMethod(remoteStream)
 ```
 
 ### 6.6. 离开房间
 
 ```
-[self.engine leaveRoom];
+//objective-c
+[self.engine leaveRoom];   
+    
+//swift
+self.engine?.leaveRoom()
 ```
 
 ### 6.7. 编译、运行，开始体验吧！
