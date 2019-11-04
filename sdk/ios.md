@@ -10,16 +10,16 @@
 
 ## 2.开发语言以及系统要求
 
-  - 支持语言：objective-c、swift;\\
-  - Apple设备：iPhone最低支持iPhone5；\\
-  - 系统版本：最低支持iOS 8.0；\\
-  - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构； \\
+  - 支持语言：objective-c、swift;  
+  - Apple设备：iPhone最低支持iPhone5；  
+  - 系统版本：最低支持iOS 8.0；  
+  - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
   - 其他：不支持bitcode。
 
 ## 3.开发环境  
 
-  - Xcode 9.0及以上版本；\\
-  - Apple开发证书或个人账号；\\ 
+  - Xcode 9.0及以上版本；  
+  - Apple开发证书或个人账号；  
 
 
 ## 4.搭建开发环境  
@@ -76,11 +76,11 @@ Privacy - Microphone Usage Description
 
 ### 5.1. 导入 SDK 头文件  
 
-```
-//objective-c
+```objective-c
 <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
-    
-//swift
+```   
+
+```swift
 import UCloudRtcSdk_ios
 ```
 
@@ -89,8 +89,9 @@ import UCloudRtcSdk_ios
 ```
 //objective-c
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc] initWithUserId:userId  appId:appId roomId:roomId appKey:appKey token:token]];
+```
 
-//swift
+```swift
 UCloudRtcEngine *engine = UCloudRtcEngine.init(userId:userId, appId: appId, roomId:roomId , appKey: appKey, token:token)
 ```
 
@@ -99,8 +100,9 @@ UCloudRtcEngine *engine = UCloudRtcEngine.init(userId:userId, appId: appId, room
 ```
 //objective-c
 engine.delegate = self;
+```
 
-//swift
+```swift
 self.engine?.delegate = self
 ```
 
@@ -116,8 +118,8 @@ self.engine?.delegate = self
     self.engine.isDebug = NO;//是否开启日志
     self.engine.videoProfile = UCloudRtcEngine_VideoProfile_360P_1;//设置视频分辨率
     self.engine.streamProfile = UCloudRtcEngine_StreamProfileAll;//设置流权限
-    
-//swift
+```    
+```swift
     self.engine?.isAutoPublish = ture;//加入房间后将自动发布本地音视频 默认为ture
     self.engine?.isAutoSubscribe = ture;//加入房间后将自动订阅远端音视频 默认为ture
     self.engine?.isOnlyAudio = false;//将启用纯音频模式 默认为false
@@ -134,8 +136,9 @@ self.engine?.delegate = self
 //objective-c
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
     }];
-    
-//swift 
+```  
+
+```swift 
 self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 ```
 
@@ -147,8 +150,9 @@ self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 ```
 //objective-c
 [self.engine publish];
-        
-//swift
+``` 
+
+```swift
 self.engine?.publish()
 ```
 
@@ -190,8 +194,9 @@ self.engine?.publish()
                         break;
                     }                               
                 }
-                
-//swift
+```
+
+```swift
         func uCloudRtcEngine(_ manager: UCloudRtcEngine, didChange publishState: UCloudRtcEnginePublishState) {
             switch publishState {
                 case .unPublish:
@@ -223,8 +228,9 @@ self.engine?.publish()
 ```
 //objective-c
 [self.engine unPublish];
-    
-//swift
+```  
+
+```swift
 self.engine?.unPublish()
 ``` 
 
@@ -236,8 +242,9 @@ self.engine?.unPublish()
 ```
 //objective-c
 [self.engine subscribeMethod:remoteStream];
-        
-//swift
+```
+
+```swift
 self.engine?.subscribeMethod(remoteStream)
 ```
 
@@ -248,8 +255,9 @@ self.engine?.subscribeMethod(remoteStream)
         -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
             [self reloadVideos];
         }
-        
-//swift
+```
+
+```swift
         func uCloudRtcEngine(_ channel: UCloudRtcEngine, didSubscribe stream: UCloudRtcStream) {
             self.reloadVideos()
         }
@@ -261,8 +269,9 @@ self.engine?.subscribeMethod(remoteStream)
 ```
  //objective-c
 [self.engine unSubscribeMethod:remoteStream];
-    
-//swift
+```
+
+```swift
 self.engine?.unSubscribeMethod(remoteStream)
 ```
 
@@ -282,7 +291,10 @@ self.engine?.unSubscribeMethod(remoteStream)
     recordConfig.height = 480;         //录制视频的高
     [self.engine startRecord:recordConfig];
 
-    //swift
+```
+
+
+```swift
     let recordConfig = UCloudRtcRecordConfig.init()
     recordConfig.mainviewid = userId;   //用户ID
     recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
@@ -301,7 +313,9 @@ self.engine?.unSubscribeMethod(remoteStream)
       [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
     }
     
-  //swift
+```
+
+```swift
   func uCloudRtcEngine(_ manager: UCloudRtcEngine, startRecord recordResponse: [AnyHashable : Any]) {
         CBToast.showToastAction(message: NSString(format: "视频录制文件:%@", recordResponse["FileName"] as! CVarArg))
     }
@@ -313,8 +327,9 @@ self.engine?.unSubscribeMethod(remoteStream)
 ```
     //objective-c
     [self.manager stopRecord];
-    
-    //swift
+```
+
+```swift
     self.manager?.stopRecord()
 ```
 ### 6.8 离开房间
@@ -323,7 +338,9 @@ self.engine?.unSubscribeMethod(remoteStream)
 //objective-c
 [self.engine leaveRoom];   
     
-//swift
+```
+
+```swift
 self.engine?.leaveRoom()
 ```
 
