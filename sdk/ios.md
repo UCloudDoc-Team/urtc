@@ -268,6 +268,7 @@ self.engine?.unSubscribeMethod(remoteStream)
 
 ### 6.6 开始视频录制
 
+1）配置视频录制相关参数，开始视频录制；
 ```
     //objective-c
     UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
@@ -293,6 +294,19 @@ self.engine?.unSubscribeMethod(remoteStream)
     recordConfig.height = 480;          //录制视频的高
     self.engine?.startRecord(recordConfig)
 ```
+2）视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
+ ```
+   //objective-c
+   -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
+      [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
+    }
+    
+  //swift
+  func uCloudRtcEngine(_ manager: UCloudRtcEngine, startRecord recordResponse: [AnyHashable : Any]) {
+        CBToast.showToastAction(message: NSString(format: "视频录制文件:%@", recordResponse["FileName"] as! CVarArg))
+    }
+    
+ ```  
 
 ### 6.7 停止视频录制
 
