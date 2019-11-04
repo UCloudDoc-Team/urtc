@@ -266,7 +266,44 @@ self.engine?.subscribeMethod(remoteStream)
 self.engine?.unSubscribeMethod(remoteStream)
 ```
 
-### 6.6. 离开房间
+### 6.6 开始视频录制
+
+```
+    //objective-c
+    UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
+    recordConfig.mainviewid = userId;
+    recordConfig.mimetype = 3;
+    recordConfig.mainviewmt = 1;
+    recordConfig.bucket = @"urtc-test";
+    recordConfig.region = @"cn-bj";
+    recordConfig.watermarkpos = 1;
+    recordConfig.width = 360;
+    recordConfig.height = 480;
+    [self.engine startRecord:recordConfig];
+
+    //swift
+    let recordConfig = UCloudRtcRecordConfig.init()
+    recordConfig.mainviewid = userId;
+    recordConfig.mimetype = 3;
+    recordConfig.mainviewmt = 1;
+    recordConfig.bucket = "urtc-test";
+    recordConfig.region = "cn-bj";
+    recordConfig.watermarkpos = 1;
+    recordConfig.width = 360;
+    recordConfig.height = 480;
+    self.engine?.startRecord(recordConfig)
+```
+
+### 6.7 停止视频录制
+
+```
+    //objective-c
+    [self.manager stopRecord];
+    
+    //swift
+    self.manager?.stopRecord()
+```
+### 6.8 离开房间
 
 ```
 //objective-c
@@ -276,4 +313,4 @@ self.engine?.unSubscribeMethod(remoteStream)
 self.engine?.leaveRoom()
 ```
 
-### 6.7. 编译、运行，开始体验吧！
+### 6.9 编译、运行，开始体验吧！
