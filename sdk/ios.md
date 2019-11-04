@@ -271,26 +271,26 @@ self.engine?.unSubscribeMethod(remoteStream)
 ```
     //objective-c
     UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
-    recordConfig.mainviewid = userId;
-    recordConfig.mimetype = 3;
-    recordConfig.mainviewmt = 1;
-    recordConfig.bucket = @"urtc-test";
-    recordConfig.region = @"cn-bj";
-    recordConfig.watermarkpos = 1;
-    recordConfig.width = 360;
-    recordConfig.height = 480;
+    recordConfig.mainviewid = userId;  //用户ID
+    recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
+    recordConfig.mainviewmt = 1;       //主窗口位置用户id
+    recordConfig.bucket = @"urtc-test";//存储地址的名称
+    recordConfig.region = @"cn-bj";    //所属的region
+    recordConfig.watermarkpos = 1;     //水印的位置
+    recordConfig.width = 360;          //录制视频的宽
+    recordConfig.height = 480;         //录制视频的高
     [self.engine startRecord:recordConfig];
 
     //swift
     let recordConfig = UCloudRtcRecordConfig.init()
-    recordConfig.mainviewid = userId;
-    recordConfig.mimetype = 3;
-    recordConfig.mainviewmt = 1;
-    recordConfig.bucket = "urtc-test";
-    recordConfig.region = "cn-bj";
-    recordConfig.watermarkpos = 1;
-    recordConfig.width = 360;
-    recordConfig.height = 480;
+    recordConfig.mainviewid = userId;   //用户ID
+    recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
+    recordConfig.mainviewmt = 1;        //主窗口位置用户id
+    recordConfig.bucket = "urtc-test";  //存储地址的名称
+    recordConfig.region = "cn-bj";      //所属的region
+    recordConfig.watermarkpos = 1;      //水印的位置
+    recordConfig.width = 360;           //录制视频的宽
+    recordConfig.height = 480;          //录制视频的高
     self.engine?.startRecord(recordConfig)
 ```
 
