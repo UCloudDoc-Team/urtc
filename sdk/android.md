@@ -280,7 +280,8 @@ sdkEngine.setStreamRole(mRole);
 
 ```js
 //录像开始
-sdkEngine.startRecord(3,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal(),"region","bucket",UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_RESOLUTION_STANDARD.ordinal()); 
+sdkEngine.startRecord(3,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal(),"region","bucket",
+UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_RESOLUTION_STANDARD.ordinal()); 
 
 //UCloudRtcSdkEventListener 开始回调
 void onRecordStart(int code,String fileName);
