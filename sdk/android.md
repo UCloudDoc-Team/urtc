@@ -271,6 +271,27 @@ public int setStreamRole(UCloudRtcSdkStreamRole role)
 //调用
 sdkEngine.setStreamRole(mRole);
 ```
+   
+  - 录像
+
+ 录像目前只支持摄像头录制，不支持桌面录制，region和bucket这两个参数需要上ucloud控制台申请自己的录像存储空间，
+ 测试demo 可以使用demo已经申请好的，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果，
+ 会通过UCloudRtcSdkEventListener 的onRecordStop()接口作为回调返回录像结束结果。
+
+```js
+//录像开始
+sdkEngine.startRecord(3,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal(),"region","bucket",UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_RESOLUTION_STANDARD.ordinal()); 
+
+//UCloudRtcSdkEventListener 开始回调
+void onRecordStart(int code,String fileName);
+
+//录像结束
+sdkEngine.stopRecord();
+
+//UCloudRtcSdkEventListener 结束回调
+void onRecordStop(int code);
+```  
+  
 
   - 离开房间
 
