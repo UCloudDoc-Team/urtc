@@ -29,36 +29,30 @@
 
 ## 5. 初始化
 
-### 5.1. 继承实现UCloudRtcEventListener，用作事件处理
+## 5.1 初始化
 
-```c++
+``` c++
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 ……
 };
 UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
-```
 
-### 5.2. 初始化引擎
-
-```c++
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
-m_rtcengine = UCloudRtcEngine::sharedInstance(UCloudRtcEventListener实现类);
-m_rtcengine->setSdkMode (1); // 1 testmode 0 normal
+m_rtcengine->setSdkMode(UCLOUD_RTC_SDK_MODE_TRIVAL);
+m_rtcengine->setChannelTye(UCLOUD_RTC_CHANNEL_TYPE_COMMUNICATION);
+m_rtcengine->setStreamRole(UCLOUD_RTC_USER_STREAM_ROLE_BOTH);
 m_rtcengine->setTokenSecKey(TEST_SECKEY);//测试模式下设置自己的秘钥
-m_rtcengine->setStreamRole(STREAM_BOTH);
 m_rtcengine->setAudioOnlyMode(false);
 m_rtcengine->setAutoPublishSubscribe(false, true);
-m_rtcengine->configLocalAudioPublish(false);
+m_rtcengine->configLocalAudioPublish(false)；
 m_rtcengine->configLocalCameraPublish(true);
 m_rtcengine->configLocalScreenPublish(false);
 m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360);
 ```
 
-## 6.建立通话
+## 5.2 加入房间
 
-### 6.1. 加入房间
-
-```c++
+``` c++
 tUCloudRtcAuth auth;
 auth.mAppId = appid;
 auth.mRoomId = roomid;
@@ -67,42 +61,63 @@ auth.mUserToken = "1223222";
 m_rtcengine->joinChannel(auth);
 ```
 
-### 6.2. 发布本地流
+## 5.3 发布流
 
-```c++
+``` c++
 tUCloudRtcMediaConfig config;
 config.mAudioEnable = true;
 config.mVideoEnable = true;
-m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,
-            config.mAudioEnable)
+m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,config.mAudioEnable);
 ```
 
-### 6.3. 取消发布本地流
+## 5.4 取消发布
 
-```c++
+``` c++
 tUCloudRtcVideoCanvas view;
 view.mVideoView = (int)m_localWnd->GetVideoHwnd();
-view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
+view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;		
 m_rtcengine->stopPreview(view);
 m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
-```
+``` 
 
-### 6.4. 订阅流
-
-```c++
+## 5.5 订阅流
+``` c++
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
-### 6.5. 取消订阅流
+## 5.6 取消订阅
 
-```c++
+``` c++
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
-### 6.6. 离开房间
+### 5.7 录制视频
 
 ```c++
+tUCloudRtcRecordConfig recordconfig;
+recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
+recordconfig.mMainviewuid = m_userid.data(); // 主画面
+recordconfig.mProfile = UCLOUD_RTC_RECORDPROFILE_SD; // 录制等级
+recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
+recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
+recordconfig.mBucket = "your bucket";
+recordconfig.mBucketRegion = "your bucket region";
+m_rtcengine->startRecord(recordconfig);
+
+消息回调
+//开启录制回调
+virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
+``` 
+
+### 5.8 添加背景音（mp3 wav 格式）
+
+```c++
+m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
+``` 
+
+## 5.9 离开房间
+``` c++
 m_rtcengine->leaveChannel ()
 ```
 
-### 6.7. 编译、运行，开始体验吧！
+### 6.10 编译、运行，开始体验吧！
