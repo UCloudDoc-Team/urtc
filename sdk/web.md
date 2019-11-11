@@ -6,7 +6,7 @@
 
   - 可以下载Demo、SDK、API文档
   
-    [下载demo](https://github.com/ucloud/urtc-js-demo.git)    [下载SDK及文档](https://github.com/ucloud/urtc-sdk-web.git)
+    [下载demo](https://github.com/ucloud/urtc-js-demo.git)          [下载SDK及文档](https://github.com/ucloud/urtc-sdk-web.git)
     
 
 ## 2. 集成SDK
