@@ -29,7 +29,7 @@
 
 ## 5. 初始化
 
-## 5.1 初始化
+### 5.1 初始化
 
 ``` c++
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
@@ -50,7 +50,7 @@ m_rtcengine->configLocalScreenPublish(false);
 m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360);
 ```
 
-## 5.2 加入房间
+### 5.2 加入房间
 
 ``` c++
 tUCloudRtcAuth auth;
@@ -61,7 +61,7 @@ auth.mUserToken = "1223222";
 m_rtcengine->joinChannel(auth);
 ```
 
-## 5.3 发布流
+### 5.3 发布流
 
 ``` c++
 tUCloudRtcMediaConfig config;
@@ -70,7 +70,7 @@ config.mVideoEnable = true;
 m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,config.mAudioEnable);
 ```
 
-## 5.4 取消发布
+### 5.4 取消发布
 
 ``` c++
 tUCloudRtcVideoCanvas view;
@@ -80,12 +80,12 @@ m_rtcengine->stopPreview(view);
 m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
 ``` 
 
-## 5.5 订阅流
+### 5.5 订阅流
 ``` c++
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
-## 5.6 取消订阅
+### 5.6 取消订阅
 
 ``` c++
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
@@ -115,9 +115,9 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
 ``` 
 
-## 5.9 离开房间
+### 5.9 离开房间
 ``` c++
 m_rtcengine->leaveChannel ()
 ```
 
-### 6.10 编译、运行，开始体验吧！
+### 5.10 编译、运行，开始体验吧！
