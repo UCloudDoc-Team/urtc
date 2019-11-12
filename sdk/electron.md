@@ -21,7 +21,7 @@
 
 ### 3.2 Javascript 开发
 
-  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下  
+  - 拷贝工程中UCloudRtcElectronEngine.js(java script 接口封装实现)，拷贝pulgin到自己的目录下。  
 
 >注意：请保持路径正确，或者更改为自己的目录地址。UCloudRtcElectronEngine.js 中node文件引用路径为
 ./plugin/lib/release/UCloudRtcElectronEngine.node。   
