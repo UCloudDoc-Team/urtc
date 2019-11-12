@@ -4,27 +4,27 @@
 
 ## 1. 下载资源
 
-  - 可以下载Demo、SDK、API文档  \\
+  - 可以下载Demo、SDK、API文档  
   
-    [现在下载](https://github.com/ucloud/urtc-win-demo.git)  \\
+    [现在下载](https://github.com/ucloud/urtc-win-demo.git)  
 
 ## 2. 开发语言以及系统要求
 
-  - 开发语言：C++  \\
-  - 系统要求：Windows 7 及以上版本的 Windows 系统  \\
+  - 开发语言：C++  
+  - 系统要求：Windows 7 及以上版本的 Windows 系统  
 
 ## 3. 开发环境
 
-  - Visual Studio 2015 及其它c++ 开发环境  \\
-  - Win32 Platform  \\
+  - Visual Studio 2015 及其它c++ 开发环境  
+  - Win32 Platform  
 
 ## 4. 搭建开发环境
 
-  - 导入 SDK    \\
+  - 导入 SDK    
   
-1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    \\
-2） 将 sdk/lib 目录放入项目的 LIB 目录下。  \\
-3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  \\
+1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    
+2） 将 sdk/lib 目录放入项目的 LIB 目录下。  
+3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
 
 
 ## 5. 初始化
