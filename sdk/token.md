@@ -4,7 +4,7 @@
 
 ## 1. Token的使用流程图
 
-![ ](images/sdk/liuch.png)
+![ ](/images/sdk/liuch.png)
 
 ## 2. Token生成步骤
 
