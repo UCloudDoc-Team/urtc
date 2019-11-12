@@ -6,19 +6,20 @@
 
   - 可以下载Demo、SDK、API文档
   
-    [下载demo](https://github.com/ucloud/urtc-js-demo.git)          [下载SDK及文档](https://github.com/ucloud/urtc-sdk-web.git)
+    [下载demo](https://github.com/ucloud/urtc-js-demo.git)      
+    [下载SDK及文档](https://github.com/ucloud/urtc-sdk-web.git)
     
 
 ## 2. 集成SDK
 
-  - 建议使用chrome60以上版本    \\
+  - 建议使用chrome60以上版本    
 
 >由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
 
 
 ### 2.1 使用npm获取SDK
 
-  - 可使用npm直接引入  \\
+  - 可使用npm直接引入  
 
 ```
 npm install ucloud-rtc-sdk
