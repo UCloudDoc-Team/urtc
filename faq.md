@@ -7,7 +7,7 @@
 
 故障原因：  
 1. `token` 和 `appid` 不一致，请保证。  
-2. `token` 生成规则不对，请参考[](/video/urtc/sdk/token)。  
+2. `token` 生成规则不对，请参考[Token生成指导](/video/urtc/sdk/token)。  
 3. 设置为试用模式，但是没有传入`seckey`。  
 4. 设置为正常模式，但是加入房间时没有填写`token` 字段。  
 
