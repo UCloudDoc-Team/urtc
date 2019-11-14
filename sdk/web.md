@@ -100,8 +100,6 @@ UCloudRTC 包含以下方法、类或对象：
 * [Logger 对象](#logger)
 * [setServers 方法](#setservers)
 
-> 注： 想要了解使用此 SDK 的简单步骤，请查看 [使用说明](./Manual.md) 
-
 ---
 
 <a name='client'></a>
