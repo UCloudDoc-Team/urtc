@@ -2,240 +2,1035 @@
 
 # WEB SDK指南
 
-## 1. 下载资源
 
-  - 可以下载Demo、SDK、API文档
+## 1 创建一个 URTC Client
+
+有两种方式：
+
+- 使用 npm 安装，并将 sdk 使用 ES6 语法作为模块引入
+
+1) 使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 [urtc-sdk](https://github.com/ucloud/urtc-sdk-web):
+
+```
+npm install --save urtc-sdk
+```
+
+或
+
+```
+yarn add urtc-sdk
+```
+
+2) 项目中引入并创建 client
+
+```
+import { Client } from 'urtc-sdk';
+
+const client = new Client(appId, token); // 默认为直播模式（大班课），若为连麦模式（小班课）时，需要传入第三个参数 { type: 'rtc' }，更多配置见 sdk API 说明
+```
+>由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。
+
+- 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
+
+1) 直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
+
+```
+<script type="text/javascript" src="index.js"><script>
+```
+
+
+2）使用全局对象 UCloudRTC 创建 client
+
+```
+const client = new UCloudRTC.Client(appId, token);
+```
+
+> 注：创建 client 时传的 token 需要使用 AppId 和 AppKey 等数据生成，测试阶段，可临时使用 sdk 提供的 generateToken 方法生成，但为保证 AppKey 不暴露于公网，在生产环境中强烈建议自建服务，由服务器按规则生成 token 供 sdk 使用。
+
+## 1.2 监听流事件
+
+```
+client.on('stream-published', (stream) => {
+    // 使用 HtmlMediaElement 播放媒体流。将流的 mediaStream 给 Video/Audio 元素的 srcObject 属性，即可播放，注意设置 autoplay 属性以支持视频的自动播放，其他属性请参见 [<video>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video)
+    htmlMediaElement.srcObject = stream.mediaStream;
+}); // 监听本地流发布成功事件，在当前用户执行 publish 后，与服务器经多次协商，建立好连接后，会触发此事件
+
+client.on('stream-subscribed', (stream) => {
+    // 使用 HtmlMediaElement 播放媒体流
+    htmlMediaElement.srcObject = stream.mediaStream;
+}); // 监听远端流订阅成功事件，在当前用户执行 subscribe 后，与服务器经多次协商，建立好连接后，会触发此事件
+
+client.on('stream-added', (stream) => {
+    client.subscribe(stream.sid);
+}); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
+```
+
+## 1.3 加入一个房间，然后发布本地流
+
+```
+client.joinRoom(roomId, userId, () => {
+    client.publish();
+}); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
+```
+
+## 1.4 取消发布本地流或取消订阅远端流
+
+```
+client.unpublish();
+client.unsubscibe(streamId);
+```
+
+## 1.5 退出房间
+
+```
+client.leaveRoom();
+```
+
+# UCloudRTC Web SDK API 说明
+
+UCloudRTC 包含以下方法、类或对象：
+
+* [Client 类](#client)
+* [getDevices 方法](#getdevices)
+* [getSupportProfileNames 方法](#getsupportprofilenames)
+* [version 属性](#version)
+* [generateToken 方法](#generateToken)
+* [Logger 对象](#logger)
+* [setServers 方法](#setservers)
+
+> 注： 想要了解使用此 SDK 的简单步骤，请查看 [使用说明](./Manual.md) 
+
+---
+
+<a name='client'></a>
+
+## 一、Client 类
+
+Client 类包含以下方法：
+
+* [构建函数](#client-constructor)
+* [joinRoom 方法](#client-joinroom)
+* [leaveRoom 方法](#client-leaveroom)
+* [publish 方法](#client-publish)
+* [unpublish 方法](#client-unpublish)
+* [subscribe 方法](#client-subscribe)
+* [unsubscribe 方法](#client-unsubscribe)
+* [on 方法](#client-on)
+* [off 方法](#client-off)
+* [muteAudio 方法](#client-muteaudio)
+* [unmuteAudio 方法](#client-unmuteaudio)
+* [muteVideo 方法](#client-mutevideo)
+* [unmuteVideo 方法](#client-unmutevideo)
+* [startRecording 方法](#client-startrecording)
+* [stopRecording 方法](#client-stoprecording)
+* [getUser 方法](#client-getuser)
+* [getUsers 方法](#client-getusers)
+* [getStream 方法](#client-getstream)
+* [getStreams 方法](#client-getstreams)
+* [getLocalMediaStream 方法](#client-getlocalmediastream)
+* [getRemoteMediaStream 方法](#client-getremotemediastream)
+* [getMicrophones 方法](#client-getmicrophones)
+* [getCameras 方法](#client-getcameras)
+* [getLoudspeakers 方法](#client-getloudspeakers)
+* [setVideoProfile 方法](#client-setvideoprofile)
+* [switchDevice 方法](#client-switchdevice)
+* [getAudioVolume 方法](#client-getaudiovolume)
+* [getAudioStats 方法](#client-getaudiostats)
+* [getVideoStats 方法](#client-getvideostats)
+* [getNetworkStats 方法](#client-getnetworkstats)
+
+<a name="client-constructor"></a>
+
+### 1. 构建函数
+
+用于创建一个 URTC Client 对象，示例代码：
+
+```
+new Client(AppId, Token, Options);
+```
+
+#### 参数说明
+
+- AppId: string 类型, 必传，可从 UCloud 控制台查看
+
+- Token: string 类型, 必传，需按规则生成，测试阶段，可使用 [generateToken](#generateToken) 临时生成
+
+- Options: object 类型, 选传，类型说明如下
+
+```
+{
+  type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
+  role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
+  codec?: "vp8"|"h264", // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"，注：部分老版本浏览器不支持 vp8 的视频编解码时（譬如 macOS 10.14.4 平台的 Safar 12.1 及以上版本才支持 vp8），可选择 h264 编码格式
+}
+```
+
+<a name="client-joinroom"></a>
+
+### 2. joinRoom 方法
+
+加入房间，示例代码：
+
+```
+client.joinRoom(RoomId, UserId, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- RoomId: string 类型，必传，房间号
+
+- UserId: string 类型，必传，用户ID
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(User) {}
+```
+
+函数参数 User 为返回值，Object 类型，为用户信息。User 类型说明如下
+
+<a name='user'></a>
+
+User:
+
+```
+{
+  uid: string   // 为用户ID
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+<a name="client-leaveroom"></a>
+
+### 3. leaveRoom 方法
+
+离开房间，示例代码：
+
+```
+client.leaveRoom(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(User) {}
+```
+
+函数参数 User 为返回值，类型说明见 [User](#user)
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+<a name="client-publish"></a>
+
+### 4. publish 方法
+
+发布本地流，示例代码：
+
+```
+client.publish(Options, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- Options: object 类型，选传，类型说明如下
+
+```
+{
+  audio: boolean          // 必填，指定是否使用麦克风设备
+  video: boolean          // 必填，指定是否使用摄像头设备
+  screen: boolean         // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
+  microphoneId?: string   // 选填，指定使用的麦克风设备的ID，可通过 getMicrophones 方法查询获得该ID，不填时，将使用默认麦克风设备
+  cameraId?: string       // 选填，指定使用的摄像头设备的ID，可以通过 getCameras 方法查询获得该ID，不填时，将使用默认的摄像头设备
+}
+```
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(Stream) {}
+```
+
+函数参数 Stream 为返回值，Object 类型，为流信息。Stream 类型说明如下
+
+<a name='stream'></a>
+
+Stream:
+
+```
+{
+  sid: string                     // 流ID
+  uid: string                     // 对应的用户的ID
+  type: 'publish'|'subscribe'     // 流类型，分别为 publish 和 subscribe 两种，
+  video: boolean                  // 是否包含音频
+  audio: boolean                  // 是否包含视频
+  muteAudio: boolean              // 音频是否静音
+  muteVideo: boolean              // 视频是否静音
+  mediaStream?: MediaStream       // 使用的媒体流，可用 HTMLMediaElement 进行播放，此属性的值可能为空，当流被正常发布或订阅流，此值有效
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+<a name="client-unpublish"></a>
+
+### 5. unpublish 方法
+
+取消发布本地流，示例代码：
+
+```
+client.unpublish(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(Stream) {}
+```
+
+函数参数 Stream 为返回值，Object 类型，为流信息，类型说明见 [Stream](#stream)
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+<a name="client-subscribe"></a>
+
+### 6. subscribe 方法
+
+订阅远端流，，示例代码：
+
+```
+client.subscribe(StreamId, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- StreamId: string 类型，必传，为需要订阅的远端流的 sid
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(Stream) {}
+```
+
+函数参数 Stream 为返回值，Object 类型，为流信息，类型说明见 [Stream](#stream)
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-unsubscribe"></a>
+
+### 7. unsubscribe 方法
+
+取消订阅远端流，示例代码：
+
+```
+client.unsubscribe(StreamId, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- StreamId: string 类型，必传，为需要订阅的远端流的 sid
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(Stream) {}
+```
+
+函数参数 Stream 为返回值，Object 类型，为流信息，类型说明见 [Stream](#stream)
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-on"></a>
+
+### 8. on 方法
+
+给事件绑定监听函数，示例代码：
+
+```
+client.on(EventType, Listener)
+```
+
+#### 参数说明
+
+- EventType: string 类型， 必传，目前有 'user-added' | 'user-removed' |
+  'stream-added'|'stream-removed'| 'stream-published' | 'stream-subscribed' |
+  'mute-video' | 'unmute-video' | 'mute-audio' | 'unmute-audio' 这些事件可绑定监听函数
+- Listener: function 类型，事件监听函数
+  - 当事件类型为 'user-added' | 'user-removed' 时，可用 `function Listener(User) {}` 类型的函数，其中函数的参数类型见 [User](#user)
+  - 当事件类型为 'stream-added'|'stream-removed'| 'stream-published' | 'stream-subscribed' | 'mute-video' | 'unmute-video' | 'mute-audio' | 'unmute-audio' 时，可用 `function Listener(Stream) {}` 类型的函数，其中函数的参数类型见 [Stream](#stream)
+
+
+<a name="client-off"></a>
+
+### 9. off 方法
+
+解除绑定事件的监听函数，示例代码：
+
+```
+client.off(EventType, Listener)
+```
+
+#### 参数说明
+
+- EventType: 参见 on 方法
+- Listener: 为调用 on 方法时绑定的监听函数
+
+<a name="client-muteaudio"></a>
+
+### 10. muteAudio 方法
+
+关闭本地流的音频，示例代码：
+
+```
+const result = client.muteAudio()
+```
+
+#### 返回值说明
+
+- result: boolean 类型，成功时为 true，失败时为 false
+
+
+<a name="client-unmuteaudio"></a>
+
+### 11. unmuteAudio 方法
+
+启用本地流的音频，示例代码：
+
+```
+const result = client.unmuteAudio()
+```
+
+#### 返回值说明
+
+- result: boolean 类型，成功时为 true，失败时为 false
+
+
+<a name="client-mutevideo"></a>
+
+### 12. muteVideo 方法
+
+关闭本地流的视频，示例代码：
+
+```
+const result = client.muteVideo()
+```
+
+#### 返回值说明
+
+- result: boolean 类型，成功时为 true，失败时为 false
+
+
+<a name="client-unmutevideo"></a>
+
+### 13. unmuteVideo 方法
+
+启用本地流的视频，示例代码：
+
+```
+const result = client.unmuteVideo()
+```
+
+#### 返回值说明
+
+- result: boolean 类型，成功时为 true，失败时为 false
+
+
+<a name="client-startrecording"></a>
+
+### 14. startRecording 方法
+
+开始录制音视频，示例代码：
+
+```
+client.startRecording(RecordOptions, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- RecordOptions: object 类型，必传，录制的配置信息，类型说明如下
+
+```
+{
+  waterMarkPosition: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom'    // 必填，指定水印的位置，前面四种类型分别对应 左上，左下，右上，右下
+  bucket: string  // 存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
+  region: string  // 存储服务所在的地域
+}
+```
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess(Record) {}
+```
+
+函数参数 Record 为返回值，Object 类型，为流信息，类型说明如下
+```
+{
+  FileName: string  // 录制到的文件的名称
+  RecordId: string  // 录制 ID
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-stoprecording"></a>
+
+### 15. stopRecording 方法
+
+停止录制音视频，示例代码：
+
+```
+client.stopRecording(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess() {}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-getuser"></a>
+
+### 16. getUser 方法
+
+获取本地用户的信息，示例代码：
+
+```
+const result = client.getUser()
+```
+
+#### 返回值说明
+
+- result: User 类型，类型说明见 [User](#user)
+
+
+<a name="client-getusers"></a>
+
+### 17. getUsers 方法
+
+获取当前加入房间的远端用户的信息，示例代码：
+
+```
+const result = client.getUsers()
+```
+
+#### 返回值说明
+
+- result: User 类型的数组，User 类型说明见 [User](#user)
+
+
+<a name="client-getstream"></a>
+
+### 18. getStream 方法
+
+获取本地发布流的信息，示例代码：
+
+```
+const result = client.getStream()
+```
+
+#### 返回值说明
+
+- result: Stream 类型，Stream 类型说明见 [Stream](#stream)
+
+
+<a name="client-getstreams"></a>
+
+### 19. getStreams 方法
+
+获取订阅流（远端流）的信息，示例代码：
+
+```
+const result = client.getStreams()
+```
+
+#### 返回值说明
+
+- result: Stream 类型的数组，Stream 类型说明见 [Stream](#stream)
+
+
+<a name="client-getlocalmediastream"></a>
+
+### 20. getLocalMediaStream 方法
+
+获取本地流对应的媒体流，示例代码：
+```
+const result = client.getLocalMediaStream()
+```
+
+#### 返回值说明
+
+- result: MediaStream 类型，类型说明见 [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)
+
+
+<a name="client-unpugetremotemediastreamblish"></a> 
+
+### 21. getRemoteMediaStream 方法
+
+获取订阅流（远端流）对应的媒体流，示例代码：
+```
+const result = client.getLocalMediaStream()
+```
+
+#### 返回值说明
+
+- result: MediaStream 类型，类型说明见 [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)
+
+
+<a name="client-getmicrophones"></a>
+
+### 22. getMicrophones 方法
+
+获取麦克风设备，示例代码：
+
+```
+client.getMicrophones(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess(MediaDeviceInfos) {}
+```
+
+函数参数 MediaDeviceInfos 为返回值，为 MediaDeviceInfo 类型的数组，点击 [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) 查看 MediaDeviceInfo 详情
+
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-getcameras"></a>
+
+### 23. getCameras 方法
+
+获取摄像头设备，示例代码：
+
+```
+client.getCameras(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess(MediaDeviceInfos) {}
+```
+
+函数参数 MediaDeviceInfos 为返回值，为 MediaDeviceInfo 类型的数组，点击 [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) 查看 MediaDeviceInfo 详情
+
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-getloudspeakers"></a>
+
+### 24. getLoudspeakers 方法
+
+获取音响/声音输出设备，示例代码：
+
+```
+client.getLoudspeakers(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess(MediaDeviceInfos) {}
+```
+
+函数参数 MediaDeviceInfos 为返回值，为 MediaDeviceInfo 类型的数组，点击 [MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) 查看 MediaDeviceInfo 详情
+
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-setvideoprofile"></a>
+
+### 25. setVideoProfile 方法
+
+设置视频的 profile，限制 client 使用的视频大小、帧率、带宽等，示例代码：
+
+```
+client.setVideoProfile(Profile, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess() {}
+```
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-switchdevice"></a>
+
+### 26. switchDevice 方法
+
+当本地流已经发布，可通过此方法来改变当前正在使用的音频或视频采集设备，示例代码：
+
+```
+client.switchDevice(DeviceType, DeviceId, onSuccess, onFailure)
+```
+
+#### 参数说明
+- DeviceType: string 类型，有 'audio' | 'video' 两种可选
+- DeviceId: string 类型，设备ID，可通过 sdk 的 getDevices 方法或 client 的 getMicrophones 和 getCameras 方法获取
+
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+```
+function onSuccess() {}
+```
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-getaudiovolume"></a>
+
+### 27. getAudioVolume 方法
+
+获取流的音量大小，返回值范围 [0,100]，示例代码：
+
+```
+client.getAudioVolume(StreamId)
+```
+
+#### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取本地流的音量大小
+
+
+<a name="client-getaudiostats"></a>
+
+### 28. getAudioStats 方法
+
+获取流的音频状态，示例代码：
+
+```
+client.getAudioStats(StreamId, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取本地流的音频状态
   
-    [下载Demo](https://github.com/ucloud/urtc-js-demo.git)      
-    [下载SDK及文档](https://github.com/ucloud/urtc-sdk-web.git)
-    
-
-## 2. 集成SDK
-
-  - 建议使用chrome60以上版本    
-
->由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。 
-
-
-### 2.1 使用npm获取SDK
-
-  - 可使用npm直接引入  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
 ```
-npm install ucloud-rtc-sdk
+function onSuccess(AudioStats) {}
+```
+函数参数 AudioStats 为返回值，为 object 类型，类型说明如下：
+```
+{
+  br: number        // 码率
+  lostpre: number   // 丢包率
+  vol: number       // 声音大小
+  mime: string      // 编码格式，固定为 opus
+}
 ```
 
-### 2.2 下载SDK包
-
-  - [下载SDK](http://urtcsdk.cn-bj.ufileos.com/URTCSdk_web.zip)
-
-  - 将SDK.js 文件保存到项目文件所在的目录下
-
-  - 在项目文件中，添加如下代码：
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
 ```
-<script src="urtcsdk-1.0.1.js"></script>
+function(Err) {}
+```
+Err 为错误信息
+
+
+<a name="client-getvideostats"></a>
+
+### 29. getVideoStats 方法
+
+获取流的视频状态，示例代码：
+
+```
+client.getVideoStats(StreamId, onSuccess, onFailure)
 ```
 
-## 3. 初始化
+#### 参数说明
 
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取本地流的视频状态
+  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```js
-const URtcDemo = new UCloudRtcEngine();  
+```
+function onSuccess(VideoStats) {}
+```
+函数参数 VideoStats 为返回值，为 object 类型，类型说明如下：
+```
+{
+  br: number        // 码率
+  lostpre: number   // 丢包率
+  frt: number       // 帧率
+  w: number         // 视频宽度
+  h: number         // 视频高度
+  mime: string      // 编码格式，'vp8' 或 'h264'
+}
 ```
 
-## 4. 建立通话
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-### 4.1.获取token  
+```
+function(Err) {}
+```
+Err 为错误信息
 
-```js
-URtcDemo.getToken({
-    app_id: appId,//控制台创建项目获取到的appid
-    room_id: roomId,//房间号
-    user_id: userId,//用户id
-    appkey: appkey//控制台创建项目获取到的appkey
-}).then(function(data) {
-    //返回当前用户的token 
-}).catch(function(err){
-    //报错信息 
+
+<a name="client-getnetworkstats"></a>
+
+### 30. getNetworkStats 方法
+
+获取流的网络状态，示例代码：
+
+```
+client.getNetworkStats(StreamId, onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取本地流的网络状态
+  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(NetworkStats) {}
+```
+函数参数 NetworkStats 为返回值，为 object 类型，类型说明如下：
+```
+{
+  rtt: number   //  往返时延，单位 ms
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+----
+
+<a name='getdevices'></a>
+
+## 二、getDevices 方法
+
+用于获取当前浏览器可访问的音视频设备的设备信息，包括麦克风、摄像头、视频输出设备
+
+```
+getDevices(onSuccess, onFailure)
+```
+
+#### 参数说明
+
+- onSuccess: 必传，函数类型，方法调用成功时执行的回调函数。
+
+```
+function(MediaDeviceInfos) {}
+```
+
+函数参数 MediaDeviceInfos 为返回值，MediaDeviceInfo 类型的数组，为一组输入、输出设备的描述信息，点击
+[MediaDeviceInfo](https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo) 查看其详情。
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+----
+
+<a name='getsupportprofilenames'></a>
+
+## 三、getSupportProfileNames 方法
+
+用于获取当前 SDK 支持的视频质量的名称
+
+```
+const profileNames = getSupportProfileNames();
+```
+
+#### 返回值说明
+
+profileNames: String 类型的数组，如当前可用的 ["240\*180", "480\*360", "640\*360", "640\*480", "1280\*720", "1920\*1080"]
+
+名称 | 视频宽高 | 帧率 | 视频最大带宽
+-|-|-|-
+"240\*180" | 240\*180 | 20 | 200
+"480\*360" | 480\*360 | 20 | 300
+"640\*360" | 640\*360 | 20 | 400
+"640\*480" | 640\*480 | 20 | 500
+"1280\*720" | 1280\*720 | 20 | 1000
+"1920\*1080" | 1920\*1080 | 20 | 1500
+
+---
+
+<a name='version'></a>
+
+## 四、version 属性
+
+version 属性用于显示当前 sdk 的版本
+
+---
+
+<a name='generateToken'></a>
+
+## generateToken 方法
+
+generateToken 方法仅用于试用 URTC 产品时替代服务器生成 sdk 所需 token 的方法，正式使用 URTC 产品时，需要搭建后台服务按规则生成 token
+
+```
+const token = generateToken(AppId, AppKey, RoomId, UserId);
+```
+
+#### 参数说明
+
+- AppId: string 类型, 必传，可从 UCloud 控制台查看
+
+- AppKey: string 类型, 必传，可从 UCloud 控制台查看（请注意此 AppKey 不可暴露给其他人）
+
+- RoomId: string 类型, 必传，将要加入的房间的 ID
+
+- UserId: string 类型，必传，将要加入的用户的 ID
+
+---
+
+<a name='logger'></a>
+
+## 六、Logger 对象
+
+Logger 对象用于调试时打印内部日志，包含以下方法：
+
+* [setLogLevel 方法](#logger-setloglevel)
+* [debug 方法](#logger-debug)
+* [info 方法](#logger-info)
+* [warn 方法](#logger-warn)
+* [error 方法](#logger-error)
+
+<a name='logger-setloglevel'></a>
+
+### 1. setLogLevel 方法
+
+用于设置 Logger 打印日志的级别
+
+```
+Logger.setLogLevel(Level)
+```
+
+#### 参数说明
+
+Level: 必传，有 "debug" | "info" | "warn" | "error" 四个日志级别，默认为 "error" 级别
+
+<a name='logger-debug'></a>
+
+### 2. debug 方法
+
+用于调试代码时，打印 debug 日志
+
+```
+Logger.debug(a, ...)  // 可传任意数量的任意类型的变量作为参数
+```
+
+<a name='logger-info'></a>
+
+### 3. info 方法
+
+<a name='logger-warn'></a>
+
+### 4. warn 方法
+
+<a name='logger-error'></a>
+
+### 5. error 方法
+
+以上三种方法分别打印对应级别的日志，使用方法与 debug 方法相同
+
+---
+
+<a name='setservers'></a>
+
+## 七、setServers 方法
+
+可配置 URTC 服务的域名，用于私有化部署，目前有房间服务器和日志服务器的两种域名可进行配置，示例代码：
+
+```
+setServers({
+  api: "https://env1.urtc.com",   // api 为 URTC 房间服务的访问域名
+  log: "https://env1.urtclog.com" // log 为 URTC 日志服务器的访问域名
 })
 ```
 
-`appId`、`appkey`，需要填入 [快速上手](/video/urtc/quick.md) 创建的应用中的`AppID`、`AppKey`。  
-`roomId`、`userId`房间号，是自定义的。
-
-
-### 4.2.建立链接  
-
-```js
-URtcDemo.init({  
-    app_id: appId,//控制台创建项目获取到的appid
-    room_id: roomId,//房间号
-    user_id: user_id,//用户id
-    token: token,//getToken()获取到的token
-    role_type: role_type, //用户权限0 推流 1 拉流 2 全部
-    room_type: room_type //房间类型 0 rtc小班课 1 rtc 大班课 
-}).then(function(data){  
-//返回链接url 
-}).catch(function(err){
-    //报错信息 
-}) 
-```
-
-`role_type`用于设置用户权限，推流、拉流，或者同时推拉流。  
-`room_type`用于设置房间模式，1对1会议或者多人音频、视频通信，建议设置为rtc小班课；互动直播，建议设置rtc大班课。
-
-### 4.3.开启本地媒体设备
-
-```js
-URtcDemo.getLocalStream({
-    media_data: "videoProfile1280*720",//设置视频分辨率
-    video_enable: true,//是否开始摄像头true/false
-    audio_enable: true,//是否开启音频设备true/false
-    media_type: 1 //采集类型 1 摄像头 2 桌面
-}).then(function(data) {
-    //加入媒体流
-}.catch(function(err){
-    //报错信息 
-}) 
-```
-
-`video_enable` 和 `audio_enable` 控制是否打开音频和视频设备。
-
-
-### 4.4.加入房间
-
-```js
-URtcDemo.joinRoom({
-    token: token, //getToken()获取到的token
-    role_type: 2, //用户权限0 推流 1 拉流 2 全部
-    room_type: room_type //房间类型 0 rtc小班课 1 rtc 大班课
-}).then(function(e) {
-    //房间信息
-}).catch(function(err){
-    //报错信息 
-}) 
-```
-
-
-### 4.5.发布本地流
-
-```js
-URtcDemo.publish({  
-    user_id:user_id,//用户id  
-    media_type:1,//发布的流类型 1 摄像头 2桌面  
-    audio: true,//是否包含音频流 true/false
-    video:true,//是否包含视频流 true/false
-    data:false//是否包含数据流 true/false
-}).then(function(e){  
-    //发布信息 
-}).catch(function(err){
-    //报错信息 
-});  
-```
-
-### 4.6.订阅远端流 
-
-```js
-URtcDemo.subscribe({  
- media_type: 1,//订阅的流类型 1 摄像头 2桌面  
- stream_id: “stream_id”,//订阅流id  
- user_id: “user_id",//订阅用户id  
-},{  
- audio_enable: true,//是否包含音频流 true/false
- video_enable: true//是否包含数据流 true/false
-}).then(function(e){  
-    //订阅信息  
-}).catch(function(err){
-    //报错信息 
-}) 
-```
-
-### 4.7.获取本地音量数据
-
-```js
-URtcDemo.getAudioVolum().then(function(e){  
-     //音量数据  
- }).catch(function(err){
-    //报错信息 
-});
-```
-
-### 4.8.打开/关闭本地音视频
-
-```js
-URtcDemo.activeMute({  
-    stream_id: stream_id,//媒流id   
-    stream_type: 1,//1 发布流 2 订阅流  
-    user_id: user_id,//用户id  
-    track_type: 2,//1 视频 2音频  
-    mute: video_enable//true 禁用 false 开启  
-}).then(function(e){  
-    //操作成功  
-}).catch(function(err){
-    //报错信息 
-});
-
-```
-
-### 4.9.枚举本地媒体设备
-
-```js
-URtcDemo.getLocalDevices().then(function(e){  
-    //成功输出本地设备数据  
-    //microphones 音频输入设备列表   
-    //speakers 音频输出设备列表  
-    //cameras 视频输输入设备列表  
-    //设备列表中的每一个元素类型相同（label：设备名称，deviceId：设备Id）   
-}).catch(function(err){
-    //报错信息 
-});
-```
-
-### 4.10.离开房间
-
-```js
-URtcDemo.leaveRoom({  
-    room_id: room_id//房间id  
-}).then(function(e){  
-    //退出成功  
-},function(err){  
-     //退出失败  
-}); 
-```
-
-### 4.11.开始录制
-
-```js
-URtcDemo.startRecord({
-    "mimetype": 3,//1 音频 2 视频 3 音频+视频
-    "mainviewuid": appData.userId,//主窗口位置用户id
-    "mainviewtype": 1,//主窗口的媒体类型 1 摄像头 2 桌面
-    "width": 1280,//320~1920之间
-    "height": 720,//320~1920之间
-    "watermarkpos": 1, //1 左上 2 左下 3 右上 4 右下,
-    "bucket": "urtc-test",
-    "region": 'cn-bj' //所在区域,
-}).then(function (e) {
-    //返回录制文件名
-    //观看录制地址规则 'http://'+ bucket + '.'+ region +'.ufileos.com/' + e.data.FileName  
-}).catch(function(err){
-    //错误信息
-})
-```
-
-`bucket`、`region`，配置的是录制的存储位置。
-
->
-开始录制之前，需要先在控制台上，开启录制服务，并配置可用的对象存储。
-
-
-### 4.12.结束录制
-
-```js
-URtcDemo.stopRecord().then(function (e) {
-    //录制成功  
-}).catch(function(err){
-    //错误信息
-})
-```
