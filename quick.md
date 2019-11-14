@@ -30,7 +30,7 @@
  
 ![](/images/creat_app_2.png) 
 
- - 确定后，自动生成AppID、AppKey，启动应用。  
+ - 确定后，自动生成AppID、AppKey。  
  
 ![](/images/app_go.png) 
 
