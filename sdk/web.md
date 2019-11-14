@@ -5,9 +5,9 @@
 
 ## 1、创建一个 URTC Client
 
-有两种方式：
+### 使用 npm 安装
 
-- 使用 npm 安装，并将 sdk 使用 ES6 语法作为模块引入
+将 sdk 使用 ES6 语法作为模块引入。
 
 1) 使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 [urtc-sdk](https://github.com/ucloud/urtc-sdk-web):
 
@@ -30,7 +30,9 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 ```
 >由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。
 
-- 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
+### 直接引入SDK
+
+直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
 
 1) 直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
 
