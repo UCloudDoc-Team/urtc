@@ -3,7 +3,7 @@
 # WEB SDK指南
 
 
-## 1 创建一个 URTC Client
+## 1、创建一个 URTC Client
 
 有两种方式：
 
@@ -47,7 +47,7 @@ const client = new UCloudRTC.Client(appId, token);
 
 > 注：创建 client 时传的 token 需要使用 AppId 和 AppKey 等数据生成，测试阶段，可临时使用 sdk 提供的 generateToken 方法生成，但为保证 AppKey 不暴露于公网，在生产环境中强烈建议自建服务，由服务器按规则生成 token 供 sdk 使用。
 
-## 1.2 监听流事件
+## 2、监听流事件
 
 ```
 client.on('stream-published', (stream) => {
@@ -65,7 +65,7 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 1.3 加入一个房间，然后发布本地流
+## 3、 加入一个房间，然后发布本地流
 
 ```
 client.joinRoom(roomId, userId, () => {
@@ -73,7 +73,7 @@ client.joinRoom(roomId, userId, () => {
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
 
-## 1.4 取消发布本地流或取消订阅远端流
+## 4、 取消发布本地流或取消订阅远端流
 
 ```
 client.unpublish();
@@ -86,7 +86,7 @@ client.unsubscibe(streamId);
 client.leaveRoom();
 ```
 
-# UCloudRTC Web SDK API 说明
+## 2、 UCloudRTC Web SDK API 说明
 
 UCloudRTC 包含以下方法、类或对象：
 
