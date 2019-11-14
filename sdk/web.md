@@ -5,7 +5,7 @@
 
 ## 1、创建一个 URTC Client
 
-### 使用 npm 安装
+### 1.1 使用 npm 安装
 
 将 sdk 使用 ES6 语法作为模块引入。
 
@@ -30,7 +30,7 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 ```
 >由于浏览器的安全策略对除 127.0.0.1 以外的 HTTP 地址作了限制，Web SDK 仅支持  HTTPS协议  或者 http://localhost（http://127.0.0.1），请勿使用  HTTP协议  部署你的项目。
 
-### 直接引入SDK
+### 1.2 直接引入SDK
 
 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
 
@@ -67,7 +67,7 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 3、 加入一个房间，然后发布本地流
+## 3、加入一个房间，然后发布本地流
 
 ```
 client.joinRoom(roomId, userId, () => {
