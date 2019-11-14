@@ -36,14 +36,14 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 
 1) 直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
 
-```
+```JavaScript
 <script type="text/javascript" src="index.js"><script>
 ```
 
 
 2）使用全局对象 UCloudRTC 创建 client
 
-```
+```JavaScript
 const client = new UCloudRTC.Client(appId, token);
 ```
 
@@ -51,7 +51,7 @@ const client = new UCloudRTC.Client(appId, token);
 
 ## 2、监听流事件
 
-```
+```JavaScript
 client.on('stream-published', (stream) => {
     // 使用 HtmlMediaElement 播放媒体流。将流的 mediaStream 给 Video/Audio 元素的 srcObject 属性，即可播放，注意设置 autoplay 属性以支持视频的自动播放，其他属性请参见 [<video>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video)
     htmlMediaElement.srcObject = stream.mediaStream;
@@ -69,7 +69,7 @@ client.on('stream-added', (stream) => {
 
 ## 3、加入一个房间，然后发布本地流
 
-```
+```JavaScript
 client.joinRoom(roomId, userId, () => {
     client.publish();
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
@@ -77,14 +77,14 @@ client.joinRoom(roomId, userId, () => {
 
 ## 4、 取消发布本地流或取消订阅远端流
 
-```
+```JavaScript
 client.unpublish();
 client.unsubscibe(streamId);
 ```
 
 ## 1.5 退出房间
 
-```
+```JavaScript
 client.leaveRoom();
 ```
 
@@ -147,7 +147,7 @@ Client 类包含以下方法：
 
 用于创建一个 URTC Client 对象，示例代码：
 
-```
+```JavaScript
 new Client(AppId, Token, Options);
 ```
 
@@ -159,7 +159,7 @@ new Client(AppId, Token, Options);
 
 - Options: object 类型, 选传，类型说明如下
 
-```
+```JavaScript
 {
   type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
   role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
@@ -173,7 +173,7 @@ new Client(AppId, Token, Options);
 
 加入房间，示例代码：
 
-```
+```JavaScript
 client.joinRoom(RoomId, UserId, onSuccess, onFailure)
 ```
 
@@ -185,7 +185,7 @@ client.joinRoom(RoomId, UserId, onSuccess, onFailure)
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(User) {}
 ```
 
@@ -195,7 +195,7 @@ function onSuccess(User) {}
 
 User:
 
-```
+```JavaScript
 {
   uid: string   // 为用户ID
 }
@@ -203,7 +203,7 @@ User:
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -214,7 +214,7 @@ Err 为错误信息
 
 离开房间，示例代码：
 
-```
+```JavaScript
 client.leaveRoom(onSuccess, onFailure)
 ```
 
@@ -222,7 +222,7 @@ client.leaveRoom(onSuccess, onFailure)
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(User) {}
 ```
 
@@ -230,7 +230,7 @@ function onSuccess(User) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -241,7 +241,7 @@ Err 为错误信息
 
 发布本地流，示例代码：
 
-```
+```JavaScript
 client.publish(Options, onSuccess, onFailure)
 ```
 
@@ -249,7 +249,7 @@ client.publish(Options, onSuccess, onFailure)
 
 - Options: object 类型，选传，类型说明如下
 
-```
+```JavaScript
 {
   audio: boolean          // 必填，指定是否使用麦克风设备
   video: boolean          // 必填，指定是否使用摄像头设备
@@ -261,7 +261,7 @@ client.publish(Options, onSuccess, onFailure)
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(Stream) {}
 ```
 
@@ -271,7 +271,7 @@ function onSuccess(Stream) {}
 
 Stream:
 
-```
+```JavaScript
 {
   sid: string                     // 流ID
   uid: string                     // 对应的用户的ID
@@ -286,7 +286,7 @@ Stream:
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -297,7 +297,7 @@ Err 为错误信息
 
 取消发布本地流，示例代码：
 
-```
+```JavaScript
 client.unpublish(onSuccess, onFailure)
 ```
 
@@ -305,7 +305,7 @@ client.unpublish(onSuccess, onFailure)
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(Stream) {}
 ```
 
@@ -313,7 +313,7 @@ function onSuccess(Stream) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -324,7 +324,7 @@ Err 为错误信息
 
 订阅远端流，，示例代码：
 
-```
+```JavaScript
 client.subscribe(StreamId, onSuccess, onFailure)
 ```
 
@@ -333,7 +333,7 @@ client.subscribe(StreamId, onSuccess, onFailure)
 - StreamId: string 类型，必传，为需要订阅的远端流的 sid
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(Stream) {}
 ```
 
@@ -341,7 +341,7 @@ function onSuccess(Stream) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -353,7 +353,7 @@ Err 为错误信息
 
 取消订阅远端流，示例代码：
 
-```
+```JavaScript
 client.unsubscribe(StreamId, onSuccess, onFailure)
 ```
 
@@ -362,7 +362,7 @@ client.unsubscribe(StreamId, onSuccess, onFailure)
 - StreamId: string 类型，必传，为需要订阅的远端流的 sid
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(Stream) {}
 ```
 
@@ -370,7 +370,7 @@ function onSuccess(Stream) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -382,7 +382,7 @@ Err 为错误信息
 
 给事件绑定监听函数，示例代码：
 
-```
+```JavaScript
 client.on(EventType, Listener)
 ```
 
@@ -402,7 +402,7 @@ client.on(EventType, Listener)
 
 解除绑定事件的监听函数，示例代码：
 
-```
+```JavaScript
 client.off(EventType, Listener)
 ```
 
@@ -417,7 +417,7 @@ client.off(EventType, Listener)
 
 关闭本地流的音频，示例代码：
 
-```
+```JavaScript
 const result = client.muteAudio()
 ```
 
@@ -432,7 +432,7 @@ const result = client.muteAudio()
 
 启用本地流的音频，示例代码：
 
-```
+```JavaScript
 const result = client.unmuteAudio()
 ```
 
@@ -447,7 +447,7 @@ const result = client.unmuteAudio()
 
 关闭本地流的视频，示例代码：
 
-```
+```JavaScript
 const result = client.muteVideo()
 ```
 
@@ -462,7 +462,7 @@ const result = client.muteVideo()
 
 启用本地流的视频，示例代码：
 
-```
+```JavaScript
 const result = client.unmuteVideo()
 ```
 
@@ -477,7 +477,7 @@ const result = client.unmuteVideo()
 
 开始录制音视频，示例代码：
 
-```
+```JavaScript
 client.startRecording(RecordOptions, onSuccess, onFailure)
 ```
 
@@ -485,7 +485,7 @@ client.startRecording(RecordOptions, onSuccess, onFailure)
 
 - RecordOptions: object 类型，必传，录制的配置信息，类型说明如下
 
-```
+```JavaScript
 {
   waterMarkPosition: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom'    // 必填，指定水印的位置，前面四种类型分别对应 左上，左下，右上，右下
   bucket: string  // 存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
@@ -498,7 +498,8 @@ function onSuccess(Record) {}
 ```
 
 函数参数 Record 为返回值，Object 类型，为流信息，类型说明如下
-```
+
+```JavaScript
 {
   FileName: string  // 录制到的文件的名称
   RecordId: string  // 录制 ID
@@ -507,7 +508,7 @@ function onSuccess(Record) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -519,20 +520,21 @@ Err 为错误信息
 
 停止录制音视频，示例代码：
 
-```
+```JavaScript
 client.stopRecording(onSuccess, onFailure)
 ```
 
 #### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+
+```JavaScript
 function onSuccess() {}
 ```
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -544,7 +546,7 @@ Err 为错误信息
 
 获取本地用户的信息，示例代码：
 
-```
+```JavaScript
 const result = client.getUser()
 ```
 
@@ -559,7 +561,7 @@ const result = client.getUser()
 
 获取当前加入房间的远端用户的信息，示例代码：
 
-```
+```JavaScript
 const result = client.getUsers()
 ```
 
@@ -574,7 +576,7 @@ const result = client.getUsers()
 
 获取本地发布流的信息，示例代码：
 
-```
+```JavaScript
 const result = client.getStream()
 ```
 
@@ -589,7 +591,7 @@ const result = client.getStream()
 
 获取订阅流（远端流）的信息，示例代码：
 
-```
+```JavaScript
 const result = client.getStreams()
 ```
 
@@ -603,7 +605,7 @@ const result = client.getStreams()
 ### 20. getLocalMediaStream 方法
 
 获取本地流对应的媒体流，示例代码：
-```
+```JavaScript
 const result = client.getLocalMediaStream()
 ```
 
@@ -617,7 +619,7 @@ const result = client.getLocalMediaStream()
 ### 21. getRemoteMediaStream 方法
 
 获取订阅流（远端流）对应的媒体流，示例代码：
-```
+```JavaScript
 const result = client.getLocalMediaStream()
 ```
 
@@ -632,14 +634,14 @@ const result = client.getLocalMediaStream()
 
 获取麦克风设备，示例代码：
 
-```
+```JavaScript
 client.getMicrophones(onSuccess, onFailure)
 ```
 
 #### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+```JavaScript
 function onSuccess(MediaDeviceInfos) {}
 ```
 
@@ -648,7 +650,7 @@ function onSuccess(MediaDeviceInfos) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -660,14 +662,14 @@ Err 为错误信息
 
 获取摄像头设备，示例代码：
 
-```
+```JavaScript
 client.getCameras(onSuccess, onFailure)
 ```
 
 #### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+```JavaScript
 function onSuccess(MediaDeviceInfos) {}
 ```
 
@@ -676,7 +678,7 @@ function onSuccess(MediaDeviceInfos) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -688,14 +690,14 @@ Err 为错误信息
 
 获取音响/声音输出设备，示例代码：
 
-```
+```JavaScript
 client.getLoudspeakers(onSuccess, onFailure)
 ```
 
 #### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+```JavaScript
 function onSuccess(MediaDeviceInfos) {}
 ```
 
@@ -704,7 +706,7 @@ function onSuccess(MediaDeviceInfos) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -716,19 +718,19 @@ Err 为错误信息
 
 设置视频的 profile，限制 client 使用的视频大小、帧率、带宽等，示例代码：
 
-```
+```JavaScript
 client.setVideoProfile(Profile, onSuccess, onFailure)
 ```
 
 #### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+```JavaScript
 function onSuccess() {}
 ```
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -740,7 +742,7 @@ Err 为错误信息
 
 当本地流已经发布，可通过此方法来改变当前正在使用的音频或视频采集设备，示例代码：
 
-```
+```JavaScript
 client.switchDevice(DeviceType, DeviceId, onSuccess, onFailure)
 ```
 
@@ -749,12 +751,12 @@ client.switchDevice(DeviceType, DeviceId, onSuccess, onFailure)
 - DeviceId: string 类型，设备ID，可通过 sdk 的 getDevices 方法或 client 的 getMicrophones 和 getCameras 方法获取
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
-```
+```JavaScript
 function onSuccess() {}
 ```
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -766,7 +768,7 @@ Err 为错误信息
 
 获取流的音量大小，返回值范围 [0,100]，示例代码：
 
-```
+```JavaScript
 client.getAudioVolume(StreamId)
 ```
 
@@ -781,7 +783,7 @@ client.getAudioVolume(StreamId)
 
 获取流的音频状态，示例代码：
 
-```
+```JavaScript
 client.getAudioStats(StreamId, onSuccess, onFailure)
 ```
 
@@ -791,11 +793,13 @@ client.getAudioStats(StreamId, onSuccess, onFailure)
   
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(AudioStats) {}
 ```
+
 函数参数 AudioStats 为返回值，为 object 类型，类型说明如下：
-```
+
+```JavaScript
 {
   br: number        // 码率
   lostpre: number   // 丢包率
@@ -806,7 +810,7 @@ function onSuccess(AudioStats) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -818,7 +822,7 @@ Err 为错误信息
 
 获取流的视频状态，示例代码：
 
-```
+```JavaScript
 client.getVideoStats(StreamId, onSuccess, onFailure)
 ```
 
@@ -828,11 +832,11 @@ client.getVideoStats(StreamId, onSuccess, onFailure)
   
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(VideoStats) {}
 ```
 函数参数 VideoStats 为返回值，为 object 类型，类型说明如下：
-```
+```JavaScript
 {
   br: number        // 码率
   lostpre: number   // 丢包率
@@ -845,7 +849,7 @@ function onSuccess(VideoStats) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -857,7 +861,7 @@ Err 为错误信息
 
 获取流的网络状态，示例代码：
 
-```
+```JavaScript
 client.getNetworkStats(StreamId, onSuccess, onFailure)
 ```
 
@@ -867,11 +871,11 @@ client.getNetworkStats(StreamId, onSuccess, onFailure)
   
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
-```
+```JavaScript
 function onSuccess(NetworkStats) {}
 ```
 函数参数 NetworkStats 为返回值，为 object 类型，类型说明如下：
-```
+```JavaScript
 {
   rtt: number   //  往返时延，单位 ms
 }
@@ -879,7 +883,7 @@ function onSuccess(NetworkStats) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -892,7 +896,7 @@ Err 为错误信息
 
 用于获取当前浏览器可访问的音视频设备的设备信息，包括麦克风、摄像头、视频输出设备
 
-```
+```JavaScript
 getDevices(onSuccess, onFailure)
 ```
 
@@ -900,7 +904,7 @@ getDevices(onSuccess, onFailure)
 
 - onSuccess: 必传，函数类型，方法调用成功时执行的回调函数。
 
-```
+```JavaScript
 function(MediaDeviceInfos) {}
 ```
 
@@ -909,7 +913,7 @@ function(MediaDeviceInfos) {}
 
 - onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
 
-```
+```JavaScript
 function(Err) {}
 ```
 Err 为错误信息
@@ -922,7 +926,7 @@ Err 为错误信息
 
 用于获取当前 SDK 支持的视频质量的名称
 
-```
+```JavaScript
 const profileNames = getSupportProfileNames();
 ```
 
@@ -955,7 +959,7 @@ version 属性用于显示当前 sdk 的版本
 
 generateToken 方法仅用于试用 URTC 产品时替代服务器生成 sdk 所需 token 的方法，正式使用 URTC 产品时，需要搭建后台服务按规则生成 token
 
-```
+```JavaScript
 const token = generateToken(AppId, AppKey, RoomId, UserId);
 ```
 
@@ -989,7 +993,7 @@ Logger 对象用于调试时打印内部日志，包含以下方法：
 
 用于设置 Logger 打印日志的级别
 
-```
+```JavaScript
 Logger.setLogLevel(Level)
 ```
 
@@ -1003,7 +1007,7 @@ Level: 必传，有 "debug" | "info" | "warn" | "error" 四个日志级别，默
 
 用于调试代码时，打印 debug 日志
 
-```
+```JavaScript
 Logger.debug(a, ...)  // 可传任意数量的任意类型的变量作为参数
 ```
 
@@ -1029,7 +1033,7 @@ Logger.debug(a, ...)  // 可传任意数量的任意类型的变量作为参数
 
 可配置 URTC 服务的域名，用于私有化部署，目前有房间服务器和日志服务器的两种域名可进行配置，示例代码：
 
-```
+```JavaScript
 setServers({
   api: "https://env1.urtc.com",   // api 为 URTC 房间服务的访问域名
   log: "https://env1.urtclog.com" // log 为 URTC 日志服务器的访问域名
