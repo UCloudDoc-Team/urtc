@@ -2,7 +2,7 @@
 
 # WEB SDK指南
 
- [下载Web URTC Demo](https://github.com/ucloud/urtc-js-demo)
+ [Demo下载](https://github.com/ucloud/urtc-js-demo)
 
 ## 1、创建一个 URTC Client
 
