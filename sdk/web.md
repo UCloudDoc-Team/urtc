@@ -10,7 +10,7 @@
 
 将 sdk 使用 ES6 语法作为模块引入。
 
-1) 使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 [urtc-sdk](https://github.com/ucloud/urtc-sdk-web):
+1) 使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 [sdk](https://github.com/ucloud/urtc-sdk-web):
 
 ```
 npm install --save urtc-sdk
@@ -48,7 +48,7 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 const client = new UCloudRTC.Client(appId, token);
 ```
 
-> 注：创建 client 时传的 token 需要使用 AppId 和 AppKey 等数据生成，测试阶段，可临时使用 sdk 提供的 generateToken 方法生成，但为保证 AppKey 不暴露于公网，在生产环境中强烈建议自建服务，由服务器按规则生成 token 供 sdk 使用。
+> 注：创建 client 时传的 token 需要使用 AppId 和 AppKey 等数据生成，测试阶段，可临时使用 [sdk](https://github.com/ucloud/urtc-sdk-web) 提供的 generateToken 方法生成，但为保证 AppKey 不暴露于公网，在生产环境中强烈建议自建服务，由服务器按规则生成 token 供 sdk 使用。
 
 ## 1.3 监听流事件
 
