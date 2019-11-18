@@ -1,7 +1,8 @@
 
 
 # WEB SDK指南
-Web URTC Demo 地址：[https://github.com/ucloud/urtc-js-demo](https://github.com/ucloud/urtc-js-demo)
+
+ [下载Web URTC Demo](https://github.com/ucloud/urtc-js-demo)
 
 ## 1、创建一个 URTC Client
 
