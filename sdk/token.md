@@ -179,7 +179,19 @@ getToken(obj) {
         }
     })
 }
+```
 
+```js
+getToken({
+    app_id: appId,//控制台创建项目获取到的appkey
+    room_id: roomId,//房间号
+    user_id: userId,//用户id
+    appkey: appkey//控制台创建项目获取到的appkey
+}).then(function(data) {
+    //返回当前用户的token 
+}).catch(function(err){
+    //报错信息 
+})
 ```
 
 ## 3. 申明
