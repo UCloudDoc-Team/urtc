@@ -38,8 +38,8 @@ Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
 
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
-m_rtcengine->setSdkMode(UCLOUD_RTC_SDK_MODE_TRIVAL);
 m_rtcengine->setChannelTye(UCLOUD_RTC_CHANNEL_TYPE_COMMUNICATION);
+m_rtcengine->setSdkMode(UCLOUD_RTC_SDK_MODE_TRIVAL);
 m_rtcengine->setStreamRole(UCLOUD_RTC_USER_STREAM_ROLE_BOTH);
 m_rtcengine->setTokenSecKey(TEST_SECKEY);//测试模式下设置自己的秘钥
 m_rtcengine->setAudioOnlyMode(false);
@@ -57,7 +57,7 @@ tUCloudRtcAuth auth;
 auth.mAppId = appid;
 auth.mRoomId = roomid;
 auth.mUserId = userid;
-auth.mUserToken = "1223222";
+auth.mUserToken = your generate token;
 m_rtcengine->joinChannel(auth);
 ```
 
@@ -116,6 +116,7 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 ``` 
 
 ### 5.9 离开房间
+
 ``` c++
 m_rtcengine->leaveChannel ()
 ```
