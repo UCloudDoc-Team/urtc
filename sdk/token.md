@@ -12,88 +12,19 @@
 
 创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
 
+AppKey是保证AppID的秘钥，请妥善保管，避免泄露以及公网明文传输。
+
 ### 2.2 sha1算法生成Token
 
 **Token 生成规则**
 
 sha1算法利用AppID及AppKey生成Token，Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
 
-#### 2.2.1 生成header
-
-header 部分采用为json 字符串，然后进行base64 编码。
-
-**1. json字符串格式** 
-
-``` 
-Jsonmsg = {
-"user_id"：uid，
-"room_id"：roomId，
-"app_id"：appId
-}
-header=base64(Jsonmsg) ;
-```
-
-**2. 生成base64编码**
-
-```
-Headerbase64=base64(jsonmsg) ;
-```
-
-#### 2.2.2 生成signature
-
-**1. 时间戳获取**
-
-时间戳为UTC时间，精确到秒，截取最后10位，作为最终的时间戳。  
-伪代码如下： 
-
-``` 
-unixts = getutctimes()    
-unixts=format(“%10u”, unixts)    
-```
-
-**2. 随机数生成**
-
-随机生成32位的无符号整形数，然后转为16进制，保持8位长度，作为随机数。    
-伪代码如下：
-
-``` 
-random = random()    
-random=format(“%08x”, random)    
-```
-
-#### 2.2.3 签名生成
-
-**1. 格式化字符串** 
-
-``` 
-strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
-```
-
-
-**2. 通过sha1 编码 加密key 为seckey** 
-
-``` 
-sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
-```
-
-
-**3. 拼接加密串** 
-
-``` 
-signture = format(“%s%d%d”, sign, unixts, random)\\
-```
-
-#### 2.2.4 拼接最终的Token
-
-``` 
-token = header+ “.”+ signture\\
-```
-
 ### 2.3 参考实现代码
 
   - Go 参考代码如下
 
-```
+```go
 package authcenter
 import (
     "crypto/hmac"
@@ -145,26 +76,34 @@ func generateSignature(uId, appID, appCertificate, roomId, unixTsStr, randomIntS
 
   - Java 参考代码如下
 
-```
+```java
 import java.io.ByteArrayOutputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64 ;
 
-public class signature {
-    // 调用方法生成token
+public class AuthToken {
+    // 此方法生成token
     public static String generateToken(String uid, String roomid, String appid, String seckey){
-        long rannum = System.currentTimeMillis()/1000;
-        long times = System.currentTimeMillis()/1000;
-        String sign = "";
+        String token = "";
         try {
-            sign = generate(uid, appid, seckey,roomid, (int)times, (int)rannum);
+			String headerjson = "{" + "\"user_id\""+":"+ "\"" +uid  +"\""+","+ "\"room_id\""+":"+ "\""+ roomid+ "\""+","+ "\"app_id\"" +":"+ "\""+ appid + "\""+ "}" ;
+		
+			final Base64.Encoder encoder = Base64.getEncoder();
+			final byte[] textByte = headerjson.getBytes("UTF-8");
+			final String base64header = encoder.encodeToString(textByte);
+			long rannum = System.currentTimeMillis()/1000;
+			long times = System.currentTimeMillis()/1000;
+		
+            String sign = generate(uid, appid, seckey,roomid, (int)times, (int)rannum);
+			token = base64header+"."+sign ;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return sign ;
+        return token ;
     }
     
     public static String generate(String uID,String appID, String appCertificate, String roomID, int unixTs, int randomInt) throws Exception {
@@ -204,9 +143,45 @@ public class signature {
         }
         return builder.toString();
     }
+		
 }
+```
+
+ - nodejs 参考代码如下（需要 base64.js sha1.js）
+
+```js
+import {
+    Base64
+} from './base64';
+import jsSHA from './sha1';
+
+getToken(obj) {
+    const _that = this;
+    return new Promise(function (resolve, reject) {
+        let header = Base64.encode(JSON.stringify(obj));
+        let time = Math.round(Date.now() / 1000);
+        let randNum = _that.randNum(8);
+        let string = obj.user_id + obj.app_id + time + randNum + obj.room_id;
+        let shaObj = new jsSHA("SHA-1", 'TEXT');
+        console.log(obj.appkey)
+        log(obj.appkey)
+        shaObj.setHMACKey(obj.appkey, 'TEXT');
+        shaObj.update(string)
+        let hash = shaObj.getHMAC("HEX");
+        let signture = hash + time + randNum;
+        let token = header + '.' + signture;
+        // _that.getUrl(token);
+        resolve(token);
+        if (obj.room_id !== undefined) {
+            // resolve('get token success');
+        } else {
+            reject('get token error')
+        }
+    })
+}
+
 ```
 
 ## 3. 申明
 
-Token是SDK验证APP的重要参数，请注意不要明文显示、传输、保存、拷贝。
+Token是SDK验证APP的重要参数，是用户进入系统的身份验证手段，token 错误将无法进入系统，请确认token 生成代码正确。
