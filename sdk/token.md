@@ -155,7 +155,7 @@ import {
 } from './base64';
 import jsSHA from './sha1';
 
-getToken(obj) {
+generateToken(obj) {
     const _that = this;
     return new Promise(function (resolve, reject) {
         let header = Base64.encode(JSON.stringify(obj));
@@ -182,7 +182,7 @@ getToken(obj) {
 ```
 
 ```js
-getToken({
+generateToken({
     app_id: appId,//控制台创建项目获取到的appkey
     room_id: roomId,//房间号
     user_id: userId,//用户id
