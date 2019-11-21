@@ -14,9 +14,8 @@
         * [MAC OS SDK 指南](video/urtc/sdk/macos)
         * [Windows SDK指南](video/urtc/sdk/windows)
         * [WEB SDK指南]      
-                       * [Windows SDK指南](video/urtc/sdk/windows)    
-                       * [WEB SDK指南](video/urtc/sdk/web/websdk)     
-                       * [WEB屏幕共享接入指南](video/urtc/sdk/web/webscreenshare)       
+                    * [WEB SDK基础音视频通话](video/urtc/sdk/web/websdk)
+                    * [WEB 屏幕共享接入指南](video/urtc/sdk/web/webscreenshare)
         * [Electron SDK指南](video/urtc/sdk/electron)
     * [FAQ](video/urtc/faq)
     
