@@ -7,8 +7,8 @@
 ## 无插件屏幕共享
 
 在 Chrome、firefox 上共享屏幕时 调用`publish`方法把`video`字段设为 `false`， `screen` 字段设为 `true` 即可。   
-chrome 72及72版本以可以使用无插件屏幕分享。   
-如果你使用的chrome/firefox浏览器版本不满足此要求，请使用[URTC屏幕共享插件](http://urtcsdk.cn-bj.ufileos.com/URTC-screen-extention.zip)在 Chrome 上共享屏幕。
+Chrome 72及以上版本以，可以使用无插件屏幕分享。   
+如果你使用的Chrome/firefox浏览器版本不满足此要求，请使用[URTC屏幕共享插件](http://urtcsdk.cn-bj.ufileos.com/URTC-screen-extention.zip)在 Chrome 上共享屏幕。
 
 ```js
 client.publish(
