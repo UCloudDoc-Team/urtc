@@ -35,7 +35,7 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 
 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
 
-1) 直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
+1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
 
 ```JavaScript
 <script type="text/javascript" src="index.js"><script>
