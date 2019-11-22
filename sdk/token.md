@@ -20,6 +20,76 @@ AppKey是保证AppID的秘钥，请妥善保管，避免泄露以及公网明文
 
 sha1算法利用AppID及AppKey生成Token，Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
 
+#### 2.2.1 生成header
+ 
+header 部分采用为json 字符串，然后进行base64 编码。
+
+1. json字符串格式   
+
+```
+Jsonmsg = {
+"user_id"： uid，
+"room_id"：roomId，
+"app_id"： = appId
+}
+header=base64(Jsonmsg) ;
+```
+
+2. 生成base64编码
+
+
+```
+Headerbase64=base64(jsonmsg) ;
+```
+
+#### 2.2.2 生成signature
+
+1. 时间戳获取
+
+时间戳为UTC时间，精确到秒，截取最后10位，作为最终的时间戳。    
+伪代码如下：
+
+```
+unixts = getutctimes()    
+unixts=format(“%10u”, unixts)    
+```
+
+2. 随机数生成
+
+随机生成32位的无符号整形数，然后转为16进制，保持8位长度，作为随机数。    
+伪代码如下：
+
+```
+random = random()    
+random=format(“%08x”, random)    
+```
+
+#### 2.2.3 签名生成
+
+1. 格式化字符串
+
+```
+strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
+```
+
+2. 通过sha1 编码 加密key 为seckey
+
+```
+sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
+```
+
+3. 拼接加密串
+
+```
+signture = format(“%s%d%d”, sign, unixts, random)\\
+```
+
+#### 2.2.4 拼接最终的Token
+
+```
+token = header+ “.”+ signture\\
+```
+
 ### 2.3 参考实现代码
 
   - Go 参考代码如下
