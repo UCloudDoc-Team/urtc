@@ -12,7 +12,7 @@
 
 ## 图片水印。
 
-图片水印，可以在录制的内容上叠加指定URL的图片内容。
+图片水印，可以在录制的内容上叠加指定URL的图片内容，并设置水印的叠加位置。
 
 > 需要将本地图片做为水印时，可以先将图片上传至Ufile。了解更多Ufile的操作，可以查看 [使用Ufile管理控制台](https://docs.ucloud.cn/storage_cdn/ufile/quick/console)。
 
