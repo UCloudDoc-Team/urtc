@@ -2,8 +2,7 @@
 
 URTC 服务端录制，是URTC针对实时音视频研发的录制服务，无需额外的SDK，可以通过简单的操作方法，帮助开发者快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。  
 
-
- **功能：  
+## 功能说明：  
 
   - 单流录制，支持录制指定某个用户的音频流和视频流  
   - 合流录制，录制房间内，所有用户的音视频，合流录制为一个音视频文件  
@@ -12,7 +11,7 @@ URTC 服务端录制，是URTC针对实时音视频研发的录制服务，无�
   
 ## 1、开通录制服务
   
-  [【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 服务的应用下，开通录制服务。  
+  [登录控制台](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 服务的应用下，开通录制服务。  
   
   ![ ](/images/record/openRecord.png)
   
