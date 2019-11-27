@@ -27,7 +27,7 @@ URTC 服务端录制，是URTC针对实时音视频研发的录制服务。
 
 ![ ](/images/record/creatBucket.png) 
 	 
- - 已经配置了对象存储的情况下，可以直接选择配置的bucket，配置完毕即可。  
+ - 已经配置了对象存储的情况下，可以直接选择配置的存储空间，配置完毕即可。  
 
 ![ ](/images/record/newBucket2.png) 
 	 
