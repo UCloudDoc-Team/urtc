@@ -9,14 +9,23 @@
 不同风格的样式如下图所示：  
 
 ![ ](/images/record/pingpu1.png)
+
 ![ ](/images/record/pingpu2.png)
+
 ![ ](/images/record/pingpu3.png)
+
 ![ ](/images/record/pingpu4.png)
+
 ![ ](/images/record/pingpu5.png)
+
 ![ ](/images/record/pingpu6.png)
+
 ![ ](/images/record/pingpu7.png)
+
 ![ ](/images/record/pingpu8.png)
+
 ![ ](/images/record/pingpu9.png)
+
 
 
 
