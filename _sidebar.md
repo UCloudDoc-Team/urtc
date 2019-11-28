@@ -17,6 +17,7 @@
           * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
           * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
         * [Electron SDK指南](video/urtc/sdk/electron)
+    * [开通服务端录制](video/urtc/cloudRecord/openRecord)  
     * [FAQ](video/urtc/faq)
     
     
