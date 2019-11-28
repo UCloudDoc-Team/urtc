@@ -15,6 +15,7 @@
     * [Windows SDK指南](video/urtc/sdk/windows)
     * [WEB SDK指南](video/urtc/sdk/web/websdk)
     * [Electron SDK指南](video/urtc/sdk/electron)
+* [开通服务端录制](video/urtc/cloudRecord/openRecord)    
 * [FAQ](video/urtc/faq)
     
     
