@@ -56,9 +56,9 @@ URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，
 
 |平台     | SDK 兼容性                             | 开发指南|
 |--------|--------------------------------------|------------|
-|Android  | 支持Android 4.4及以上版本              | [Android SDK指南](/video/urtc/sdk/android)  |
+|Android  | 支持Android 5.0及以上版本              | [Android SDK指南](/video/urtc/sdk/android)  |
 |MAC OS   | 支持MAC OS 10.0及以上版本              | [MAC OS SDK 指南](/video/urtc/sdk/macos)  |
-|IOS      | 支持IOS 8.0 及以上版本的 iPhone 或者 iPad | [IOS SDK 指南](/video/urtc/sdk/ios)  |
+|IOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad | [IOS SDK 指南](/video/urtc/sdk/ios)  |
 |Windows  | 支持Windows 7及以上版本                | [Windows SDK指南](/video/urtc/sdk/windows)  |
 |WEB      | 支持Chrome 60及以上版本                | [WEB SDK指南](/video/urtc/sdk/web/websdk)  |
 |Electron | 支持Electron addon 2.0.7及以上版本     | [Electron SDK指南](/video/urtc/sdk/electron)  |
