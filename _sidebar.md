@@ -17,8 +17,8 @@
           * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
           * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
         * [Electron SDK指南](video/urtc/sdk/electron)
-    * 服务端录制
-        * [开通服务端录制](video/urtc/cloudRecord/openRecord)  
+    * 云端录制
+        * [开通云端录制](video/urtc/cloudRecord/openRecord)  
         * [录制混流风格说明](video/urtc/cloudRecord/RecordLaylout)  
         * [录制水印说明](video/urtc/cloudRecord/RecordWatermark)  
     * [FAQ](video/urtc/faq)
