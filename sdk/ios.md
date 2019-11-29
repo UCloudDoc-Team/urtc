@@ -12,7 +12,7 @@
 
   - 支持语言：objective-c、swift;  
   - Apple设备：iPhone最低支持iPhone5；  
-  - 系统版本：最低支持iOS 8.0；  
+  - 系统版本：最低支持iOS 9.0；  
   - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
   - 其他：不支持bitcode。
 
