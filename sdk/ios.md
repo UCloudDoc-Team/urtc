@@ -269,31 +269,37 @@ self.engine?.unSubscribeMethod(remoteStream)
 
 1）配置视频录制相关参数，开始视频录制；
 ```objective-c
-    UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
-    recordConfig.mainviewid = userId;  //用户ID
-    recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
-    recordConfig.mainviewmt = 1;       //主窗口位置用户id
-    recordConfig.bucket = @"urtc-test";//存储地址的名称
-    recordConfig.region = @"cn-bj";    //所属的region
-    recordConfig.watermarkpos = 1;     //水印的位置
-    recordConfig.width = 360;          //录制视频的宽
-    recordConfig.height = 480;         //录制视频的高
-    [self.engine startRecord:recordConfig];
-
+  UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
+  recordConfig.mainviewid = userId;  //主窗口位置用户id
+  recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
+  recordConfig.mainviewmt = 1;       //主窗口的媒体类型 1 摄像头 2 桌面
+  recordConfig.bucket = @"urtc-test";//存储地址的名称
+  recordConfig.region = @"cn-bj";    //所属的region
+  recordConfig.watermarkpos = 1;     //水印的位置
+  recordConfig.width = 360;          //录制视频的宽
+  recordConfig.height = 480;         //录制视频的高
+  recordConfig.isaverage = YES;      //是否均分
+  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
+  recordConfig.watertype = 1;        //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
+  recordConfig.wtemplate = 9;        //模板
+  [self.engine startRecord:recordConfig];   
 ```
 
-
 ```swift
-    let recordConfig = UCloudRtcRecordConfig.init()
-    recordConfig.mainviewid = userId;   //用户ID
-    recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
-    recordConfig.mainviewmt = 1;        //主窗口位置用户id
-    recordConfig.bucket = "urtc-test";  //存储地址的名称
-    recordConfig.region = "cn-bj";      //所属的region
-    recordConfig.watermarkpos = 1;      //水印的位置
-    recordConfig.width = 360;           //录制视频的宽
-    recordConfig.height = 480;          //录制视频的高
-    self.engine?.startRecord(recordConfig)
+  let recordConfig = UCloudRtcRecordConfig.init()
+  recordConfig.mainviewid = userId;   //主窗口位置用户id
+  recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
+  recordConfig.mainviewmt = 1;        //主窗口的媒体类型 1 摄像头 2 桌面
+  recordConfig.bucket = "urtc-test";  //存储地址的名称
+  recordConfig.region = "cn-bj";      //所属的region
+  recordConfig.watermarkpos = 1;      //水印的位置
+  recordConfig.width = 360;           //录制视频的宽
+  recordConfig.height = 480;          //录制视频的高
+  recordConfig.isaverage = YES;       //是否均分
+  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
+  recordConfig.watertype = 1;         //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
+  recordConfig.wtemplate = 9;         //模板
+  self.engine?.startRecord(recordConfig)
 ```
 2）视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
