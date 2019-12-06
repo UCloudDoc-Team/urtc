@@ -1,7 +1,7 @@
 # 质量监控
 
-URTC服务支持监控实时通话质量，在控制台[实时音视频URTC](https://console.ucloud.cn/urtc/manage)里，查看我的应用种的质量监控。
-如果想在自己的服务器内集成实时音视频通话的监控质量，可以集成[质量监控API](https://docs.ucloud.cn/api/urtc-api/overview)。
+URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](https://console.ucloud.cn/urtc/manage) 里，查看我的应用种的质量监控。
+如果想在自己的服务器内集成实时音视频通话的监控质量，可以集成 [质量监控API](https://docs.ucloud.cn/api/urtc-api/overview) 。
 
 
 URTC 服务端录制，是URTC针对实时音视频研发的录制服务，无需额外的SDK，可以通过简单的操作方法，帮助开发者快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。  
