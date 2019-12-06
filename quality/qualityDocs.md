@@ -32,7 +32,7 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
 
   - 支持监控某路流的上下行终端信息、上下行音频码率/视频码率、上下行丢包率、采集/播放音量、发送/接收延迟、上下行帧率、APP CPU占用率、APP内存使用数。   
 
-  ![ ](/images/qualityImage/userquality2png)
+  ![ ](/images/qualityImage/userquality2.png)
 
 
 
