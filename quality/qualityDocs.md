@@ -13,7 +13,7 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
 
 支持监控实时或者历史的所有房间列表、房间内累计用户数、房间内峰值用户数、房间内在线用户数。
 
-  ![ ](/images/qualityImage/roomnew.png)
+  ![ ](/images/qualityImage/room3.png)
  
  
 ## 2、用户监控
@@ -22,7 +22,7 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
 
 支持监控某房间的所有用户列表、所有用户通话时长、设备可用状态、设备型号、SDK版本、网络类型。    
   
-  ![ ](/images/qualityImage/usersnew.png)
+  ![ ](/images/qualityImage/users3.png)
 
 
   - 区域：用户所属的区域。  
@@ -38,7 +38,7 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
 
 支持监控所有用户的上下行码率、卡顿情况；所有的操作事件。  
 
-  ![ ](/images/qualityImage/userqualitynew.png)
+  ![ ](/images/qualityImage/userquality3.png)
   
   - 上行码率：当前用户发送的音视频的总码率；码率稳定表示终端编码、上行网络稳定。
   - 下行码率：当前用户接收的音视频的总码率；码率稳定表示下行网络稳定。
@@ -48,31 +48,54 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
 
 支持监控某路流的上下行终端信息、上下行音频码率/视频码率、上下行丢包率、采集/播放音量、发送/接收延迟、上下行帧率、APP CPU占用率、APP内存使用数。   
 
-  ![ ](/images/qualityImage/userquality2new.png)
+  ![ ](/images/qualityImage/userquality31.png)
+  
+### 3.1 音频码率
 
   - 上行音频码率：当前用户发送的音频码率；码率稳定表示终端音频编码、上行网络稳定。
   - 下行音频码率：当前用户接收的音频码率；码率稳定表示下行网络稳定。
+  
+    ![ ](/images/qualityImage/userquality32.png)
       
+### 3.2 视频码率
   
   - 上行视频码率：当前用户发送的视频码率；码率稳定表示终端音频编码、上行网络稳定。
   - 下行视频码率：当前用户接收的视频码率；码率稳定表示下行网络稳定。
-        
+  
+     ![ ](/images/qualityImage/userquality34.png) 
+     
+### 3.3 丢包率       
   
   - 上行丢包率：当前用户发送的丢包率；丢包率低表示音视频上行网络稳定。
   - 下行丢包率：当前用户接收的丢包率；丢包率低表示音视频下行网络稳定。
   
-  
+     ![ ](/images/qualityImage/userquality35.png)    
+     
+### 3.4 音量    
+    
   - 采集音量：当前用户采集音频音量；音量持续有值，表示当前音频采集正常。
   - 播放音量：当前用户播放音频音量；音量持续有值，表示当前音频播放正常。
-        
   
+     ![ ](/images/qualityImage/userquality36.png)    
+     
+### 3.5 延迟  
+
   - 发送延迟：当前用户发送的延迟时间；延迟低表示音视频上行网络性能较高。  
   - 接收延迟：当前用户发送的延迟时间；延迟低表示音视频上行网络性能较高。	 
-        
+  
+     ![ ](/images/qualityImage/userquality37.png)    
+     
+### 3.6 帧率       
   
   - 上行帧率：当前用户发送视频的帧率；帧率稳定表示音视频编码、上行网络稳定。
   - 下行帧率：当前用户接收视频的帧率；帧率稳定表示音视频解码、下行网络稳定。
-            
+  
+    ![ ](/images/qualityImage/userquality38.png)    
+     
+### 3.7 设备CPU占用率及内存使用数       
+             
       
   - CPU占用率：当前应用在终端上的CPU占用率；CPU占用率低表示终端性能充足。
   - 内存使用数：当前应用在终端上的内存使用数；内存使用数低且稳定表示终端性能充足。
+     ![ ](/images/qualityImage/userquality39.png)    
+     ![ ](/images/qualityImage/userquality40.png)    
