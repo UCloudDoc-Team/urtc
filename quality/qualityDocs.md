@@ -94,11 +94,10 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
      
 ### 3.7 设备CPU占用率及内存使用情况       
              
-      
+  > WEB SDK受限于浏览器权限，无法获得电脑或者手机的CPU占用率及内存使用情况。     
+  
   - CPU占用率：当前应用在终端上的CPU占用率；CPU占用率低表示终端性能充足。
   - 内存使用情况：当前应用在终端上的内存使用数；内存使用数低且稳定表示终端性能充足。
-  > WEB SDK受限于浏览器权限，无法获得电脑或者手机的CPU占用率及内存使用情况。
-
-    ![ ](/images/qualityImage/userquality39.png) 
  
-    ![ ](/images/qualityImage/userquality40.png) 
+    ![ ](/images/qualityImage/userquality39.png)    
+    ![ ](/images/qualityImage/userquality40.png)    
