@@ -47,7 +47,8 @@ m_rtcengine->setAutoPublishSubscribe(false, true);
 m_rtcengine->configLocalAudioPublish(false)；
 m_rtcengine->configLocalCameraPublish(true);
 m_rtcengine->configLocalScreenPublish(false);
-m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360);
+tUCloudVideoConfig& videoconfig
+m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360，videoconfig); // UCLOUD_RTC_VIDEO_PROFILE_NONE 时 后面填入自定义编码参数  最大1080p(1920*1080)
 ```
 
 ### 5.2 加入房间
@@ -102,6 +103,11 @@ recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
 recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
 recordconfig.mBucket = "your bucket";
 recordconfig.mBucketRegion = "your bucket region";
+recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
+recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
+recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
+recordconfig.mMixerTemplateType = 4; [混流模板](http:https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md)
+m_rtcengine->startRecord(recordconfig);
 m_rtcengine->startRecord(recordconfig);
 
 消息回调
