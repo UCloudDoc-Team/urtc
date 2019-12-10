@@ -4,7 +4,7 @@ URTC产品DEMO，可以演示小班课/视频会议，大班课/直播，不同�
 
 ## WEB demo
 
-![](/images/demoImage/webdemo.gif) 
+![](/images/demoImage/webImage.png) 
 
  - [立即体验](https://demo.urtc.com.cn/)
  
@@ -12,19 +12,19 @@ URTC产品DEMO，可以演示小班课/视频会议，大班课/直播，不同�
 
 ## 安卓 demo
 
-![](/images/demoImage/webdemo.gif) 
+![](/images/demoImage/andriodImage.png) 
 
  - [立即下载](https://fir.im/91cy)
 
 ## IOS demo
  
- ![](/images/demoImage/webdemo.gif) 
+ ![](/images/demoImage/iosImage.png)  
  
  - [立即下载](https://fir.im/vy1e)
  
 ## Windows demo
  
- ![](/images/demoImage/webdemo.gif) 
+ ![](/images/demoImage/windowsImage.png) 
  
  - [立即下载](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip)
  
