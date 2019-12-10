@@ -6,8 +6,9 @@ URTC产品DEMO，可以演示小班课/视频会议，大班课/直播，不同�
 
 > 推荐使用chrome、safari
 
-  ![](/images/demoImage/web demo.gif) 
+![](/images/demoImage/web demo.gif) 
 
+![](/images/download_SDK.png) 
 
  - [安卓 demo](https://fir.im/91cy)
  
