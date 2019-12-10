@@ -23,7 +23,7 @@
     * [录制混流风格说明](video/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](video/urtc/cloudRecord/RecordWatermark)  
 * [质量监控](video/urtc/quality/qualityDocs)
-* [产品DEMO](video/urtc/demo)
+* [DEMO体验](video/urtc/demo)
 * [FAQ](video/urtc/faq)
     
     
