@@ -2,12 +2,6 @@
 
 支持演示小班课/视频会议，大班课/直播，不同客户端可以互通，现在开始体验DEMO吧。
 
-
-
-|![](/images/demoImage/webImage.png)|![](/images/demoImage/andriodImage.png)|![](/images/demoImage/iosImage.png)|![](/images/demoImage/windowsImage.png) |
-|------------|------------|------------|------------|
-| [体验WEB](https://demo.urtc.com.cn/)      | [下载安卓](https://fir.im/91cy)    | [下载IOS](https://fir.im/vy1e)     | [下载Windows](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip)      |
-
 ## WEB DEMO
 
 ![](/images/demoImage/webImage.png)
