@@ -98,7 +98,7 @@ URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](ht
   
   - CPU占用率：当前应用在终端上的CPU占用率；CPU占用率低表示终端性能充足。
  
-    ![ ](/images/qualityImage/userquality39.png)    
+   ![ ](/images/qualityImage/userquality39.png) 
 
     
   - 内存使用情况：当前应用在终端上的内存使用数；内存使用数低且稳定表示终端性能充足。   
