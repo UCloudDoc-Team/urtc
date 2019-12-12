@@ -274,16 +274,43 @@ sdkEngine.setStreamRole(mRole);
    
   - 录像
 
- 录像目前只支持摄像头录制，不支持桌面录制，region和bucket这两个参数需要上ucloud控制台申请自己的录像存储空间，
- 测试demo 可以使用demo已经申请好的，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果，
- 会通过UCloudRtcSdkEventListener 的onRecordStop()接口作为回调返回录像结束结果。
+ 录像目前只支持摄像头录制，不支持桌面录制，region和bucket这两个参数默认用了ucloud自己的region和bucket，如果用自己的需要上ucloud控制台申请自己的录像存储空间，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果。
+
+需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式的情况下，主界面是哪个用户，哪个用户就占据大窗口。同时，这里的用户可以是当前App中推流的用户，也可以是当前App中被订阅的用户，这个参数只要靠mainviewuid去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的mainviewuid
+更多的录像的参数说明可以参照sdk文档以及https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md
 
 ```js
-//录像开始
-sdkEngine.startRecord(3,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal(),"region","bucket",
-UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_RESOLUTION_STANDARD.ordinal()); 
+//                如果主窗口是当前用户
+UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
+                        .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
+                        .mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
+                        .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
+                        .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
+                        .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
+                        .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
+                        .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
+                        .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
+                        .build();
+                sdkEngine.startRecord(recordProfile);
+                //如果主窗口不是当前推流用户，而是被订阅的用户
+//                UCloudRtcSdkStreamInfo uCloudRtcSdkStreamInfo = mVideoAdapter.getStreamInfo(0);
+//                if(uCloudRtcSdkStreamInfo != null){
+//                    UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
+//                            .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
+//                            .mainViewUserId(uCloudRtcSdkStreamInfo.getUId())
+//                            .mainViewMediaType(uCloudRtcSdkStreamInfo.getMediaType().ordinal())
+//                            .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
+//                            .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
+//                            .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
+//                            .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
+//                            .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
+//                            .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
+//                            .build();
+//                    sdkEngine.startRecord(recordProfile);
+//                }
 
-//UCloudRtcSdkEventListener 开始回调
+//UCloudRtcSdkEventListener 
+//录像开始回调
 void onRecordStart(int code,String fileName);
 
 //录像结束
@@ -293,6 +320,8 @@ sdkEngine.stopRecord();
 void onRecordStop(int code);
 ```  
   
+  - 外部扩展输入与输出
+sdk支持rgba系列数据（rgba，abgr，rgb565，）以及yuv420p的外部自定义输入，能够产出拉流的rgba,abgr的数据供使用者自行扩展使用，具体使用方式请参考demo内部的rgb转yuv接口使用说明.md 和 yuv转rgb接口使用说明.md
 
   - 离开房间
 
