@@ -10,7 +10,7 @@
 
 将 sdk 使用 ES6 语法作为模块引入。
 
-1）使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 [WEB SDK](https://github.com/ucloud/urtc-sdk-web):
+1）使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 WEB SDK:
 
 ```
 npm install --save urtc-sdk
@@ -23,6 +23,8 @@ yarn add urtc-sdk
 ```
 
 2）项目中引入并创建 client
+
+ [下载WEB SDK](https://github.com/ucloud/urtc-sdk-web)
 
 ```
 import { Client } from 'urtc-sdk';
