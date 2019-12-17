@@ -87,7 +87,7 @@ client.joinRoom(roomId, userId, () => {
 #### 开始录制音视频
 示例代码：
 
-```
+```JavaScript
 client.startRecording({
   bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
   region: string  // 必传，存储服务所在的地域
@@ -120,7 +120,7 @@ client.startRecording({
 #### 停止录制音视频
 示例代码：
 
-```
+```JavaScript
 client.stopRecording(function onSuccess() {
 
 	//停止录制成功时执行的回调函数
