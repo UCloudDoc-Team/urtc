@@ -94,7 +94,7 @@ client.leaveRoom();
 ## 1.7 服务端录制
 
 #### 前提条件
-需要在ucloud控制台UFile产品申请自己的录像存储空间，获取存储的bucket和存储服务所在的地域region，相关信息见控制台[UFile操作文档](https://docs.ucloud.cn/storage_cdn/ufile/quick/console)。
+开始录制之前，请确保开通录制服务，具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
 
 
 #### 开始录制音视频
