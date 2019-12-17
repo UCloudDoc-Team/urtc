@@ -276,8 +276,8 @@ sdkEngine.setStreamRole(mRole);
 
  录像目前只支持摄像头录制，不支持桌面录制，region和bucket这两个参数默认用了ucloud自己的region和bucket，如果用自己的需要上ucloud控制台申请自己的录像存储空间，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果。
 
-需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式的情况下，主界面是哪个用户，哪个用户就占据大窗口。同时，这里的用户可以是当前App中推流的用户，也可以是当前App中被订阅的用户，这个参数只要靠mainviewuid去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的mainviewuid
-更多的录像的参数说明可以参照sdk文档以及https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md
+需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式的情况下，主界面是哪个用户，哪个用户就占据大窗口。同时，这里的用户可以是当前App中推流的用户，也可以是当前App中被订阅的用户，这个参数只要靠mainviewuid去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的mainviewuid。
+更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
 
 ```js
 //                如果主窗口是当前用户
