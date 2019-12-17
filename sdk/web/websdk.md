@@ -78,7 +78,7 @@ client.joinRoom(roomId, userId, () => {
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
 
-## 1.5 服务端录制
+## 1.5 云端录制
 
 #### 前提条件
 开始录制之前，请确保开通录制服务，具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
