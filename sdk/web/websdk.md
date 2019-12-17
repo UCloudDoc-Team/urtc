@@ -50,7 +50,7 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 const client = new UCloudRTC.Client(appId, token);
 ```
 
-> 注：创建 client 时传的 token 需要使用 AppId 和 AppKey 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 generateToken 方法生成，但为保证 AppKey 不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](/video/urtc/sdk/token) 生成 token 供 sdk 使用。
+> 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/video/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
 ## 1.3 监听流事件
 
@@ -81,7 +81,7 @@ client.joinRoom(roomId, userId, () => {
 ## 1.5 云端录制
 
 #### 前提条件
-开始录制之前，请确保开通录制服务，获取存储的bucket和存储服务所在的地域region。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
+开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
 
 
 #### 开始录制音视频
@@ -115,7 +115,7 @@ client.startRecording({
 })
 ```
 
-> 注：录制可以指定主界面是哪个用户。当非均分模式，垂直风格下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠mainviewuid去实现。如果当前是客户端推流用户，可以不指定mainviewuid，sdk会自动获取，如果当前是客户端订阅的用户，就需要SDK使用者拿到当前订阅的用户id，用这个id去设置录制的mainviewuid 更多的录制的参数说明可以参照[录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)
+> 注：录制可以指定主界面是哪个用户。当非均分模式，垂直风格下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠mainviewuid去实现。如果当前是客户端推流用户，可以不指定mainviewuid，sdk会自动获取，如果当前是客户端订阅的用户，就需要SDK使用者拿到当前订阅的用户id，用这个id去设置录制的mainviewuid 更多的录制的参数说明可以参照[录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。
 
 #### 停止录制音视频
 示例代码：
