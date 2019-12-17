@@ -91,17 +91,18 @@ client.leaveRoom();
 
 ## 1.7 服务端录制
 
-前提条件：需要在ucloud控制台UFile产品申请自己的录像存储空间，获取存储的bucket和存储服务所在的地域region，相关信息见控制台[UFile操作文档](https://docs.ucloud.cn/storage_cdn/ufile/quick/console)。
+#### 前提条件
+需要在ucloud控制台UFile产品申请自己的录像存储空间，获取存储的bucket和存储服务所在的地域region，相关信息见控制台[UFile操作文档](https://docs.ucloud.cn/storage_cdn/ufile/quick/console)。
 
 
-### 开始录制音视频
+#### 开始录制音视频
 示例代码：
 
 ```
 client.startRecording(RecordOptions, onSuccess, onFailure)
 ```
 
-#### 参数说明
+##### 参数说明
 
 - RecordOptions: object 类型，必传，录制的配置信息，类型说明如下
 
@@ -161,14 +162,14 @@ function(Err) {}
 ```
 Err 为错误信息
 
-### 停止录制音视频
+#### 停止录制音视频
 示例代码：
 
 ```
 client.stopRecording(onSuccess, onFailure)
 ```
 
-#### 参数说明
+##### 参数说明
 
 - onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
 
