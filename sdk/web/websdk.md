@@ -106,11 +106,11 @@ client.startRecording({
 	}
 }, function onSuccess(Record) {
 
-	//录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
+	//开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
 
 }, function(Err) {
 
-	//录制错误返回值
+	//开始录制错误返回值
 
 })
 ```
