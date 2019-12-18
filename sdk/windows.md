@@ -94,6 +94,10 @@ m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 
 ### 5.7 录制视频
 
+#### 前提条件
+
+开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
+
 ```c++
 tUCloudRtcRecordConfig recordconfig;
 recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
@@ -106,7 +110,7 @@ recordconfig.mBucketRegion = "your bucket region";
 recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
 recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
 recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
-recordconfig.mMixerTemplateType = 4; [混流模板](http:https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md)
+recordconfig.mMixerTemplateType = 4; [混流模板](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)
 m_rtcengine->startRecord(recordconfig);
 m_rtcengine->startRecord(recordconfig);
 
@@ -115,7 +119,11 @@ m_rtcengine->startRecord(recordconfig);
 virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
 ``` 
 
-### 5.8 添加背景音（mp3 wav 格式）
+> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+
+更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
+
+### 5.8 添加背景音（mp3\wav 格式）
 
 ```c++
 m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
