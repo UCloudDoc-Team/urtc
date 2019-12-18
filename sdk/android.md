@@ -174,26 +174,12 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
 ### 6.2 设置自动/手动发布音视频流
 
   - 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
-  - 如果配置了手动发布需要调用`sdkEngine`引擎的`publish`接口 配置手动/自动发布。
 
 ```js
 sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
-  - 媒体发布类型
-
-现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。
-
-  - 混合类型
-
- * 音频+屏幕捕捉
- * 视频+屏幕捕捉
-- 单一类型
- * 音频 （mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）
- * 视频 （mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）
- * 屏幕捕捉 （mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）
-
-  - 手动发布媒体流
+  - 如果配置了手动发布需要调用`sdkEngine`引擎的`publish`接口 配置手动/自动发布。
 
 
 ```js
@@ -202,7 +188,22 @@ sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudi
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-### 6.3 渲染媒体流
+
+  - 媒体发布类型
+
+现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。
+
+    - 混合类型
+      - 音频+屏幕捕捉
+      - 视频+屏幕捕捉
+    - 单一类型
+      - 音频 （mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）
+      - 视频 （mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）
+      - 屏幕捕捉 （mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）
+
+
+
+  - 渲染本地媒体流
 
 在`onLocalPublish` 回调成功后，再函数中可以调用视频渲染。
 
@@ -212,7 +213,6 @@ sdkEngine.startPreview(info.getmMediatype(), localrenderview);
 不想渲染时可以调用停止渲染接口
 sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 ```
-
   - 取消发布媒体流
 
 ```js
@@ -221,7 +221,9 @@ sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-### 6.4 订阅媒体流
+
+
+### 6.3 订阅媒体流
 
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
 如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口。 
@@ -238,7 +240,7 @@ sdkEngine.subscribe(UCloudRtcSdkStreamInfo info)
 public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-  - 渲染媒体流
+  - 渲染订阅的媒体流
 
 在onSubscribeResult回调成功后，再函数中可以调用视频渲染
 
