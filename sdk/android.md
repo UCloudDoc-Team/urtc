@@ -170,7 +170,7 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         sdkEngine.joinChannel(info); 
 ```
 
-### 6.2 设置自动/手动发布音视频流
+### 6.2 发布媒体流
 
   - 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
 
