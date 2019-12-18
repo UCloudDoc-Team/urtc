@@ -18,16 +18,15 @@
 
 ## 4. 搭建开发环境
 
-  - 下载urtc android SDK包，SDK包为aar
-    格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。
+  - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。   
   - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
 
-
-
+```
     dependencies {
     implementation (name: 'ucloudrtclib_1.0.1_b52bc04c', ext: 'aar')
+```
 
-  - 如果项目混淆，请在混淆中添加一下urtc 混淆规则
+  - 如果项目混淆，请在混淆中添加一下urtc 混淆规则。
 
 
 
@@ -58,7 +57,7 @@
   - 添加权限
 
 在 Android 6.0 (API 23)开始，用户需要在应用运行时授予权限，而不是在应用安装时授予，并分为正常权限和危险权限两种类型。    
-在实时音视频SDK 中，用户需要在进入音视频通话房间前动态申请 `CAMERA`、`RECORD\_AUDIO`、`WRITE\_EXTERNAL\_STORAGE`权限，具体可以参考[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
+在实时音视频SDK 中，用户需要在进入音视频通话房间前动态申请 `CAMERA`、`RECORD\_AUDIO`、`WRITE\_EXTERNAL\_STORAGE`权限，具体可以参考[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 
 ```js
 <uses-feature android:name="android.hardware.camera" />
@@ -82,7 +81,7 @@
 
 ### 5.1 引擎环境初始化
 
-主要配置`android context sdkmode`以及`AppID` ，测试用的`SEC\_KEY`，日志等级
+主要配置`android context sdkmode`以及`AppID` ，测试用的`SEC\_KEY`，日志等级。
 
 ```js
 public class UCloudRtcApplication extends Application {
@@ -191,7 +190,7 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
   - 媒体发布类型
 
-现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。
+现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。    
     * 混合类型
       * 音频+屏幕捕捉
       * 视频+屏幕捕捉
@@ -241,7 +240,7 @@ public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
 
   - 渲染订阅的媒体流
 
-在onSubscribeResult回调成功后，再函数中可以调用视频渲染
+在onSubscribeResult回调成功后，再函数中可以调用视频渲染。
 
 ```js
 sdkEngine. startRemoteView(UCloudRtcSdkStreamInfo info, UCloudRtcSdkSurfaceVideoView renderview)
