@@ -194,9 +194,9 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
  - 混合类型：音频+屏幕捕捉、视频+屏幕捕捉   
  - 单一类型        
- - 1） 音频（mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）    
- - 2） 视频（mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）    
- - 3） 屏幕捕捉（mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）    
+   1） 音频（mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）    
+   2） 视频（mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）    
+   3） 屏幕捕捉（mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）    
 
 
 
