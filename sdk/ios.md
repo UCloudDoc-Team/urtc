@@ -349,4 +349,4 @@ self.engine?.unSubscribeMethod(remoteStream)
 self.engine?.leaveRoom()
 ```
 
-### 6.9 编译、运行，开始体验吧！
+### 6.8 编译、运行，开始体验吧！
