@@ -4,7 +4,7 @@
 
 ## 1. 下载资源
 
-  - 可以下载Demo、SDK、API Java 文档  
+  - 可以下载Demo、SDK、API 接口文档  
     [现在下载](https://github.com/ucloud/urtc-android-demo)
 
 ## 2. 开发语言以及系统要求
