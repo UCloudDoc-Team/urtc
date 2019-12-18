@@ -115,7 +115,9 @@ client.startRecording({
 })
 ```
 
-> 注：录制可以指定主界面是哪个用户。当非均分模式，垂直风格下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠mainviewuid去实现。如果当前是客户端推流用户，可以不指定mainviewuid，sdk会自动获取，如果当前是客户端订阅的用户，就需要SDK使用者拿到当前订阅的用户id，用这个id去设置录制的mainviewuid 更多的录制的参数说明可以参照[录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。
+> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+
+更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
 
 #### 停止录制音视频
 示例代码：
