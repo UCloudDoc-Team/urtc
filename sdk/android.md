@@ -19,9 +19,8 @@
 ## 4. 搭建开发环境
 
   - 下载urtc android SDK包，SDK包为aar
-    格式，名称为ucloudrtclib开头加版本号加一串8位识别码，可以参考github上的接入demo。
-  - 将aar 文件拷贝到自己的lib 目录下，然后添加到lib 中，修改要使用sdk模块目录下的
-    build.gradle，确保已经添加了如下依赖，如下所示：
+    格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。
+  - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
 
 
 
@@ -58,11 +57,8 @@
 
   - 添加权限
 
-在 Android 6.0 (API 23)
-开始，用户需要在应用运行时授予权限，而不是在应用安装时授予，并分为正常权限和危险权限两种类型。在实时音视频
-SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、RECORD\_AUDIO、WRITE\_EXTERNAL\_STORAGE
-权限，具体可以参考
-[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
+在 Android 6.0 (API 23)开始，用户需要在应用运行时授予权限，而不是在应用安装时授予，并分为正常权限和危险权限两种类型。    
+在实时音视频SDK 中，用户需要在进入音视频通话房间前动态申请 `CAMERA`、`RECORD\_AUDIO`、`WRITE\_EXTERNAL\_STORAGE`权限，具体可以参考[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)
 
 ```js
 <uses-feature android:name="android.hardware.camera" />
@@ -84,9 +80,9 @@ SDK 中，用户需要在进入音视频通话房间前动态申请 CAMERA、REC
 
 ## 5. 初始化
 
-  - 引擎环境初始化
+### 5.1 引擎环境初始化
 
-主要配置android context sdkmode以及AppID ，测试用的SEC\_KEY,日志等级
+主要配置`android context sdkmode`以及`AppID` ，测试用的`SEC\_KEY`，日志等级
 
 ```js
 public class UCloudRtcApplication extends Application {
@@ -107,7 +103,7 @@ public class UCloudRtcApplication extends Application {
     }
 ```
 
-  - 继承实现UCloudRtcSdkEventListener 实现事件处理
+### 5.2 继承实现`UCloudRtcSdkEventListener` 实现事件处理
 
 
 ```js
@@ -146,7 +142,7 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         }
 ```
 
-  - 获取SDK 引擎 并进行基础配置
+### 5.3 获取SDK 引擎 并进行基础配置
 
 ```js
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
@@ -161,7 +157,7 @@ sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;/
 
 ## 6. 建立通话
 
-  - 加入房间
+### 6.1 加入房间
 
 
 
@@ -175,10 +171,10 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         sdkEngine.joinChannel(info); 
 ```
 
-  - 自动/手动发布
+### 6.2 设置自动/手动发布音视频流
 
-如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
-如果配置了手动发布需要调用sdkEngine引擎的publish接口 配置手动/自动发布
+  - 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
+  - 如果配置了手动发布需要调用`sdkEngine`引擎的`publish`接口 配置手动/自动发布。
 
 ```js
 sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
@@ -186,7 +182,7 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 
   - 媒体发布类型
 
-现在的类型包括两大类，需要传入publish接口的mtype,hasvideo,hasaudio参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的RoomActvity中的处理。
+现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。
 
   - 混合类型
 
@@ -206,9 +202,9 @@ sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudi
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-  - 渲染媒体流
+### 6.3 渲染媒体流
 
-在onLocalPublish 回调成功后，再函数中可以调用视频渲染
+在`onLocalPublish` 回调成功后，再函数中可以调用视频渲染。
 
 ```js
 localrenderview.setBackgroundColor(Color.TRANSPARENT);
@@ -225,11 +221,10 @@ sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
-  - 自动订阅
+### 6.4 订阅媒体流
 
-如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也
-会自动订阅他推的流。
-如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口 
+如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
+如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口。 
 
 ```js
 sdkEngine.setAutoSubscribe(mScribeMode == CommonUtils.AUTO_MODE ? true : false);
@@ -261,9 +256,9 @@ sdkEngine. subscribe(UCloudRtcSdkStreamInfo info)
 public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info)
 ```
 
-  - 权限控制
+### 6.4 用户发布和订阅的权限控制
 
-权限分为发布，订阅，全部权限，全部权限包括了发布和订阅
+权限分为发布，订阅，全部权限，全部权限包括了发布和订阅。
 
 ```js
 //接口
@@ -272,12 +267,11 @@ public int setStreamRole(UCloudRtcSdkStreamRole role)
 sdkEngine.setStreamRole(mRole);
 ```
    
-  - 录像
+### 6.5 录像
 
- 录像目前只支持摄像头录制，不支持桌面录制，region和bucket这两个参数默认用了ucloud自己的region和bucket，如果用自己的需要上ucloud控制台申请自己的录像存储空间，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果。
+录像目前只支持摄像头录制，不支持桌面录制，`region`和`bucket`这两个参数默认用了ucloud的`region`和`bucket`，如果用自己的需要上ucloud控制台申请自己的录像存储空间，服务器会通过UCloudRtcSdkEventListener 的onRecordStart()接口作为回调返回录像开始结果。
 
-需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式的情况下，主界面是哪个用户，哪个用户就占据大窗口。同时，这里的用户可以是当前App中推流的用户，也可以是当前App中被订阅的用户，这个参数只要靠mainviewuid去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的mainviewuid。
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
+> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、平铺模式下，主界面是哪个用户，哪个用户就占据大窗口。同时，这里的用户可以是当前App中推流的用户，也可以是当前App中被订阅的用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
 
 ```js
 //                如果主窗口是当前用户
@@ -320,15 +314,15 @@ sdkEngine.stopRecord();
 void onRecordStop(int code);
 ```  
   
-  - 外部扩展输入与输出
-sdk支持rgba系列数据（rgba，abgr，rgb565，）以及yuv420p的外部自定义输入，能够产出拉流的rgba,abgr的数据供使用者自行扩展使用，具体使用方式请参考demo内部的rgb转yuv接口使用说明.md 和 yuv转rgb接口使用说明.md
+### 6.6 外部扩展输入与输出
+sdk支持`rgba`系列数据（`rgba`，`abgr`，`rgb565`）以及`yuv420p`的外部自定义输入，能够产出拉流的`rgba`,`abgr`的数据供使用者自行扩展使用，具体使用方式请参考 [demo](https://github.com/ucloud/urtc-android-demo)路径下的`rgb转yuv接口使用说明.md` 和 `yuv转rgb接口使用说明.md`。
 
-  - 离开房间
 
+### 6.7 离开房间
 
 
 ```js
 sdkEngine.leaveChannel() ;
 ```
 
-  - 编译、运行，开始体验吧！
+### 6.8 编译、运行，开始体验吧！
