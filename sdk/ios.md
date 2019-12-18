@@ -267,7 +267,11 @@ self.engine?.unSubscribeMethod(remoteStream)
 
 ### 6.6 开始视频录制
 
-1）配置视频录制相关参数，开始视频录制；
+#### 前提条件
+开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
+
+#### 开始录制
+
 ```objective-c
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
   recordConfig.mainviewid = userId;  //主窗口位置用户id
@@ -301,7 +305,15 @@ self.engine?.unSubscribeMethod(remoteStream)
   recordConfig.wtemplate = 9;         //模板
   self.engine?.startRecord(recordConfig)
 ```
-2）视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
+
+> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+
+更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。 
+
+
+#### 获取录制的文件地址
+
+视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
  ```objective-c
    -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
@@ -317,7 +329,7 @@ self.engine?.unSubscribeMethod(remoteStream)
     
  ```  
 
-### 6.7 停止视频录制
+#### 停止录制
 
 ```objective-c
     [self.manager stopRecord];
@@ -326,7 +338,7 @@ self.engine?.unSubscribeMethod(remoteStream)
 ```swift
     self.manager?.stopRecord()
 ```
-### 6.8 离开房间
+### 6.7 离开房间
 
 ```objective-c
 [self.engine leaveRoom];   
