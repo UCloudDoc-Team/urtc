@@ -190,14 +190,14 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
   - 媒体发布类型
 
-现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。    
-    * 混合类型
-      * 音频+屏幕捕捉
-      * 视频+屏幕捕捉
-    * 单一类型
-      * 音频 （mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）
-      * 视频 （mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）
-      * 屏幕捕捉 （mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）
+现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。        
+    - 混合类型    
+      - 音频+屏幕捕捉    
+      - 视频+屏幕捕捉    
+    - 单一类型    
+      - 音频（mtype:urtc_sdk_media_type_video,hasvideo:false,hasaudio:true）    
+      - 视频（mtype:urtc_sdk_media_type_video,hasvideo:true,hasaudio:true）    
+      - 屏幕捕捉（mtype:urtc_sdk_media_type_screen,hasvideo:true,hasaudio:false）    
 
 
 
