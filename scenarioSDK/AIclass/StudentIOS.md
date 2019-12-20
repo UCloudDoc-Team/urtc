@@ -232,10 +232,10 @@ self.engine?.unPublish()
 
 ### 6.6 本地录制	
 
-  
+### 6.7 IM自定义消息	
 
 
-### 6.7. 订阅远程流  
+### 6.8. 订阅远程流  
 
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
 2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
@@ -263,7 +263,7 @@ self.engine?.subscribeMethod(remoteStream)
 }
 ```
 
-### 6.8. 取消订阅远程流
+### 6.9. 取消订阅远程流
 
 ```objective-c
 [self.engine unSubscribeMethod:remoteStream];
@@ -273,79 +273,7 @@ self.engine?.subscribeMethod(remoteStream)
 self.engine?.unSubscribeMethod(remoteStream)
 ```
 
-### 6.9 云端录制
 
-#### 前提条件
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
-
-#### 开始录制
-
-```objective-c
-  UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
-  recordConfig.mainviewid = userId;  //主窗口位置用户id
-  recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
-  recordConfig.mainviewmt = 1;       //主窗口的媒体类型 1 摄像头 2 桌面
-  recordConfig.bucket = @"urtc-test";//存储地址的名称
-  recordConfig.region = @"cn-bj";    //所属的region
-  recordConfig.watermarkpos = 1;     //水印的位置
-  recordConfig.width = 360;          //录制视频的宽
-  recordConfig.height = 480;         //录制视频的高
-  recordConfig.isaverage = YES;      //是否均分
-  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
-  recordConfig.watertype = 1;        //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
-  recordConfig.wtemplate = 9;        //模板
-  [self.engine startRecord:recordConfig];   
-```
-
-```swift
-  let recordConfig = UCloudRtcRecordConfig.init()
-  recordConfig.mainviewid = userId;   //主窗口位置用户id
-  recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
-  recordConfig.mainviewmt = 1;        //主窗口的媒体类型 1 摄像头 2 桌面
-  recordConfig.bucket = "urtc-test";  //存储地址的名称
-  recordConfig.region = "cn-bj";      //所属的region
-  recordConfig.watermarkpos = 1;      //水印的位置
-  recordConfig.width = 360;           //录制视频的宽
-  recordConfig.height = 480;          //录制视频的高
-  recordConfig.isaverage = YES;       //是否均分
-  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
-  recordConfig.watertype = 1;         //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
-  recordConfig.wtemplate = 9;         //模板
-  self.engine?.startRecord(recordConfig)
-```
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。 
-
-
-#### 获取录制的文件地址
-
-视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
-
- ```objective-c
-   -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
-      [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
-    }
-    
-```
-
-```swift
-  func uCloudRtcEngine(_ manager: UCloudRtcEngine, startRecord recordResponse: [AnyHashable : Any]) {
-        CBToast.showToastAction(message: NSString(format: "视频录制文件:%@", recordResponse["FileName"] as! CVarArg))
-    }
-    
- ```  
-
-#### 停止录制
-
-```objective-c
-    [self.manager stopRecord];
-```
-
-```swift
-    self.manager?.stopRecord()
-```
 ### 6.10 离开房间
 
 ```objective-c
@@ -357,4 +285,4 @@ self.engine?.unSubscribeMethod(remoteStream)
 self.engine?.leaveRoom()
 ```
 
-### 6.8 编译、运行，开始体验吧！
+### 6.11 编译、运行，开始体验吧！
