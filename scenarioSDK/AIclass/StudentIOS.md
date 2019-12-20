@@ -13,7 +13,7 @@
 ## 2.下载资源
 
   - 可以下载 Demo、SDK、API文档  
-    [现在下载URTC]()   
+    [现在下载URTC](http://urtcsdk.cn-bj.ufileos.com/UCloudRtcSdk_ios.zip)   
     [现在下载IM](http://urtcsdk.cn-bj.ufileos.com/UCloudIMSdk_ios.zip)   
 
 
