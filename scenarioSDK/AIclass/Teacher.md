@@ -4,83 +4,132 @@
 
   - 推mp4视频流
   - 无缝切换视频源
-  - xx
-  - xx
+  - 接收学生推流，后续对接AI处理语音和视频
 
 ## 2. 下载资源
 
   - 可以下载Demo、SDK、API文档  
   
-    [现在下载]()  
+    [现在下载](http://urtcsdk.cn-bj.ufileos.com/urtclib.zip)  
 
 ## 3. 开发语言以及系统要求
 
   - 开发语言：C++  
-  - 系统要求：Windows 7 及以上版本的 Windows 系统  
+  - 系统要求：x64 ubuntu14.04 及以上
 
 ## 4. 开发环境
 
-  - Visual Studio 2015 及其它c++ 开发环境  
-  - Win32 Platform  
+ gcc4.9.4
 
 ## 5. 搭建开发环境
 
   - 导入 SDK    
   
-1） 将 sdk/include 目录添加到项目的 INCLUDE 目录下。    
-2） 将 sdk/lib 目录放入项目的 LIB 目录下。  
-3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
+1） 将 urtclib/include 目录添加到项目的 INCLUDE 目录下。    
+2） 将 urtclib/lib 目录放入项目的 LIB 目录下。  
+3)  编写cmake 或者 makefile 编译 
 
 
-## 6. 初始化
+## 6. 快速接入
+### 6.1. 继承实现UCloudRtcEventListener，用作事件处理
 
-### 6.1 创建推流器
-
-``` c++
-
-
+```c++
+Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
+……
+};
+UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
 ```
 
-### 6.2 回调推流器事件
+### 6.2 初始化引擎 
 
 ``` c++
-
-
-
+m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
+m_rtcengine = UCloudRtcEngine::sharedInstance(UCloudRtcEventListener实现类);
+m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
+m_rtcengine->setSdkMode(UCLOUD_RTC_SDK_MODE_TRIVAL);
+m_rtcengine->setChannelTye(UCLOUD_RTC_CHANNEL_TYPE_COMMUNICATION);
+m_rtcengine->setStreamRole(UCLOUD_RTC_USER_STREAM_ROLE_BOTH);
+m_rtcengine->setTokenSecKey(TEST_SECKEY);//测试模式下设置自己的秘钥
+m_rtcengine->setAudioOnlyMode(false);
+m_rtcengine->setAutoPublishSubscribe(false, true);
+m_rtcengine->configLocalAudioPublish(false)；
+m_rtcengine->configLocalCameraPublish(true);
+m_rtcengine->configLocalScreenPublish(false);
 ```
 
-### 6.3 开始/切换视频流
+### 6.2 添加mp4 列表
 
 ``` c++
-
-
-
+m_rtcengine->addMp4File(filebuf, size, cleanup);
 ```
 
-### 6.4 回调视频播放进度
+### 6.3. 加入房间
 
-``` c++
+```c++
+tUCloudRtcAuth auth;
+auth.mAppId = appid;
+auth.mRoomId = roomid;
+auth.mUserId = userid;
+auth.mUserToken = "1223222";
+m_rtcengine->joinChannel(auth);
+```
 
+### 6.4. 发布本地文件列表
 
+```c++
+tUCloudRtcMediaConfig config;
+config.mAudioEnable = true;
+config.mVideoEnable = true;
+m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,
+            config.mAudioEnable)
+```
 
+### 6.5. 取消发布文件列表
+
+```c++
+tUCloudRtcVideoCanvas view;
+view.mVideoView = (int)m_localWnd->GetVideoHwnd();
+view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
+m_rtcengine->stopPreview(view);
+m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
+```
+
+### 6.6. 订阅流
+
+```c++
+m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
+```
+
+### 6.7. 取消订阅流
+
+```c++
+m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
+```
+
+### 6.8. 录制房间混流
+
+```c++
+tUCloudRtcRecordConfig recordconfig;
+recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
+recordconfig.mMainviewuid = m_userid.data(); // 主画面
+recordconfig.mProfile = UCLOUD_RTC_RECORDPROFILE_SD; // 录制等级
+recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
+recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
+recordconfig.mBucket = "your bucket";
+recordconfig.mBucketRegion = "your bucket region";
+recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
+recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
+recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
+recordconfig.mMixerTemplateType = 4; [混流模板](http:https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md)
+m_rtcengine->startRecord(recordconfig);
+
+消息回调
+//开启录制回调
+virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
 ``` 
 
+### 6.6. 离开房间
 
-
-### 6.5 销毁推流器
-
-``` c++
-
-
-
+```c++
+m_rtcengine->leaveChannel ()
 ```
-
-### 6.6 错误码
-
-``` c++
-
-
-
-```
-
-
