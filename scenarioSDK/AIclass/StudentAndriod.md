@@ -231,6 +231,8 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 等待更新
 ### 6.4 本地截图
 view传本地的就是本地截图，远端的view就是远端的截图
+
+```js
 private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
         view.setScreenShotBack(new UcloudRTCSceenShot() {
             @Override
@@ -255,6 +257,7 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
             }
         });
 }
+```
 
 ### 6.5 本地录制	
 等待更新
