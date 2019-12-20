@@ -14,7 +14,7 @@
 
   - 可以下载Demo、SDK、API 接口文档  
     [现在下载URTC](https://github.com/ucloud/urtc-android-demo/)   
-    [现在下载IM]()   
+    [现在下载IM以及URTC](https://github.com/ucloud/urtc-android-demo/tree/dev)   
 
 ## 3. 开发语言以及系统要求
 
@@ -33,17 +33,21 @@
 ```
     dependencies {
     implementation (name: 'ucloudrtclib_1.6.2_ee9bbf43', ext: 'aar')
+    implementation (name: 'ucloudimlib_1.0_e053d8bc', ext: 'aar')
+    implementation (name: 'ucloud_base_1.0_6279f2ae', ext: 'aar')
+    
 ```
 
-  - 如果项目混淆，请在混淆中添加一下urtc 混淆规则。
-
+  - 如果项目混淆，请在混淆中添加一下urtc和uim的 混淆规则。
 
 
 ```js
+ //rtc部分
 -keep class com.ucloudrtclib.sdkengine.**{*;}
 -keep class com.ucloudrtclib.sdkengine.define.*{*;}
 -keep enum com.ucloudrtclib.sdkengine.define.*{*;}
-
+-keep class com.ucloudrtclib.common.**{*;}
+-keep class com.ucloudrtclib.monitor.**{*;}
 -keepclassmembers class com.ucloudrtclib.sdkengine.UCloudRtcSdkEnv {
     public static <methods>;
 }
@@ -52,16 +56,38 @@
     public <methods>;
     public static <methods>;
 }
+#保护类名和类内所有成员
 -keep class org.webrtc.** {
     *;
 }
 
+//im部分
+
+-keep class com.ucloud.business.im.sdkengine.**{*;}
+-keep class com.ucloud.business.im.sdkengine.define.*{*;}
+-keep enum com.ucloud.business.im.sdkengine.define.*{*;}
+-keep class com.ucloud.business.base.UcloudBusSdkEventListener{*;}
+-keep class com.ucloud.business.base.UCloudBusVirtualEngine{*;}
+-keep class com.ucloud.business.base.UcloudBusSdkEngineImpl{*;}
+-keep class com.ucloud.business.im.logicengine.UcloudIMSdkEngineImpl{*;}
+
+
+-keepclassmembers interface com.ucloud.business.im.sdkengine.UcloudIMSdkEngine {
+    public <methods>;
+    public static <methods>;
+}
+
+-keepclassmembers interface com.ucloud.business.im.sdkengine.UcloudIMSdkEventListener {
+    public <methods>;
+    public static <methods>;
+}
+
+-keepclassmembers interface com.ucloud.business.base.UcloudBusSdkEventListener {
+    public <methods>;
+    public static <methods>;
+}
 
 ```
-
-  - 目录结构
-
-![](/images/sdk/aar.png)
 
   - 添加权限
 
@@ -110,11 +136,19 @@ public class UCloudRtcApplication extends Application {
         }
     }
 ```
+### 5.3 创建rtc和im引擎
 
-### 5.2 继承实现`UCloudRtcSdkEventListener` 实现事件处理
+```js
+
+sdkEngine = UCloudRtcSdkEngine.createEngine(eventListener);
+imEngine = UcloudIMSdkEngine.createEngine(mIMSdkEventListener);
+
+```
+### 5.4 继承实现`UCloudRtcSdkEventListener` 实现事件处理
 
 
 ```js
+//rtc回调
 UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
         public void onServerDisconnect() {
@@ -148,9 +182,81 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
                 }
             });
         }
+            
+   更多具体请参考代码以及rtc文档 。
+  
+  //im 回调
+    UcloudIMSdkEventListener mIMSdkEventListener = new UcloudIMSdkEventListener(){
+
+        @Override
+        public void onSendCustomerMsg(String msg) {
+            Log.d(TAG, "onIMSendCustomerMsg : "+ msg);
+            try {
+                JSONObject jsonObject = new JSONObject(msg);
+                String content  = jsonObject.getString("msg");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onReceiveCustomMsg(String msg) {
+            Log.d(TAG, "onReceiveCustomMsg: "  + msg);
+            JSONObject jsonObject = null;
+            try {
+                jsonObject = new JSONObject(msg);
+                JSONObject data = jsonObject.getJSONObject("msg");
+                String content = data.getString("content");
+                Log.d(TAG, "onReceiveCustomMsg: "  + " content: "+ content.toString());
+//                JSONObject contentJson = new JSONObject(content);
+//                Log.d(TAG, "onReceiveCustomMsg: "  + " contentJson: "+ contentJson.getString("title"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        @Override
+        public void onReceiveMsg(String msg) {
+            Log.d(TAG, "onReceiveMsg common msg: "+ msg);
+        }
+
+        @Override
+        public void onJoinRoomResult(int code, String msg, String roomid) {
+            Log.d(TAG, "onIMJoinRoomResult: " + code + " msg: "+ msg + " roomid: "+ roomid);
+        }
+
+        @Override
+        public void onLeaveRoomResult(int code, String msg, String roomid) {
+            Log.d(TAG, "onIMLeaveRoomResult: " + code + " msg: "+ msg + " roomid: "+ roomid);
+            receiveLeaveIMQuit = true;
+            leaveRoom();
+        }
+
+        @Override
+        public void onRejoiningRoom(String roomid) {
+            Log.d(TAG, "onIMRejoiningRoom: "+ roomid);
+        }
+
+        @Override
+        public void onRejoinRoomResult(String roomid) {
+            Log.d(TAG, "onIMRejoinRoomResult: "+ roomid);
+        }
+
+        @Override
+        public void onServerDisconnect() {
+            Log.d(TAG, "onIMonServerDisconnect: ");
+        }
+
+        @Override
+        public void onServerConnect() {
+            Log.d(TAG, "onIMonServerConnect: ");
+        }
+    };
+      
 ```
 
-### 5.3 获取SDK 引擎 并进行基础配置
+### 5.5 获取SDK 引擎 并进行基础配置
 
 ```js
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
@@ -170,13 +276,22 @@ sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;/
 
 
 ```js
+//rtc 加入房间
 UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         info.setAppId(mAppid);
         info.setToken(mRoomToken);
         info.setRoomId(mRoomid);
         info.setUId(mUserid);
         Log.d(TAG, " roomtoken = " + mRoomToken);
-        sdkEngine.joinChannel(info); 
+        sdkEngine.joinChannel(info);
+ 
+ //im 加入房间 
+ UCloudIMSdkAuthInfo imSdkAuthInfo = new UCloudIMSdkAuthInfo();
+        imSdkAuthInfo.setAppId(mAppid);
+        imSdkAuthInfo.setRoomId(mRoomid);
+        imSdkAuthInfo.setUId(mUserid);
+//        imSdkAuthInfo.setIMRole(UCloudIMRole.UCLOUD_IM_ROLE_TEACHER);
+        imEngine.joinChannel(imSdkAuthInfo);
 ```
 
 ### 6.2 发布媒体流
@@ -262,7 +377,23 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 ### 6.5 本地录制	
 等待更新
 ### 6.6 IM自定义消息	
-等待更新
+
+```js
+ mSendMsgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    JSONObject content = new JSONObject();
+                    content.put("title","test customer");
+                    imEngine.pushCustomerMessage("test",content.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+```
+
 ### 6.7 订阅媒体流
 
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
@@ -314,7 +445,28 @@ sdkEngine.setStreamRole(mRole);
 
 
 ```js
+//rtc离开房间申请
 sdkEngine.leaveChannel() ;
+//等待rtc离开房间回调 
+@Override
+        public void onLeaveRoomResult(int code, String msg, String roomid) {
+            Log.d(TAG, "onRTCLeaveRoomResult: " + code + " msg: "+ msg + " roomid: "+ roomid);
+            receiveRTCQuit = true;
+            leaveRoom();
+        }
+ //im离开房间申请
+ imEngine.leaveChannel();
+ //IM离开房间回调
+  @Override
+        public void onLeaveRoomResult(int code, String msg, String roomid) {
+            Log.d(TAG, "onIMLeaveRoomResult: " + code + " msg: "+ msg + " roomid: "+ roomid);
+            receiveLeaveIMQuit = true;
+            leaveRoom();
+        }
 ```
 
-### 6.10 编译、运行，开始体验吧！
+### 6.10 destroy清理
+```js
+        UCloudRtcSdkEngine.destory();
+        UcloudIMSdkEngine.destory();
+ ```       
