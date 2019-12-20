@@ -1,21 +1,32 @@
 # 学生端Android SDK指南
 
-## 1. 下载资源
+## 1. 功能说明
+
+  - 支持加入房间
+  - 支持房间内推流
+  - 支持接收教师的服务器推流
+  - 支持 
+  - 
+  -   
+  - 
+  -  
+
+## 2.下载资源
 
   - 可以下载Demo、SDK、API 接口文档  
     [现在下载URTC]()   
     [现在下载IM]()   
 
-## 2. 开发语言以及系统要求
+## 3. 开发语言以及系统要求
 
   - 开发语言：Java
   - 系统要求：Android 5.0以上版本
 
-## 3. 开发环境
+##  4. 开发环境
 
   - android studio 需要android SDK
 
-## 4. 搭建开发环境
+### 搭建开发环境
 
   - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。   
   - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
@@ -217,9 +228,15 @@ sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
+### 6.3 播放网络音频
 
+### 6.4 本地截图	
 
-### 6.3 订阅媒体流
+### 6.5 本地录制	
+
+### 6.6 IM自定义消息	
+
+### 6.7 订阅媒体流
 
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
 如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口。 
@@ -254,7 +271,7 @@ sdkEngine. subscribe(UCloudRtcSdkStreamInfo info)
 public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info)
 ```
 
-### 6.4 用户发布和订阅的权限控制
+### 6.8 用户发布和订阅的权限控制
 
 权限分为发布，订阅，全部权限，全部权限包括了发布和订阅。
 
@@ -266,24 +283,11 @@ sdkEngine.setStreamRole(mRole);
 ```
 
 
-### 6.5 播放网络音频
-
-### 6.6 本地截图	
-
-### 6.7 本地录制	
-
-### 6.8 IM自定义消息	
-
-  
-### 6.9 外部扩展输入与输出
-sdk支持`rgba`系列数据（`rgba`，`abgr`，`rgb565`）以及`yuv420p`的外部自定义输入，能够产出拉流的`rgba`,`abgr`的数据供使用者自行扩展使用，具体使用方式请参考 [demo](https://github.com/ucloud/urtc-android-demo)路径下的`rgb转yuv接口使用说明.md` 和 `yuv转rgb接口使用说明.md`。
-
-
-### 6.10 离开房间
+### 6.9 离开房间
 
 
 ```js
 sdkEngine.leaveChannel() ;
 ```
 
-### 6.11 编译、运行，开始体验吧！
+### 6.10 编译、运行，开始体验吧！
