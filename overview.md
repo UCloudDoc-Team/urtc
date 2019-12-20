@@ -1,7 +1,7 @@
 # 概览
 
 * 产品简介
-    * [什么是URTC](video/urtc/introduction/concept)
+    * [什么是URTC](video/urtc/introduction/concept.md)
     * [产品功能](video/urtc/introduction/functions)
     * [产品架构](video/urtc/introduction/structure)
 * [使用场景](video/urtc/scenario)
