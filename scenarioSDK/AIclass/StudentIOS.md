@@ -14,7 +14,7 @@
 
   - 可以下载 Demo、SDK、API文档  
     [现在下载URTC]()   
-    [现在下载IM]()   
+    [现在下载IM](http://urtcsdk.cn-bj.ufileos.com/UCloudIMSdk_ios.zip)   
 
 
 ## 3.开发语言以及系统要求
