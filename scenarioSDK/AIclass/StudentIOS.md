@@ -85,7 +85,7 @@ Privacy - Microphone Usage Description
 ### 5.1. 导入 SDK 头文件  
 
 ```objective-c
-<UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
+#import <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
 ```   
 
 ```swift
@@ -236,13 +236,41 @@ self.engine?.unPublish()
 ``` 
 
 ### 6.4 播放网络音频
-
+---待更新---
 ### 6.5 本地截图	
-
+```
+    UIGraphicsBeginImageContext(view.frame.size);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    UIImage *image =  UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+```
 ### 6.6 本地录制	
-
+---待更新---
 ### 6.7 IM自定义消息	
-
+1）导入UCloudIMSdk
+```
+#import <UCloudIMSdk/UCloudIMSdk.h>
+```
+2）初始化UCloudIMEngine
+```
+    UCloudIMEngine *imEngine = [UCloudIMEngine sharedImEngine];
+    [imEngine cutOffConnect];
+    imEngine.delegate = self;
+    imEngine.userId = userId;
+    imEngine.roomId = roomId;
+    imEngine.appId = appId;
+```
+3）加入房间
+```
+    ....
+    [self.imEngine joinRoom:parameters completionHandler:^(NSData * _Nullable data, NSError * _Nullable error) {}];
+```
+4）发送自定义消息
+```
+    ....
+    [self.imEngine pushCustomContent:parameters completionHandler:^(NSData * _Nullable data, NSError * _Nullable error) {}];
+```
 ### 6.8. 订阅远程流  
 
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
