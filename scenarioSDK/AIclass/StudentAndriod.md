@@ -32,7 +32,7 @@
 
 ```
     dependencies {
-    implementation (name: 'ucloudrtclib_1.0.1_b52bc04c', ext: 'aar')
+    implementation (name: 'ucloudrtclib_1.6.2_ee9bbf43', ext: 'aar')
 ```
 
   - 如果项目混淆，请在混淆中添加一下urtc 混淆规则。
@@ -228,13 +228,38 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
 ### 6.3 播放网络音频
-
-### 6.4 本地截图	
+等待更新
+### 6.4 本地截图
+view传本地的就是本地截图，远端的view就是远端的截图
+private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
+        view.setScreenShotBack(new UcloudRTCSceenShot() {
+            @Override
+            public void onReceiveRGBAData(ByteBuffer rgbBuffer, int width, int height) {
+                final Bitmap bitmap = Bitmap.createBitmap(width * 1, height * 1, Bitmap.Config.ARGB_8888);
+                bitmap.copyPixelsFromBuffer(rgbBuffer);
+                String name = "/mnt/sdcard/urtcscreen_"+System.currentTimeMillis() +".jpg";
+                File file = new File(name);
+                try {
+                    FileOutputStream out = new FileOutputStream(file);
+                    if (bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)) {
+                        out.flush();
+                        out.close();
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Log.d(TAG, "screen shoot : " + name);
+                ToastUtils.shortShow(RoomActivity.this,"screen shoot : " + name);
+            }
+        });
+}
 
 ### 6.5 本地录制	
-
+等待更新
 ### 6.6 IM自定义消息	
-
+等待更新
 ### 6.7 订阅媒体流
 
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
