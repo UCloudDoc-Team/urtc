@@ -106,29 +106,8 @@ m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
-### 6.8. 录制房间混流
 
-```c++
-tUCloudRtcRecordConfig recordconfig;
-recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
-recordconfig.mMainviewuid = m_userid.data(); // 主画面
-recordconfig.mProfile = UCLOUD_RTC_RECORDPROFILE_SD; // 录制等级
-recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
-recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
-recordconfig.mBucket = "your bucket";
-recordconfig.mBucketRegion = "your bucket region";
-recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
-recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
-recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
-recordconfig.mMixerTemplateType = 4; [混流模板](http:https://github.com/UCloudDocs/urtc/blob/master/cloudRecord/RecordLaylout.md)
-m_rtcengine->startRecord(recordconfig);
-
-消息回调
-//开启录制回调
-virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
-``` 
-
-### 6.6. 离开房间
+### 6.8. 离开房间
 
 ```c++
 m_rtcengine->leaveChannel ()
