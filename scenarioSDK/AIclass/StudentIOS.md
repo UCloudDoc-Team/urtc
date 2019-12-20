@@ -237,7 +237,9 @@ self.engine?.unPublish()
 
 ### 6.4 播放网络音频
 ---待更新---
+
 ### 6.5 本地截图	
+
 ```
     UIGraphicsBeginImageContext(view.frame.size);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
@@ -245,8 +247,10 @@ self.engine?.unPublish()
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
 ```
+
 ### 6.6 本地录制	
 ---待更新---
+
 ### 6.7 IM自定义消息	
 1）导入UCloudIMSdk
 ```
