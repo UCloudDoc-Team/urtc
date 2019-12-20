@@ -13,7 +13,7 @@
 ## 2.下载资源
 
   - 可以下载Demo、SDK、API 接口文档  
-    [现在下载URTC]()   
+    [现在下载URTC](https://github.com/ucloud/urtc-android-demo/)   
     [现在下载IM]()   
 
 ## 3. 开发语言以及系统要求
