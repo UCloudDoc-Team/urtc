@@ -24,10 +24,6 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
   
 ![ ](/images/record/newBucket.png)
 	 
- - 在没有对象存储的情况下，需要去对象存储Ufile 下，创建一个存储。  
-
-![ ](/images/record/creatBucket.png) 
-	 
  - 已经配置了对象存储的情况下，可以直接选择配置的存储空间，配置完毕即可。  
 
 ![ ](/images/record/newBucket2.png) 
@@ -36,17 +32,20 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
  
 ![ ](/images/record/creatBucket4.png)
 
+## 3、新建对象存储空间
 
-## 3、配置对象存储
+ - 在没有对象存储的情况下，需要去对象存储Ufile 下，创建一个存储；再按照上述步骤配置存储空间。   
 
-了解更多对象存储的内容，可以  [查看这里](https://docs.ucloud.cn/storage_cdn/ufile/quick/quick_start)  。  
+![ ](/images/record/creatBucket.png) 
+
+ >了解更多对象存储的内容，可以  [查看这里](https://docs.ucloud.cn/storage_cdn/ufile/quick/quick_start)  。  
 
 
- - 创建存储空间
+### 3.1 创建存储空间
 
 ![ ](/images/record/creatBucket1.png)
 
- - 创建令牌
+### 3.2 创建令牌
 
 ![ ](/images/record/lingpai.png)
 
