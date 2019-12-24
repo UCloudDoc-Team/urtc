@@ -20,10 +20,12 @@
      * [录制混流风格说明](video/urtc/cloudRecord/RecordLaylout)  
      * [录制水印说明](video/urtc/cloudRecord/RecordWatermark) 
 * [质量监控](video/urtc/quality/qualityDocs)
+* AI课堂应用场景
+     * [教师端 SDK指南](video/urtc/scenarioSDK/AIclass/Teacher)  
+     * [学生端 Android SDK指南](urtc/scenarioSDK/AIclass/StudentAndriod)  
+     * [学生端 IOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)     
 * [DEMO体验](video/urtc/demo)
 * [FAQ](video/urtc/faq)
-    
-    
    
    
     
