@@ -10,7 +10,7 @@
   - 支持IM自定义消息
   - 支持订阅教师端的MP4流
 
-## 2.下载资源
+## 2. 下载资源
 
   - 可以下载Demo、SDK、API 接口文档  
 
@@ -136,7 +136,7 @@ public class UCloudRtcApplication extends Application {
         }
     }
 ```
-### 5.3 创建rtc和im引擎
+### 5.2 创建rtc和im引擎
 
 ```js
 
@@ -144,7 +144,7 @@ sdkEngine = UCloudRtcSdkEngine.createEngine(eventListener);
 imEngine = UcloudIMSdkEngine.createEngine(mIMSdkEventListener);
 
 ```
-### 5.4 继承实现`UCloudRtcSdkEventListener` 实现事件处理
+### 5.3 继承实现`UCloudRtcSdkEventListener` 实现事件处理
 
 
 ```js
@@ -256,7 +256,7 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
       
 ```
 
-### 5.5 获取SDK 引擎 并进行基础配置
+### 5.4 获取SDK 引擎 并进行基础配置
 
 ```js
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
@@ -344,8 +344,11 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 ### 6.3 播放网络音频
 等待更新
+
+
 ### 6.4 本地截图
-view传本地的就是本地截图，远端的view就是远端的截图
+
+view传本地的就是本地截图，远端的view就是远端的截图。
 
 ```js
 private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
@@ -375,7 +378,10 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 ```
 
 ### 6.5 本地录制	
+
 等待更新
+
+
 ### 6.6 IM自定义消息	
 
 ```js
