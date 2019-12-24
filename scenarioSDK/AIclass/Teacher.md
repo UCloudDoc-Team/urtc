@@ -30,7 +30,7 @@
 3)  编写cmake 或者 makefile 编译 
 
 
-## 6. 快速接入
+## 6. 快速接入 
 ### 6.1. 继承实现UCloudRtcEventListener，用作事件处理
 
 ```c++
@@ -57,13 +57,13 @@ m_rtcengine->configLocalCameraPublish(true);
 m_rtcengine->configLocalScreenPublish(false);
 ```
 
-### 6.2 添加mp4 列表
+### 6.3 添加mp4 列表
 
 ``` c++
 m_rtcengine->addMp4File(filebuf, size, cleanup);
 ```
 
-### 6.3. 加入房间
+### 6.4 加入房间
 
 ```c++
 tUCloudRtcAuth auth;
@@ -74,7 +74,7 @@ auth.mUserToken = "1223222";
 m_rtcengine->joinChannel(auth);
 ```
 
-### 6.4. 发布本地文件列表
+### 6.5 发布本地文件列表
 
 ```c++
 tUCloudRtcMediaConfig config;
@@ -84,7 +84,7 @@ m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,
             config.mAudioEnable)
 ```
 
-### 6.5. 取消发布文件列表
+### 6.6 取消发布文件列表
 
 ```c++
 tUCloudRtcVideoCanvas view;
@@ -94,20 +94,20 @@ m_rtcengine->stopPreview(view);
 m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
 ```
 
-### 6.6. 订阅流
+### 6.7 订阅流
 
 ```c++
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
-### 6.7. 取消订阅流
+### 6.8 取消订阅流
 
 ```c++
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
 
-### 6.8. 离开房间
+### 6.9 离开房间
 
 ```c++
 m_rtcengine->leaveChannel ()
