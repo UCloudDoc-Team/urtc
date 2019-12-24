@@ -1,6 +1,6 @@
 # 学生端IOS SDK 指南
 
-## 1.功能说明
+## 1. 功能说明
 
   - 支持加入房间
   - 支持房间内发布本地媒体流
@@ -10,14 +10,14 @@
   - 支持IM自定义消息
   - 支持订阅教师端的MP4流
 
-## 2.下载资源
+## 2. 下载资源
 
   - 可以下载 Demo、SDK、API文档  
     [现在下载URTC](http://urtcsdk.cn-bj.ufileos.com/UCloudRtcSdk_ios.zip)   
     [现在下载IM](http://urtcsdk.cn-bj.ufileos.com/UCloudIMSdk_ios.zip)   
 
 
-## 3.开发语言以及系统要求
+## 3. 开发语言以及系统要求
 
   - 支持语言：objective-c、swift;  
   - Apple设备：iPhone最低支持iPhone5；  
@@ -25,7 +25,7 @@
   - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
   - 其他：不支持bitcode。
 
-## 4.搭建开发环境  
+## 4. 搭建开发环境  
 
 开发环境：    
 
@@ -33,48 +33,48 @@
   - Apple开发证书或个人账号；  
 
 
-### 4.1. 得到动态库
+### 4.1 得到动态库
 
 下载SDK,得到的UCloudRtcSdk\_ios.framework为动态库；  
 
-### 4.2. 创建新的工程
+### 4.2 创建新的工程
 
 使用XCode创建一个新的工程UCloudRtcSdk-ios-demo；  
 
 ![创建新的工程.png](/images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png)
 
-### 4.3. 加入动态库带工程中
+### 4.3 加入动态库带工程中
 
 将已下载的动态库**UCloudRtcSdk\_ios.framework**加入到**UCloudRtcSdk-ios-demo**工程中**Embedded Binaries**；  
 
 ![加入动态库到工程中](/images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
 
-### 4.4. 打开Xcode
+### 4.4 打开Xcode
 
 打开Xcode，选择：项目TARGET -\>General-\>Deployment Target，设置8.0或以上版本；  
 
 ![设置版本号.png](/images/sdk/%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC%E5%8F%B7.png) 
 
-### 4.5. 使用动态库不需要添加其他库依赖
+### 4.5 使用动态库不需要添加其他库依赖
 
-### 4.6. 关闭Bitcode（目前SDK版本不支持Bitcode） 
+### 4.6 关闭Bitcode（目前SDK版本不支持Bitcode） 
 
 ![关闭bitcode.png](/images/sdk/%E5%85%B3%E9%97%ADbitcode.png) 
 
-### 4.7. 编辑info.plist，申请摄像头、麦克风权限
+### 4.7 编辑info.plist，申请摄像头、麦克风权限
 
 Privacy - Camera Usage Description  
 Privacy - Microphone Usage Description  
 
 ![编辑info.plist.png](/images/sdk/%E7%BC%96%E8%BE%91info.plist.png) 
 
-### 4.8. 打开后台音频权限
+### 4.8 打开后台音频权限
 
 为保障APP退入手机后台之后，通话可以保持不中断，建议开启后台音频权限，SDK默认进入后台之后继续推送音频流。
 
 ![打开后台音频权限.png](/images/sdk/%E6%89%93%E5%BC%80%E5%90%8E%E5%8F%B0%E9%9F%B3%E9%A2%91%E6%9D%83%E9%99%90.png) 
 
-### 4.9. 集成成功
+### 4.9 集成成功
 
 按照上述步骤完成UCloudRtcSdk-ios-demo的前期SDK集成准备之后，请使用Xcode连接iPhone真机，在真机调试环境下，执行编译Commond + B，提示Build Success，表示SDK集成成功。  
 
@@ -82,7 +82,7 @@ Privacy - Microphone Usage Description
 
 建议在初始化 App 的同时，初始化 SDK。  
 
-### 5.1. 导入 SDK 头文件  
+### 5.1 导入 SDK 头文件  
 
 ```objective-c
 #import <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
@@ -92,7 +92,7 @@ Privacy - Microphone Usage Description
 import UCloudRtcSdk_ios
 ```
 
-### 5.2. 设置 userId 和 roomId，获取AppID;  
+### 5.2 设置 userId 和 roomId，获取AppID;  
 
 ```objective-c
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc] initWithUserId:userId  appId:appId roomId:roomId appKey:appKey token:token]];
@@ -112,7 +112,7 @@ engine.delegate = self;
 self.engine?.delegate = self
 ```
 
-### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。 
+### 5.3 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。 
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
@@ -135,7 +135,7 @@ self.engine?.delegate = self
 
 ## 6. 建立通话
 
-### 6.1. 加入房间
+### 6.1 加入房间
 
 ```objective-c
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
@@ -146,7 +146,7 @@ self.engine?.delegate = self
 self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 ```
 
-### 6.2. 发布本地流  
+### 6.2 发布本地流  
 
 1）自动发布模式下，joinRoom成功后，即可发布本地流，无需再次调用publish接口；    
 2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；
@@ -225,7 +225,7 @@ self.engine?.publish()
 ```
 
 
-### 6.3. 取消发布本地流  
+### 6.3 取消发布本地流  
 
 ```objective-c
 [self.engine unPublish];
