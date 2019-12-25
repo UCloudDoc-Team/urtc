@@ -14,7 +14,7 @@
 
 ![ ](/images/record/pingpu2.png)
 
-![ ](/images/record/pingpu3.png)
+![ ](/images/record/pingpu3new.png)
 
 ![ ](/images/record/pingpu4.png)
 
