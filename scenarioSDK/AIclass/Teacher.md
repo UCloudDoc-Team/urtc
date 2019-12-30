@@ -10,7 +10,9 @@
 
   - 可以下载Demo、SDK、API文档  
   
-    [现在下载](http://urtcsdk.cn-bj.ufileos.com/urtclib.zip)  
+    [下载Demo](https://github.com/ucloud/urtc-linux-demo)      
+  
+    [下载SDK和API文档](http://urtcsdk.cn-bj.ufileos.com/urtclib.zip)      
 
 ## 3. 开发语言以及系统要求
 
