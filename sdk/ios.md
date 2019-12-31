@@ -104,9 +104,10 @@ engine.delegate = self;
 self.engine?.delegate = self
 ```
 
-### 5.3. 配置参数 初始化完成后，即可调用 SDK 相关接口，实现对应功能。 
+### 5.3. 配置参数 
 
-使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
+使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。      
+初始化完成后，即可调用 SDK 相关接口，实现对应功能。     
 
 ```objective-c
     self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
