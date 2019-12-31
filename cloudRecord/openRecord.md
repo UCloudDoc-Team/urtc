@@ -10,31 +10,31 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
   - 合流录制，录制房间内，所有用户的音视频，合流录制为一个音视频文件  
   - 支持多种混流风格 
   - 录制支持添加时间水印、文字水印、图片水印
-  - 支持存储在Ucloud的对象存储Ufile的指定存储空间  
+  - 支持存储在Ucloud的对象存储UFile的指定存储空间  
   
 ## 1、开通录制服务
   
-  [登录控制台](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 服务的应用下，开通录制服务。  
+  [登录控制台](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 产品应用下，增值功能中的录制服务内，点击【开通服务】。  
   
   ![ ](/images/record/openRecord.png)
   
 ## 2、配置录制文件的存储的路径  
   
-开通录制服务后，需要新建录制的存储路径。    
+开通录制服务后，点击【新建对象存储】，新建录制的存储路径。        
   
 ![ ](/images/record/newBucket.png)
 	 
- - 已经配置了对象存储的情况下，可以直接选择配置的存储空间，配置完毕即可。  
+ - UFile中已经配置了对象存储的情况下，可以直接选择配置的存储空间，点击【确定】，配置完毕。  
 
 ![ ](/images/record/newBucket2.png) 
 	 
- - 配置完毕后，看到存储空间状态为可用。
+ - 配置完毕后，看到存储空间的状态为【正常】。
  
 ![ ](/images/record/creatBucket4.png)
 
 ## 3、新建对象存储空间
 
- - 在没有对象存储的情况下，需要去对象存储Ufile 下，创建一个存储；再按照上述步骤配置存储空间。   
+ - UFile中没有对象存储的情况下，需要去对象存储UFile 产品中，创建存储空间；再按照上述步骤配置存储空间。  
 
 ![ ](/images/record/creatBucket.png) 
 
@@ -53,7 +53,7 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
 
 ![ ](/images/record/lingpai2.png)
 
-选择后，能看到令牌对应的存储空间。注意选择令牌的有效期、权限。
+点击【确定】后，能看到令牌对应的已经选择的存储空间名称。注意选择令牌的有效时长和令牌权限。
 
 ![ ](/images/record/lingpai4.png)
 
