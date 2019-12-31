@@ -84,7 +84,7 @@ client.joinRoom(roomId, userId, () => {
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
 
 
-#### 录制音视频
+#### 开始录制音视频
 示例代码：
 
 ```JavaScript
