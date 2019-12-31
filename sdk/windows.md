@@ -92,7 +92,7 @@ m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
-### 5.7 录制视频
+### 5.7 云端录制
 
 #### 前提条件
 
