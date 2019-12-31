@@ -266,7 +266,7 @@ self.engine?.subscribeMethod(remoteStream)
 self.engine?.unSubscribeMethod(remoteStream)
 ```
 
-### 6.6 开始视频录制
+### 6.6 云端录制
 
 #### 前提条件
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
