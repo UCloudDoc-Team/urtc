@@ -266,7 +266,7 @@ public int setStreamRole(UCloudRtcSdkStreamRole role)
 sdkEngine.setStreamRole(mRole);
 ```
    
-### 6.5 录像
+### 6.5 云端录制
 
 #### 前提条件
 
