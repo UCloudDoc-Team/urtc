@@ -10,17 +10,25 @@
 * [快速上手](video/urtc/quick)
 * SDK操作指南
     * [Token生成指导](video/urtc/sdk/token)
-    * [Android SDK指南](video/urtc/sdk/android)
-    * [IOS SDK 指南](video/urtc/sdk/ios)
+    * Android SDK指南
+      * [Android SDK版本说明](video/urtc/sdk/Windows/AndroidVersion)   
+      * [Android SDK实时音视频](video/urtc/sdk/Windows/AndroidSDK)  
+    * IOS SDK 指南
+      * [IOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
+      * [IOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
     * [MAC OS SDK 指南](video/urtc/sdk/macos)
+      * [MAC OS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
+      * [MAC OS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
     * Windows SDK指南
       * [Windows SDK版本说明](video/urtc/sdk/Windows/WindowsVersion)   
-      * [Windows SDK版本说明](sdk/Windows/WindowsVersion)   
       * [Windows SDK实时音视频](video/urtc/sdk/Windows/windowsSDK)   
     * WEB SDK指南      
+      * [WEB SDK版本说明](video/urtc/sdk/web/webVersion)  
       * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
       * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
     * [Electron SDK指南](video/urtc/sdk/electron)
+      * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
+      * [Electron SDK实时音视频](video/urtc/sdk/Electron/ElectronSDK)   
 * 云端录制
     * [开通云端录制](video/urtc/cloudRecord/openRecord)  
     * [录制混流风格说明](video/urtc/cloudRecord/RecordLaylout)  
