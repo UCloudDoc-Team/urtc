@@ -1,8 +1,7 @@
 # SDK 版本说明
 
+## 1.6.1 版本发布
 
-
-# 1.6.1 版本发布
 * 1 加入大班课功能，支持超大规模会议功能
 使用如下
 ``` c++ 
@@ -38,7 +37,8 @@ m_rtcengine->startRecord(recordconfig);
 ```
 
 
-# 1.6 版本发布
+## 1.6 版本发布
+
 * 1 加入大班课功能，支持超大规模会议功能
 使用如下
 ``` c++ 
@@ -263,6 +263,7 @@ m_rtcengine->setCaptureScreenPagrams(pgram);
 * 11 声音采集添加3通道支持 通道支持个数包括 1 2 3 4 播放支持 1 2 通道
 
 ## 1.3 版本
+
 * 1 优化抗丢包能力，视频最多抗30%丢包，音频最高抗70%丢包
 * 2 增加音频文件输入功能，可以替换micphone 输入，支持mp3 wav文件格式 接口 
 ``` c++
@@ -286,6 +287,7 @@ UCloudRtcEngine *sharedInstance(UCloudRtcEventListener* listener)更改为 UClou
 
 
 ## 1.2 版本
+
 * 1 优化抗丢包能力，30%丢包通话基本连续
 * 2 增加录制功能，最多支持6路混流录制
 * 3 设备测试模块增加视频数据获取功能，方便加入美颜等视频前置处理功能
@@ -303,6 +305,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 用户通过实现 UCloudRtcExtendVideoCaptureSource 接口实现外部输入源导入 实现视频前置处理
 
 ## 1.1 版本
+
 * 1 增加桌面分享功能，并支持指定区域分享
 * 2 增加sdk 模式设置，区分测试 正式模式方便测试
 * 3 优化内存使用，内存占比减少 30% 
