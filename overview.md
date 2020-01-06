@@ -12,7 +12,7 @@
     * [Android SDK指南](video/urtc/sdk/android)
     * [IOS SDK 指南](video/urtc/sdk/ios)
     * [MAC OS SDK 指南](video/urtc/sdk/macos)
-    * [Windows SDK指南](video/urtc/sdk/windows)
+    * [Windows SDK指南](video/urtc/sdk/Windows/windowsSDK)
     * [WEB SDK指南](video/urtc/sdk/web/websdk)
     * [Electron SDK指南](video/urtc/sdk/electron)
 * 云端录制
