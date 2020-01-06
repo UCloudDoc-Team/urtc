@@ -13,7 +13,10 @@
     * [Android SDK指南](video/urtc/sdk/android)
     * [IOS SDK 指南](video/urtc/sdk/ios)
     * [MAC OS SDK 指南](video/urtc/sdk/macos)
-    * [Windows SDK指南](video/urtc/sdk/windows)
+    * Windows SDK指南
+      * [Windows SDK版本说明](video/urtc/sdk/Windows/WindowsVersion)   
+      * [Windows SDK版本说明](sdk/Windows/WindowsVersion)   
+      * [Windows SDK实时音视频](video/urtc/sdk/Windows/windowsSDK)   
     * WEB SDK指南      
       * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
       * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
