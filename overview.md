@@ -22,7 +22,7 @@
       * [IOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
       * [IOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
     * MAC OS SDK 指南
-      * [MAC OS SDK版本说明](video/urtc/sdk/MacOS/IOSVersion)   
+      * [MAC OS SDK版本说明](video/urtc/sdk/MacOS/MacOSVersion)   
       * [MAC OS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
     * Electron SDK指南
       * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
