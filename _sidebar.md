@@ -10,6 +10,13 @@
 * [快速上手](video/urtc/quick)
 * SDK操作指南
     * [Token生成指导](video/urtc/sdk/token)
+    * WEB SDK指南      
+      * [WEB SDK版本说明](video/urtc/sdk/web/webVersion)  
+      * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
+      * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
+    * Windows SDK指南
+      * [Windows SDK版本说明](video/urtc/sdk/Windows/WindowsVersion)   
+      * [Windows SDK实时音视频](video/urtc/sdk/Windows/windowsSDK)  
     * Android SDK指南
       * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
       * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
@@ -19,13 +26,6 @@
     * MAC OS SDK 指南
       * [MAC OS SDK版本说明](video/urtc/sdk/MacOS/IOSVersion)   
       * [MAC OS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
-    * Windows SDK指南
-      * [Windows SDK版本说明](video/urtc/sdk/Windows/WindowsVersion)   
-      * [Windows SDK实时音视频](video/urtc/sdk/Windows/windowsSDK)   
-    * WEB SDK指南      
-      * [WEB SDK版本说明](video/urtc/sdk/web/webVersion)  
-      * [WEB SDK实时音视频](video/urtc/sdk/web/websdk)    
-      * [WEB 屏幕共享](video/urtc/sdk/web/webscreenshare)
     * Electron SDK指南
       * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
       * [Electron SDK实时音视频](video/urtc/sdk/Electron/ElectronSDK)   
