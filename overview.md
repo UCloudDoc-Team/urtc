@@ -15,9 +15,9 @@
     * Windows SDK指南
       * [Windows SDK版本说明](video/urtc/sdk/Windows/WindowsVersion)   
       * [Windows SDK实时音视频](video/urtc/sdk/Windows/windowsSDK)   
-     * Android SDK指南
-       * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
-       * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
+    * Android SDK指南
+      * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
+      * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
     * IOS SDK 指南
       * [IOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
       * [IOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
