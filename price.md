@@ -51,6 +51,6 @@ B/C/D收看的标清通话时长 = 10分钟
  -  录制时，可设置录制某一个视频流、多路视频流的混流。
  -  录制时，如果有视频流混流，按照全部视频流的合集分辨率，对应录制分辨率的不同档位。    
     例如：混流录制2路 640 x 360的视频，则录制的合集分辨率为 1280 x 720，录制按照高清档计费。     
- -  使用录制服务前，需要在[【控制台】](https://console.ucloud.cn/urtc/manage)-【我的应用】-【增值功能】中，开通录制服务，并绑定对象存储。 具体操作步骤，可查看 [开通云端录制](video/urtc/cloudRecord/openRecord)。
+ -  使用录制服务前，需要在控制台，开通录制服务，并绑定对象存储。具体操作步骤，可查看 [开通云端录制](video/urtc/cloudRecord/openRecord)。
  -  录制的存储，按照Ufile的计费规则单独计费，具体可查看 [Ufile计费](https://docs.ucloud.cn/storage_cdn/ufile/bill/new)。
  
