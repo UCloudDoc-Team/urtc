@@ -29,7 +29,7 @@
   
 1） 将 urtclib/include 目录添加到项目的 INCLUDE 目录下。    
 2） 将 urtclib/lib 目录放入项目的 LIB 目录下。  
-3)  编写cmake 或者 makefile 编译 
+3)  编写cmake 或者 makefile 编译。    
 
 
 ## 6. 快速接入 
