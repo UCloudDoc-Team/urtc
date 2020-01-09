@@ -26,4 +26,4 @@
 
 ![](/images/demoImage/windowsImage.png)
 
-[下载Windows](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip) 
+[下载Windows](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620200109.zip) 
