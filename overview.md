@@ -18,12 +18,12 @@
     * Android SDK指南
       * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
       * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
-    * IOS SDK 指南
-      * [IOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
-      * [IOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
-    * MAC OS SDK 指南
-      * [MAC OS SDK版本说明](video/urtc/sdk/MacOS/MacOSVersion)   
-      * [MAC OS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
+    * iOS SDK 指南
+      * [iOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
+      * [iOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
+    * macOS SDK 指南
+      * [macOS SDK版本说明](video/urtc/sdk/MacOS/MacOSVersion)   
+      * [macOS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
     * Electron SDK指南
       * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
       * [Electron SDK实时音视频](video/urtc/sdk/Electron/ElectronSDK)   
