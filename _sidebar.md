@@ -21,10 +21,10 @@
       * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
       * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
     * iOS SDK 指南
-      * [iOS SDK版本说明]i(video/urtc/sdk/IOS/IOSVersion)   
-      * [iOS SDK实时音视频](ivideo/urtc/sdk/IOS/IOSSDK)  
+      * [iOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
+      * [iOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
     * macOS SDK 指南
-      * [macOS SDK版本说明](videoi/urtc/sdk/MacOS/MacOSVersion)   
+      * [macOS SDK版本说明](video/urtc/sdk/MacOS/MacOSVersion)   
       * [macOS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
     * Electron SDK指南
       * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
