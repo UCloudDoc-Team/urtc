@@ -150,14 +150,14 @@ client.stopRecording(function onSuccess() {
 ```
 
 
-## 2.6 取消发布本地流或取消订阅远端流
+## 3.6 取消发布本地流或取消订阅远端流
 
 ```JavaScript
 client.unpublish();
 client.unsubscibe(streamId);
 ```
 
-## 2.7 退出房间
+## 3.7 退出房间
 
 ```JavaScript
 client.leaveRoom();
