@@ -1,6 +1,6 @@
 # WEB SDK指南
 
-## 1、WEB SDK兼容性
+## 1. WEB SDK兼容性
 
 使用一款Web SDK 兼容的浏览器，具体如下表所示：
 
@@ -12,14 +12,14 @@
 |iOS 11+   | 苹果Safari 11+ <br> 微信浏览器 7+（仅支持接收）|
 
 
-## 2、WEB端Demo体验
+## 2. WEB端Demo体验
 
  - 不同JS框架下接入WEBRTC SDK的流程，可以参考 [angular、react、vue、pureJS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
  
  - 在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
  
 
-## 3、创建一个 URTC Client
+## 3. 创建一个 URTC Client
 
 ### 3.1 使用 npm 安装
 
