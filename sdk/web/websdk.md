@@ -11,9 +11,17 @@
 |Android 5.0+  | Chrome 60+ <br> 华为手机浏览器 10+ <br> 微信浏览器 7+ |
 |iOS 11+   | 苹果Safari 11+ <br> 微信浏览器 7+（仅支持接收）|
 
-## 2、创建一个 URTC Client
 
-### 2.1 使用 npm 安装
+## 2、WEB端Demo体验
+
+*不同JS框架下接入WEBRTC SDK的流程，可以参考 [angular、react、vue、pureJS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
+ 
+ *在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
+ 
+
+## 3、创建一个 URTC Client
+
+### 3.1 使用 npm 安装
 
 将 sdk 使用 ES6 语法作为模块引入。
 
@@ -31,11 +39,7 @@ yarn add urtc-sdk
 
 2）项目中引入并创建 client
 
- [下载WEB SDK](https://github.com/ucloud/urtc-sdk-web)
- 
- 不同JS框架下引入 WEB SDK的运行步骤，可以参考 [angular、react、vue、pureJS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
- 
- 这里， [Demo下载](https://github.com/ucloud/urtc-js-demo)，体验demo的源码。
+ [下载WEBRTC SDK](https://github.com/ucloud/urtc-sdk-web)
 
 ```
 import { Client } from 'urtc-sdk';
@@ -44,7 +48,7 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 ```
 >由于浏览器的安全策略对除 127.0.0.1 以外的 `HTTP` 地址作了限制，Web SDK 仅支持  `HTTPS` 协议  或者 `http://localhost（http://127.0.0.1）`，请勿使用  `HTTP` 协议 部署你的项目。
 
-### 2.2 直接引入SDK
+### 3.2 直接引入SDK
 
 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
 
@@ -63,7 +67,7 @@ const client = new UCloudRTC.Client(appId, token);
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/video/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
-## 2.3 监听流事件
+## 3.3 监听流事件
 
 ```JavaScript
 client.on('stream-published', (stream) => {
@@ -81,7 +85,7 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 2.4 加入一个房间，然后发布本地流
+## 3.4 加入一个房间，然后发布本地流
 
 ```JavaScript
 client.joinRoom(roomId, userId, () => {
@@ -89,7 +93,7 @@ client.joinRoom(roomId, userId, () => {
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
 
-## 2.5 云端录制
+## 3.5 云端录制
 
 #### 前提条件
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
