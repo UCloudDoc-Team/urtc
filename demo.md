@@ -16,7 +16,7 @@
 
 [下载安卓](https://fir.im/91cy)
 
-## IOS DEMO
+## iOS DEMO
 
 ![](/images/demoImage/iosImage.png)
 
