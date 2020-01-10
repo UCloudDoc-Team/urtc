@@ -25,6 +25,8 @@ yarn add urtc-sdk
 2）项目中引入并创建 client
 
  [下载WEB SDK](https://github.com/ucloud/urtc-sdk-web)
+ 
+ 不同JS框架下引入 WEB SDK的运行步骤，可以参考 [angular、react、vue、pureJS框架引入指南](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
 
 ```
 import { Client } from 'urtc-sdk';
