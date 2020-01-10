@@ -1,11 +1,7 @@
 <div class="sidebar_title icon__urtc"> 实时音视频 URTC</div>
 
 * [概览](video/urtc/overview)
-* 产品简介
-    * [什么是URTC](video/urtc/introduction/concept)
-    * [产品功能](video/urtc/introduction/functions)
-    * [产品架构](video/urtc/introduction/structure)
-* [使用场景](video/urtc/scenario)
+* [产品简介](video/urtc/introduction/index)
 * [产品价格](video/urtc/price)
 * [快速上手](video/urtc/quick)
 * SDK操作指南
