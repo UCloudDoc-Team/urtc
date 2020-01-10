@@ -59,15 +59,47 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 ```
 
 
-2）使用全局对象 UCloudRTC 创建 client
+2）初始化，使用全局对象 UCloudRTC创建client
 
 ```JavaScript
-const client = new UCloudRTC.Client(appId, token);
+const client = new Client(AppId, Token, {
+  type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
+  role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
+  codec?: "vp8"|"h264", // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"，注：部分老版本浏览器不支持 vp8 的视频编解码时（譬如 macOS 10.14.4 平台的 Safar 12.1 及以上版本才支持 vp8），可选择 h264 编码格式
+});
 ```
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/video/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
-## 3.3 监听流事件
+## 3.3 加入一个房间，然后发布本地流
+
+```JavaScript
+client.joinRoom(roomId, userId, () => {
+   client.publish({
+	  audio: true/false,          // 必填，指定是否使用麦克风设备
+	  video: true/false,          // 必填，指定是否使用摄像头设备
+	  screen: true/false,         // 必填，指定是否为屏幕共享，audio, video, screen 不可同时为 true，更不可同时为 false
+	  microphoneId?: '',   // 选填，指定使用的麦克风设备的ID，可通过 getMicrophones 方法查询获得该ID，不填时，将使用默认麦克风设备
+	  cameraId?: '',      // 选填，指定使用的摄像头设备的ID，可以通过 getCameras 方法查询获得该ID，不填时，将使用默认的摄像头设备
+	  extensionId?: ''    // 选填，指定使用的 Chrome 插件的 extensionId，可使 72 以下版本的 Chrome 浏览器进行屏幕共享。
+	}, onFailure)
+}); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
+```
+## 3.4 订阅远端流
+
+```JavaScript
+client.joinRoom(roomId, userId, () => {
+    client.subscribe(StreamId, onFailure)
+}); // 在 joinRoom 的 onSuccess 回调函数中执行 subscribe 发布本地流
+```
+
+## 3.5 取消发布本地流或取消订阅远端流
+
+```JavaScript
+client.unpublish(StreamId, onSuccess, onFailure)
+client.unsubscribe(StreamId, onSuccess, onFailure)
+```
+## 3.6 监听流事件
 
 ```JavaScript
 client.on('stream-published', (stream) => {
@@ -85,15 +117,7 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 3.4 加入一个房间，然后发布本地流
-
-```JavaScript
-client.joinRoom(roomId, userId, () => {
-    client.publish();
-}); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
-```
-
-## 3.5 云端录制
+## 3.7 云端录制
 
 #### 前提条件
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
@@ -149,15 +173,7 @@ client.stopRecording(function onSuccess() {
 })
 ```
 
-
-## 3.6 取消发布本地流或取消订阅远端流
-
-```JavaScript
-client.unpublish();
-client.unsubscibe(streamId);
-```
-
-## 3.7 退出房间
+## 3.8 退出房间
 
 ```JavaScript
 client.leaveRoom();
