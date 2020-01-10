@@ -14,9 +14,9 @@
 
 ## 2、WEB端Demo体验
 
-*不同JS框架下接入WEBRTC SDK的流程，可以参考 [angular、react、vue、pureJS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
+ - 不同JS框架下接入WEBRTC SDK的流程，可以参考 [angular、react、vue、pureJS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
  
- *在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
+ - 在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
  
 
 ## 3、创建一个 URTC Client
