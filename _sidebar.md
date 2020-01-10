@@ -20,12 +20,12 @@
     * Android SDK指南
       * [Android SDK版本说明](video/urtc/sdk/Android/AndroidVersion)   
       * [Android SDK实时音视频](video/urtc/sdk/Android/AndroidSDK)  
-    * IOS SDK 指南
-      * [IOS SDK版本说明](video/urtc/sdk/IOS/IOSVersion)   
-      * [IOS SDK实时音视频](video/urtc/sdk/IOS/IOSSDK)  
-    * MAC OS SDK 指南
-      * [MAC OS SDK版本说明](video/urtc/sdk/MacOS/MacOSVersion)   
-      * [MAC OS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
+    * iOS SDK 指南
+      * [iOS SDK版本说明]i(video/urtc/sdk/IOS/IOSVersion)   
+      * [iOS SDK实时音视频](ivideo/urtc/sdk/IOS/IOSSDK)  
+    * macOS SDK 指南
+      * [macOS SDK版本说明](videoi/urtc/sdk/MacOS/MacOSVersion)   
+      * [macOS SDK实时音视频](video/urtc/sdk/MacOS/MacOSSDK)  
     * Electron SDK指南
       * [Electron SDK版本说明](video/urtc/sdk/Electron/ElectronVersion)   
       * [Electron SDK实时音视频](video/urtc/sdk/Electron/ElectronSDK)   
@@ -37,7 +37,7 @@
 * AI课堂应用场景
      * [教师端 SDK指南](video/urtc/scenarioSDK/AIclass/Teacher)  
      * [学生端 Android SDK指南](video/urtc/scenarioSDK/AIclass/StudentAndriod)  
-     * [学生端 IOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)  
+     * [学生端 iOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)  
 * [DEMO体验](video/urtc/demo)
 * [FAQ](video/urtc/faq)
     
