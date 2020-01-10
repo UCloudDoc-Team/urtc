@@ -35,7 +35,7 @@
 * AI课堂应用场景
      * [教师端 SDK指南](video/urtc/scenarioSDK/AIclass/Teacher)  
      * [学生端 Android SDK指南](video/urtc/scenarioSDK/AIclass/StudentAndriod)  
-     * [学生端 IOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)     
+     * [学生端 iOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)     
 * [DEMO体验](video/urtc/demo)
 * [FAQ](video/urtc/faq)
    
