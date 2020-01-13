@@ -62,6 +62,17 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 
 视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。    
 
+## 示例代码
+
+view传本地的就是本地截图，远端的view就是远端的截图。  
+
+```
+    UIGraphicsBeginImageContext(view.frame.size);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    UIImage *image =  UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+```
 
 # ** macOS **
 
