@@ -61,14 +61,14 @@ const client = new Client(appId, token); // 默认为直播模式（大班课）
 
 1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
 
-```JavaScript
+```js
 <script type="text/javascript" src="index.js"><script>
 ```
 
 
 2）初始化，使用全局对象 UCloudRTC创建client
 
-```JavaScript
+```js
 const client = new Client(AppId, Token, {
   type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
   role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
@@ -78,9 +78,9 @@ const client = new Client(AppId, Token, {
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/video/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
-## 3.3 加入一个房间，然后发布本地流
+## 3.3 加入一个房间并发布本地流
 
-```JavaScript
+```js
 client.joinRoom(roomId, userId, () => {
    client.publish({
 	  audio: true/false,          // 必填，指定是否使用麦克风设备
@@ -94,7 +94,7 @@ client.joinRoom(roomId, userId, () => {
 ```
 ## 3.4 订阅远端流
 
-```JavaScript
+```js
 client.joinRoom(roomId, userId, () => {
     client.subscribe(StreamId, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 subscribe 发布本地流
@@ -102,13 +102,13 @@ client.joinRoom(roomId, userId, () => {
 
 ## 3.5 取消发布本地流或取消订阅远端流
 
-```JavaScript
+```js
 client.unpublish(StreamId, onSuccess, onFailure)
 client.unsubscribe(StreamId, onSuccess, onFailure)
 ```
 ## 3.6 监听流事件
 
-```JavaScript
+```js
 client.on('stream-published', (stream) => {
     // 使用 HtmlMediaElement 播放媒体流。将流的 mediaStream 给 Video/Audio 元素的 srcObject 属性，即可播放，注意设置 autoplay 属性以支持视频的自动播放，其他属性请参见 [<video>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video)
     htmlMediaElement.srcObject = stream.mediaStream;
@@ -124,67 +124,14 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 3.7 云端录制
+## 3.7 退出房间
 
-#### 前提条件
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
-
-
-#### 开始录制音视频
-示例代码：
-
-```JavaScript
-client.startRecording({
-  bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
-  region: string  // 必传，存储服务所在的地域
-  waterMark?: {
-	  position?: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom' // 选传，指定水印的位置，前面四种类型分别对应 左上，左下，右上，右下，默认 'left-top'
-	  type?: 'time' | 'image' | 'text' // 选传，水印类型，分别对应时间水印、图片水印、文字水印，默认为 'time'
-	  remarks?:  string,   // 选传，水印备注，当为时间水印时，传空字符串，当为图片水印时，此处需为图片的 URL（此时必传），当为文字水印时，此处需为水印文字
-	},
-  mixStream?: {
-	  uid?: string,        // 选传，指定某用户的流作为主画面，不传时，默认为当前开启录制的用户的流作为主画面
-	  type?: 'screen' | 'camera',   // 选传，指定主画面使用的流的媒体类型（当同一用户推多路流时），不传时，默认使用 camera
-	  width?: number,      // 选传，设置混流后视频的宽度，不传时，默认为 1280
-	  height?: number,     // 选传，设置混流后视频的高度，不传时，默认为 720
-	  template?: number,   // 选传，指定混流布局模板，可使用 1-9 对应的模板，默认为 1
-	  isAverage?: boolean, // 选传，是否均分，均分对应平铺风格，不均分对应垂直风格，默认为 true
-	}
-}, function onSuccess(Record) {
-
-	//开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
-
-}, function(Err) {
-
-	//开始录制错误返回值
-
-})
-```
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
-
-#### 停止录制音视频
-示例代码：
-
-```JavaScript
-client.stopRecording(function onSuccess() {
-
-	//停止录制成功时执行的回调函数
-
-}, function(Err) {
-
-	//停止录制错误返回值
-	
-})
-```
-
-## 3.8 退出房间
-
-```JavaScript
+```js
 client.leaveRoom();
 ```
+
+## 3.8 编译、运行，开始体验吧！
+
 
 # ** Windows **
 
@@ -219,7 +166,7 @@ client.leaveRoom();
 
 ### 5.1 初始化
 
-``` c++
+```cpp
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 ……
 };
@@ -241,7 +188,7 @@ m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360，videoconfig); //
 
 ### 5.2 加入房间
 
-``` c++
+```cpp
 tUCloudRtcAuth auth;
 auth.mAppId = appid;
 auth.mRoomId = roomid;
@@ -252,7 +199,7 @@ m_rtcengine->joinChannel(auth);
 
 ### 5.3 发布流
 
-``` c++
+```cpp
 tUCloudRtcMediaConfig config;
 config.mAudioEnable = true;
 config.mVideoEnable = true;
@@ -261,7 +208,7 @@ m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,config.mAud
 
 ### 5.4 取消发布
 
-``` c++
+```cpp
 tUCloudRtcVideoCanvas view;
 view.mVideoView = (int)m_localWnd->GetVideoHwnd();
 view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;		
@@ -276,54 +223,18 @@ m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 
 ### 5.6 取消订阅
 
-``` c++
+```cpp
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
-### 5.7 云端录制
 
-#### 前提条件
+### 5.7 离开房间
 
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
-
-```c++
-tUCloudRtcRecordConfig recordconfig;
-recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
-recordconfig.mMainviewuid = m_userid.data(); // 主画面
-recordconfig.mProfile = UCLOUD_RTC_RECORDPROFILE_SD; // 录制等级
-recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
-recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
-recordconfig.mBucket = "your bucket";
-recordconfig.mBucketRegion = "your bucket region";
-recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
-recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
-recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
-recordconfig.mMixerTemplateType = 4; [混流模板](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)
-m_rtcengine->startRecord(recordconfig);
-m_rtcengine->startRecord(recordconfig);
-
-消息回调
-//开启录制回调
-virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
-``` 
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
-
-### 5.8 添加背景音（mp3\wav 格式）
-
-```c++
-m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
-``` 
-
-### 5.9 离开房间
-
-``` c++
+```cpp
 m_rtcengine->leaveChannel ()
 ```
 
-### 5.10 编译、运行，开始体验吧！
+### 5.8 编译、运行，开始体验吧！
 
 
 # ** Android **
@@ -594,83 +505,27 @@ public int setStreamRole(UCloudRtcSdkStreamRole role)
 sdkEngine.setStreamRole(mRole);
 ```
    
-### 6.5 云端录制
-
-#### 前提条件
-
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
-
-> 录像目前只支持摄像头录制，不支持桌面录制。
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。   
-
-```js
-//                如果主窗口是当前用户
-UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
-                        .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
-                        .mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
-                        .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
-                        .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
-                        .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
-                        .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
-                        .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
-                        .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
-                        .build();
-                sdkEngine.startRecord(recordProfile);
-                //如果主窗口不是当前推流用户，而是被订阅的用户
-//                UCloudRtcSdkStreamInfo uCloudRtcSdkStreamInfo = mVideoAdapter.getStreamInfo(0);
-//                if(uCloudRtcSdkStreamInfo != null){
-//                    UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
-//                            .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
-//                            .mainViewUserId(uCloudRtcSdkStreamInfo.getUId())
-//                            .mainViewMediaType(uCloudRtcSdkStreamInfo.getMediaType().ordinal())
-//                            .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
-//                            .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
-//                            .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
-//                            .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
-//                            .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
-//                            .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
-//                            .build();
-//                    sdkEngine.startRecord(recordProfile);
-//                }
-
-//UCloudRtcSdkEventListener 
-//录像开始回调
-void onRecordStart(int code,String fileName);
-
-//录像结束
-sdkEngine.stopRecord();
-
-//UCloudRtcSdkEventListener 结束回调
-void onRecordStop(int code);
-```  
   
-### 6.6 外部扩展输入与输出
-sdk支持`rgba`系列数据（`rgba`，`abgr`，`rgb565`）以及`yuv420p`的外部自定义输入，能够产出拉流的`rgba`,`abgr`的数据供使用者自行扩展使用，具体使用方式请参考 [demo](https://github.com/ucloud/urtc-android-demo)路径下的`rgb转yuv接口使用说明.md` 和 `yuv转rgb接口使用说明.md`。
-
-
-### 6.7 离开房间
+### 6.5 离开房间
 
 
 ```js
 sdkEngine.leaveChannel() ;
 ```
 
-### 6.8 编译、运行，开始体验吧！
+### 6.6 编译、运行，开始体验吧！
 
 # ** iOS **
 
 通过集成SDK，可以快速实现实时音视频通话。
 
-## 1.下载资源
+## 1. 下载资源
 
 * 可以下载 Demo、SDK、API文档  
   [现在下载](https://github.com/ucloud/urtc-ios-demo.git)
 
 
-## 2.开发语言以及系统要求
+## 2. 开发语言以及系统要求
 
   - 支持语言：objective-c、swift;  
   - Apple设备：iPhone最低支持iPhone5；  
@@ -678,57 +533,57 @@ sdkEngine.leaveChannel() ;
   - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
   - 其他：不支持bitcode。
 
-## 3.开发环境  
+## 3. 开发环境  
 
   - Xcode 9.0及以上版本；  
   - Apple开发证书或个人账号；  
 
 
-## 4.搭建开发环境  
+## 4. 搭建开发环境  
 
 
-### 4.1. 得到动态库
+### 4.1 得到动态库
 
 下载SDK,得到的UCloudRtcSdk\_ios.framework为动态库；  
 
-### 4.2. 创建新的工程
+### 4.2 创建新的工程
 
 使用XCode创建一个新的工程UCloudRtcSdk-ios-demo；  
 
 ![创建新的工程.png](/images/sdk/%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B.png)
 
-### 4.3. 加入动态库带工程中
+### 4.3 加入动态库带工程中
 
 将已下载的动态库**UCloudRtcSdk\_ios.framework**加入到**UCloudRtcSdk-ios-demo**工程中**Embedded Binaries**；  
 
 ![加入动态库到工程中](/images/sdk/%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E5%BA%93%E5%88%B0%E5%B7%A5%E7%A8%8B%E4%B8%AD.png)
 
-### 4.4. 打开Xcode
+### 4.4 打开Xcode
 
 打开Xcode，选择：项目TARGET -\>General-\>Deployment Target，设置8.0或以上版本；  
 
 ![设置版本号.png](/images/sdk/%E8%AE%BE%E7%BD%AE%E7%89%88%E6%9C%AC%E5%8F%B7.png) 
 
-### 4.5. 使用动态库不需要添加其他库依赖
+### 4.5 使用动态库不需要添加其他库依赖
 
-### 4.6. 关闭Bitcode（目前SDK版本不支持Bitcode） 
+### 4.6 关闭Bitcode（目前SDK版本不支持Bitcode） 
 
 ![关闭bitcode.png](/images/sdk/%E5%85%B3%E9%97%ADbitcode.png) 
 
-### 4.7. 编辑info.plist，申请摄像头、麦克风权限
+### 4.7 编辑info.plist，申请摄像头、麦克风权限
 
 Privacy - Camera Usage Description  
 Privacy - Microphone Usage Description  
 
 ![编辑info.plist.png](/images/sdk/%E7%BC%96%E8%BE%91info.plist.png) 
 
-### 4.8. 打开后台音频权限
+### 4.8 打开后台音频权限
 
 为保障APP退入手机后台之后，通话可以保持不中断，建议开启后台音频权限，SDK默认进入后台之后继续推送音频流。
 
 ![打开后台音频权限.png](/images/sdk/%E6%89%93%E5%BC%80%E5%90%8E%E5%8F%B0%E9%9F%B3%E9%A2%91%E6%9D%83%E9%99%90.png) 
 
-### 4.9. 集成成功
+### 4.9 集成成功
 
 按照上述步骤完成UCloudRtcSdk-ios-demo的前期SDK集成准备之后，请使用Xcode连接iPhone真机，在真机调试环境下，执行编译Commond + B，提示Build Success，表示SDK集成成功。  
 
@@ -736,7 +591,7 @@ Privacy - Microphone Usage Description
 
 建议在初始化 App 的同时，初始化 SDK。  
 
-### 5.1. 导入 SDK 头文件  
+### 5.1 导入 SDK 头文件  
 
 ```objective-c
 <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
@@ -746,7 +601,7 @@ Privacy - Microphone Usage Description
 import UCloudRtcSdk_ios
 ```
 
-### 5.2. 设置 userId 和 roomId，获取AppID;  
+### 5.2 设置 userId 和 roomId，获取AppID;  
 
 ```objective-c
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc] initWithUserId:userId  appId:appId roomId:roomId appKey:appKey token:token]];
@@ -766,7 +621,7 @@ engine.delegate = self;
 self.engine?.delegate = self
 ```
 
-### 5.3. 配置参数 
+### 5.3 配置参数 
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。      
 初始化完成后，即可调用 SDK 相关接口，实现对应功能。     
@@ -788,9 +643,9 @@ self.engine?.delegate = self
     self.engine?.streamProfile = .streamProfileAll;//设置流权限
 ```
 
-## 6. 建立通话
+## 6 建立通话
 
-### 6.1. 加入房间
+### 6.1 加入房间
 
 ```objective-c
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
@@ -801,7 +656,7 @@ self.engine?.delegate = self
 self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 ```
 
-### 6.2. 发布本地流  
+### 6.2 发布本地流  
 
 1）自动发布模式下，joinRoom成功后，即可发布本地流，无需再次调用publish接口；    
 2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；
@@ -880,7 +735,7 @@ self.engine?.publish()
 ```
 
 
-### 6.3. 取消发布本地流  
+### 6.3 取消发布本地流  
 
 ```objective-c
 [self.engine unPublish];
@@ -890,7 +745,7 @@ self.engine?.publish()
 self.engine?.unPublish()
 ``` 
 
-### 6.4. 订阅远程流  
+### 6.4 订阅远端流  
 
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
 2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
@@ -918,7 +773,7 @@ self.engine?.subscribeMethod(remoteStream)
 }
 ```
 
-### 6.5. 取消订阅远程流
+### 6.5 取消订阅远端流
 
 ```objective-c
 [self.engine unSubscribeMethod:remoteStream];
@@ -928,80 +783,8 @@ self.engine?.subscribeMethod(remoteStream)
 self.engine?.unSubscribeMethod(remoteStream)
 ```
 
-### 6.6 云端录制
 
-#### 前提条件
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](https://docs.ucloud.cn/video/urtc/cloudRecord/openRecord)。
-
-#### 开始录制
-
-```objective-c
-  UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
-  recordConfig.mainviewid = userId;  //主窗口位置用户id
-  recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
-  recordConfig.mainviewmt = 1;       //主窗口的媒体类型 1 摄像头 2 桌面
-  recordConfig.bucket = @"urtc-test";//存储地址的名称
-  recordConfig.region = @"cn-bj";    //所属的region
-  recordConfig.watermarkpos = 1;     //水印的位置
-  recordConfig.width = 360;          //录制视频的宽
-  recordConfig.height = 480;         //录制视频的高
-  recordConfig.isaverage = YES;      //是否均分
-  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
-  recordConfig.watertype = 1;        //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
-  recordConfig.wtemplate = 9;        //模板
-  [self.engine startRecord:recordConfig];   
-```
-
-```swift
-  let recordConfig = UCloudRtcRecordConfig.init()
-  recordConfig.mainviewid = userId;   //主窗口位置用户id
-  recordConfig.mimetype = 3;          //录制类型  1 音频 2 视频 3 音频+视频
-  recordConfig.mainviewmt = 1;        //主窗口的媒体类型 1 摄像头 2 桌面
-  recordConfig.bucket = "urtc-test";  //存储地址的名称
-  recordConfig.region = "cn-bj";      //所属的region
-  recordConfig.watermarkpos = 1;      //水印的位置
-  recordConfig.width = 360;           //录制视频的宽
-  recordConfig.height = 480;          //录制视频的高
-  recordConfig.isaverage = YES;       //是否均分
-  recordConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png";//watertype 2时代表图片水印url 、watertype 3代表水印文字
-  recordConfig.watertype = 1;         //1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
-  recordConfig.wtemplate = 9;         //模板
-  self.engine?.startRecord(recordConfig)
-```
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当非均衡模式、垂直模式下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](https://docs.ucloud.cn/video/urtc/cloudRecord/RecordLaylout)。 
-
-
-#### 获取录制的文件地址
-
-视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
-
- ```objective-c
-   -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
-      [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
-    }
-    
-```
-
-```swift
-  func uCloudRtcEngine(_ manager: UCloudRtcEngine, startRecord recordResponse: [AnyHashable : Any]) {
-        CBToast.showToastAction(message: NSString(format: "视频录制文件:%@", recordResponse["FileName"] as! CVarArg))
-    }
-    
- ```  
-
-#### 停止录制
-
-```objective-c
-    [self.manager stopRecord];
-```
-
-```swift
-    self.manager?.stopRecord()
-```
-### 6.7 离开房间
+### 6.6 离开房间
 
 ```objective-c
 [self.engine leaveRoom];   
@@ -1012,7 +795,7 @@ self.engine?.unSubscribeMethod(remoteStream)
 self.engine?.leaveRoom()
 ```
 
-### 6.8 编译、运行，开始体验吧！
+### 6.7 编译、运行，开始体验吧！
 
 
 # ** macOS **
@@ -1040,40 +823,40 @@ self.engine?.leaveRoom()
 
 ## 4. 搭建开发环境  
 
-### 4.1. 得到动态库
+### 4.1 得到动态库
 
 下载SDK,得到的UCloudRtcSdk\_mac.framework为动态库；    
 
-### 4.2. 创建新的工程
+### 4.2 创建新的工程
 
 使用XCode创建一个新的工程UCloudRtcSdk-mac-demo；   
 
 ![](/images/sdk/MACOS/4.2.png)
 
-### 4.3. 加入动态库到工程中
+### 4.3 加入动态库到工程中
 
 将已下载的动态库UCloudRtcSdk\_mac.framework加入到UCloudRtcSdk-mac-demo工程中Embedded Binaries；    
 
 ![](/images/sdk/MACOS/4.3.png)
 
-### 4.4. 打开Xcode
+### 4.4 打开Xcode
 
 将TARGETS>GENERAL>Deployment Target 设置为10.10及以上；
 
 ![](/images/sdk/MACOS/4.4.png)
 
-### 4.5. 编辑info.plist，申请摄像头、麦克风权限
+### 4.5 编辑info.plist，申请摄像头、麦克风权限
 
 Privacy - Camera Usage Description    
 Privacy - Microphone Usage Description    
 
 ![](/images/sdk/MACOS/4.5.png)
 
-### 4.6. 打开网络请求相关权限
+### 4.6 打开网络请求相关权限
 
 ![](/images/sdk/MACOS/4.6.png)
 
-### 4.7. 集成成功
+### 4.7 集成成功
 
 按照上述步骤完成UCloudRtcSdk-mac-demo的前期SDK集成准备之后，执行编译
 Commond + B，提示Build Success，表示SDK集成成功。  
@@ -1082,13 +865,13 @@ Commond + B，提示Build Success，表示SDK集成成功。
 
 建议在初始化 App 的同时，初始化 SDK。  
 
-### 5.1. 导入 SDK 头文件  
+### 5.1 导入 SDK 头文件  
 
 ```
 <UCloudRtcSdk_mac/UCloudRtcSdk_mac.h>
 ```
 
-### 5.2. 设置 userId 和 roomId，获取AppID;  
+### 5.2 设置 userId 和 roomId，获取AppID 
 
 ```
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
@@ -1101,7 +884,7 @@ initWithUserId:userId appId:appId roomId:roomId token:@""]];
 engine.delegate = self;
 ```
 
-### 5.3. 调用接口初始化
+### 5.3 调用接口初始化
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
@@ -1114,7 +897,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ## 6. 建立通话
 
-### 6.1. 加入房间
+### 6.1 加入房间
 
 ```
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
@@ -1122,7 +905,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ```
 
-### 6.2. 发布本地流  
+### 6.2 发布本地流  
 
 1）自动发布模式下，joinRoom成功后，随即发布本地流；      
 
@@ -1165,7 +948,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 }
 ```
 
-### 6.3. 订阅远程流  
+### 6.3 订阅远程流  
 
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流；    
 
@@ -1177,13 +960,13 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 }
 ```
 
-### 6.4. 离开房间
+### 6.4 离开房间
 
 ```
 [self.engine leaveRoom];
 ```
 
-### 6.5. 编译、运行，开始体验吧！
+### 6.5 编译、运行，开始体验吧！
 
 # ** Electron **
 
