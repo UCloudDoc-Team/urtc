@@ -5,7 +5,8 @@
 ## Web SDK 版本说明
 
 <!-- tabs:start -->
-## 1.4.6版
+
+#### ** 1.4.6版 **
 
 该版本发布于 2020-01-03。
 
@@ -23,16 +24,15 @@
 5. 修复日志上报参数错误的问题
 6. 修复远端 mute 视频时，本地展示画面不黑屏，停留在最后一帧的问题
 7. 完善/修正 API 文档
-<!-- tabs:end -->
 
-<!-- tabs:start -->
-## 1.4.5版
+#### ** 1.4.5版 **
 
 该版本发布于 2019-12-17。
 
 1. 修复回音问题
 
 <!-- tabs:end -->
+
 
 ## 1.4.4版
 
@@ -578,4 +578,4 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4、断线制动重连   
 5、支持配置自动发布模式   
 
-<!-- tab2:end -->
+<!-- tabs:end -->
