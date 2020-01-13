@@ -2,99 +2,11 @@
 
 # Token生成指导
 
-## 1. Token的使用流程图
-
-![ ](/images/sdk/liuch.png)
-
-## 2. Token生成步骤
-
-### 2.1 创建项目生成AppID及AppKey
-
-创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
-
-AppKey是保证AppID的秘钥，请妥善保管，避免泄露以及公网明文传输。
-
-### 2.2 sha1算法生成Token
-
-**Token 生成规则**
-
-sha1算法利用AppID及AppKey生成Token，Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
-
-#### 2.2.1 生成header
- 
-header 部分采用为json 字符串，然后进行base64 编码。
-
-1. json字符串格式   
-
-```
-Jsonmsg = {
-"user_id"： uid，
-"room_id"：roomId，
-"app_id"： = appId
-}
-header=base64(Jsonmsg) ;
-```
-
-2. 生成base64编码
-
-
-```
-Headerbase64=base64(jsonmsg) ;
-```
-
-#### 2.2.2 生成signature
-
-1. 时间戳获取
-
-时间戳为UTC时间，精确到秒，截取最后10位，作为最终的时间戳。    
-伪代码如下：
-
-```
-unixts = getutctimes()    
-unixts=format(“%10u”, unixts)    
-```
-
-2. 随机数生成
-
-随机生成32位的无符号整形数，然后转为16进制，保持8位长度，作为随机数。    
-伪代码如下：
-
-```
-random = random()    
-random=format(“%08x”, random)    
-```
-
-#### 2.2.3 签名生成
-
-1. 格式化字符串
-
-```
-strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
-```
-
-2. 通过sha1 编码 加密key 为seckey
-
-```
-sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
-```
-
-3. 拼接加密串
-
-```
-signture = format(“%s%d%d”, sign, unixts, random)\\
-```
-
-#### 2.2.4 拼接最终的Token
-
-```
-token = header+ “.”+ signture\\
-```
-
-### 2.3 参考实现代码
+## 1. 参考实现代码
 
 <!-- tabs:start -->
 
-#### ** Go **
+## ** Go **
 
   - Go 参考代码如下
 
@@ -148,7 +60,7 @@ func generateSignature(uId, appID, appCertificate, roomId, unixTsStr, randomIntS
 }
 ```
 
-#### ** Java **
+## ** Java **
   - Java 参考代码如下
 
 ```java
@@ -222,7 +134,7 @@ public class AuthToken {
 }
 ```
 
-#### ** node js **
+## ** node js **
 
  - node js 参考代码如下（需要 base64.js 和  sha1.js ）
 
@@ -273,6 +185,94 @@ generateToken({
 
 <!-- tabs:end -->
 
-## 3. 申明
+## 2. Token的使用流程图
+
+![ ](/images/sdk/liuch.png)
+
+## 3. Token生成方法详解
+
+### 3.1 创建项目生成AppID及AppKey
+
+创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
+
+AppKey是保证AppID的秘钥，请妥善保管，避免泄露以及公网明文传输。
+
+### 3.2 sha1算法生成Token
+
+**Token 生成规则**
+
+sha1算法利用AppID及AppKey生成Token，Token采用类jwt格式：分为头部和数据载荷，形式：header（头部）.signture(数据载荷)。  
+
+#### 3.2.1 生成header
+ 
+header 部分采用为json 字符串，然后进行base64 编码。
+
+1. json字符串格式   
+
+```
+Jsonmsg = {
+"user_id"： uid，
+"room_id"：roomId，
+"app_id"： = appId
+}
+header=base64(Jsonmsg) ;
+```
+
+2. 生成base64编码
+
+
+```
+Headerbase64=base64(jsonmsg) ;
+```
+
+#### 3.2.2 生成signature
+
+1. 时间戳获取
+
+时间戳为UTC时间，精确到秒，截取最后10位，作为最终的时间戳。    
+伪代码如下：
+
+```
+unixts = getutctimes()    
+unixts=format(“%10u”, unixts)    
+```
+
+2. 随机数生成
+
+随机生成32位的无符号整形数，然后转为16进制，保持8位长度，作为随机数。    
+伪代码如下：
+
+```
+random = random()    
+random=format(“%08x”, random)    
+```
+
+#### 3.2.3 签名生成
+
+1. 格式化字符串
+
+```
+strformat = format(“%s%s%d%d%s”, userid, appid, unixts, random, roomid)\\
+```
+
+2. 通过sha1 编码 加密key 为seckey
+
+```
+sign = HmacSign(appCertificate, strformat, HMAC_LENGTH);\\
+```
+
+3. 拼接加密串
+
+```
+signture = format(“%s%d%d”, sign, unixts, random)\\
+```
+
+#### 3.2.4 拼接最终的Token
+
+```
+token = header+ “.”+ signture\\
+```
+
+## 4. 申明
 
 Token是SDK验证APP的重要参数，是用户进入系统的身份验证手段，token 错误将无法进入系统，请确认token 生成代码正确。
