@@ -2,25 +2,7 @@
 
 <!-- tabs:start -->
 
-##** Python **
-
-```python
-# some code
-```
-
-?> 提示：详情可参考开源 [示例代码](some url)。
-
-## ** Go **
-
-```go
-// some code
-```
-
-<!-- tabs:end -->
-
-## Web SDK 版本说明
-
-<!-- tabs:start -->
+## ** web **
 
 #### ** 1.4.6版 **
 
