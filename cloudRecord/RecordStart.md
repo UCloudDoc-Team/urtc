@@ -69,6 +69,9 @@ client.stopRecording(function onSuccess() {
 
 # ** Windows **
 
+无需集成额外的SDK，通过以下方法，可以快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。
+
+
 ## 前提条件
 
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](video/urtc/cloudRecord/openRecord)。
