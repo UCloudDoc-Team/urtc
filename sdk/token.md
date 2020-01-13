@@ -134,9 +134,9 @@ public class AuthToken {
 }
 ```
 
-## ** node js **
+## ** Node.js **
 
- - node js 参考代码如下（需要 base64.js 和  sha1.js ）
+ - Node.js 参考代码如下（需要 base64.js 和  sha1.js ）
 
 ```js
 import {
