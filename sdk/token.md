@@ -92,6 +92,10 @@ token = header+ “.”+ signture\\
 
 ### 2.3 参考实现代码
 
+<!-- tabs:start -->
+
+#### ** Go **
+
   - Go 参考代码如下
 
 ```go
@@ -144,6 +148,7 @@ func generateSignature(uId, appID, appCertificate, roomId, unixTsStr, randomIntS
 }
 ```
 
+#### ** Java **
   - Java 参考代码如下
 
 ```java
@@ -217,6 +222,8 @@ public class AuthToken {
 }
 ```
 
+#### ** node js **
+
  - node js 参考代码如下（需要 base64.js 和  sha1.js ）
 
 ```js
@@ -263,6 +270,8 @@ generateToken({
     //报错信息 
 })
 ```
+
+<!-- tabs:end -->
 
 ## 3. 申明
 
