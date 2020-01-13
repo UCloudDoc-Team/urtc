@@ -12,6 +12,7 @@
     * [屏幕共享](video/urtc/sdk/Video/screenshare)    
 * 云端录制
     * [开通云端录制](video/urtc/cloudRecord/openRecord)  
+     * [云端录制SDK代码示例](video/urtc/cloudRecord/RecordStart)    
     * [录制混流风格说明](video/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](video/urtc/cloudRecord/RecordWatermark)  
 * [质量监控](video/urtc/quality/qualityDocs)
