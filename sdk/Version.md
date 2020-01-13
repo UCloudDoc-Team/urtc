@@ -2,7 +2,7 @@
 
 <!-- tabs:start -->
 
-#### ** Python **
+##** Python **
 
 ```python
 # some code
@@ -10,7 +10,7 @@
 
 ?> 提示：详情可参考开源 [示例代码](some url)。
 
-#### ** Go **
+## ** Go **
 
 ```go
 // some code
