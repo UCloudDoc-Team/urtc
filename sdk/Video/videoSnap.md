@@ -74,16 +74,6 @@ view传本地的就是本地截图，远端的view就是远端的截图。
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
 ```
 
-# ** macOS **
-
-
-视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。    
-
-
-# ** Electron **
-
-视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。        
-
 
 <!-- tabs:end -->
 
