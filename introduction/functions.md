@@ -56,13 +56,14 @@
 
 ## 多平台接入
 
-URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，接入版本号如下表所示：
+URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，参考 [快速集成](/video/urtc/sdk/VideoStart)接入。    
+接入版本号如下表所示：
 
-|平台     | SDK 兼容性                             | 开发指南|
-|--------|--------------------------------------|------------|
-|Android  | 支持Android 5.0及以上版本              | [Android SDK指南](/video/urtc/sdk/android)  |
-|MAC OS   | 支持MAC OS 10.0及以上版本              | [MAC OS SDK 指南](/video/urtc/sdk/macos)  |
-|IOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad | [IOS SDK 指南](/video/urtc/sdk/ios)  |
-|Windows  | 支持Windows 7及以上版本                | [Windows SDK指南](/video/urtc/sdk/windows)  |
-|WEB      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本                | [WEB SDK指南](/video/urtc/sdk/web/websdk)  |
-|Electron | 支持Electron addon 2.0.7及以上版本     | [Electron SDK指南](/video/urtc/sdk/electron)  |
+|平台     | SDK 兼容性                             |
+|-|-|
+|Android  | 支持Android 5.0及以上版本              |
+|MAC OS   | 支持MAC OS 10.0及以上版本              |
+|IOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad |
+|Windows  | 支持Windows 7及以上版本                |
+|WEB      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本                |
+|Electron | 支持Electron addon 2.0.7及以上版本     |
