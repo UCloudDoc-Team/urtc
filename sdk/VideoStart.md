@@ -218,7 +218,7 @@ m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
 ``` 
 
 ### 5.5 订阅流
-``` c++
+```cpp
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
@@ -232,7 +232,7 @@ m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ### 5.7 离开房间
 
 ```cpp
-m_rtcengine->leaveChannel ()
+m_rtcengine->leaveChannel()
 ```
 
 ### 5.8 编译、运行，开始体验吧！
