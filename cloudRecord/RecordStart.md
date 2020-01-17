@@ -186,7 +186,7 @@ void onRecordStop(int code);
 
 示例代码：    
 
-```objective-c
+```objc
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
   recordConfig.mainviewid = userId;  //主窗口位置用户id
   recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
@@ -224,7 +224,7 @@ void onRecordStop(int code);
 
 视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
- ```objective-c
+ ```objc
    -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
       [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
     }
@@ -242,7 +242,7 @@ void onRecordStop(int code);
 
 示例代码：    
 
-```objective-c
+```objc
     [self.manager stopRecord];
 ```
 
