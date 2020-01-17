@@ -35,7 +35,7 @@
 ## 6. 快速接入 
 ### 6.1. 继承实现UCloudRtcEventListener，用作事件处理
 
-```c++
+```cpp
 Class UcloudRtcEventListenerImpl ： public UcloudRtcEventListener {
 ……
 };
@@ -44,7 +44,7 @@ UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
 
 ### 6.2 初始化引擎 
 
-``` c++
+```cpp
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
 m_rtcengine = UCloudRtcEngine::sharedInstance(UCloudRtcEventListener实现类);
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
@@ -61,13 +61,13 @@ m_rtcengine->configLocalScreenPublish(false);
 
 ### 6.3 添加mp4 列表
 
-``` c++
+```cpp
 m_rtcengine->addMp4File(filebuf, size, cleanup);
 ```
 
 ### 6.4 加入房间
 
-```c++
+```cpp
 tUCloudRtcAuth auth;
 auth.mAppId = appid;
 auth.mRoomId = roomid;
@@ -78,7 +78,7 @@ m_rtcengine->joinChannel(auth);
 
 ### 6.5 发布本地文件列表
 
-```c++
+```cpp
 tUCloudRtcMediaConfig config;
 config.mAudioEnable = true;
 config.mVideoEnable = true;
@@ -88,7 +88,7 @@ m_rtcengine->publish(UCLOUD_RTC_MEDIATYPE_VIDEO, config.mVideoEnable,
 
 ### 6.6 取消发布文件列表
 
-```c++
+```cpp
 tUCloudRtcVideoCanvas view;
 view.mVideoView = (int)m_localWnd->GetVideoHwnd();
 view.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
@@ -98,19 +98,19 @@ m_rtcengine->unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
 
 ### 6.7 订阅流
 
-```c++
+```cpp
 m_rtcengine->subscribe(tUCloudRtcStreamInfo & info)
 ```
 
 ### 6.8 取消订阅流
 
-```c++
+```cpp
 m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ```
 
 
 ### 6.9 离开房间
 
-```c++
+```cpp
 m_rtcengine->leaveChannel ()
 ```
