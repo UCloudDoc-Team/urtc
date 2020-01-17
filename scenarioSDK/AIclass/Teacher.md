@@ -112,5 +112,5 @@ m_rtcengine->unSubscribe(tUCloudRtcStreamInfo& info)
 ### 6.9 离开房间
 
 ```cpp
-m_rtcengine->leaveChannel ()
+m_rtcengine->leaveChannel()
 ```
