@@ -1,5 +1,3 @@
-
-
 # 快速上手
 
 使用URTC，可以从零开始，搭建出实时音视频通信平台，可以应用于语音和视频社交、在线教育和培训、远程医疗、在线会议、直播等多种业务场景。  
@@ -8,7 +6,7 @@
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
-> 使用URTC产品之前，必须先注册并且完成实名认证。  
+> 使用URTC产品之前，必须先注册并且完成[实名认证](https://docs.ucloud.cn/account/identity_verification/overview)。  
 
 ## 2．下载SDK  
 
