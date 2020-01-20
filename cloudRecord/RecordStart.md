@@ -224,7 +224,7 @@ void onRecordStop(int code);
 
 视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
- ```objc
+ ```objectivec
    -(void)uCloudRtcEngine:(UCloudRtcEngine *)manager startRecord:(NSDictionary *)recordResponse{
       [self.view makeToast:[NSString stringWithFormat:@"视频录制文件:%@",recordResponse[@"FileName"]] duration:3.0     position:CSToastPositionCenter];
     }
@@ -242,7 +242,7 @@ void onRecordStop(int code);
 
 示例代码：    
 
-```objc
+```objectivec
     [self.manager stopRecord];
 ```
 
