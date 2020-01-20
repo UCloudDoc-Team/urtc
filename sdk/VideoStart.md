@@ -594,7 +594,7 @@ Privacy - Microphone Usage Description
 
 ### 5.1 导入 SDK 头文件  
 
-```obj-c
+```objectivec
 <UCloudRtcSdk_ios/UCloudRtcSdk_ios.h> 
 ```   
 
@@ -604,7 +604,7 @@ import UCloudRtcSdk_ios
 
 ### 5.2 设置 userId 和 roomId，获取AppID;  
 
-```obj-c
+```objectivec
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc] initWithUserId:userId  appId:appId roomId:roomId appKey:appKey token:token]];
 ```
 
@@ -614,7 +614,7 @@ UCloudRtcEngine *engine = UCloudRtcEngine.init(userId:userId, appId: appId, room
 
 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
-```obj-c
+```objectivec
 engine.delegate = self;
 ```
 
@@ -627,7 +627,7 @@ self.engine?.delegate = self
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。      
 初始化完成后，即可调用 SDK 相关接口，实现对应功能。     
 
-```obj-c
+```objectivec
     self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
     self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
     self.engine.isOnlyAudio = NO;//将启用纯音频模式 默认为NO
@@ -648,7 +648,7 @@ self.engine?.delegate = self
 
 ### 6.1 加入房间
 
-```obj-c
+```objectivec
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
     }];
 ```  
@@ -662,7 +662,7 @@ self.engine?.joinRoomWithcompletionHandler({(data, response, error) -> Void in})
 1）自动发布模式下，joinRoom成功后，即可发布本地流，无需再次调用publish接口；    
 2）手动发布模式下，joinRoom成功后，可通过下述接口发布本地流；
 
-```obj-c
+```objectivec
 [self.engine publish];
 ``` 
 
@@ -672,7 +672,7 @@ self.engine?.publish()
 
 3）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。    
 
-```obj-c
+```objectivec
         - (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
             switch (publishState) {
                         case UCloudRtcEnginePublishStateUnPublish:
@@ -738,7 +738,7 @@ self.engine?.publish()
 
 ### 6.3 取消发布本地流  
 
-```obj-c
+```objectivec
 [self.engine unPublish];
 ```  
 
@@ -751,7 +751,7 @@ self.engine?.unPublish()
 1）自动订阅模式下，joinRoom成功后，即可订阅远程流，无需再次调用subscribeMethod接口；    
 2）手动订阅模式下，joinRoom成功后，可通过下述接口订阅远程流；   
 
-```obj-c
+```objectivec
 [self.engine subscribeMethod:remoteStream];
 ```
 
@@ -761,7 +761,7 @@ self.engine?.subscribeMethod(remoteStream)
 
 3）订阅成功，在回调事件中调用渲染接口即可。  
 
-```objective-c
+```objectivec
         -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
             [self reloadVideos];
         }
@@ -776,7 +776,7 @@ self.engine?.subscribeMethod(remoteStream)
 
 ### 6.5 取消订阅远端流
 
-```obj-c
+```objectivec
 [self.engine unSubscribeMethod:remoteStream];
 ```
 
@@ -787,7 +787,7 @@ self.engine?.unSubscribeMethod(remoteStream)
 
 ### 6.6 离开房间
 
-```obj-c
+```objectivec
 [self.engine leaveRoom];   
     
 ```
@@ -868,20 +868,20 @@ Commond + B，提示Build Success，表示SDK集成成功。
 
 ### 5.1 导入 SDK 头文件  
 
-```
+```objectivec
 <UCloudRtcSdk_mac/UCloudRtcSdk_mac.h>
 ```
 
 ### 5.2 设置 userId 和 roomId，获取AppID 
 
-```
+```objectivec
 UCloudRtcEngine *engine = [[UCloudRtcEngine alloc]
 initWithUserId:userId appId:appId roomId:roomId token:@""]];
 ```
 
 务必要设置代理对象，并实现代理回调方法，设置代理对象失败，会导致 App 收不到相关回调。
 
-```
+```objectivec
 engine.delegate = self;
 ```
 
@@ -889,7 +889,7 @@ engine.delegate = self;
 
 使用之前需要对SDK进行相关设置，如果不设置，系统将会采用默认值。  
 
-```
+```objectivec
 self.engineMode = UCloudRtcEngineModeTrival; 默认为测试模式
 self.engine.isAutoPublish = YES;//加入房间后将自动发布本地音视频 默认为YES
 self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视频 默认为YES
@@ -900,7 +900,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ### 6.1 加入房间
 
-```
+```objectivec
 [self.engine joinRoomWithcompletionHandler:^(NSData *data, NSUrlResponse *response, NSError error) {
 }];
 
@@ -912,7 +912,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 2）发布过程中可以监听以下事件获取发布状态，根据状态调用渲染或其他接口即可。      
 
-```
+```objectivec
 - (void)uCloudRtcEngine:(UCloudRtcEngine *)manager didChangePublishState:(UCloudRtcEnginePublishState)publishState {
     switch (publishState) {
         case UCloudRtcEnginePublishStateUnPublish:
@@ -955,7 +955,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 2）订阅成功，在回调事件中调用渲染接口即可。  
 
-```
+```objectivec
 -(void)uCloudRtcEngine:(UCloudRtcEngine *)channel didSubscribe:(UCloudRtcStream *)stream{
      [self reloadVideos];
 }
@@ -963,7 +963,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ### 6.4 离开房间
 
-```
+```objectivec
 [self.engine leaveRoom];
 ```
 
