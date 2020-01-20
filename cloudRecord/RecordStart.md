@@ -186,7 +186,7 @@ void onRecordStop(int code);
 
 示例代码：    
 
-```c
+```objectivec
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
   recordConfig.mainviewid = userId;  //主窗口位置用户id
   recordConfig.mimetype = 3;         //录制类型  1 音频 2 视频 3 音频+视频
