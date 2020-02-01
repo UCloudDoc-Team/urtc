@@ -79,7 +79,7 @@ client.stopRecording(function onSuccess() {
 
 ## 录制示例代码
 
-```c++
+```cpp
 tUCloudRtcRecordConfig recordconfig;
 recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
 recordconfig.mMainviewuid = m_userid.data(); // 主画面
