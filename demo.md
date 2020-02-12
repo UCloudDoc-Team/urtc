@@ -20,7 +20,7 @@
 
 ![](/images/demoImage/iosImage.png)
 
-[下载IOS](https://fir.im/vy1e?release_id=5e144a91f9454857226b5e30)
+[下载IOS](https://fir.im/vy1e)
 
 ## Windows DEMO
 
