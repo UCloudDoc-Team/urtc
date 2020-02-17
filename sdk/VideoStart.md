@@ -261,7 +261,7 @@ m_rtcengine->leaveChannel()
   - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。   
   - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
 
-```
+```java
     dependencies {
     implementation (name: 'ucloudrtclib_1.0.1_b52bc04c', ext: 'aar')
 ```
@@ -270,7 +270,7 @@ m_rtcengine->leaveChannel()
 
 
 
-```js
+```java
 -keep class com.ucloudrtclib.sdkengine.**{*;}
 -keep class com.ucloudrtclib.sdkengine.define.*{*;}
 -keep enum com.ucloudrtclib.sdkengine.define.*{*;}
@@ -299,7 +299,7 @@ m_rtcengine->leaveChannel()
 在 Android 6.0 (API 23)开始，用户需要在应用运行时授予权限，而不是在应用安装时授予，并分为正常权限和危险权限两种类型。    
 在实时音视频SDK 中，用户需要在进入音视频通话房间前动态申请 `CAMERA`、`RECORD\_AUDIO`、`WRITE\_EXTERNAL\_STORAGE`权限，具体可以参考[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 
-```js
+```java
 <uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 <uses-feature android:glEsVersion="0x00020000" android:required="true" />
@@ -323,7 +323,7 @@ m_rtcengine->leaveChannel()
 
 主要配置`android context sdkmode`以及`AppID` ，测试用的`SEC\_KEY`，日志等级。
 
-```js
+```java
 public class UCloudRtcApplication extends Application {
         @Override
         public void onCreate() {
@@ -345,7 +345,7 @@ public class UCloudRtcApplication extends Application {
 ### 5.2 继承实现`UCloudRtcSdkEventListener` 实现事件处理
 
 
-```js
+```java
 UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
         public void onServerDisconnect() {
@@ -383,7 +383,7 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
 
 ### 5.3 获取SDK 引擎 并进行基础配置
 
-```js
+```java
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
 sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
 sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
@@ -400,7 +400,7 @@ sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;/
 
 
 
-```js
+```java
 UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         info.setAppId(mAppid);
         info.setToken(mRoomToken);
@@ -414,14 +414,14 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
 
   - 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
 
-```js
+```java
 sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
   - 如果配置了手动发布需要调用`sdkEngine`引擎的`publish`接口 配置手动/自动发布。
 
 
-```js
+```java
 sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudio)
 回调事件
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -444,7 +444,7 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在`onLocalPublish` 回调成功后，再函数中可以调用视频渲染。
 
-```js
+```java
 localrenderview.setBackgroundColor(Color.TRANSPARENT);
 sdkEngine.startPreview(info.getmMediatype(), localrenderview);
 不想渲染时可以调用停止渲染接口
@@ -465,13 +465,13 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
 如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口。 
 
-```js
+```java
 sdkEngine.setAutoSubscribe(mScribeMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
   - 订阅媒体流
 
-```js
+```java
 sdkEngine.subscribe(UCloudRtcSdkStreamInfo info)
 //回调事件
 public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -481,7 +481,7 @@ public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在onSubscribeResult回调成功后，再函数中可以调用视频渲染。
 
-```js
+```java
 sdkEngine. startRemoteView(UCloudRtcSdkStreamInfo info, UCloudRtcSdkSurfaceVideoView renderview)
 //不想渲染时可以调用定制渲染接口
 sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
@@ -489,7 +489,7 @@ sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 
   - 取消订阅媒体流
 
-```js
+```java
 sdkEngine. subscribe(UCloudRtcSdkStreamInfo info) 
 //回调事件
 public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info)
@@ -499,7 +499,7 @@ public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo inf
 
 权限分为发布，订阅，全部权限，全部权限包括了发布和订阅。
 
-```js
+```java
 //接口
 public int setStreamRole(UCloudRtcSdkStreamRole role)
 //调用
@@ -510,7 +510,7 @@ sdkEngine.setStreamRole(mRole);
 ### 6.5 离开房间
 
 
-```js
+```java
 sdkEngine.leaveChannel() ;
 ```
 
