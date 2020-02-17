@@ -125,7 +125,7 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 
 ## 录制示例代码
 
-```js
+```java
 //                如果主窗口是当前用户
 UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
                         .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
