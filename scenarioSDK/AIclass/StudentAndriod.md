@@ -30,7 +30,7 @@
   - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。   
   - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
 
-```
+```java
     dependencies {
     implementation (name: 'ucloudrtclib_1.6.2_ee9bbf43', ext: 'aar')
     implementation (name: 'ucloudimlib_1.0_e053d8bc', ext: 'aar')
@@ -94,7 +94,7 @@
 在 Android 6.0 (API 23)开始，用户需要在应用运行时授予权限，而不是在应用安装时授予，并分为正常权限和危险权限两种类型。    
 在实时音视频SDK 中，用户需要在进入音视频通话房间前动态申请 `CAMERA`、`RECORD\_AUDIO`、`WRITE\_EXTERNAL\_STORAGE`权限，具体可以参考[Android官方文档](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 
-```js
+```java
 <uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 <uses-feature android:glEsVersion="0x00020000" android:required="true" />
@@ -305,7 +305,7 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
   - 如果配置了手动发布需要调用`sdkEngine`引擎的`publish`接口 配置手动/自动发布。
 
 
-```js
+```java
 sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudio)
 回调事件
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
