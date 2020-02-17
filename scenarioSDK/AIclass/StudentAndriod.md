@@ -41,7 +41,7 @@
   - 如果项目混淆，请在混淆中添加一下urtc和uim的 混淆规则。
 
 
-```js
+```java
  //rtc部分
 -keep class com.ucloudrtclib.sdkengine.**{*;}
 -keep class com.ucloudrtclib.sdkengine.define.*{*;}
@@ -118,7 +118,7 @@
 
 主要配置`android context sdkmode`以及`AppID` ，测试用的`SEC\_KEY`，日志等级。
 
-```js
+```java
 public class UCloudRtcApplication extends Application {
         @Override
         public void onCreate() {
@@ -138,7 +138,7 @@ public class UCloudRtcApplication extends Application {
 ```
 ### 5.2 创建rtc和im引擎
 
-```js
+```java
 
 sdkEngine = UCloudRtcSdkEngine.createEngine(eventListener);
 imEngine = UcloudIMSdkEngine.createEngine(mIMSdkEventListener);
@@ -147,7 +147,7 @@ imEngine = UcloudIMSdkEngine.createEngine(mIMSdkEventListener);
 ### 5.3 继承实现`UCloudRtcSdkEventListener` 实现事件处理
 
 
-```js
+```java
 //rtc回调
 UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
         @Override
@@ -258,7 +258,7 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
 
 ### 5.4 获取SDK 引擎 并进行基础配置
 
-```js
+```java
 sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
 sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
 sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
@@ -275,7 +275,7 @@ sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;/
 
 
 
-```js
+```java
 //rtc 加入房间
 UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
         info.setAppId(mAppid);
@@ -298,7 +298,7 @@ UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
 
   - 如果配置了自动发布无需调用发布视频接口，SDK会在用户成功加入房间后自动发布，只需要监听事件调用渲染接口即可。
 
-```js
+```java
 sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
@@ -328,7 +328,7 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在`onLocalPublish` 回调成功后，再函数中可以调用视频渲染。
 
-```js
+```java
 localrenderview.setBackgroundColor(Color.TRANSPARENT);
 sdkEngine.startPreview(info.getmMediatype(), localrenderview);
 不想渲染时可以调用停止渲染接口
@@ -336,7 +336,7 @@ sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 ```
   - 取消发布媒体流
 
-```js
+```java
 sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
 回调事件
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -350,7 +350,7 @@ public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
 view传本地的就是本地截图，远端的view就是远端的截图。
 
-```js
+```java
 private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
         view.setScreenShotBack(new UcloudRTCSceenShot() {
             @Override
@@ -384,7 +384,7 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 
 ### 6.6 IM自定义消息	
 
-```js
+```java
  mSendMsgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -405,13 +405,13 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 如果配置了自动订阅无需调用订阅视频接口，SDK会在用户成功加入房间后查看房间已有的可以订阅的流并进行逐一订阅，当有新用户加入房间时也会自动订阅他推的流。   
 如果配置了手动订阅需要调用sdkEngine引擎的subscribe接口。 
 
-```js
+```java
 sdkEngine.setAutoSubscribe(mScribeMode == CommonUtils.AUTO_MODE ? true : false);
 ```
 
   - 订阅媒体流
 
-```js
+```java
 sdkEngine.subscribe(UCloudRtcSdkStreamInfo info)
 //回调事件
 public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
@@ -421,7 +421,7 @@ public void onSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info
 
 在onSubscribeResult回调成功后，再函数中可以调用视频渲染。
 
-```js
+```java
 sdkEngine. startRemoteView(UCloudRtcSdkStreamInfo info, UCloudRtcSdkSurfaceVideoView renderview)
 //不想渲染时可以调用定制渲染接口
 sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
@@ -429,7 +429,7 @@ sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 
   - 取消订阅媒体流
 
-```js
+```java
 sdkEngine. subscribe(UCloudRtcSdkStreamInfo info) 
 //回调事件
 public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo info)
@@ -439,7 +439,7 @@ public void onUnSubscribeResult(int code, String msg, UCloudRtcSdkStreamInfo inf
 
 权限分为发布，订阅，全部权限，全部权限包括了发布和订阅。
 
-```js
+```java
 //接口
 public int setStreamRole(UCloudRtcSdkStreamRole role)
 //调用
@@ -450,7 +450,7 @@ sdkEngine.setStreamRole(mRole);
 ### 6.9 离开房间
 
 
-```js
+```java
 //rtc离开房间申请
 sdkEngine.leaveChannel() ;
 //等待rtc离开房间回调 
@@ -472,7 +472,7 @@ sdkEngine.leaveChannel() ;
 ```
 
 ### 6.10 destroy清理
-```js
+```java
         UCloudRtcSdkEngine.destory();
         UcloudIMSdkEngine.destory();
  ```       
