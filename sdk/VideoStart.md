@@ -975,7 +975,7 @@ self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 Y
 
 ## 1. 下载资源
 
-  - 可以下载Demo、SDK、API Java 文档     
+  - 可以下载Demo、SDK、API 接口文档     
     [现在下载](https://github.com/ucloud/urtc-electron-demo.git)
 
 ## 2. 开发语言以及系统要求
