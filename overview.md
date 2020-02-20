@@ -9,8 +9,8 @@
 * [快速上手](video/urtc/quick)
 * SDK集成指南
     * [Token生成指导](video/urtc/sdk/token)
-    * [版本说明](video/urtc/sdk/Version)
-    * [快速集成](video/urtc/sdk/VideoStart)    
+    * [SDK版本说明](video/urtc/sdk/Version)
+    * [快速集成SDK](video/urtc/sdk/VideoStart)    
     * [屏幕共享](video/urtc/sdk/Video/screenshare)   
 * 云端录制
      * [开通云端录制](video/urtc/cloudRecord/openRecord)  
