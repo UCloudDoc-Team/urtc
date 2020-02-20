@@ -6,7 +6,7 @@
 
 ![](/images/demoImage/webImage.png)
 
-[体验WEB](https://demo.urtc.com.cn/) 
+[立即体验WEB](https://demo.urtc.com.cn/) 
 
 [WEB DEMO 源码](https://github.com/ucloud/urtc-js-demo) 
 
@@ -16,7 +16,7 @@
 
 ![](/images/demoImage/andriodImage.png)
 
-[体验安卓 app](https://fir.im/91cy)
+[立即体验安卓 app](https://fir.im/91cy)
 
 [安卓 app 源码](https://github.com/ucloud/urtc-android-demo) 
 
@@ -24,7 +24,7 @@
 
 ![](/images/demoImage/iosImage.png)
 
-[体验iOS app](https://fir.im/vy1e)
+[立即体验iOS app](https://fir.im/vy1e)
 
 [iOS app 源码](https://github.com/ucloud/urtc-ios-demo)
 
@@ -32,6 +32,6 @@
 
 ![](/images/demoImage/windowsImage.png)
 
-[体验Windows客户端](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip) 
+[立即体验Windows客户端](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip) 
 
 [Windows客户端 源码](https://github.com/ucloud/urtc-win-demo)
