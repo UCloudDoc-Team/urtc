@@ -13,7 +13,7 @@
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
 
 
-> WEB DEMO推荐使用chrome、safari浏览器。 
+> WEB DEMO电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器；。 
 
 ## 安卓 DEMO
 
