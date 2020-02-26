@@ -8,12 +8,11 @@
 
 [立即体验](https://demo.urtc.com.cn/) 
 
+> 电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器。 
+
 [WEB DEMO 源码-Ucloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-js-demo-master-20200221.zip) 
 
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
-
-
-> WEB DEMO电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器；。 
 
 ## 安卓 DEMO
 
