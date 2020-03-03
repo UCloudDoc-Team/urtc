@@ -47,7 +47,7 @@ yarn add urtc-sdk
 
 2）项目中引入并创建 client
 
- [下载URTC WEB SDK](https://github.com/ucloud/urtc-sdk-web)
+ [下载URTC WEB SDK 和 API 接口文档](https://github.com/ucloud/urtc-sdk-web)
 
 ```
 import { Client } from 'urtc-sdk';
