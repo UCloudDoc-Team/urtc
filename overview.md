@@ -24,7 +24,7 @@
      * [学生端 iOS SDK指南](video/urtc/scenarioSDK/AIclass/StudentIOS)     
 * [DEMO体验](video/urtc/demo)
 * [FAQ](video/urtc/faq)
-   
+* [错误码](video/urtc/ErrorCode)
    
     
         
