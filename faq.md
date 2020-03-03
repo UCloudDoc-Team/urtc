@@ -11,8 +11,8 @@
 ## web demo本地运行，无法发布和订阅音视频流
 
 故障原因：  
-1. 未部署web后台服务器，web demo只能通过本机的 `http://1localhost` 或者 `http://1127.0.0.1`访问。
-2. 部署的是HTTP的web后台服务器。由于浏览器的安全策略对除`http://1localhost` 或者 `http://1127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议。
+1. 未部署web后台服务器，web demo只能通过本机的 `http://localhost` 或者 `http://127.0.0.1`访问。
+2. 部署的是HTTP的web后台服务器。由于浏览器的安全策略对除`http://localhost` 或者 `http://127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议，必须使用 HTTPS 访问。
 
 ## 加入房间后，可以订阅、无法发布视频流
 
