@@ -10,7 +10,7 @@
 
 其他端的屏幕共享，已经在SDK里集成，具体参照各端的SDK及API文档。
 
-> 注：在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 
+> 注：在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
 ## 无插件屏幕共享
 
