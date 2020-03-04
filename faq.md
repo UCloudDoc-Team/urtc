@@ -8,11 +8,11 @@
 3. 设置为试用模式，但是没有传入`seckey`。  
 4. 设置为正常模式，但是加入房间时没有填写`token` 字段。  
 
-## web demo本地运行，无法发布和订阅音视频流
+## 集成URTC Web的客户端，无法发布和订阅音视频流
 
 故障原因：  
-1. 未部署web后台服务器，web demo只能通过本机的 `http://localhost` 或者 `http://127.0.0.1`访问。
-2. 部署的是HTTP的web后台服务器。由于浏览器的安全策略对除`http://localhost` 或者 `http://127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议，必须使用 HTTPS 访问。
+1. 未部署Web后台服务器。运行本地服务时，Web客户端只能通过本机的 `http://localhost` 或者 `http://127.0.0.1`访问。
+2. 部署的是HTTP的Web后台服务器。由于浏览器的安全策略对除`http://localhost` 或者 `http://127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议，必须使用 HTTPS 访问。
 
 ## 加入房间后，可以订阅、无法发布视频流
 
