@@ -1,14 +1,16 @@
 # 屏幕共享
 
+屏幕共享，可以把客户端的屏幕，以视频的方式分享给其他人。
+
+屏幕共享，支持分享整个屏幕、分享应用、分享窗口。
+
+Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照客户端的快速集成SDK及相关的API接口文档。
+
 <!-- tabs:start -->
 
 # ** Web **
 
-屏幕共享，可以把客户端的屏幕，以视频的方式分享给其他人。
-
 * Chrome及firefox 屏幕共享
-
-Windows、安卓客户端的屏幕共享，已经在SDK里集成，具体参照其他各端的快速集成SDK及API接口文档。
 
 > 注：在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
