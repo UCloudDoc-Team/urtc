@@ -1,22 +1,132 @@
 # 播放混音
 
+在音视频通话中，除了说话的声音，有时候需要播放自定义的音源、音乐文件让房间内的其他用户听到，比如播放背景音乐等。
+
 <!-- tabs:start -->
 
 # ** Web **
 
-可以播放本地或者在线音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。
+可以播放本地或者在线音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。Web提供以下两种方法可以满足播放音效和音乐文件的需求。
 
-## 实现方法
 
-balabala……    
+## 1、播放音效文件
 
-## 示例代码
+播放音效文件方法主要用来播放较短的音效。比如一首歌曲、一段特殊声音效果等。       
+音效文件不应过大，否则可能会影响通信的流畅性；可以多个音效叠加播放，建议预加载音效文件，可以以提高性能。    
+音效由音频文件路径指定可以是本地或网络文件，EffectId 为自行设定的音效ID，需保证唯一性。当音效文件为其他站点的网络文件时，可能会有跨域访问问题。    
 
-balabala……    
+### 1.1 预加载音效资源
 
-## 开发注意事项
+```js
+client.preloadEffect(1, './sounds/liveStreamingOff.mp3', function(err){
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
 
-balabala……  
+### 1.2 播放音效
+```js
+client.playEffect({
+          streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+          effectId: number    // 必填，音效资源 ID
+          filePath?: string   // 选填，音效文件的路径，当音效文件已经使用 preloadEffect 进行预加载后，可不填此项
+          loop?: boolean      // 选填，是否循环播放音效，默认不循环
+          playTime?: number   // 选填，音效从 playTime 秒处开始播放，默认为0，即从头开始
+          replace?: boolean   // 选填，是否替换当前音轨，即只使用音效，不混音，默认不替换
+}, function(err) {
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
+
+### 1.3 暂停播放音效
+```js
+client.pauseEffect({
+  streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+  effectId: number    // 必填，音效资源 ID
+}, function(err) {
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
+### 1.4 恢复播放音效
+```js
+client.resumeEffect({
+  streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+  effectId: number    // 必填，音效资源 ID
+}, function(err) {
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
+### 1.5 停止播放音效
+```js
+client.stopEffect({
+  streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+  effectId: number    // 必填，音效资源 ID
+}, function(err) {
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
+### 1.6 设置正在播放的音效的音量大小
+```js
+client.setEffectVolume({
+  streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+  effectId: number    // 必填，音效资源 ID
+  volume: number      // 必填，音量大小，取值范围 [0, 100]
+}, function(err) {
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+})
+```
+
+### 1.7 卸载音效资源
+```js
+client.unloadEffect(1)
+
+```
+
+## 2、音乐混音
+
+音乐混音是指本地播放音频文件，同时让房间内的其用户听到此音频。    
+此方法主要用来播放比较长的背景音，比如直播的时播放的背景音乐，同时只允许有一个文件播放。    
+替换发布流的音频轨道或视频轨道，可在保持发布流的发布状态下，切换音频或视频。   
+
+```js
+
+client.replaceTrack({
+  streamId?: string   // 选填，发布（本地）流的 ID，不填时，为第一条发布流
+  track: MediaStreamTrack   // 必填，需要替换的新的音轨或视轨，MediaStreamTrack 参见文档注释
+  retain?: boolean    // 选填，是否需要保持被替换的老的音轨或视轨可用，一般情况下，如果后面需要切换回老的音轨或视轨，建议保持其可用，否则可不用保持
+}, function(err, oldTrack){
+        if(err){
+                //执行失败
+        }else{
+                //执行成功
+        }
+        //OldTrack 为返回值，MediaStreamTrack 类型，不为空时，值为被替换的音频轨道或视频轨道
+})
+```
+
 
 # ** Windows **
 
