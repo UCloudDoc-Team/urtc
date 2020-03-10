@@ -12,6 +12,7 @@
     * [SDK版本说明](video/urtc/sdk/Version)
     * [快速集成SDK](video/urtc/sdk/VideoStart)    
     * [屏幕共享](video/urtc/sdk/Video/screenshare)   
+    * [播放混音](video/urtc/sdk/Audio/AudioMixing)    
 * 云端录制
      * [开通云端录制](video/urtc/cloudRecord/openRecord)  
      * [云端录制SDK代码示例](video/urtc/cloudRecord/RecordStart) 
