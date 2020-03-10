@@ -49,9 +49,6 @@ Web示例代码：
 
 啦啦啦啦
 
-<!-- tabs:end -->
-
-<!-- tabs:start -->
 
 ### ** Windows **
 
@@ -59,9 +56,7 @@ Windows示例代码：
 
 啦啦啦啦
 
-<!-- tabs:end -->
 
-<!-- tabs:start -->
 
 ### ** Android **
 
@@ -69,9 +64,7 @@ Android示例代码：
 
 啦啦啦啦
 
-<!-- tabs:end -->
 
-<!-- tabs:start -->
 
 ### ** iOS **
 
