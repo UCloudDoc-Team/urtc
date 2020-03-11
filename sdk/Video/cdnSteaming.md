@@ -86,10 +86,10 @@ client.queryMix((err, result) => {
 
 ``` cpp
 tUCloudRtcTranscodeConfig relayconfig;
-relayconfig.mbgColor.mBlack = 255;
-relayconfig.mbgColor.mGreen = 220; 
 relayconfig.mbgColor.mRed = 210;
-relayconfig.mBitrate = 500; //
+relayconfig.mbgColor.mGreen = 220; 
+relayconfig.mbgColor.mBlue = 255;
+relayconfig.mBitrate = 500; //码率
 relayconfig.mFramerate = 15;
 relayconfig.mWidth = 1280;
 relayconfig.mHeight = 720;
