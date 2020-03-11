@@ -115,7 +115,7 @@ RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
 
 <!-- tabs:end -->
 
-## 5. 开发注意事项
+## 4. 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
  - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过CDN的拉流地址观看。
