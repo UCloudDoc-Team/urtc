@@ -42,10 +42,55 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到CDN。
 
 ### ** Web **
 
-Web示例代码：
+#### 开启旁路推流
 
-啦啦啦啦
+```js
+client.startMix({
+  type: 'relay',
+  bucket: 'xxx',
+  region: 'xxx', 
+  pushURL: ['rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll'],
+  layout: {
+    type: 'main',
+    mainViewUid: 'user-xxx',
+    mainViewType: 'camera'
+  },
+  video: {
+    frameRate: 15,
+    bitRate: 500
+  }
+}, (err, result) => {
+  if(err) {
+    console.error(err);
+    return;
+  }
+  console.log(result)；
+})
+```
 
+#### 停止旁路推流
+
+```js
+client.stopMix({type: 'relay'}, (err, result) => {
+  if(err) {
+    console.error(err);
+    return;
+  }
+  console.log(result)；
+});
+```
+
+#### 查询旁路推流
+
+```js
+client.queryMix((err, result) => {
+  if(err) {
+    console.error(err);
+    return;
+  }
+  console.log(result)；
+});
+```
 
 ### ** Windows **
 
