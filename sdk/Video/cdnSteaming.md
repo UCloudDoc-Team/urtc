@@ -50,7 +50,8 @@ Web示例代码：
 ### ** Windows **
 
 #### 开启旁路推流
-``` c++ 
+
+``` cpp
 tUCloudRtcTranscodeConfig relayconfig;
 relayconfig.mbgColor.mBlack = 255;
 relayconfig.mbgColor.mGreen = 220; 
@@ -65,12 +66,12 @@ m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll
 ```
    
 #### 停止旁路推流
-``` c++ 
+``` cpp
 m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll");
 ```
 
 #### 状态回调
-``` c++ 
+``` cpp
 virtual void onRtmpStreamingStateChanged(const int 	state, const char* url, int code);
 RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
 RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
