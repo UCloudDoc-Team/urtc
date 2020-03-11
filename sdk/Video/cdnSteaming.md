@@ -23,7 +23,7 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到CDN。
 
 ## ** Web **
 
-### 开启旁路推流
+### Web开启旁路推流
 
 ```js
 client.startMix({
@@ -56,7 +56,7 @@ client.startMix({
 })
 ```
 
-### 停止旁路推流
+### Web停止旁路推流
 
 ```js
 client.stopMix({type: 'relay'}, (err, result) => {
@@ -68,7 +68,7 @@ client.stopMix({type: 'relay'}, (err, result) => {
 });
 ```
 
-### 查询旁路推流
+### Web查询旁路推流
 
 ```js
 client.queryMix((err, result) => {
@@ -82,7 +82,7 @@ client.queryMix((err, result) => {
 
 ## ** Windows **
 
-### 开启旁路推流
+### Windows开启旁路推流
 
 ``` cpp
 tUCloudRtcTranscodeConfig relayconfig;
@@ -98,12 +98,12 @@ relayconfig.mMainViewUid = m_userid.data();
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
    
-### 停止旁路推流
+### Windows停止旁路推流
 ``` cpp
 m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll");
 ```
 
-### 状态回调
+### Windows状态回调
 ``` cpp
 virtual void onRtmpStreamingStateChanged(const int 	state, const char* url, int code);
 RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
@@ -118,5 +118,5 @@ RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
 ## 4. 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
- - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过CDN的拉流地址观看。
+ - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过拉流地址观看。
  
