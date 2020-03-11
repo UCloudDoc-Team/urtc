@@ -47,8 +47,6 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到CDN。
 ```js
 client.startMix({
   type: 'relay',
-  bucket: 'xxx',
-  region: 'xxx', 
   pushURL: ['rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll'],
   layout: {
     type: 'main',
