@@ -17,32 +17,13 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到CDN。
 
 在实现**旁路推流**之前，请确保已经[集成SDK](/video/urtc/sdk/VideoStart)，在项目中完成基本的音视频会议或者直播功能。
 
-## 3. 实现方法
-
-参考如下步骤，在你的项目中实现**旁路推流**：
-
-以下为声网的:
-
-调用 Stream.init 成功后，频道内主播可以调用 Client.setLiveTranscoding 方法设置音视频流的直播参数 （LiveTranscoding），如分辨率、码率、帧率、背景色和水印位置。如果你需要转码合图，请在 TranscodingUser 类中设置每个用户的视频参数，详见示例代码。
-
-如果直播参数（LiveTranscoding）有更新，Client.on("liveTranscodingUpdated") 回调会被触发并向主播报告更新信息。
-
-频道内主播可以调用 Client.startLiveStreaming 方法向 CDN 推流直播中增加指定的一路媒体流。推流地址可以在推流后动态增删。
-
-请通过 enableTranscoding 设置是否转码推流。
-
-频道内主播可以调用 Client.stopLiveStreaming 方法向 CDN 推流直播中删除指定的一路媒体流。
-
-增加或删除一路媒体流时，SDK 会触发 Client.on(liveStreamingStarted) 或 Client.on(liveStreamingFailed)回调向主播报告当前推流状态。请确保收到该回调后再调用 API 进行下一步操作。
-
-
-## 4. 示例代码
-
 <!-- tabs:start -->
 
-### ** Web **
+## ** Web **
 
-#### 开启旁路推流
+## 3. 实现方法
+
+### 开启旁路推流
 
 ```js
 client.startMix({
@@ -66,7 +47,7 @@ client.startMix({
 })
 ```
 
-#### 停止旁路推流
+### 停止旁路推流
 
 ```js
 client.stopMix({type: 'relay'}, (err, result) => {
@@ -78,7 +59,7 @@ client.stopMix({type: 'relay'}, (err, result) => {
 });
 ```
 
-#### 查询旁路推流
+### 查询旁路推流
 
 ```js
 client.queryMix((err, result) => {
@@ -90,9 +71,9 @@ client.queryMix((err, result) => {
 });
 ```
 
-### ** Windows **
+## ** Windows **
 
-#### 开启旁路推流
+### 开启旁路推流
 
 ``` cpp
 tUCloudRtcTranscodeConfig relayconfig;
@@ -108,12 +89,12 @@ relayconfig.mMainViewUid = m_userid.data();
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
    
-#### 停止旁路推流
+### 停止旁路推流
 ``` cpp
 m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll");
 ```
 
-#### 状态回调
+### 状态回调
 ``` cpp
 virtual void onRtmpStreamingStateChanged(const int 	state, const char* url, int code);
 RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
@@ -121,19 +102,7 @@ RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
 RTMP_STREAM_PUBLISH_STATE_FAILURE , //推流失败 详见code
 RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
 ```
-### ** Android **
 
-Android示例代码：
-
-啦啦啦啦
-
-
-
-### ** iOS **
-
-iOS示例代码：
-
-啦啦啦啦
 
 <!-- tabs:end -->
 
