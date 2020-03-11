@@ -72,10 +72,10 @@ m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/my
 #### 状态回调
 ``` c++ 
 virtual void onRtmpStreamingStateChanged(const int 	state, const char* url, int code);
-	RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
-	RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
-	RTMP_STREAM_PUBLISH_STATE_FAILURE , //推流失败 详见code
-	RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
+RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
+RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
+RTMP_STREAM_PUBLISH_STATE_FAILURE , //推流失败 详见code
+RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
 ```
 ### ** Android **
 
