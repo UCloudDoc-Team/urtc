@@ -95,8 +95,67 @@ relayconfig.mWidth = 1280;
 relayconfig.mHeight = 720;
 relayconfig.mMainviewType = 1;
 relayconfig.mMainViewUid = m_userid.data();
+relayconfig.mStyle = nullptr;
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
+
+自定义设置推流风格的话：    
+
+``` cpp
+tUCloudRtcTranscodeConfig relayconfig;
+relayconfig.mbgColor.mRed = 210;
+relayconfig.mbgColor.mGreen = 220; 
+relayconfig.mbgColor.mBlue = 255;
+relayconfig.mBitrate = 500; //码率
+relayconfig.mFramerate = 15;
+relayconfig.mWidth = 1280;
+relayconfig.mHeight = 720;
+relayconfig.mMainviewType = 1;
+relayconfig.mMainViewUid = m_userid.data();
+relayconfig.mStyle = 3;
+"custom": [ //如果layout选3，自定义布局填在custom里，格式参照RFC5707 Media Server Markup Language (MSML)
+                 {
+                     "region": [
+                         {
+                             "id": "1",
+                             "shape": "rectangle",
+                             "area": {
+                                 "left": "0",
+                                 "top": "0",
+                                 "width": "1",
+                                 "height": "1"
+                             }
+                         }
+                     ]
+                 },
+                 {
+                     "region": [
+                         {
+                             "id": "1",
+                             "shape": "rectangle",
+                             "area": {
+                                 "left": "0",
+                                 "top": "1/4",
+                                 "width": "1/2",
+                                 "height": "1/2"
+                             }
+                         },
+                         {
+                             "id": "2",
+                             "shape": "rectangle",
+                             "area": {
+                                 "left": "1/2",
+                                 "top": "1/4",
+                                 "width": "1/2",
+                                 "height": "1/2"
+                             }
+                         }
+                     ]
+                 }
+            ]
+m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
+```
+
    
 ### Windows停止旁路推流
 ``` cpp
