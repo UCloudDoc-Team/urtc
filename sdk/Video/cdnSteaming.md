@@ -99,7 +99,7 @@ relayconfig.mStyle = nullptr;
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
 
-自定义设置推流风格的话：    
+自定义设置推流风格：    
 
 ``` cpp
 tUCloudRtcTranscodeConfig relayconfig;
@@ -112,8 +112,7 @@ relayconfig.mWidth = 1280;
 relayconfig.mHeight = 720;
 relayconfig.mMainviewType = 1;
 relayconfig.mMainViewUid = m_userid.data();
-relayconfig.mStyle = 3;
-"custom": [ //如果layout选3，自定义布局填在custom里，格式参照RFC5707 Media Server Markup Language (MSML)
+relayconfig.mStyle = "custom": [ //格式参照RFC5707 Media Server Markup Language (MSML)
                  {
                      "region": [
                          {
