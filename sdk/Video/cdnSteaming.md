@@ -99,7 +99,8 @@ relayconfig.mStyle = nullptr;
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
 
-旁路推流时，除了默认混流风格，还可以自定义推流风格，以下是1画面全屏，2画面均分的示例：    
+旁路推流时，除了默认混流风格，还可以自定义推流风格。    
+自定义布局填在custom里，格式参照RFC5707 Media Server Markup Language (MSML)，以下是1画面全屏，2画面均分的示例：    
 
 
 ``` cpp
