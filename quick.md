@@ -4,11 +4,11 @@
 
 首先需要在UCLOUD官网控制台注册账户，并完成实名认证；然后创建URTC应用。
 
-## 1． 注册账户并完成实名认证
+## 1． 登录UCLOUD控制台
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
-> 使用URTC产品之前，必须先 [注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/account/identity_verification/overview) 。  
+ [注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/account/identity_verification/overview) 。  
 
 ## 2．下载URTC SDK  
 
