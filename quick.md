@@ -12,7 +12,7 @@
 
 ## 2．下载URTC SDK  
 
-### 2.1  在控制台中下载SDK
+### 2.1  控制台下载SDK
 
  - 在控制台，【全部产品】-【视频服务】-【实时音视频】-【文档及SDK】内，下载SDK。  
 
@@ -20,7 +20,7 @@
   
 >下载SDK的同时，还可以下载demo源码。使用中有任何问题，都可以通过GitHub提issue，反馈给我们。
 
-### 2.2 在集成SDK文档中下载SDK
+### 2.2 集成SDK文档下载SDK
 
  - 可以在[快速集成SDK](/video/urtc/sdk/VideoStart) 中，下载SDK。
 
@@ -29,7 +29,7 @@
 
 > 每个账号最大支持创建5个URTC应用，需要创建更多URTC应用，请联系客户经理增加配额。
 
-### 3.1  在控制台中创建URTC应用
+### 3.1  控制台创建URTC应用
 
  - 找到【我的应用】  
 
@@ -45,6 +45,6 @@
 
  - 绑定AppID及AppKey到您的应用中即可开始使用。
  
-### 3.2  通过API创建URTC应用
+### 3.2  API创建URTC应用
 
 通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/overview)。
