@@ -17,11 +17,11 @@ SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成
  
  通过[Token生成指导](video/urtc/sdk/token)，可以获取生成`Token`示例代码。
  
- ## SDK版本说明
+## SDK版本说明
  
 [SDK版本说明](video/urtc/sdk/Version)中，可以了解到不同版本的功能差异和版本发布日期。
  
- ## 快速集成SDK
+## 快速集成SDK
  
  通过[快速集成SDK](video/urtc/sdk/VideoStart)，可以快速集成URTC SDK，了解创建音视频通话、互动直播的基本步骤；也可以查阅各个客户端的SDK API接口文档，了解更多功能。
  
