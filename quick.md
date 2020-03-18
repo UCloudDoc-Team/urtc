@@ -47,4 +47,4 @@
  
 ### 3.2  通过API创建URTC应用
 
-通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/overview)。
+通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/overview)。
