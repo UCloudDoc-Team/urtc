@@ -23,7 +23,8 @@ SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成
  
 ## 快速集成SDK
  
- 通过[快速集成SDK](video/urtc/sdk/VideoStart)，可以快速集成URTC SDK，了解创建音视频通话、互动直播的基本步骤；也可以查阅各个客户端的SDK API接口文档，了解更多功能。
+ 通过[快速集成SDK](video/urtc/sdk/VideoStart)，可以快速集成URTC SDK，了解创建音视频通话、互动直播的基本步骤。    
+ 也可以通过各个客户端的demo和SDK API接口文档，了解更多功能。
  
 ## 屏幕共享
 
