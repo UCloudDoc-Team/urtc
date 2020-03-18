@@ -9,7 +9,7 @@
     * [应用场景](video/urtc/introduction/scenario)
 * [产品价格](video/urtc/price)
 * [快速上手](video/urtc/quick)
-* SDK集成指南
+* [SDK集成指南](video/urtc/sdk/index)
     * [Token生成指导](video/urtc/sdk/token)
     * [SDK版本说明](video/urtc/sdk/Version)
     * [快速集成SDK](video/urtc/sdk/VideoStart)    
