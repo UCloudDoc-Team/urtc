@@ -20,7 +20,7 @@
   
 >下载SDK的同时，还可以下载demo源码。使用中有任何问题，都可以通过GitHub提issue，反馈给我们。
 
-### 2.2 集成SDK文档下载SDK
+### 2.2 文档中下载SDK
 
  - 可以在[快速集成SDK](/video/urtc/sdk/VideoStart) 中，下载SDK。
 
