@@ -4,7 +4,7 @@
 
 故障原因：  
 1. `token` 和 `appid` 不一致，请保证。  
-2. `token` 生成规则不对，请参考[Token生成指导](/video/urtc/sdk/token)。  
+2. `token` 生成规则不对，请参考[Token生成指导](urtc/sdk/token)。  
 3. 设置为试用模式，但是没有传入`seckey`。  
 4. 设置为正常模式，但是加入房间时没有填写`token` 字段。  
 
@@ -29,7 +29,7 @@
 
 ## 开启录制失败
 
-故障原因：控制台上，未开启录制服务，具体操作参考[开通云端录制](/video/urtc/cloudRecord/openRecord)。 
+故障原因：控制台上，未开启录制服务，具体操作参考[开通云端录制](urtc/cloudRecord/openRecord)。 
 
 ## 网络切换时，断开后是否需要调用接口处理
 

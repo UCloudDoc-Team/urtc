@@ -205,7 +205,7 @@ generateToken({
 
 ### 3.1 创建项目生成AppID及AppKey
 
-创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](/video/urtc/quick)。
+创建项目生成AppID及AppKey的具体方法，可以查看 [快速开始](urtc/quick)。
 
 AppKey是保证AppID的秘钥，请妥善保管，避免泄露以及公网明文传输。
 

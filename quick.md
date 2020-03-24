@@ -8,7 +8,7 @@
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
-> 使用URTC服务之前，首先需要[注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/account/identity_verification/overview) 。  
+> 使用URTC服务之前，首先需要[注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/identity_verification/README) 。  
 
 ## 2．下载URTC SDK  
 
@@ -22,7 +22,7 @@
 
 ### 2.2 文档中下载SDK
 
- - 可以在[快速集成SDK](/video/urtc/sdk/VideoStart) 中，下载SDK。
+ - 可以在[快速集成SDK](urtc/sdk/VideoStart) 中，下载SDK。
 
 
 ## 3．创建URTC应用
@@ -47,4 +47,4 @@
  
 ### 3.2  API创建URTC应用
 
-通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/overview)。
+通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/README)。

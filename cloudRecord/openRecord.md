@@ -38,7 +38,7 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
 
 ![ ](/images/record/creatBucket.png) 
 
- >了解更多对象存储的内容，可以  [查看这里](https://docs.ucloud.cn/storage_cdn/ufile/quick/quick_start)  。  
+ >了解更多对象存储的内容，可以  [查看这里](https://docs.ucloud.cn/ufile/quick/quick_start)  。  
 
 
 ### 3.1 创建存储空间

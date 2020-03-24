@@ -1,7 +1,7 @@
 # 质量监控
 
 URTC服务支持监控实时通话质量，在控制台 [实时音视频URTC](https://console.ucloud.cn/urtc/manage) 里，查看我的应用中的质量监控。    
-如果想在自己的服务器内集成实时音视频通话的监控质量，可以集成 [质量监控API](https://docs.ucloud.cn/api/urtc-api/overview) 。
+如果想在自己的服务器内集成实时音视频通话的监控质量，可以集成 [质量监控API](https://docs.ucloud.cn/api/urtc-api/README) 。
 
 
 功能：  

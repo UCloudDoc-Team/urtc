@@ -56,7 +56,7 @@
 
 ## 多平台接入
 
-URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，参考 [快速集成](/video/urtc/sdk/VideoStart)接入。    
+URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，参考 [快速集成](urtc/sdk/VideoStart)接入。    
 接入版本号如下表所示：
 
 |平台     | SDK 兼容性                             |
