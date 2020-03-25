@@ -30,7 +30,7 @@
 
 [立即体验](http://jappstore.com/vy1e)
 
-[iOS app 源码-Ucloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-ios-demo-master-20200221.zip)
+[iOS app 源码-Ucloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2FUCloudRtcSdk-ios-demo-20200325.zip)
 
 [iOS app 源码-GitHub](https://github.com/ucloud/urtc-ios-demo)
 
