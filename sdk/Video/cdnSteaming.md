@@ -35,17 +35,8 @@ client.startMix({
     mainViewType: 'camera'
   },
   video: {
-    codec: 'h264',
-    quality: 'CB',
     frameRate: 15,
     bitRate: 500
-  },
-  width: 1280,
-  height: 720,
-  backgroundColor: {
-    r: 0,
-    g: 0,
-    b: 0
   }
 }, (err, result) => {
   if(err) {
