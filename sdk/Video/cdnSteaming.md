@@ -109,7 +109,7 @@ relayconfig.mMainViewUid = m_userid.data();
 relayconfig.mStyle = nullptr;
 //自定义风格
 relayconfig.mLayout = 1;
-// [混流风格](urtc/cloudRecord/RecordLaylout)，（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
+//混流风格（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
 relayconfig.mStreams = nullptr;
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreamslength = 0;
@@ -145,7 +145,7 @@ relayconfig.mMainviewType = 1;
 relayconfig.mMainViewUid = m_userid.data();
 //自定义风格
 relayconfig.mStyle = nullptr;
-//[混流风格](urtc/cloudRecord/RecordLaylout)（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
+//混流风格（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
 relayconfig.mLayout = 3;   //设置自定义风格
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreams = nullptr;
@@ -179,11 +179,10 @@ RTMP_STREAM_PUBLISH_STATE_STOPFAILURE
 RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP 
 //异常停止推流
 ```
-
-
 <!-- tabs:end -->
 
 ## 4. 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
+ - 旁路推流，混流时的合成风格，可以参考 [混流风格](urtc/cloudRecord/RecordLaylout)。
  - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过拉流地址观看。
