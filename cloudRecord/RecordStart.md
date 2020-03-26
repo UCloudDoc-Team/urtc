@@ -92,7 +92,9 @@ recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大�
 recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
 recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
 recordconfig.mMixerTemplateType = 4; [混流模板](urtc/cloudRecord/RecordLaylout)
-m_rtcengine->startRecord(recordconfig);
+recordconfig.mStreams = nullptr;  //指定混流的用户
+recordconfig.mStreamslength = 0;  //混流的用户数
+recordconfig.mLayout = 2;         //0.取决于mIsaverage(兼容之前的) 1.流式布局 2.讲课模式 3.自定义布局 4.模板自适应1 5.模板自适应2
 m_rtcengine->startRecord(recordconfig);
 
 消息回调
