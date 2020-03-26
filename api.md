@@ -1,4 +1,4 @@
-# 客户端API文档
+# API文档
 
 <!-- tabs:start -->
 
@@ -4572,11 +4572,11 @@ typedef struct UCloudRtcTranscodeConfig {
 
 # ** Android **
 
-balabala……  
+URTC Android SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-android-demo)
 
 # ** iOS **
 
-balabala……  
+URTC iOS SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)
 
 <!-- tabs:end -->
 
