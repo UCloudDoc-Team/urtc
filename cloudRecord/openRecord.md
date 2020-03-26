@@ -30,7 +30,7 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
 	 
  - 配置完毕后，看到存储空间的状态为【可用】。
  
-![ ](/images/record/creatBucket4.png)
+![ ](/images/record/creatBucket44.png)
 
 ## 3、新建对象存储空间
 
