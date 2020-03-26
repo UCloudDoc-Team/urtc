@@ -81,20 +81,19 @@ client.stopRecording(function onSuccess() {
 
 ```cpp
 tUCloudRtcRecordConfig recordconfig;
-recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
+recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型类型：摄像头、屏幕
 recordconfig.mMainviewuid = m_userid.data(); // 主画面
 recordconfig.mProfile = UCLOUD_RTC_RECORDPROFILE_SD; // 录制等级
 recordconfig.mRecordType = UCLOUD_RTC_RECORDTYPE_AUDIOVIDEO;
 recordconfig.mWatermarkPos = UCLOUD_RTC_WATERMARKPOS_LEFTTOP;
 recordconfig.mBucket = "your bucket";
 recordconfig.mBucketRegion = "your bucket region";
-recordconfig.mIsaverage = false; // 画面是否均分 不均分 均采用 1大几小格式 大画面在左 小画面在右
 recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
 recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
-recordconfig.mMixerTemplateType = 4; [混流模板](urtc/cloudRecord/RecordLaylout)
+recordconfig.mMixerTemplateType = 4;   // [混流风格](urtc/cloudRecord/RecordLaylout)
 recordconfig.mStreams = nullptr;  //指定混流的用户
 recordconfig.mStreamslength = 0;  //混流的用户数
-recordconfig.mLayout = 2;         //0.取决于mIsaverage(兼容之前的) 1.流式布局 2.讲课模式 3.自定义布局 4.模板自适应1 5.模板自适应2
+recordconfig.mLayout = 2;         //1.平铺风格 2.垂直风格 3.自定义布局 4.模板自适应一 5.模板自适应二
 m_rtcengine->startRecord(recordconfig);
 
 消息回调
@@ -107,7 +106,7 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 
 ## 开发注意事项
 
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当[非均分模式（即垂直风格）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+> 需要特别注意的是，录像可以指定主界面是哪个用户，[垂直风格](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
 
 更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](urtc/cloudRecord/RecordLaylout)。 
 
