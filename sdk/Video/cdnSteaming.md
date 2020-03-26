@@ -109,7 +109,7 @@ relayconfig.mMainViewUid = m_userid.data();
 relayconfig.mStyle = nullptr;
 //自定义风格
 relayconfig.mLayout = 1;
-//[混流风格](urtc/cloudRecord/RecordLaylout)（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
+// [混流风格](urtc/cloudRecord/RecordLaylout)，（1.平铺 2.垂直风格(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
 relayconfig.mStreams = nullptr;
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreamslength = 0;
