@@ -1,19 +1,20 @@
 # 云端录制SDK代码示例
 
-<!-- tabs:start -->
-
-# ** Web **
-
 无需集成额外的SDK，通过以下方法，可以快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。
 
-
-## 前提条件
+## 1. 前提条件
 
 开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](urtc/cloudRecord/openRecord)。
 
-## 开始录制音视频
+## 2. 录制音视频代码示例
 
 示例代码：
+
+<!-- tabs:start -->
+
+## ** Web **
+
+## 2.1 开始录制
 
 ```js
 client.startRecording({
@@ -44,9 +45,7 @@ client.startRecording({
 ```
 
 
-## 停止录制音视频
-
-示例代码：
+## 2.2 停止录制
 
 ```js
 client.stopRecording(function onSuccess() {
@@ -60,24 +59,12 @@ client.stopRecording(function onSuccess() {
 })
 ```  
 
-## 开发注意事项
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当[非均分模式（即垂直风格）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](urtc/cloudRecord/RecordLaylout)。 
 
 
-# ** Windows **
-
-无需集成额外的SDK，通过以下方法，可以快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。
+## ** Windows **
 
 
-## 前提条件
-
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](urtc/cloudRecord/openRecord)。
-
-
-## 录制示例代码
+## 录制音视频
 
 ```cpp
 tUCloudRtcRecordConfig recordconfig;
@@ -90,10 +77,9 @@ recordconfig.mBucket = "your bucket";
 recordconfig.mBucketRegion = "your bucket region";
 recordconfig.mWaterMarkType = UCLOUD_RTC_WATERMARK_TYPE_TIME;  // 水印类型
 recordconfig.mWatermarkUrl = "hello urtc"; // 如果是文字水印为水印内容   如果是图片则为图片url 地址
-recordconfig.mMixerTemplateType = 4;   // [混流风格](urtc/cloudRecord/RecordLaylout)
 recordconfig.mStreams = nullptr;  //指定混流的用户
 recordconfig.mStreamslength = 0;  //混流的用户数
-recordconfig.mLayout = 2;         //1.平铺风格 2.垂直风格 3.自定义布局 4.模板自适应一 5.模板自适应二
+recordconfig.mLayout = 2;         //录制混流风格（1.平铺风格 2.垂直风格 3.自定义布局 4.模板自适应一 5.模板自适应二）
 m_rtcengine->startRecord(recordconfig);
 
 消息回调
@@ -104,27 +90,10 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 
 
 
-## 开发注意事项
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，[垂直风格](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](urtc/cloudRecord/RecordLaylout)。 
+## ** Android **
 
 
-# ** Android **
-
-
-无需集成额外的SDK，通过以下方法，可以快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。
-
-
-
-## 前提条件
-
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](urtc/cloudRecord/openRecord)。
-
-> 录像目前只支持摄像头录制，不支持桌面录制。
-
-## 录制示例代码
+## 录制音视频
 
 ```java
 //                如果主窗口是当前用户
@@ -167,25 +136,10 @@ sdkEngine.stopRecord();
 void onRecordStop(int code);
 ```    
 
-## 开发注意事项
 
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当[非均分模式（即垂直风格）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+## ** iOS **
 
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](urtc/cloudRecord/RecordLaylout)。 
-
-
-
-# ** iOS **
-
-无需集成额外的SDK，通过以下方法，可以快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。  
-
-## 前提条件
-
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](urtc/cloudRecord/openRecord)。    
-
-## 开始录制
-
-示例代码：    
+## 2.1 开始录制
 
 ```objectivec
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
@@ -221,7 +175,7 @@ void onRecordStop(int code);
   self.engine?.startRecord(recordConfig)
 ```
 
-## 获取录制的文件地址
+## 2.2 获取录制的文件地址
 
 视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
@@ -239,7 +193,7 @@ void onRecordStop(int code);
     
  ```  
 
-## 停止录制
+## 2.3 停止录制
 
 示例代码：    
 
@@ -251,12 +205,15 @@ void onRecordStop(int code);
     self.manager?.stopRecord()
 ```
 
-## 开发注意事项
-
-> 需要特别注意的是，录像可以指定主界面是哪个用户，当[非均分模式（即垂直风格）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
-更多的录像的参数说明可以参照sdk API文档以及 [录制混流风格](urtc/cloudRecord/RecordLaylout)。 
-
-
 <!-- tabs:end -->
+
+
+## 3. 开发注意事项
+
+> 需要特别注意的是，录像可以指定主界面是哪个用户，[垂直风格（大小布局）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
+
+更多的录像的参数说明可以参照各个客户端的sdk API文档以及 [混流风格](urtc/cloudRecord/RecordLaylout)。 
+
+
+
 
