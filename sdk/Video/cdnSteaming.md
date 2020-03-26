@@ -118,6 +118,9 @@ relayconfig.mWidth = 1280;
 relayconfig.mHeight = 720;
 relayconfig.mMainviewType = 1;
 relayconfig.mMainViewUid = m_userid.data();
+relayconfig.mLayout = 1;
+relayconfig.mStreams = nullptr;
+relayconfig.mStreamslength = 0;
 relayconfig.mStyle ="{\"custom\":[{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"0\",\"width\":\"1\",\"height\":\"1\"}}]},{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}},{\"id\":\"2\",\"shape\":\"rectangle\",\"area\":{\"left\":\"1/2\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}}]}]}";
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 
@@ -136,6 +139,7 @@ RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止
 RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
 RTMP_STREAM_PUBLISH_STATE_FAILURE , //推流失败 详见code
 RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
+RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP //异常停止推流
 ```
 
 
