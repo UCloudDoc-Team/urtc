@@ -88,17 +88,32 @@ client.queryMix((err, result) => {
 ### Windows开启旁路推流
 
 ``` cpp
+//转推配置
 tUCloudRtcTranscodeConfig relayconfig;
+//转推背景色
 relayconfig.mbgColor.mRed = 210;
 relayconfig.mbgColor.mGreen = 220; 
 relayconfig.mbgColor.mBlue = 255;
-relayconfig.mBitrate = 500; //码率
+//码率
+relayconfig.mBitrate = 500;
+//帧率
 relayconfig.mFramerate = 15;
+//输出分辨率宽度
 relayconfig.mWidth = 1280;
+//输出分辨率高度
 relayconfig.mHeight = 720;
+//主流得媒体类型
 relayconfig.mMainviewType = 1;
+//主流用户ID
 relayconfig.mMainViewUid = m_userid.data();
+//自定义风格
 relayconfig.mStyle = nullptr;
+//模板支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应1 5. 模板自适应2 ）
+relayconfig.mLayout = 1;
+//混流的用户(默认混房间内全部流)
+relayconfig.mStreams = nullptr;
+//混流的用户长度
+relayconfig.mStreamslength = 0;
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
 
@@ -108,19 +123,33 @@ m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll
 
 
 ``` cpp
+//转推配置
 tUCloudRtcTranscodeConfig relayconfig;
+//转推背景色
 relayconfig.mbgColor.mRed = 210;
 relayconfig.mbgColor.mGreen = 220; 
 relayconfig.mbgColor.mBlue = 255;
-relayconfig.mBitrate = 500; //码率
+//码率
+relayconfig.mBitrate = 500;
+//帧率
 relayconfig.mFramerate = 15;
+//输出分辨率宽度
 relayconfig.mWidth = 1280;
+//输出分辨率高度
 relayconfig.mHeight = 720;
+//主流得媒体类型
 relayconfig.mMainviewType = 1;
+//主流用户ID
 relayconfig.mMainViewUid = m_userid.data();
-relayconfig.mLayout = 1;
+//自定义风格
+relayconfig.mStyle = nullptr;
+//模板支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应1 5. 模板自适应2 ）
+relayconfig.mLayout = 3;
+//混流的用户(默认混房间内全部流)
 relayconfig.mStreams = nullptr;
+//混流的用户长度
 relayconfig.mStreamslength = 0;
+//自定义风格串
 relayconfig.mStyle ="{\"custom\":[{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"0\",\"width\":\"1\",\"height\":\"1\"}}]},{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}},{\"id\":\"2\",\"shape\":\"rectangle\",\"area\":{\"left\":\"1/2\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}}]}]}";
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 
