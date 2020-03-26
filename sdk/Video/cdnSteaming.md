@@ -87,13 +87,13 @@ client.queryMix((err, result) => {
 
 ### Windows开启旁路推流
 
-``` cpp
+```cpp
 //转推配置
 tUCloudRtcTranscodeConfig relayconfig;
 //转推背景色
-relayconfig.mbgColor.mRed = 210;
-relayconfig.mbgColor.mGreen = 220; 
-relayconfig.mbgColor.mBlue = 255;
+relayconfig.mbgColor.mRed = 0;
+relayconfig.mbgColor.mGreen = 0; 
+relayconfig.mbgColor.mBlue = 0;
 //码率
 relayconfig.mBitrate = 500;
 //帧率
@@ -102,18 +102,19 @@ relayconfig.mFramerate = 15;
 relayconfig.mWidth = 1280;
 //输出分辨率高度
 relayconfig.mHeight = 720;
-//主流得媒体类型
+//主流的媒体类型，1是摄像头，2是桌面
 relayconfig.mMainviewType = 1;
 //主流用户ID
 relayconfig.mMainViewUid = m_userid.data();
 //自定义风格
 relayconfig.mStyle = nullptr;
-//模板支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应1 5. 模板自适应2 ）
+//混流的风格支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
 relayconfig.mLayout = 1;
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreams = nullptr;
-//混流的用户长度
+//混流的用户人数，0是根据房间推流自动混流，1~16是设定的混流数量
 relayconfig.mStreamslength = 0;
+//旁路推流的CDN地址
 m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
 ```
 
@@ -122,13 +123,13 @@ m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll
 以下是1画面全屏，2画面均分的示例：    
 
 
-``` cpp
+```cpp
 //转推配置
 tUCloudRtcTranscodeConfig relayconfig;
 //转推背景色
-relayconfig.mbgColor.mRed = 210;
-relayconfig.mbgColor.mGreen = 220; 
-relayconfig.mbgColor.mBlue = 255;
+relayconfig.mbgColor.mRed = 0;
+relayconfig.mbgColor.mGreen = 0; 
+relayconfig.mbgColor.mBlue = 0;
 //码率
 relayconfig.mBitrate = 500;
 //帧率
@@ -137,17 +138,17 @@ relayconfig.mFramerate = 15;
 relayconfig.mWidth = 1280;
 //输出分辨率高度
 relayconfig.mHeight = 720;
-//主流得媒体类型
+//主流的媒体类型，1是摄像头，2是桌面
 relayconfig.mMainviewType = 1;
 //主流用户ID
 relayconfig.mMainViewUid = m_userid.data();
 //自定义风格
 relayconfig.mStyle = nullptr;
-//模板支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应1 5. 模板自适应2 ）
+//混流的风格支持 1-5 （1.流式布局 2.讲课布局(大小布局) 3.自定义（指定style）4.模板自适应一 5. 模板自适应二 ）
 relayconfig.mLayout = 3;
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreams = nullptr;
-//混流的用户长度
+//混流的用户人数，0是根据房间推流自动混流，1~16是设定的混流数量
 relayconfig.mStreamslength = 0;
 //自定义风格串
 relayconfig.mStyle ="{\"custom\":[{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"0\",\"width\":\"1\",\"height\":\"1\"}}]},{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}},{\"id\":\"2\",\"shape\":\"rectangle\",\"area\":{\"left\":\"1/2\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}}]}]}";
@@ -157,18 +158,25 @@ m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll
 
    
 ### Windows停止旁路推流
-``` cpp
+
+```cpp
 m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll");
 ```
 
 ### Windows状态回调
-``` cpp
+
+```cpp
 virtual void onRtmpStreamingStateChanged(const int 	state, const char* url, int code);
-RTMP_STREAM_PUBLISH_STATE_IDLE , //推流未开始或停止  
-RTMP_STREAM_PUBLISH_STATE_RUNNING,  //正在推流
-RTMP_STREAM_PUBLISH_STATE_FAILURE , //推流失败 详见code
-RTMP_STREAM_PUBLISH_STATE_STOPFAILURE, //停止推流失败 详见code
-RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP //异常停止推流
+RTMP_STREAM_PUBLISH_STATE_IDLE
+//推流未开始或停止  
+RTMP_STREAM_PUBLISH_STATE_RUNNING
+//正在推流
+RTMP_STREAM_PUBLISH_STATE_FAILURE
+//推流失败 详见code
+RTMP_STREAM_PUBLISH_STATE_STOPFAILURE
+//停止推流失败 详见code
+RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP 
+//异常停止推流
 ```
 
 
@@ -178,4 +186,3 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP //异常停止推流
 
  - 开启旁路推流时，房间内必须有人发布流。
  - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过拉流地址观看。
- 
