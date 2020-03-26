@@ -1882,7 +1882,7 @@ UCloudRTC.setServers({
 
 # ** Windows **
 
-# URTC win SDK API 手册
+URTC Windows SDK 包含以下方法：
 
 * [一、UcloudRtcEngine引擎接口 类](#class)
 * [二、UcloudMediaDevice设备引擎接口类](#Device)    		
