@@ -25,6 +25,7 @@
      * [学生端 Android SDK指南](/urtc/scenarioSDK/AIclass/StudentAndriod)  
      * [学生端 iOS SDK指南](/urtc/scenarioSDK/AIclass/StudentIOS)  
 * [DEMO体验](/urtc/demo)
+* [API文档](/urtc/api)
 * [常见问题](/urtc/faq)
 * [错误码](/urtc/ErrorCode)
     
