@@ -4572,11 +4572,11 @@ typedef struct UCloudRtcTranscodeConfig {
 
 # ** Android **
 
-URTC Android SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-android-demo)
+URTC Android SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-android-demo)。
 
 # ** iOS **
 
-URTC iOS SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)
+URTC iOS SDK API文档可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)。
 
 <!-- tabs:end -->
 
