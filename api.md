@@ -47,10 +47,7 @@ Client 类包含以下方法：
 * [getStream 方法 - 获取某条流信息](#client-getstream)
 * [getLocalStreams 方法 - 获取所有本地流信息](#client-getlocalstreams)
 * [getRemoteStreams 方法 - 获取所有远端流信息](#client-getremotestreams)
-* [~~getStreams 方法 - 已废弃~~](#client-getstreams)
 * [getMediaStream 方法 - 获取某条流对应的媒体流](#client-getmediastream)
-* [~~getLocalMediaStream 方法 - 已废弃~~](#client-getlocalmediastream)
-* [~~getRemoteMediaStream 方法 - 已废弃~~](#client-getremotemediastream)
 * [getMicrophones 方法 - 获取麦克风设备信息](#client-getmicrophones)
 * [getCameras 方法 - 获取摄像头设备信息](#client-getcameras)
 * [getLoudspeakers 方法 - 获取扬声器设备信息](#client-getloudspeakers)
@@ -73,7 +70,6 @@ Client 类包含以下方法：
 * [snapshot 方法 - 截屏](#client-snapshot)
 * [startPreviewing 方法 - 开启预览](#client-startpreviewing)
 * [stopPreviewing 方法 - 停止预览](#client-stoppreviewing)
-* [~~deviceDetection 方法 - 已转移~~](#client-devicedetection)
 * [replaceTrack 方法 - 替换音频轨道或视频轨道](#client-replacetrack)
 * [startMix 方法 - 开始录制或转推](#client-startmix)
 * [stopMix 方法 - 结束录制或转推](#client-stopmix)
@@ -661,13 +657,6 @@ const result = client.getRemoteStreams()
 
 - result: Stream 类型的数组，Stream 类型说明见 [Stream](#stream)
 
-<a name="client-getstreams"></a>
-
-### ~~getStreams 方法 - 已废弃~~
-
-获取订阅流（远端流）的信息，1.4.0 及以上版本请使用 [getRemoteStreams](#client-getremotestreams)
-
-
 <a name="client-getmediastream"></a>
 
 ### 21. getMediaStream 方法
@@ -685,21 +674,6 @@ const result = client.getMediaStream(StreamId)
 #### 返回值说明
 
 - result: MediaStream 类型，类型说明见 [MediaStream](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream)
-
-
-<a name="client-getlocalmediastream"></a>
-
-### ~~getLocalMediaStream 方法 - 已废弃~~
-
-获取发布流对应的媒体流，1.4.0 及以上版本请使用 [getMediaStream](#client-getmediastream)
-
-
-<a name="client-getremotemediastream"></a>
-
-### ~~getRemoteMediaStream 方法 - 已废弃~~
-
-获取订阅流对应的媒体流，1.4.0 及以上版本请使用 [getMediaStream](#client-getmediastream)
-
 
 <a name="client-getmicrophones"></a>
 
@@ -1908,144 +1882,74 @@ UCloudRTC.setServers({
 
 # ** Windows **
 
-URTC Windows SDK包含以下方法：
+# URTC win SDK API 手册
 
 * [一、UcloudRtcEngine引擎接口 类](#class)
-    * [1.1  获取引擎 - UCloudRtcEngine](#class-UCloudRtcEngine)
-    * [1.2  绑定监听事件 - regRtcEventListener ](#class-regRtcEventListener)
-    * [1.3  设置SDK模式 - setSdkMode](#class-setSdkMode)
-    * [1.4  设置通话模式 - setChannelType](#class-setChannelType)	
-    * [1.5  设置流操作权限 - setStreamRole](#class-setStreamRole)
-    * [1.6  设置纯音频模式 - setAudioOnlyMode](#class-setAudioOnlyMode)	
-    * [1.7  设置自动发布和订阅 - setAutoPublishSubscribe](#class-setAutoPublishSubscribe)
-    * [1.8  配置本地音频是否发布 - configLocalAudioPublish](#class-configLocalAudioPublish)
-    * [1.9  是否发布音频 - isLocalAudioPublishEnabled](#class-isLocalAudioPublishEnabled)
-    * [1.10  配置是否自动发布本地摄像头 - configLocalCameraPublish](#class-configLocalCameraPublish)
-    * [1.11  是否发布摄像头 - isLocalCameraPublishEnabled](#class-isLocalCameraPublishEnabled)
-    * [1.12  配置是否自动发布本地桌面 - configLocalScreenPublish](#class-configLocalScreenPublish)
-    * [1.13  是否发布桌面 - isLocalScreenPublishEnabled](#class-isLocalScreenPublishEnabled)
-    * [1.14  设置视频编码参数 - setVideoProfile](#class-setVideoProfile)
-    * [1.15  入会时关闭摄像头 - muteCamBeforeJoin](#class-muteCamBeforeJoin)	
-    * [1.16  入会时关闭麦克风 - muteMicBeforeJoin](#class-muteMicBeforeJoin)		
-    * [1.17  加入房间 - joinChannel](#class-joinChannel)
-    * [1.18  离开房间 - leaveChannel](#class-leaveChannel)	
-    * [1.19  发布本地流 - publish](#class-publish)
-    * [1.20  停止发布本地流 - unPublish](#class-unPublish)
-    * [1.21  开启本地渲染 - startPreview](#class-startPreview)	
-    * [1.22  停止本地渲染 - stopPreview](#class-stopPreview)	
-    * [1.23 订阅远端媒体流 - subscribe](#class-subscribe)
-    * [1.24 取消订阅远端媒体流 - unSubscribe](#class-unSubscribe)
-    * [1.25  开启远端渲染 - startRemoteView](#class-startRemoteView)	
-    * [1.26  停止远端渲染 - stopRemoteView](#class-stopRemoteView)	
-    * [1.27  打开/关闭本地麦克风 - muteLocalMic](#class-muteLocalMic)	
-    * [1.28  打开/关闭本地视频 - muteLocalVideo](#class-muteLocalVideo)		
-    * [1.29  应用静音 - enableAllAudioPlay](#class-enableAllAudioPlay)	
-    * [1.30  打开/关闭远端音频 - muteRemoteAudio](#class-muteRemoteAudio)	
-    * [1.31  打开/关闭远端视频 - muteRemoteVideo](#class-muteRemoteVideo)	
-    * [1.32  是否为自动发布模式 - isAutoPublish](#class-isAutoPublish)	
-    * [1.33  是否为自动订阅模式 - isAutoSubscribe](#class-isAutoSubscribe)	
-    * [1.34  切换摄像头 - switchCamera](#class-switchCamera)
-    * [1.35  设置RTSP视频源 - enableExtendRtspVideocapture](#class-enableExtendRtspVideocapture)
-    * [1.36  设置自定义外部视频源 - enableExtendVideocapture](#class-enableExtendVideocapture)	
-    * [1.37  设置音频数据监听 - regAudioFrameCallback](#class-regAudioFrameCallback)	
-    * [1.38  添加micphone混音文件 - startAudioMixing](#class-startAudioMixing)	
-    * [1.39  停止micphone混音 - stopAudioMixing](#class-stopAudioMixing)	
-    * [1.40  设置桌面编码参数 - setDesktopProfile](#class-setDesktopProfile)	
-    * [1.41  设置桌面采集参数 - setCaptureScreenPagrams](#class-setCaptureScreenPagrams)	
-    * [1.42  设置桌面采集类型 - setUseDesktopCapture](#class-setUseDesktopCapture)	
-    * [1.43  获取屏幕个数 - getDesktopNums](#class-getDesktopNums)	
-    * [1.44  获取屏幕信息 - getDesktopInfo](#class-getDesktopInfo)	
-    * [1.45  获取窗口个数 - getWindowNums](#class-getWindowNums)
-    * [1.46  获取窗口信息 - getWindowInfo](#class-getWindowInfo)	
-    * [1.48  开启录制 - startRecord](#class-startRecord)	
-    * [1.49  停止录制 - stopRecord](#class-stopRecord)	
-    * [1.50  设置日志等级 - setLogLevel](#class-setLogLevel)	
-    * [1.51  获取SDK 版本 - getSdkVersion](#class-getSdkVersion)	
-    * [1.52  销毁引擎 - destroy](#class-destroy)
-	* [1.53  设置外部音频采集 - enableExtendAudiocapture](#class-enableExtendAudiocapture)
-	* [1.54  注册设备热插拔回调通知 - regDeviceChangeCallback](#class-regDeviceChangeCallback)
-	* [1.55  旁路推流 - addPublishStreamUrl](#class-addPublishStreamUrl)
-	* [1.56  停止旁路推流 - removePublishStreamUrl](#class-removePublishStreamUrl)
-	* [1.57  更新旁路推流合流的流 - updateRtmpMixStream](#class-updateRtmpMixStream)
-* [二、UcloudMediaDevice设备引擎接口类](#Device)    
-    * [2.1  初始化设备模块 - UCloudRtcMediaDevice](#Device-UCloudRtcMediaDevice)		
-    * [2.2  销毁设备模块 - destory](#Device-destory)			
-    * [2.3  初始化视频模块 - InitVideoMoudle](#Device-InitVideoMoudle)		
-    * [2.4  销毁视频模块 - UnInitVideoMoudle](#Device-UnInitVideoMoudle)		
-    * [2.5  初始化音频模块 - InitAudioMoudle](#Device-InitAudioMoudle)		
-    * [2.6  销毁音频模块 - UnInitAudioMoudle](#Device-UnInitAudioMoudle)			
-    * [2.7  获取摄像头数量 - getCamNums](#Device-getCamNums)		
-    * [2.8  获取麦克风数量 - getRecordDevNums](#Device-getRecordDevNums)			
-    * [2.9  获取播放设备数量 - getPlayoutDevNums](#Device-getPlayoutDevNums)		
-    * [2.10  获取摄像头设备信息 - getVideoDevInfo](#Device-getVideoDevInfo)			
-    * [2.11  获取麦克风设备信息 - getRecordDevInfo](#Device-getRecordDevInfo)		
-    * [2.12  获取播放设备信息 - getPlayoutDevInfo](#Device-getPlayoutDevInfo)		
-    * [2.13  获取当前使用的摄像头信息 - getCurCamDev](#Device-getCurCamDev)		
-    * [2.14  获取当前使用的麦克风设备信息 - getCurRecordDev](#Device-getCurRecordDev)		
-    * [2.15  获取当前使用的播放设备信息 - getCurPlayoutDev](#Device-getCurPlayoutDev)		
-    * [2.16  设置视频设备 - setVideoDevice](#Device-setVideoDevice)		
-    * [2.17  设置麦克风设备 - setRecordDevice](#Device-setRecordDevice)			
-    * [2.18  设置播放设备 - setPlayoutDevice](#Device-setPlayoutDevice)		
-    * [2.19  获取应用播放音量 - getPlaybackDeviceVolume](#Device-getPlaybackDeviceVolume)			
-    * [2.20  设置应用播放音量 - setPlaybackDeviceVolume](#Device-setPlaybackDeviceVolume)		
-    * [2.21  获取系统麦克风音量 - getRecordingDeviceVolume](#Device-getRecordingDeviceVolume)			
-    * [2.22  设置系统麦克风音量 - setRecordingDeviceVolume](#Device-setRecordingDeviceVolume)		
-    * [2.23  开始摄像头测试 - startCamTest](#Device-startCamTest)		
-    * [2.24  停止摄像头测试 - stopCamTest](#Device-stopCamTest)			
-    * [2.25  开始麦克风测试 - startRecordingDeviceTest](#Device-startRecordingDeviceTest)		
-    * [2.26  停止麦克风测试 - stopRecordingDeviceTest](#Device-stopRecordingDeviceTest)		
-    * [2.27  开始播放设备测试 - startPlaybackDeviceTest](#Device-startPlaybackDeviceTest)		
-    * [2.28  停止播放设备测试 - stopPlaybackDeviceTest](#Device-stopPlaybackDeviceTest)			
-    * [2.29  开始采集视频数据回调 - startCaptureFrame](#Device-startCaptureFrame)		
-    * [2.30  停止采集视频数据回调 - stopCaptureFrame](#Device-stopCaptureFrame)			
+* [二、UcloudMediaDevice设备引擎接口类](#Device)    		
 * [三、接口错误表](#ErrCode)    
-    * [3.1  事件回调错误码](#ErrCode-shijian)		
-    * [3.2  函数值错误码](#ErrCode-hanshu)			
-* [四、函数结构体说明](#struct)    
-    * [4.1  设备信息类 - tUCloudRtcDeviceInfo](#struct-tUCloudRtcDeviceInfo)		
-    * [4.2  媒体发布配置类 - tUCloudRtcMediaConfig](#struct-tUCloudRtcMediaConfig)		
-    * [4.3  媒体轨道类型类型描述 - eUCloudRtcTrackType](#struct-eUCloudRtcTrackType)		
-    * [4.4  媒体流类型描述 - eUCloudRtcMeidaType](#struct-eUCloudRtcMeidaType)		
-    * [4.5  流信息结构体 - tUCloudRtcStreamInfo](#struct-tUCloudRtcStreamInfo)		
-    * [4.6  录制水印位置 - eUCloudRtcWaterMarkPos](#struct-eUCloudRtcWaterMarkPos)		
-    * [4.7  水印类型 - eUCloudRtcWaterMarkType](#struct-eUCloudRtcWaterMarkType)		
-    * [4.8  Mute操作结构体 - tUCloudRtcMuteSt](#struct-tUCloudRtcMuteSt)		
-    * [4.9  录制输出等级 - eUCloudRtcRecordProfile](#struct-eUCloudRtcRecordProfile)		
-    * [4.10  录制媒体类型 - eUCloudRtcRecordType](#struct-eUCloudRtcRecordType)			
-    * [4.11  录制配置信息 - tUCloudRtcRecordConfig](#struct-tUCloudRtcRecordConfig)		
-    * [4.12  渲染模式 - eUCloudRtcRenderMode](#struct-eUCloudRtcRenderMode)		
-    * [4.13  日志级别 - eUCloudRtcLogLevel](#struct-eUCloudRtcLogLevel)		
-    * [4.14  视频质量参数 - eUCloudRtcVideoProfile](#struct-eUCloudRtcVideoProfile)		
-    * [4.15  桌面输出参数 - eUCloudRtcScreenProfile](#struct-eUCloudRtcScreenProfile)		
-    * [4.16  桌面采集参数 - tUCloudRtcScreenPargram](#struct-tUCloudRtcScreenPargram)		
-    * [4.17  桌面采集类型 - eUCloudRtcDesktopType](#struct-eUCloudRtcDesktopType)		
-    * [4.18  桌面参数 - tUCloudRtcDeskTopInfo](#struct-tUCloudRtcDeskTopInfo)		
-    * [4.19  通道类型 - eUCloudRtcUserStreamRoleCHANNEL](#struct-eUCloudRtcUserStreamRoleCHANNEL)		
-    * [4.20  流权限 - eUCloudRtcUserStreamRoleSTREAM](#struct-eUCloudRtcUserStreamRoleSTREAM)	
-    * [4.21  渲染窗口 - tUCloudRtcVideoCanvas](#struct-tUCloudRtcVideoCanvas)		
-    * [4.22  登录信息类 - tUCloudRtcAuth](#struct-tUCloudRtcAuth)		
-    * [4.23  当前媒体状态统计 - tUCloudRtcStreamStats](#struct-tUCloudRtcStreamStats)		
-    * [4.24  录制信息回调 - tUCloudRtcRecordInfo](#struct-tUCloudRtcRecordInfo)		
-    * [4.25  音频帧 - tUCloudRtcAudioFrame](#struct-tUCloudRtcAudioFrame)		
-    * [4.26  视频数据帧类型 - eUCloudRtcVideoFrameType](#struct-eUCloudRtcVideoFrameType)		
-    * [4.27  视频数据帧 - tUCloudRtcVideoFrame](#struct-tUCloudRtcVideoFrame)		
-    * [4.28  消息回调事件接口类 - UCloudRtcEventListener](#struct-UCloudRtcEventListener)		
-    * [4.29  音频测试回调 - UCloudRtcMediaListener](#struct-UCloudRtcMediaListener)		
-    * [4.30  音频数据回调 - UCloudRtcAudioFrameCallback](#struct-UCloudRtcAudioFrameCallback)			
-    * [4.31  视频扩展数据源 - UCloudRtcExtendVideoCaptureSource](#struct-UCloudRtcExtendVideoCaptureSource)		
-    * [4.32  视频数据回调 - UCloudRtcExtendVideoRender](#struct-UCloudRtcExtendVideoRender)		
-    * [4.33  视频数据回调监听类（yuv420p格式） - UCloudRtcVideoFrameObserver](#struct-UCloudRtcVideoFrameObserver)		
-    * [4.34  视频渲染类型 - eUCloudRtcRenderType](#struct-eUCloudRtcRenderType)		
-    * [4.35  视频编码类型 - eUCloudRtcVideoCodec](#struct-eUCloudRtcVideoCodec)		
-    * [4.36  视频参数 - tUCloudVideoConfig](#struct-tUCloudVideoConfig)	
-	* [4.37  网络上下类型 - eUCloudRtcNetworkQuality](#struct-eUCloudRtcNetworkQuality)
-	* [4.38  网络评分 - eUCloudRtcQualityType](#struct-eUCloudRtcQualityType)
-	* [4.39  热插拔回调 - UcloudRtcDeviceChanged](#struct-UcloudRtcDeviceChanged)	
+* [四、函数结构体说明](#struct)   	
     
 	
 <a name='class'></a>
 
 ## 一、 class UcloudRtcEngine引擎接口类
+
+* [1.1  获取引擎 - UCloudRtcEngine](#class-UCloudRtcEngine)
+* [1.2  绑定监听事件 - regRtcEventListener ](#class-regRtcEventListener)
+* [1.3  设置SDK模式 - setSdkMode](#class-setSdkMode)
+* [1.4  设置通话模式 - setChannelType](#class-setChannelType)	
+* [1.5  设置流操作权限 - setStreamRole](#class-setStreamRole)
+* [1.6  设置纯音频模式 - setAudioOnlyMode](#class-setAudioOnlyMode)	
+* [1.7  设置自动发布和订阅 - setAutoPublishSubscribe](#class-setAutoPublishSubscribe)
+* [1.8  配置本地音频是否发布 - configLocalAudioPublish](#class-configLocalAudioPublish)
+* [1.9  是否发布音频 - isLocalAudioPublishEnabled](#class-isLocalAudioPublishEnabled)
+* [1.10  配置是否自动发布本地摄像头 - configLocalCameraPublish](#class-configLocalCameraPublish)
+* [1.11  是否发布摄像头 - isLocalCameraPublishEnabled](#class-isLocalCameraPublishEnabled)
+* [1.12  配置是否自动发布本地桌面 - configLocalScreenPublish](#class-configLocalScreenPublish)
+* [1.13  是否发布桌面 - isLocalScreenPublishEnabled](#class-isLocalScreenPublishEnabled)
+* [1.14  设置视频编码参数 - setVideoProfile](#class-setVideoProfile)
+* [1.15  入会时关闭摄像头 - muteCamBeforeJoin](#class-muteCamBeforeJoin)	
+* [1.16  入会时关闭麦克风 - muteMicBeforeJoin](#class-muteMicBeforeJoin)		
+* [1.17  加入房间 - joinChannel](#class-joinChannel)
+* [1.18  离开房间 - leaveChannel](#class-leaveChannel)	
+* [1.19  发布本地流 - publish](#class-publish)
+* [1.20  停止发布本地流 - unPublish](#class-unPublish)
+* [1.21  开启本地渲染 - startPreview](#class-startPreview)	
+* [1.22  停止本地渲染 - stopPreview](#class-stopPreview)	
+* [1.23 订阅远端媒体流 - subscribe](#class-subscribe)
+* [1.24 取消订阅远端媒体流 - unSubscribe](#class-unSubscribe)
+* [1.25  开启远端渲染 - startRemoteView](#class-startRemoteView)	
+* [1.26  停止远端渲染 - stopRemoteView](#class-stopRemoteView)	
+* [1.27  打开/关闭本地麦克风 - muteLocalMic](#class-muteLocalMic)	
+* [1.28  打开/关闭本地视频 - muteLocalVideo](#class-muteLocalVideo)		
+* [1.29  应用静音 - enableAllAudioPlay](#class-enableAllAudioPlay)	
+* [1.30  打开/关闭远端音频 - muteRemoteAudio](#class-muteRemoteAudio)	
+* [1.31  打开/关闭远端视频 - muteRemoteVideo](#class-muteRemoteVideo)	
+* [1.32  是否为自动发布模式 - isAutoPublish](#class-isAutoPublish)	
+* [1.33  是否为自动订阅模式 - isAutoSubscribe](#class-isAutoSubscribe)	
+* [1.34  切换摄像头 - switchCamera](#class-switchCamera)
+* [1.35  设置RTSP视频源 - enableExtendRtspVideocapture](#class-enableExtendRtspVideocapture)
+* [1.36  设置自定义外部视频源 - enableExtendVideocapture](#class-enableExtendVideocapture)	
+* [1.37  设置音频数据监听 - regAudioFrameCallback](#class-regAudioFrameCallback)	
+* [1.38  添加micphone混音文件 - startAudioMixing](#class-startAudioMixing)	
+* [1.39  停止micphone混音 - stopAudioMixing](#class-stopAudioMixing)	
+* [1.40  设置桌面编码参数 - setDesktopProfile](#class-setDesktopProfile)	
+* [1.41  设置桌面采集参数 - setCaptureScreenPagrams](#class-setCaptureScreenPagrams)	
+* [1.42  设置桌面采集类型 - setUseDesktopCapture](#class-setUseDesktopCapture)	
+* [1.43  获取屏幕个数 - getDesktopNums](#class-getDesktopNums)	
+* [1.44  获取屏幕信息 - getDesktopInfo](#class-getDesktopInfo)	
+* [1.45  获取窗口个数 - getWindowNums](#class-getWindowNums)
+* [1.46  获取窗口信息 - getWindowInfo](#class-getWindowInfo)	
+* [1.48  开启录制 - startRecord](#class-startRecord)	
+* [1.49  停止录制 - stopRecord](#class-stopRecord)	
+* [1.50  设置日志等级 - setLogLevel](#class-setLogLevel)	
+* [1.51  获取SDK 版本 - getSdkVersion](#class-getSdkVersion)	
+* [1.52  销毁引擎 - destroy](#class-destroy)
+* [1.53  设置外部音频采集 - enableExtendAudiocapture](#class-enableExtendAudiocapture)
+* [1.54  注册设备热插拔回调通知 - regDeviceChangeCallback](#class-regDeviceChangeCallback)
+* [1.55  旁路推流 - addPublishStreamUrl](#class-addPublishStreamUrl)
+* [1.56  停止旁路推流 - removePublishStreamUrl](#class-removePublishStreamUrl)
+* [1.57  更新旁路推流合流的流 - updateRtmpMixStream](#class-updateRtmpMixStream)
 
 <a name='class-UCloudRtcEngine'></a>
 
@@ -3242,6 +3146,37 @@ virtual void onRtmpUpdateMixStreamRes(eUCloudRtmpOpration& cmd,const int code, c
 <a name='Device'></a>
 
 ## 二、UcloudMediaDevice设备引擎接口类
+* [2.1  初始化设备模块 - UCloudRtcMediaDevice](#Device-UCloudRtcMediaDevice)		
+* [2.2  销毁设备模块 - destory](#Device-destory)			
+* [2.3  初始化视频模块 - InitVideoMoudle](#Device-InitVideoMoudle)		
+* [2.4  销毁视频模块 - UnInitVideoMoudle](#Device-UnInitVideoMoudle)		
+* [2.5  初始化音频模块 - InitAudioMoudle](#Device-InitAudioMoudle)		
+* [2.6  销毁音频模块 - UnInitAudioMoudle](#Device-UnInitAudioMoudle)			
+* [2.7  获取摄像头数量 - getCamNums](#Device-getCamNums)		
+* [2.8  获取麦克风数量 - getRecordDevNums](#Device-getRecordDevNums)			
+* [2.9  获取播放设备数量 - getPlayoutDevNums](#Device-getPlayoutDevNums)		
+* [2.10  获取摄像头设备信息 - getVideoDevInfo](#Device-getVideoDevInfo)			
+* [2.11  获取麦克风设备信息 - getRecordDevInfo](#Device-getRecordDevInfo)		
+* [2.12  获取播放设备信息 - getPlayoutDevInfo](#Device-getPlayoutDevInfo)		
+* [2.13  获取当前使用的摄像头信息 - getCurCamDev](#Device-getCurCamDev)		
+* [2.14  获取当前使用的麦克风设备信息 - getCurRecordDev](#Device-getCurRecordDev)		
+* [2.15  获取当前使用的播放设备信息 - getCurPlayoutDev](#Device-getCurPlayoutDev)		
+* [2.16  设置视频设备 - setVideoDevice](#Device-setVideoDevice)		
+* [2.17  设置麦克风设备 - setRecordDevice](#Device-setRecordDevice)			
+* [2.18  设置播放设备 - setPlayoutDevice](#Device-setPlayoutDevice)		
+* [2.19  获取应用播放音量 - getPlaybackDeviceVolume](#Device-getPlaybackDeviceVolume)			
+* [2.20  设置应用播放音量 - setPlaybackDeviceVolume](#Device-setPlaybackDeviceVolume)		
+* [2.21  获取系统麦克风音量 - getRecordingDeviceVolume](#Device-getRecordingDeviceVolume)			
+* [2.22  设置系统麦克风音量 - setRecordingDeviceVolume](#Device-setRecordingDeviceVolume)		
+* [2.23  开始摄像头测试 - startCamTest](#Device-startCamTest)		
+* [2.24  停止摄像头测试 - stopCamTest](#Device-stopCamTest)			
+* [2.25  开始麦克风测试 - startRecordingDeviceTest](#Device-startRecordingDeviceTest)		
+* [2.26  停止麦克风测试 - stopRecordingDeviceTest](#Device-stopRecordingDeviceTest)		
+* [2.27  开始播放设备测试 - startPlaybackDeviceTest](#Device-startPlaybackDeviceTest)		
+* [2.28  停止播放设备测试 - stopPlaybackDeviceTest](#Device-stopPlaybackDeviceTest)			
+* [2.29  开始采集视频数据回调 - startCaptureFrame](#Device-startCaptureFrame)		
+* [2.30  停止采集视频数据回调 - stopCaptureFrame](#Device-stopCaptureFrame)	
+
 
 <a name='Device-UCloudRtcMediaDevice'></a>
 
@@ -3839,6 +3774,9 @@ code回调为0代表成功，其他代表失败。详见错误码描述。
 <a name='ErrCode'></a>
 
 ## 三、 接口错误表
+* [3.1  事件回调错误码](#ErrCode-shijian)		
+* [3.2  函数值错误码](#ErrCode-hanshu)	
+
 
 <a name='ErrCode-shijian'></a>
 
@@ -3898,6 +3836,45 @@ typedef enum _tUCloudRtcReturnErrCode {
 <a name='struct'></a>
 
 ## 四、 函数结构体说明
+* [4.1  设备信息类 - tUCloudRtcDeviceInfo](#struct-tUCloudRtcDeviceInfo)		
+* [4.2  媒体发布配置类 - tUCloudRtcMediaConfig](#struct-tUCloudRtcMediaConfig)		
+* [4.3  媒体轨道类型类型描述 - eUCloudRtcTrackType](#struct-eUCloudRtcTrackType)		
+* [4.4  媒体流类型描述 - eUCloudRtcMeidaType](#struct-eUCloudRtcMeidaType)		
+* [4.5  流信息结构体 - tUCloudRtcStreamInfo](#struct-tUCloudRtcStreamInfo)		
+* [4.6  录制水印位置 - eUCloudRtcWaterMarkPos](#struct-eUCloudRtcWaterMarkPos)		
+* [4.7  水印类型 - eUCloudRtcWaterMarkType](#struct-eUCloudRtcWaterMarkType)		
+* [4.8  Mute操作结构体 - tUCloudRtcMuteSt](#struct-tUCloudRtcMuteSt)		
+* [4.9  录制输出等级 - eUCloudRtcRecordProfile](#struct-eUCloudRtcRecordProfile)		
+* [4.10  录制媒体类型 - eUCloudRtcRecordType](#struct-eUCloudRtcRecordType)			
+* [4.11  录制配置信息 - tUCloudRtcRecordConfig](#struct-tUCloudRtcRecordConfig)		
+* [4.12  渲染模式 - eUCloudRtcRenderMode](#struct-eUCloudRtcRenderMode)		
+* [4.13  日志级别 - eUCloudRtcLogLevel](#struct-eUCloudRtcLogLevel)		
+* [4.14  视频质量参数 - eUCloudRtcVideoProfile](#struct-eUCloudRtcVideoProfile)		
+* [4.15  桌面输出参数 - eUCloudRtcScreenProfile](#struct-eUCloudRtcScreenProfile)		
+* [4.16  桌面采集参数 - tUCloudRtcScreenPargram](#struct-tUCloudRtcScreenPargram)		
+* [4.17  桌面采集类型 - eUCloudRtcDesktopType](#struct-eUCloudRtcDesktopType)		
+* [4.18  桌面参数 - tUCloudRtcDeskTopInfo](#struct-tUCloudRtcDeskTopInfo)		
+* [4.19  通道类型 - eUCloudRtcUserStreamRoleCHANNEL](#struct-eUCloudRtcUserStreamRoleCHANNEL)		
+* [4.20  流权限 - eUCloudRtcUserStreamRoleSTREAM](#struct-eUCloudRtcUserStreamRoleSTREAM)	
+* [4.21  渲染窗口 - tUCloudRtcVideoCanvas](#struct-tUCloudRtcVideoCanvas)		
+* [4.22  登录信息类 - tUCloudRtcAuth](#struct-tUCloudRtcAuth)		
+* [4.23  当前媒体状态统计 - tUCloudRtcStreamStats](#struct-tUCloudRtcStreamStats)		
+* [4.24  录制信息回调 - tUCloudRtcRecordInfo](#struct-tUCloudRtcRecordInfo)		
+* [4.25  音频帧 - tUCloudRtcAudioFrame](#struct-tUCloudRtcAudioFrame)		
+* [4.26  视频数据帧类型 - eUCloudRtcVideoFrameType](#struct-eUCloudRtcVideoFrameType)		
+* [4.27  视频数据帧 - tUCloudRtcVideoFrame](#struct-tUCloudRtcVideoFrame)		
+* [4.28  消息回调事件接口类 - UCloudRtcEventListener](#struct-UCloudRtcEventListener)		
+* [4.29  音频测试回调 - UCloudRtcMediaListener](#struct-UCloudRtcMediaListener)		
+* [4.30  音频数据回调 - UCloudRtcAudioFrameCallback](#struct-UCloudRtcAudioFrameCallback)			
+* [4.31  视频扩展数据源 - UCloudRtcExtendVideoCaptureSource](#struct-UCloudRtcExtendVideoCaptureSource)		
+* [4.32  视频数据回调 - UCloudRtcExtendVideoRender](#struct-UCloudRtcExtendVideoRender)		
+* [4.33  视频数据回调监听类（yuv420p格式） - UCloudRtcVideoFrameObserver](#struct-UCloudRtcVideoFrameObserver)		
+* [4.34  视频渲染类型 - eUCloudRtcRenderType](#struct-eUCloudRtcRenderType)		
+* [4.35  视频编码类型 - eUCloudRtcVideoCodec](#struct-eUCloudRtcVideoCodec)		
+* [4.36  视频参数 - tUCloudVideoConfig](#struct-tUCloudVideoConfig)	
+* [4.37  网络上下类型 - eUCloudRtcNetworkQuality](#struct-eUCloudRtcNetworkQuality)
+* [4.38  网络评分 - eUCloudRtcQualityType](#struct-eUCloudRtcQualityType)
+* [4.39  热插拔回调 - UcloudRtcDeviceChanged](#struct-UcloudRtcDeviceChanged)
 
 <a name='struct-tUCloudRtcDeviceInfo'></a>
 
@@ -4568,6 +4545,7 @@ typedef struct UCloudRtcTranscodeConfig {
 	}
 }tUCloudRtcTranscodeConfig;
 ```
+
 
 
 # ** Android **
