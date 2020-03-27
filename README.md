@@ -28,6 +28,8 @@
 * [API文档](/urtc/api/index)
      * [Web](/urtc/api/Web)  
      * [Windows](/urtc/api/Windows)  
+     * [Android](/urtc/api/Android)  
+     * [iOS](/urtc/api/iOS)  
 * [常见问题](/urtc/faq)
 * [错误码](/urtc/ErrorCode)
     
