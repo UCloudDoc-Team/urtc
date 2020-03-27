@@ -9,7 +9,7 @@ URTC Windows SDK API包含以下方法：
 |  [UcloudRtcEngine 类](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class)      |  包含URTC的主要方法 | 
 |  [UcloudMediaDevice 类](https://github.com/ucloud/urtc-win-demo/tree/master/doc#Device)   |  设备引擎接口 |  		
 |  [ErrCode](https://github.com/ucloud/urtc-win-demo/tree/master/doc#ErrCode)               |  接口错误表 | 
-|  [函数结构体说明](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct)       	|  函数结构体说明] | 
+|  [函数结构体](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct)       	|  函数结构体说明 | 
 
 ## 1. UcloudRtcEngine 类包含以下方法：
 
