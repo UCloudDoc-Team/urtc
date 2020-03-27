@@ -64,7 +64,7 @@ URTC Windows SDK API包含以下方法：
 |  [startRecord](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-startRecord) |  开启录制 |  
 |  [stopRecord](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-stopRecord) |  停止录制 |  
 |  [setLogLevel](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-setLogLevel) |  设置日志等级 |  
-|  [-](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-getSdkVersion) |  获取SDK |  
+|  [getSdkVersion](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-getSdkVersion) |  获取SDK版本 |  
 |  [destroy](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-destroy) |  销毁引擎 |  
 |  [enableExtendAudiocapture](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-enableExtendAudiocapture) |  设置外部音频采集 |  
 |  [regDeviceChangeCallback](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-regDeviceChangeCallback) |  注册设备热插拔回调通知 |  
