@@ -5,7 +5,7 @@
 
 | 方法      | Web | Windows | Android | iOS |
 |-|-|-|-|-|
-| 初始化参数 | [client](https://github.com/ucloud/urtc-sdk-web#client)  | [Windows初始化](https://docs.ucloud.cn/urtc/sdk/VideoStart)  | [Android初始化](https://docs.ucloud.cn/urtc/sdk/VideoStart)  | [iOS初始化](https://docs.ucloud.cn/urtc/sdk/VideoStart)  |
+| 初始化 | [client](https://github.com/ucloud/urtc-sdk-web#client)  | [Windows方法](https://docs.ucloud.cn/urtc/sdk/VideoStart)  | [Android方法](https://docs.ucloud.cn/urtc/sdk/VideoStart)  | [iOS方法](https://docs.ucloud.cn/urtc/sdk/VideoStart)  |
 | 加入房间   | [joinRoom](https://github.com/ucloud/urtc-sdk-web#client-joinroom)  | [joinChannel](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-joinChannel)  | joinChannel  | joinRoom  |
 | 离开房间   | [leaveRoom](https://github.com/ucloud/urtc-sdk-web#client-leaveroom)  | [leaveChannel](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-leaveChannel)  | leaveChannel  | leaveRoom  |
 | 发布流     | [publish](https://github.com/ucloud/urtc-sdk-web#client-publish)  | [publish](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-publish)  | publish  | publish  |
