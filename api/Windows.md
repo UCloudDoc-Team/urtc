@@ -1,6 +1,8 @@
 # Windows
 
-URTC Windows SDK 库在windows客户端中调用 API 建立连接，实现实时音视频通话、互动直播服务。     
+URTC Windows SDK 库在windows客户端中调用 API 建立连接，实现实时音视频通话、互动直播服务。      
+[点击这里](https://github.com/ucloud/urtc-win-demo)，可以下载GitHub仓库的Windows demo及SDK。    
+URTC Windows SDK API包含以下方法：    
 
 | 方法 | 描述 |
 | -| -|
