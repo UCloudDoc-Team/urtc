@@ -13,7 +13,7 @@
 | 订阅流     | [subscribe](https://github.com/ucloud/urtc-sdk-web#client-subscribe)  | [subscribe](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-subscribe)  | subscribe  | subscribeMethod  |
 | 销毁实例   | **NA**  | [destroy](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-destroy)  | destory  | destory   |
 
-> 移动端API
+> 移动端API文档
 > 
 > URTC Android SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-android-demo)。    
 > URTC iOS SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)。
