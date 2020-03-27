@@ -203,7 +203,7 @@ typedef enum _tUCloudRtcReturnErrCode {
 | [eUCloudRtcRenderType](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcRenderType) | 视频渲染类型 | 
 | [eUCloudRtcVideoCodec](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcVideoCodec) | 视频编码类型 | 
 | [tUCloudVideoConfig](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-tUCloudVideoConfig) | 视频参数 | 
-| [eUCloudRtcNetworkQuality](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcNetworkQuality) | 网络上下类型 | 
+| [eUCloudRtcNetworkQuality](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcNetworkQuality) | 上下行网络类型 | 
 | [eUCloudRtcQualityType](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcQualityType) | 网络评分 | 
 | [UcloudRtcDeviceChanged](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-UcloudRtcDeviceChanged) | 热插拔回调 | 
 
