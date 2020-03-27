@@ -4,7 +4,7 @@
 
 ## 1. 前提条件
 
-开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [开通云端录制](urtc/cloudRecord/openRecord)。
+开始录制之前，请确保开通录制服务，获取存储的`bucket`和存储服务所在的地域`region`。具体可参照 [云端录制](urtc/cloudRecord/index)开通录制服务。
 
 ## 2. 录制音视频代码示例
 
