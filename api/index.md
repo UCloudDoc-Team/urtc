@@ -17,5 +17,5 @@
 
 > 移动端API文档
 > 
-> URTC Android SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-android-demo)。    
-> URTC iOS SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)。
+> URTC Android SDK API文档，可以[在这里](https://github.com/ucloud/urtc-android-demo)下载，本地查看。    
+> URTC iOS SDK API文档，可以[在这里](https://github.com/ucloud/urtc-ios-demo)下载，本地查看。
