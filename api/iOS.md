@@ -1,7 +1,7 @@
 # URTC iOS SDK API指南
 
 在iOS客户端中调用URTC iOS SDK API 可以建立连接，实现实时音视频通话、互动直播服务。     
-URTC iOS SDK API文档，可以[在这里](https://github.com/ucloud/urtc-ios-demo)下载，本地查看。     
+[点击这里](https://github.com/ucloud/urtc-ios-demo)，直接下载GitHub仓库的iOS demo、SDK及API文档。   
   
 URTC iOS SDK API包含以下方法：    
 
