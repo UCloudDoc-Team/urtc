@@ -136,7 +136,7 @@ typedef enum _tUCloudRtcCallbackErrCode{
 
 <a name='ErrCode-hanshu'></a>
 
-###  3. 函数值错误码
+###  3.2 函数值错误码
 
 ```cpp
 typedef enum _tUCloudRtcReturnErrCode {    
