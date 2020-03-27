@@ -1,7 +1,7 @@
 # URTC Android SDK API指南
 
 在Android客户端中调用URTC Android SDK API 可以建立连接，实现实时音视频通话、互动直播服务。      
-URTC Android SDK API文档，可以[在这里]](https://github.com/ucloud/urtc-android-demo)下载，本地查看。   
+URTC Android SDK API文档，可以[在这里](https://github.com/ucloud/urtc-android-demo)下载，本地查看。   
     
 URTC Android SDK API包含以下方法：    
 
