@@ -14,6 +14,6 @@
 | 销毁实例   | **NA**  | [destroy](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-destroy)  | destory  | destory   |
 
 > 移动端API
-
-URTC Android SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-android-demo)。
-URTC iOS SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)。
+> 
+> URTC Android SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-android-demo)。
+> URTC iOS SDK API文档，可以[在这里查看](https://github.com/ucloud/urtc-ios-demo)。
