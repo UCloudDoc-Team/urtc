@@ -1,6 +1,6 @@
 # URTC Web SDK API指南
 
-在网页浏览器中调用 URTC Web SDK API 可以建立连接，实现实时音视频通话、互动直播服务。     
+在Web网页浏览器中调用 URTC Web SDK API 可以建立连接，实现实时音视频通话、互动直播服务。     
 URTC支持所有的主流浏览器，详见[Web兼容性](/urtc/sdk/VideoStart)。    
 [点击这里](https://github.com/ucloud/urtc-sdk-web)，直接下载GitHub仓库的Web SDK。    
 
