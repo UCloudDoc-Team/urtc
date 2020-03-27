@@ -14,8 +14,3 @@
 | 监听事件   | [on](https://github.com/ucloud/urtc-sdk-web#client-on)  | [regRtcEventListener](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-regRtcEventListener)  | UCloudRtcSdkEventListener  | UCloudRtcEngineDelegate  |
 | 订阅流     | [subscribe](https://github.com/ucloud/urtc-sdk-web#client-subscribe)  | [subscribe](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-subscribe)  | subscribe  | subscribeMethod  |
 | 销毁实例   | **NA**  | [destroy](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-destroy)  | destory  | destory   |
-
-> 移动端API文档
-> 
-> URTC Android SDK API文档，可以[在这里](https://github.com/ucloud/urtc-android-demo)下载，本地查看。    
-> URTC iOS SDK API文档，可以[在这里](https://github.com/ucloud/urtc-ios-demo)下载，本地查看。
