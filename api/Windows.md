@@ -1,4 +1,4 @@
-# Windows
+# URTC Windows SDK API指南
 
 在windows客户端中调用URTC Windows SDK API 可以建立连接，实现实时音视频通话、互动直播服务。      
 [点击这里](https://github.com/ucloud/urtc-win-demo)，直接下载GitHub仓库的Windows demo及SDK。    
