@@ -68,7 +68,7 @@ URTC Windows SDK 库在windows客户端中调用 API 建立连接，实现实时
 |  [regDeviceChangeCallback](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-regDeviceChangeCallback) |  注册设备热插拔回调通知 |  
 |  [addPublishStreamUrl](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-addPublishStreamUrl) |  旁路推流 |  
 |  [removePublishStreamUrl](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-removePublishStreamUrl) |  停止旁路推流 |  
-|  [updateRtmpMixStream](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-updateRtmpMixStream |  更新旁路推流合流的流 |  
+|  [updateRtmpMixStream](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-updateRtmpMixStream) |  更新旁路推流合流的流 |  
 
 ## 2. UcloudMediaDevice设备引擎接口类
 
