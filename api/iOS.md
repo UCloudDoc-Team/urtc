@@ -28,7 +28,7 @@ URTC iOS SDK API包含以下方法：
 | fileMix  | 是否开启混音  |
 | filePath   | 混音文件路径  |
 | fileLoop  | 混音文件是否循环播放  |
-| videoDefaultCodec  | 视频编码格式 默认VP8 可选 VP8 || H264  |
+| videoDefaultCodec  | 视频编码格式 默认VP8 可选 VP8、H264  |
 | videopath  | 本地录制时视频文件路径  |
 | audiopath  | 本地录制时音频文件路径  |
 | outputpath  | 本地录制时文件输出路径  |
