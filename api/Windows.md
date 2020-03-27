@@ -107,10 +107,6 @@ URTC Windows SDK 库在windows客户端中调用 API 建立连接，实现实时
 
 ## 3. ErrCode接口错误表
 
-* [3.1  事件回调错误码](#ErrCode-shijian)		
-* [3.2  函数值错误码](#ErrCode-hanshu)	
-
-
 <a name='ErrCode-shijian'></a>
 
 ###  3.1  事件回调错误码
