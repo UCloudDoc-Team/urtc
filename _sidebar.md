@@ -16,7 +16,7 @@
     * [屏幕共享](/urtc/sdk/Video/screenshare)    
     * [播放混音](/urtc/sdk/Audio/AudioMixing)   
     * [旁路推流](/urtc/sdk/Video/cdnSteaming)    
-* 云端录制(/urtc/cloudRecord/index)  
+* [云端录制](/urtc/cloudRecord/index)  
     * [云端录制SDK代码示例](/urtc/cloudRecord/RecordStart)    
     * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](/urtc/cloudRecord/RecordWatermark)  
