@@ -133,14 +133,6 @@ client.on('stream-subscribed', (stream) => {
 }); // 监听远端流订阅成功事件，在当前用户执行 subscribe 后，与服务器经多次协商，建立好连接后，会触发此事件
 ```
 
-4、监听 "stream-removed" 事件，当远端流被移除时（停止发布、关闭网页等）， 停止播放该流并移除它的画面。
-```js
-client.on('stream-removed', (stream) => {
-
-
-```
-
-
 ### 4.6 退出房间
 ```js
 client.leaveRoom();
