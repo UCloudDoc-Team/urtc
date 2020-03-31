@@ -67,7 +67,11 @@ import { Client } from 'urtc-sdk';
 <script type="text/javascript" src="index.js"><script>
 ```
 
-2）初始化，使用全局对象 UCloudRTC创建client。   
+## 4. 实现音视频通话
+
+### 4.1 初始化SDK
+
+加入房间之前，需要初始化，使用全局对象 UCloudRTC创建client。   
 
 ```js
 const client = new Client(AppId, Token, {
@@ -82,7 +86,7 @@ const client = new Client(AppId, Token, {
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
-## 3.3 加入一个房间并发布本地流
+### 4.2 加入一个房间并发布本地流
 
 ```js
 client.joinRoom(roomId, userId, () => {
@@ -102,7 +106,7 @@ client.joinRoom(roomId, userId, () => {
 	}, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
-## 3.4 订阅远端流
+### 4.3 订阅远端流
 
 ```js
 client.joinRoom(roomId, userId, () => {
@@ -110,7 +114,7 @@ client.joinRoom(roomId, userId, () => {
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 subscribe 发布本地流
 ```
 
-## 3.5 取消发布本地流或取消订阅远端流
+### 4.4 取消发布本地流或取消订阅远端流
 
 ```js
 client.unpublish(StreamId, onSuccess, onFailure)
@@ -118,7 +122,7 @@ client.unpublish(StreamId, onSuccess, onFailure)
 client.unsubscribe(StreamId, onSuccess, onFailure)
 //取消订阅远端流
 ```
-## 3.6 监听流事件
+### 4.5 监听流事件
 
 ```js
 client.on('stream-published', (stream) => {
@@ -136,13 +140,13 @@ client.on('stream-added', (stream) => {
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
 
-## 3.7 退出房间
+### 4.6 退出房间
 
 ```js
 client.leaveRoom();
 ```
 
-## 3.8 编译、运行，开始体验吧！
+### 4.7 开始体验吧！
 
 
 # ** Windows **
