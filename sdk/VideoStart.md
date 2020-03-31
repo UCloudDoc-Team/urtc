@@ -30,29 +30,31 @@
 
 ## 3. 引入SDK
 
-选择如下任意一种方法获取URTC Web SDK：   
+ [下载URTC WEB SDK后](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法获取URTC Web SDK：   
 
 ### 3.1 使用`npm`引入SDK
 
 将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [`npm` 快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
 
 1）使用`npm`或 [`Yarn`](https://yarnpkg.com/) 集成 WEB SDK:
-```js
+```
 npm install --save urtc-sdk
 ```
 或
-```js
+```
 yarn add urtc-sdk
 ```
 2）项目中引入SDK并创建 client
- [下载URTC WEB SDK 和 API 接口文档](https://github.com/ucloud/urtc-sdk-web)
-```js
+
+```
 import { Client } from 'urtc-sdk';
 ```
 ### 3.2 直接引入SDK
+
 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。       
-直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。    
-```js
+直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。  
+
+```
 <script type="text/javascript" src="index.js"><script>
 ```
 ## 4. 实现音视频通话
