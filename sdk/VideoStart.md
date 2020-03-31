@@ -153,7 +153,7 @@ client.leaveRoom();
 3） 将 sdk/dll 下的 dll 文件复制到你的可执行文件所在的目录下。  
 
 
-## 5. 建立通话
+## 5. 实现音视频通话
 
 ### 5.1 初始化
 
@@ -255,10 +255,7 @@ m_rtcengine->leaveChannel()
     dependencies {
     implementation (name: 'ucloudrtclib_1.0.1_b52bc04c', ext: 'aar')
 ```
-
   - 如果项目混淆，请在混淆中添加一下urtc 混淆规则。
-
-
 
 ```java
 -keep class com.ucloudrtclib.sdkengine.**{*;}
@@ -384,11 +381,9 @@ sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
 sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
 ```
 
-## 6. 建立通话
+## 6. 实现音视频通话
 
 ### 6.1 加入房间
-
-
 
 ```java
 UCloudRtcSdkAuthInfo info = new UCloudRtcSdkAuthInfo();
@@ -634,7 +629,7 @@ self.engine?.delegate = self
     self.engine?.streamProfile = .streamProfileAll;//设置流权限
 ```
 
-## 6 建立通话
+## 6. 实现音视频通话
 
 ### 6.1 加入房间
 
@@ -886,7 +881,7 @@ self.engine.isAutoSubscribe = YES;//加入房间后将自动订阅远端音视�
 self.engine.isDesktop = NO;//发布桌面或者摄像头 默认为NO:摄像头 YES:桌面
 ```
 
-## 6. 建立通话
+## 6. 实现音视频通话
 
 ### 6.1 加入房间
 
@@ -1080,7 +1075,7 @@ urtcSdk.SetScreenOutProfile(2) ;
 urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 ```
 
-## 5. 建立通话
+## 5. 实现音视频通话
 
 ### 5.1 加入房间  
 
