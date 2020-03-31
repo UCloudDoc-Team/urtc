@@ -37,42 +37,27 @@
 将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [`npm` 快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
 
 1）使用`npm`或 [`Yarn`](https://yarnpkg.com/) 集成 WEB SDK:
-
 ```js
 npm install --save urtc-sdk
 ```
-
 或
-
 ```js
 yarn add urtc-sdk
 ```
-
 2）项目中引入SDK并创建 client
-
  [下载URTC WEB SDK 和 API 接口文档](https://github.com/ucloud/urtc-sdk-web)
-
 ```js
 import { Client } from 'urtc-sdk';
 ```
-
-
 ### 3.2 直接引入SDK
-
-直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。   
-
-1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入   
-
+直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。       
+1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入    
 ```js
 <script type="text/javascript" src="index.js"><script>
 ```
-
 ## 4. 实现音视频通话
-
 ### 4.1 初始化SDK
-
 加入房间之前，需要初始化，使用全局对象 UCloudRTC创建client。   
-
 ```js
 const client = new Client(AppId, Token, {
   type?: "rtc"|"live"
@@ -83,11 +68,8 @@ const client = new Client(AppId, Token, {
   // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"
 });
 ```
-
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
-
 ### 4.2 加入一个房间并发布本地流
-
 ```js
 client.joinRoom(roomId, userId, () => {
    client.publish({
@@ -107,15 +89,12 @@ client.joinRoom(roomId, userId, () => {
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
 ### 4.3 订阅远端流
-
 ```js
 client.joinRoom(roomId, userId, () => {
     client.subscribe(StreamId, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 subscribe 发布本地流
 ```
-
 ### 4.4 取消发布本地流或取消订阅远端流
-
 ```js
 client.unpublish(StreamId, onSuccess, onFailure)
 // 取消发布本地流
@@ -123,7 +102,6 @@ client.unsubscribe(StreamId, onSuccess, onFailure)
 //取消订阅远端流
 ```
 ### 4.5 监听流事件
-
 ```js
 client.on('stream-published', (stream) => {
     // 使用 HtmlMediaElement 播放媒体流。将流的 mediaStream 给 Video/Audio 元素的 srcObject 属性，即可播放，注意设置 autoplay 属性以支持视频的自动播放，其他属性请参见 [<video>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video)
@@ -139,13 +117,10 @@ client.on('stream-added', (stream) => {
     client.subscribe(stream.sid);
 }); // 监听新增远端流事件，在远端用户新发布流后，服务器会推送此事件的消息。注：当刚进入房间时，若房间已有流，也会收到此事件的通知
 ```
-
 ### 4.6 退出房间
-
 ```js
 client.leaveRoom();
 ```
-
 ### 4.7 开始体验吧！
 
 
