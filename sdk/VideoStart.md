@@ -70,9 +70,12 @@ import { Client } from 'urtc-sdk';
 
 ```js
 const client = new Client(AppId, Token, {
-  type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
-  role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
-  codec?: "vp8"|"h264", // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"
+  type?: "rtc"|"live"
+  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
+  role?: "pull" | "push" | "push-and-pull"
+  // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
+  codec?: "vp8"|"h264"
+  // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"
 });
 ```
 
@@ -83,12 +86,18 @@ const client = new Client(AppId, Token, {
 ```js
 client.joinRoom(roomId, userId, () => {
    client.publish({
-	  audio: true/false,          // 必填，指定是否使用麦克风设备
-	  video: true/false,          // 必填，指定是否使用摄像头设备
-	  screen: true/false,         // 必填，指定是否为屏幕共享，audio, video, screen 不可同时为 true，更不可同时为 false
-	  microphoneId?: '',   // 选填，指定使用的麦克风设备的ID，可通过 getMicrophones 方法查询获得该ID，不填时，将使用默认麦克风设备
-	  cameraId?: '',      // 选填，指定使用的摄像头设备的ID，可以通过 getCameras 方法查询获得该ID，不填时，将使用默认的摄像头设备
-	  extensionId?: ''    // 选填，指定使用的 Chrome 插件的 extensionId，可使 72 以下版本的 Chrome 浏览器进行屏幕共享。
+	  audio: true/false
+	  // 必填，指定是否使用麦克风设备
+	  video: true/false
+	  // 必填，指定是否使用摄像头设备
+	  screen: true/false
+	  // 必填，指定是否为屏幕共享，audio, video, screen 不可同时为 true，更不可同时为 false
+	  microphoneId?: ''
+	  // 选填，指定使用的麦克风设备的ID，可通过 getMicrophones 方法查询获得该ID，不填时，将使用默认麦克风设备
+	  cameraId?: ''
+	  // 选填，指定使用的摄像头设备的ID，可以通过 getCameras 方法查询获得该ID，不填时，将使用默认的摄像头设备
+	  extensionId?: ''
+	  // 选填，指定使用的 Chrome 插件的 extensionId，可使 72 以下版本的 Chrome 浏览器进行屏幕共享。
 	}, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
@@ -104,7 +113,9 @@ client.joinRoom(roomId, userId, () => {
 
 ```js
 client.unpublish(StreamId, onSuccess, onFailure)
+// 取消发布本地流
 client.unsubscribe(StreamId, onSuccess, onFailure)
+//取消订阅远端流
 ```
 ## 3.6 监听流事件
 
