@@ -20,7 +20,7 @@
 
  - iOS系统限制除了safari之外的浏览器使用麦克风、摄像头设备，因此无法发布本地视频流，因此iOS微信浏览器中只支持接收。
 
-## 2. WEB端Demo源码
+## 2. Web端Demo源码
 
  - 直接使用不同JS框架，接入URTC SDK的源码，具体参考 [angular、react、vue、纯JS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
  
@@ -30,7 +30,7 @@
 
 ## 3. 引入SDK
 
- [下载URTC WEB SDK后](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法获取URTC Web SDK：   
+ [下载URTC Web SDK后](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法引入URTC Web SDK：   
 
 ### 3.1 使用`npm`引入SDK
 
