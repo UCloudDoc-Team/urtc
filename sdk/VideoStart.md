@@ -28,7 +28,7 @@
  
 >由于浏览器的安全策略对除 127.0.0.1 以外的 `HTTP` 地址作了限制，Web SDK 仅支持  `HTTPS` 协议  或者 `http://localhost（http://127.0.0.1）`，请勿使用  `HTTP` 协议 部署你的项目。
 
-## 3. 集成SDK
+## 3. 引入SDK
 
 选择如下任意一种方法获取URTC Web SDK：   
 
