@@ -27,53 +27,52 @@
  
 >由于浏览器的安全策略对除 127.0.0.1 以外的 `HTTP` 地址作了限制，Web SDK 仅支持  `HTTPS` 协议  或者 `http://localhost（http://127.0.0.1）`，请勿使用  `HTTP` 协议 部署你的项目。
 
-## 3. 创建一个 URTC Client
+## 3. 集成SDK
 
-### 3.1 使用 npm 安装
+选择如下任意一种方法获取URTC Web SDK：   
 
-将 sdk 使用 ES6 语法作为模块引入。
+### 3.1 使用`npm`引入SDK
 
-1）使用 [npm](https://www.npmjs.com/) 或 [Yarn](https://yarnpkg.com/) 安装 WEB SDK:
+将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [`npm` 快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
 
-```
+1）使用`npm`或 [`Yarn`](https://yarnpkg.com/) 集成 WEB SDK:
+
+```js
 npm install --save urtc-sdk
 ```
 
 或
 
-```
+```js
 yarn add urtc-sdk
 ```
 
-2）项目中引入并创建 client
+2）项目中引入SDK并创建 client
 
  [下载URTC WEB SDK 和 API 接口文档](https://github.com/ucloud/urtc-sdk-web)
 
-```
+```js
 import { Client } from 'urtc-sdk';
-
-const client = new Client(appId, token); // 默认为直播模式（大班课），若为连麦模式（小班课）时，需要传入第三个参数 { type: 'rtc' }，更多配置见 sdk API 说明
 ```
 
 
 ### 3.2 直接引入SDK
 
-直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC
+直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。   
 
-1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入
+1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入   
 
 ```js
 <script type="text/javascript" src="index.js"><script>
 ```
 
-
-2）初始化，使用全局对象 UCloudRTC创建client
+2）初始化，使用全局对象 UCloudRTC创建client。   
 
 ```js
 const client = new Client(AppId, Token, {
   type?: "rtc"|"live",  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
   role?: "pull" | "push" | "push-and-pull",   // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
-  codec?: "vp8"|"h264", // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"，注：部分老版本浏览器不支持 vp8 的视频编解码时（譬如 macOS 10.14.4 平台的 Safar 12.1 及以上版本才支持 vp8），可选择 h264 编码格式
+  codec?: "vp8"|"h264", // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"
 });
 ```
 
