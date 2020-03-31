@@ -30,7 +30,7 @@
 
 ## 3. 引入SDK
 
- 下载[URTC Web SDK](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法引入URTC Web SDK：   
+选择如下任意一种方法引入URTC Web SDK：   
 
 ### 3.1 使用`npm`引入SDK
 
@@ -51,8 +51,7 @@ import { Client } from 'urtc-sdk';
 ```
 ### 3.2 直接引入SDK
 
-直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。       
-直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。  
+下载[URTC Web SDK](https://github.com/ucloud/urtc-sdk-web)，将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。  
 
 ```
 <script type="text/javascript" src="index.js"><script>
