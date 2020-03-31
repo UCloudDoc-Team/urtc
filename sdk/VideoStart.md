@@ -20,9 +20,9 @@
 
  - iOS系统限制除了safari之外的浏览器使用麦克风、摄像头设备，因此无法发布本地视频流，因此iOS微信浏览器中只支持接收。
 
-## 2. WEB端Demo体验
+## 2. WEB端Demo源码
 
- - 不同JS框架下接入URTC SDK的流程，可以参考 [angular、react、vue、纯JS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
+ - 直接使用不同JS框架，接入URTC SDK的源码，具体参考 [angular、react、vue、纯JS demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) 。
  
  - 在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
  
@@ -51,7 +51,7 @@ import { Client } from 'urtc-sdk';
 ```
 ### 3.2 直接引入SDK
 直接在页面中用 script 标签将 sdk 引入，此时会有全局对象 UCloudRTC。       
-1）直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入    
+直接将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。    
 ```js
 <script type="text/javascript" src="index.js"><script>
 ```
