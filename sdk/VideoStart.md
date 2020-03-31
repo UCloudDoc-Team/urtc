@@ -30,7 +30,7 @@
 
 ## 3. 引入SDK
 
- [下载URTC Web SDK后](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法引入URTC Web SDK：   
+ 下载[URTC Web SDK](https://github.com/ucloud/urtc-sdk-web)，选择如下任意一种方法引入URTC Web SDK：   
 
 ### 3.1 使用`npm`引入SDK
 
