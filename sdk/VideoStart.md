@@ -34,14 +34,12 @@
 
 ### 3.1 使用`npm`引入SDK
 
-将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [`npm` 快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
+将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [npm快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
 
 1）使用`npm`或 [`Yarn`](https://yarnpkg.com/) 集成 WEB SDK:
 ```
 npm install --save urtc-sdk
-```
-或
-```
+或    
 yarn add urtc-sdk
 ```
 2）项目中引入SDK并创建 client
@@ -60,7 +58,7 @@ import { Client } from 'urtc-sdk';
 
 ### 4.1 初始化SDK
 
-加入房间之前，需要初始化，使用全局对象 UCloudRTC创建client。   
+加入房间之前，需要初始化，创建client。   
 
 ```js
 const client = new Client(AppId, Token, {
