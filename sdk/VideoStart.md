@@ -371,14 +371,22 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
 ### 5.3 获取SDK 引擎 并进行基础配置
 
 ```java
-sdkEngine.setAudioOnlyMode(true) ; // 设置纯音频模式
-sdkEngine.configLocalCameraPublish(false) ; // 设置摄像头是否发布
-sdkEngine.configLocalAudioPublish(true) ; // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
-sdkEngine.configLocalScreenPublish(false) ; // 设置桌面是否发布，作用同上
-sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);// 流权限
-sdkEngine.setAutoPublish(true) ; // 是否自动发布
-sdkEngine.setAutoSubscribe(true) ;// 是否自动订阅
-sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;// 摄像头输出等级
+sdkEngine.setAudioOnlyMode(true) ; 
+// 设置纯音频模式
+sdkEngine.configLocalCameraPublish(false) ; 
+// 设置摄像头是否发布
+sdkEngine.configLocalAudioPublish(true) ; 
+// 设置音频是否发布，用于让sdk判断自动发布的媒体类型
+sdkEngine.configLocalScreenPublish(false) ; 
+// 设置桌面是否发布，作用同上
+sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
+// 流权限：仅上行发布、仅下行订阅、双向发布订阅权限
+sdkEngine.setAutoPublish(true) ; 
+// 是否自动发布
+sdkEngine.setAutoSubscribe(true) ;
+// 是否自动订阅
+sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;
+// 摄像头输出等级
 ```
 
 ## 6. 实现音视频通话
