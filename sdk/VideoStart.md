@@ -56,18 +56,27 @@ import { Client } from 'urtc-sdk';
 <script type="text/javascript" src="index.js"><script>
 ```
 ## 4. 实现音视频通话
+
 ### 4.1 初始化SDK
+
 加入房间之前，需要初始化，使用全局对象 UCloudRTC创建client。   
+
 ```js
 const client = new Client(AppId, Token, {
   type?: "rtc"|"live"
-  // 选填，设置房间类型，有两种 "live" 和 "rtc" 类型可选 ，分别对应直播模式和连麦模式，默认为 rtc
+  // 选填，设置房间类型，有两种 实时会议"rtc" 和互动直播"live" 类型可选 ，默认为实时会议 rtc
   role?: "pull" | "push" | "push-and-pull"
-  // 选填，设置用户角色，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为连麦模式（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
+  // 选填，设置用户权限，可设 "pull" | "push" | "push-and-pull" 三种角色，分别对应拉流、推流、推+拉流，默认为 "push-and-pull"，特别地，当房间类型为实时会议（rtc）时，此参数将被忽视，会强制为 "push-and-pull"，即推+拉流
   codec?: "vp8"|"h264"
   // 选填，设置视频编码格式，可设 "vp8" 或 "h264"，默认为 "vp8"
 });
 ```
+
+初始化时，需注意 `type`、 `role`、`codec`参数的设置：   
+ - `type`用于设置房间类型。一对一或多人通话中，建议设为 "rtc" ，使用通信场景；互动直播中，建议设为 "live"，使用直播场景。
+ - `role`用于设置用户权限。在互动直播中，需要设置主播和连麦方的权限为` push-and-pull` ，不需要连麦时设置主播为 `push` ；观众设置为 `pull` 。
+ - `codec`用于设置浏览器使用的编解码格式。一般情况设置为VP8，如果需要使用 Safari 12.1 及之前版本，设为 "h264"。
+
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 ### 4.2 加入一个房间并发布本地流
 ```js
@@ -180,17 +189,31 @@ UcloudRtcEventListener* eventhandler = new UcloudRtcEventListenerImpl
 
 m_rtcengine = UCloudRtcEngine::sharedInstance(eventhandler);
 m_rtcengine->setChannelTye(UCLOUD_RTC_CHANNEL_TYPE_COMMUNICATION);
+//设置房间类型:实时通话、互动直播
 m_rtcengine->setSdkMode(UCLOUD_RTC_SDK_MODE_TRIVAL);
+//设置测试模式、正式模式
 m_rtcengine->setStreamRole(UCLOUD_RTC_USER_STREAM_ROLE_BOTH);
-m_rtcengine->setTokenSecKey(TEST_SECKEY);//测试模式下设置自己的秘钥
+//互动直播模式下，设置用户权限
+m_rtcengine->setTokenSecKey(TEST_SECKEY);
+//测试模式下设置自己的秘钥
 m_rtcengine->setAudioOnlyMode(false);
+//设置仅音频模式
 m_rtcengine->setAutoPublishSubscribe(false, true);
+//设置是否自动订阅
 m_rtcengine->configLocalAudioPublish(false)；
+//设置是否自动发布
 m_rtcengine->configLocalCameraPublish(true);
+//设置摄像头是否可以发布
 m_rtcengine->configLocalScreenPublish(false);
+//设置屏幕是否可以发布
 tUCloudVideoConfig& videoconfig
-m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360，videoconfig); // UCLOUD_RTC_VIDEO_PROFILE_NONE 时 后面填入自定义编码参数  最大1080p(1920*1080)
+m_rtcengine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_640_360，videoconfig); 
+// 设置视频编码参数，UCLOUD_RTC_VIDEO_PROFILE_NONE 时 后面填入自定义编码参数  最大1080p(1920*1080)
 ```
+初始化时，需注意 `setChannelTye`、 `setStreamRole`、参数的设置：   
+ - `setChannelTye`用于设置房间类型。一对一或多人通话中，建议设为 `UCLOUD_RTC_CHANNEL_TYPE_COMMUNICATION` ，使用通信场景；互动直播中，建议设为 `UCLOUD_RTC_CHANNEL_TYPE_BROADCAST`，使用直播场景。
+ - `setStreamRole`用于设置用户权限。在互动直播中，需要设置主播和连麦方的权限为`UCLOUD_RTC_USER_STREAM_ROLE_BOTH` ，不需要连麦时设置主播为 `UCLOUD_RTC_USER_STREAM_ROLE_PUB` ；观众设置为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB` 。
+
 
 ### 5.2 加入房间
 
@@ -332,8 +355,11 @@ public class UCloudRtcApplication extends Application {
             super.onCreate();
             URTCSdkEnv.initEnv(getApplicationContext(), this);
             URTCSdkEnv.setLogLevel(URTCSdkLogLevel.URTC_SDK_LogLevelInfo) ;
+	    //设置日志等级
             URTCSdkEnv.setSdkMode(URTCSdkMode.RTC_SDK_MODE_TRIVAL);
+	    //设置测试模式、正式模式
             URTCSdkEnv.setTokenSeckey(CommonUtils.SEC_KEY);
+	    //测试模式下设置自己的秘钥
             WindowManager windowManager = (WindowManager) 
             getSystemService(Context.WINDOW_SERVICE);
             DisplayMetrics outMetrics = new DisplayMetrics();
@@ -395,7 +421,7 @@ sdkEngine.configLocalAudioPublish(true) ;
 sdkEngine.configLocalScreenPublish(false) ; 
 // 设置桌面是否发布，作用同上
 sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
-// 流权限：仅上行发布、仅下行订阅、双向发布订阅权限
+// //互动直播模式下，设置用户权限：仅上行发布、仅下行订阅、双向发布订阅权限
 sdkEngine.setAutoPublish(true) ; 
 // 是否自动发布
 sdkEngine.setAutoSubscribe(true) ;
