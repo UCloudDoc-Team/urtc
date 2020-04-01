@@ -38,8 +38,8 @@
 
 ![](/images/demoImage/windowsImage.png)
 
-[立即体验](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620191210.zip) 
+[立即体验](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620200401v.zip) 
 
-[Windows客户端 源码-Ucloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-win-demo-master-20200221.zip)
+[Windows客户端 源码-Ucloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-win-demo.rar)
 
 [Windows客户端 源码-GitHub](https://github.com/ucloud/urtc-win-demo)
