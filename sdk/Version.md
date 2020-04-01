@@ -201,13 +201,12 @@ sdk未做变更，此次发布仅用于解决 1.4.3 未发布成功的问题
 
 # ** Windows **
 
-## 1.6.2版
+## 1.6.5版
 
 该版本发布于2020-3-26。  
 
 1、加入cnd旁路推流功能
-2、录制功能更新可以指定混流得流和模板 兼容之前版本  
-
+2、录制功能更新可以指定混流得流和模板，可以兼容之前版本  
 
 ## 1.6.1版
 
@@ -217,7 +216,7 @@ sdk未做变更，此次发布仅用于解决 1.4.3 未发布成功的问题
 
 使用如下：
 
-``` c++ 
+```cpp
 必须在最开始调用
 m_rtcengine->setChannelType(UCLOUD_RTC_CHANNEL_TYPE_BROADCAST);
 注意：
@@ -227,7 +226,7 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 ```
 2、添加自定义编码（最大分辨率到1080p(1920*1080)）    
 
-``` c++ 
+```cpp
 virtual void setVideoProfile(eUCloudRtcVideoProfile profile) = 0;
 变更为
 virtual void setVideoProfile(eUCloudRtcVideoProfile profile, tUCloudVideoConfig& videoconfig) = 0;
@@ -235,7 +234,7 @@ tUCloudVideoConfig 用来定义自己编码分辨率
 ```
 3、录制功能增加更多录制模板以及水印 调用示例如下：    
 
-``` c++ 
+```cpp
 tUCloudRtcRecordConfig recordconfig;
 recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型 video screen
 recordconfig.mMainviewuid = m_userid.data(); // 主画面用户id
@@ -260,7 +259,7 @@ m_rtcengine->startRecord(recordconfig);
 
 使用如下：
 
-``` c++ 
+```cpp
 必须在最开始调用
 m_rtcengine->setChannelType(UCLOUD_RTC_CHANNEL_TYPE_BROADCAST);
 注意：
@@ -280,7 +279,7 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 3、支持自定义渲染模式  
 调用  
 
-``` c++ 
+```cpp
 实现 自定义渲染类 现在数据格式为 argb 格式输出
     class VideoRender : public UCloudRtcExtendVideoRender {
     public:
@@ -301,7 +300,7 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 ``` 
 4、视频外部采集支持有yuv420 扩展到 yuv420 rgb argb rgba 等格式，使用如下：    
 
-``` c++ 
+```cpp
 实现 自定义渲染类 现在数据格式为 argb 格式输出
     class VideoRender : public UCloudRtcExtendVideoCaptureSource {
     public:
@@ -338,40 +337,40 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 3、桌面采集和摄像头采集 支持rtsp 视频输入替换    
 调用如下：   
 
-``` c++  
+```cpp
 type 表示替换摄像头还是摄像头  enable true 代表启用功能 rtspurl：要输入的url 地址  支持（vp8 h264编码格式）
 virtual int enableExtendRtspVideocapture(eUCloudRtcMeidaType type, bool enable, const char* rtspurl) = 0;
 ``` 
 4、增加入会前mute 摄像头和麦克风入会，适应更多场景需求    
 接口如下：    
 
-``` c++  
+```cpp 
 virtual int muteCamBeforeJoin(bool mute) = 0; // mute 摄像头
 virtual int muteMicBeforeJoin(bool mute) = 0; // mute 麦克风
 ``` 
 5、增加静音接口 以及会中切换摄像头功能    
 
-``` c++  
+``cpp
 virtual int enableAllAudioPlay(bool enable) = 0; // 关闭应用声音
 virtual int switchCamera(tUCloudRtcDeviceInfo& info) = 0; // 切换摄像头
 ``` 
 6、增加编码格式设置支持 vp8 h264（264支持硬编解码  1080p25帧编码只需 15%CPU， 满足同时两路1080p 上传）    
 
-``` c++  
+```cpp 
 virtual int setVideoCodec(eUCloudRtcCodec codec) = 0; // 初始化后调用
 ``` 
 7、增加渲染方式渲染  支持 gdi directx 渲染方式    
 
 通过view 里面的 mRenderType设置    
 
-``` c++  
+```cpp
 virtual int startPreview(tUCloudRtcVideoCanvas& view) = 0;
 virtual int startRemoteView(tUCloudRtcVideoCanvas& view) = 0;
 ``` 
 
 8、录制接口 支持设置录制的 bucket region  
 
-``` c++ 
+```cpp
 调用如下： 
 tUCloudRtcRecordConfig recordconfig;
 recordconfig.mMainviewmediatype = UCLOUD_RTC_MEDIATYPE_VIDEO; // 主画面类型
@@ -388,14 +387,14 @@ m_rtcengine->startRecord(recordconfig);
 
 1、开始录制回调接口  回调增加录制文件名 bucket region 参数方便用户保持录制信息到自己的业务服务器。    
 
-``` c++ 
+```cpp
 virtual void onStartRecord(const int code, const char* msg, const char* recordid) {}
 变更为
 virtual void onStartRecord(const int code, const char* msg, tUCloudRtcRecordInfo& info) {}
 ``` 
 2、设备测试模块    
 
-``` c++ 
+```cpp 
 增加接口
 virtual int setVideoDevice(tUCloudRtcDeviceInfo* info) = 0;
 virtual int setRecordDevice(tUCloudRtcDeviceInfo* info) = 0;
@@ -465,7 +464,7 @@ m_speakervol.SetPos(playvol);
 
 3、桌面采集增加窗口采集功能，调用用下：    
 
-``` c++ 
+```cpp
 m_rtcengine->setUseDesktopCapture(UCLOUD_RTC_DESKTOPTYPE_SCREEN); // 必须先调用 决定采集窗口还是桌面
 int num = m_rtcengine->getWindowNums();// 获取窗口数量
 for(int i=0; i<num; i++)
@@ -484,7 +483,7 @@ m_rtcengine->setCaptureScreenPagrams(pgram);
 
 4、桌面采集增加获取信息功能    
 
-``` c++ 
+```cpp
 m_rtcengine->setUseDesktopCapture(UCLOUD_RTC_DESKTOPTYPE_SCREEN); // 必须先调用 决定采集窗口还是桌面
 int num = m_rtcengine->getDesktopNums();// 获取桌面数量
 for(int i=0; i<num; i++)
@@ -509,18 +508,18 @@ m_rtcengine->setCaptureScreenPagrams(pgram);
 1、优化抗丢包能力，视频最多抗30%丢包，音频最高抗70%丢包    
 2、增加音频文件输入功能，可以替换micphone 输入，支持mp3 wav文件格式 接口    
 
-``` c++
+```cpp
 startAudioMixing(const char* filepath, bool replace, bool loop,float musicvol)
 ``` 
 
 3、增加音频数据获取功能，支持用户直接获取播放采集音频数据    
 
-``` c++
+```cpp
 void regAudioFrameCallback(UCloudRtcAudioFrameCallback* callback) 
 ``` 
 4、优化设备模块，音频和视频模块可以分别单独启用 变更后启动引擎调用方式    
 
-``` c++
+```cpp
 m_mediadevice = UCloudRtcMediaDevice::sharedInstance();
 m_mediadevice->InitAudioMoudle();
 m_mediadevice->InitVideoMoudle();
@@ -528,7 +527,7 @@ m_mediadevice->InitVideoMoudle();
 5、减少库体积 减少依赖库 解决curl ssl 库和用户自己curl ssl 冲突问题   
 6、引擎获取接口改变    
 
-``` c++
+```cpp
 UCloudRtcEngine *sharedInstance(UCloudRtcEventListener* listener)更改为 UCloudRtcEngine *sharedInstance() 事件监听通过regRtcEventListener(UCloudRtcEventListener* listener)进行注册 
 ``` 
 
@@ -542,7 +541,7 @@ UCloudRtcEngine *sharedInstance(UCloudRtcEventListener* listener)更改为 UClou
 3、设备测试模块增加视频数据获取功能，方便加入美颜等视频前置处理功能   
 4、增加媒体自动重连能力，并增加视频数据数据实时回调接口   
 
-``` c++
+```cpp
 int startCaptureFrame(eUCloudRtcVideoProfile profile,UCloudRtcVideoFrameObserver* observer)
 ``` 
 用户可以通过UCloudRtcVideoFrameObserver 获取视频数据；处理后通过UCloudRtcExtendVideoCaptureSource，将数据再次输入到引擎，实现美颜处理。
@@ -551,7 +550,7 @@ int startCaptureFrame(eUCloudRtcVideoProfile profile,UCloudRtcVideoFrameObserver
 
 6、增加外部媒体采集扩展能力   
 
-``` c++
+```cpp
 int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture)
 ``` 
 用户通过实现 UCloudRtcExtendVideoCaptureSource 接口实现外部输入源导入，实现视频前置处理。
@@ -692,6 +691,14 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 * 支持获取sdk版本
 
 # ** iOS **
+
+## 1.5.0版
+
+该版本发布于2020-03-25。  
+
+* 优化本地视频录制功能
+* 增加播放在线音频的相关回调
+* 增加支持应用程序后台模式相关接口
 
 ## 1.4版
 
