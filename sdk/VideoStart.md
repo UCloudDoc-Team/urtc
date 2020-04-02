@@ -74,7 +74,6 @@ const client = new Client(AppId, Token, {
 初始化时，需注意 `type`、 `role`、`codec`参数的设置：   
  - `type`用于设置房间类型。一对一或多人通话中，建议设为 "rtc" ，使用通信场景；互动直播中，建议设为 "live"，使用直播场景。
  - `role`用于设置用户权限。在互动直播中，需要设置主播和连麦方的权限为` push-and-pull` ，不需要连麦时设置主播为 `push` ；观众设置为 `pull` 。
- - `codec`用于设置浏览器使用的编解码格式。一般情况设置为VP8，如果需要使用 Safari 12.1 及之前版本，设为 "h264"。
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 ### 4.2 加入一个房间并发布本地流
