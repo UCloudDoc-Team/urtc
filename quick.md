@@ -10,26 +10,11 @@
 
 > 使用URTC服务之前，首先需要[注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/identity_verification/README) 。  
 
-## 2．下载URTC SDK  
-
-### 2.1  控制台下载SDK
-
- - 在控制台，【全部产品】-【视频服务】-【实时音视频】-【文档及SDK】内，下载SDK。  
-
-![](/images/download_SDK.png) 
-  
->下载SDK的同时，还可以下载demo源码。使用中有任何问题，都可以通过GitHub提issue，反馈给我们。
-
-### 2.2 文档中下载SDK
-
- - 可以在[快速集成SDK](urtc/sdk/VideoStart) 中，下载SDK。
-
-
-## 3．创建URTC应用
+## 2．创建URTC应用
 
 > 每个账号最大支持创建5个URTC应用，需要创建更多URTC应用，请联系客户经理增加配额。
 
-### 3.1  控制台创建URTC应用
+### 2.1  控制台创建URTC应用
 
  - 在控制台，【全部产品】-【视频服务】-【实时音视频】，找到【我的应用】  
 
@@ -45,6 +30,20 @@
 
  - 绑定AppID及AppKey到您的应用中即可开始使用。
  
-### 3.2  API创建URTC应用
+### 2.2  API创建URTC应用
 
 通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/README)。
+
+## 3. 下载URTC SDK  
+
+### 3.1  控制台下载SDK
+
+ - 在控制台，【全部产品】-【视频服务】-【实时音视频】-【文档及SDK】内，下载SDK。  
+
+![](/images/download_SDK.png) 
+  
+>下载SDK的同时，还可以下载demo源码。使用中有任何问题，都可以通过GitHub提issue，反馈给我们。
+
+### 3.2 文档中下载SDK
+
+ - 可以在[快速集成SDK](urtc/sdk/VideoStart) 中，下载SDK。
