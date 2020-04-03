@@ -3,7 +3,7 @@
 
 ## 什么是URTC
 
-URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建实时音视频通话、一对多或多对多的互动直播。    
+URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。    
 
 * [产品功能](urtc/introduction/functions)：详细介绍URTC的具体功能，包含支持伴音、桌面共享、导入外部音视频流、互动白板、录制、水印、旁路直播等功能。不同[客户端的兼容性](urtc/introduction/functions?id=%e5%a4%9a%e5%b9%b3%e5%8f%b0%e6%8e%a5%e5%85%a5) 。
 * [产品架构](urtc/introduction/structure)：介绍URTC应用在在线教育的产品架构。
