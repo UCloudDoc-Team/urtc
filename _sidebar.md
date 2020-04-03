@@ -27,7 +27,7 @@
      * [Android](/urtc/api/Android)  
      * [iOS](/urtc/api/iOS)  
 * [常见问题](/urtc/faq/index)
-     * [URTC Web SDK移动端兼容性(/urtc/faq/web_mobile)  
+     * [URTC Web SDK移动端兼容性](/urtc/faq/web_mobile)  
 * [错误码](/urtc/ErrorCode)
     
     
