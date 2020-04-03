@@ -14,6 +14,8 @@
 
 > 每个账号最大支持创建5个URTC应用，需要创建更多URTC应用，请联系客户经理增加配额。
 
+可以通过2种方法：控制台、API创建URTC应用。    
+
 ### 2.1  控制台创建URTC应用
 
  - 在控制台，【全部产品】-【视频服务】-【实时音视频】，找到【我的应用】  
@@ -35,6 +37,8 @@
 通过 [创建URTC 应用](https://docs.ucloud.cn/api/urtc-api/create_urtc_app)的API，也可以创建URTC应用。具体调用API的方法，请查看[API文档](https://docs.ucloud.cn/api/summary/README)。
 
 ## 3. 下载URTC SDK  
+
+可以通过2种方法：控制台、集成文档种下载URTC SDK。    
 
 ### 3.1  控制台下载SDK
 
