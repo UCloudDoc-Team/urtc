@@ -3,7 +3,6 @@
 
 * [概览](/urtc/README)
 * [产品简介](/urtc/introduction/index)
-    * [什么是URTC](/urtc/introduction/concept)
     * [产品功能](/urtc/introduction/functions)
     * [产品架构](/urtc/introduction/structure)
     * [应用场景](/urtc/introduction/scenario)
@@ -21,10 +20,6 @@
     * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](/urtc/cloudRecord/RecordWatermark)  
 * [质量监控](/urtc/quality/qualityDocs)
-* AI课堂应用场景
-     * [教师端 SDK指南](/urtc/scenarioSDK/AIclass/Teacher)  
-     * [学生端 Android SDK指南](/urtc/scenarioSDK/AIclass/StudentAndriod)  
-     * [学生端 iOS SDK指南](/urtc/scenarioSDK/AIclass/StudentIOS)  
 * [DEMO体验](/urtc/demo)
 * [API文档](/urtc/api/index)
      * [Web](/urtc/api/Web)  
