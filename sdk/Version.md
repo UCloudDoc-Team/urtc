@@ -358,7 +358,8 @@ virtual int muteMicBeforeJoin(bool mute) = 0; // mute 麦克风
 ``` 
 5、增加静音接口 以及会中切换摄像头功能    
 
-``cpp
+```cpp
+
 virtual int enableAllAudioPlay(bool enable) = 0; // 关闭应用声音
 virtual int switchCamera(tUCloudRtcDeviceInfo& info) = 0; // 切换摄像头
 ``` 
