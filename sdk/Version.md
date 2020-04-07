@@ -573,7 +573,6 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4、优化重连效果   
 
 
-
 ## 1.0版
 
 该版本发布于2019-6-26。  
@@ -584,7 +583,9 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4、断线制动重连   
 5、支持配置自动发布模式   
 
+
 # ** Android **
+
 
 ## 1.7.1版
 
