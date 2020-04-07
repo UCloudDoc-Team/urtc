@@ -411,7 +411,7 @@ virtual int setPlayoutDevice(tUCloudRtcDeviceInfo* info) = 0;
 virtual int startRecordingDeviceTest(UCloudRtcAudioLevelListener* audiolevel) = 0;
 virtual int startPlaybackDeviceTest(const char* testAudioFilePath) = 0;
 ``` 
-``` c++ 
+```cpp 
 设备初始化大体流程如下
 m_mediacallback = new MediaCallback(this->GetSafeHwnd());
 m_mediadevice = UCloudRtcMediaDevice::sharedInstance();
@@ -581,13 +581,17 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 2. 支持纯音频通话模式   
 3. 抗丢包 15%     
 4. 断线制动重连   
-5. 支持配置自动发布模式   
+5. 支持配置自动发布模式 
+
+
 
 # ** Android **
+
 ## 1.7.1版
 
-该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
-更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档
+
+该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w    
+更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档。    
 
 ```java
  /**
@@ -606,10 +610,10 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
     
 ## 1.7.0版
 
-该版本发布于 2020-03-18，sdk ucloudrtclib__1.7.0_8e21045c_w
+该版本发布于 2020-03-18，sdk ucloudrtclib__1.7.0_8e21045c_w    
 
-更新内容；    
-1.完善断线重连机制，增加远端断线回调，app可以根据此回调显示遮盖物等操作，注意此回调是确定远端断线后的回调，当远端出现网络失去连接等情况时还有机会连上，等到一定时间后，大约10几秒sdk确定远端无法连接上后会给与回调。
+更新内容：    
+1.完善断线重连机制，增加远端断线回调，app可以根据此回调显示遮盖物等操作，注意此回调是确定远端断线后的回调，当远端出现网络失去连接等情况时还有机会连上，等到一定时间后，大约10几秒sdk确定远端无法连接上后会给与回调。    
 
 ```java
 /**
@@ -619,7 +623,9 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
      */
     void onPeerLostConnection(int type ,UCloudRtcSdkStreamInfo info);
 ```
-2.增加后台和锁屏的操作接口，后台和锁屏分两种情况，第一种情况，如果需要保持后台和锁屏时通信不断，需要使用前台service机制，在app退到后台时候开启前台service可以保证摄像头不中断。第二种情况如果需要保持通信不断，请在退到后台时候调用controlLocalVideo（false）controlAudio（false），后台期间可以正常执行其它录音，打电话的操作，回到前台时调用controlLocalVideo（true），controlAudio（true）恢复rtc通信。
+2.增加后台和锁屏的操作接口，后台和锁屏分两种情况。    
+第一种情况，如果需要保持后台和锁屏时通信不断，需要使用前台service机制，在app退到后台时候开启前台service可以保证摄像头不中断。    
+第二种情况如果需要保持通信不断，请在退到后台时候调用controlLocalVideo（false）controlAudio（false），后台期间可以正常执行其它录音，打电话的操作，回到前台时调用controlLocalVideo（true），controlAudio（true）恢复rtc通信。    
 
 ```java
 /**
@@ -634,7 +640,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
     void controlLocalVideo(boolean enable); 
 ```
 
-3.增加推流时横竖屏固定和自动模式选择，譬如在横屏模式下退到后台，同时调用controlLocalVideo（false），可能因为手机界面从横屏activity切换到竖屏lunch时屏幕方向旋转，导致推流的画面最后一帧出现旋转。UCLOUD_RTC_PUSH_LANDSCAPE_MODE就可以避免出现这样的情况。
+3.增加推流时横竖屏固定和自动模式选择，譬如在横屏模式下退到后台，同时调用controlLocalVideo（false），可能因为手机界面从横屏activity切换到竖屏lunch时屏幕方向旋转，导致推流的画面最后一帧出现旋转。UCLOUD_RTC_PUSH_LANDSCAPE_MODE就可以避免出现这样的情况。    
 
 ```java
  /**
@@ -653,94 +659,17 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
     UCLOUD_RTC_PUSH_PORTRAIT_MODE 
 ```
 
-4.修复textureview渲染某些情况下的异常
+4.修复textureview渲染某些情况下的异常。    
 
-## 1.6.9版
-
-该版本发布于 2020-03-5，sdk ucloudrtclib_1.6.9_d3e7c3c7
-
-更新内容：
-
-1、录像支持 init时候传文件夹，也可以不传，此模式下startRecord方法需要传完整的录像文件路径即可，目前也只支持mp4录制
-
-如果init传了文件夹，则startReocord方法只需传录像名即可
-startRecord接口调整为 
-
-```java
-/**
- * 开始录像、
- * @param recordName 录像名，这里的名字可以带文件夹路径，以这里的为准，如果不带就以init方法的文件夹为准
- * @param listener 录像监听接口
- */
-public void startRecord(UCloudRtcSdkRecordType type, String recordName, UCloudRtcRecordListener listener, long period){
-```
-渲染模式支持用UcloudRtcRenderView 这种继承于surfaceview的方式来渲染
-
-## 1.6.8版
-
-该版本发布于 2020-02-27，sdk ucloudrtclib_1.6.8_zy_0ebfefa9
-
-更新内容：    
-录像功能修复音画不同步的bug，扩容了回调接口
-URTCRecordManager
-```java
-/**
-​     * 录像的存储目录，不包括录像名
-​     * @param videoPath 录像的存储文件夹,录像名在开始录像时单独指定
-​     */
-​    public static void init(String videoPath)
-
-/**
-​     * 更改存储文件夹
-​     * @param directory
-​     */
-​    public void changeDirectory(String directory)
-
-/**
-​     * 开始录像
-​     * @param recordName 录像名，添加在init所指定的存储目录下
-​     * @param listener 录像监听接口
-​     */
-​    public void startRecord(String recordName,UCloudRtcRecordListener listener,long period)
-
-/**
-​     * 停止录像
-​     */
-​    public void stopRecord()
-
-UCloudRtcRecordListener
-   /**
-​     * 录像开始
-​     * @param path 录像存储路径
-​     * @param code 录像开始结果 0 成功，<0 失败
-​     * @param msg 结果相关信息
-​     */
-​     void onLocalRecordStart(String path,int code,String msg);
-
-
-    /**
-     * 录像结束
-     * @param path 录像存储路径
-     * @param fileLength 录像大小
-     * @param code 录像结束结果 0 成功 <0 失败
-     */
-     void onLocalRecordStop(String path,long fileLength,int code);
-    
-    /**
-     * 录像状态回调
-     * @param duration 录像持续时间
-     * @param fileSize 文件大小
-     */
-     void onRecordStatusCallBack(long duration, long fileSize);
-```
 
 ## 1.6.7版
 
-该版本发布于 2020-02-18，sdk ucloudrtclib_1.6.7_zy_d5311475
+该版本发布于 2020-02-18，sdk ucloudrtclib_1.6.7_zy_d5311475    
 
 新增16k 音频采样功能：    
 使用音频采样功能前确保：    
-1. URTCRecordManager 初始化过，即调用过 URTCRecordManager.init("mnt/sdcard/urtc/mp4")接口;
+1. URTCRecordManager 初始化过，即调用过 URTCRecordManager.init("mnt/sdcard/urtc/mp4")接口;    
+
 ```java
 /**
 ​     * 录像的存储路径，不包括录像名
@@ -748,9 +677,9 @@ UCloudRtcRecordListener
 ​     */
 ​    public static synchronized void init(String videoPath)
 ```
-2. 确保在本地正常开始推流后     
+2. 确保在本地正常开始推流后      
 
-以下为音频采样功能相关接口    
+以下为音频采样功能相关接口     
  ```java
  /**
 ​     * 开始重采样
@@ -777,10 +706,10 @@ UCloudRtcRecordListener
 ​    public void stopAudioResample()  
 ```
 
-## 1.6.7版
+## 1.6.7版  
 
-该版本发布于 2020-02-13
-新增渲染模式设置    
+该版本发布于 2020-02-13   
+新增渲染模式设置      
 ```java
 /**
  * SDK 渲染图像伸缩方式
@@ -801,7 +730,7 @@ public enum UCloudRtcSdkScaleType {
 }
 ```
 
- - 本地渲染    
+ - 本地渲染     
 ```java
 /**
 ​     * 开启本地预览
@@ -839,14 +768,14 @@ public enum UCloudRtcSdkScaleType {
 ```
 
 
-修复音画同步出现：
-现在sdk远端订阅声音播放会延迟到首帧渲染后在播放出来。
+修复音画同步出现：    
+现在sdk远端订阅声音播放会延迟到首帧渲染后在播放出来。    
 
-修复离开房间，即调用leave channel不释放egl环境的bug。
+修复离开房间，即调用leave channel不释放egl环境的bug。    
 
 ## 1.6.7版
 
-该版本发布于 2020-02-10
+该版本发布于 2020-02-10    
 
 新增截图功能：    
 ```java
@@ -875,9 +804,11 @@ public interface UcloudRTCScreenShot {
 ​    void onReceiveRGBAData(ByteBuffer rgbBuffer, int width , int height);
 }
 ```
-e.g. :
-确保sdk 调用此远程截图接口时已经成功订阅了流，即在onSubscribeResult返回订阅成功以后可以触发，否则调用无效。
+
+确保sdk 调用此远程截图接口时已经成功订阅了流，即在onSubscribeResult返回订阅成功以后可以触发，否则调用无效。    
+
  - 远端截图
+ 
 ```java
 mSdkEngine.takeSnapShot(false,viewInfo.getStreamInfo(), new UcloudRTCScreenShot() {
 ​                        @Override
@@ -903,10 +834,12 @@ mSdkEngine.takeSnapShot(false,viewInfo.getStreamInfo(), new UcloudRTCScreenShot(
                         }
 ```
  - 本地截图
-这里的streaminfo 可以在 onLocalPublish的回调中获取，同样的本地截图需要确保在本地成功推流后，即在onLocalPublish成功后调用。   
+ 
+这里的streaminfo 可以在 onLocalPublish的回调中获取，同样的本地截图需要确保在本地成功推流后，即在onLocalPublish成功后调用。    
 takeScreenShot(true,streminfo).      
 
  - 首帧回调
+ 
 ```java
 /**
  * @author ciel
@@ -925,12 +858,14 @@ public interface UcloudRTCFirstFrameRendered {
 ```
 
  - 本地首帧回调
+ 
 ```java
 sdkEngine.startPreview(info.getMediaType(),
 		localrenderview, (info, view) -> Log.d(TAG, "onLocalFirstFrameRender: " + "view: "+ view));
 ```
 
  - 远端首帧回调
+ 
 ```java
 sdkEngine.startRemoteView(viewInfo.getStreamInfo(), 
 	videoView,(info, view) -> Log.d(TAG, "onRemoteFirstFrameRender: " + "view: "+ view));
