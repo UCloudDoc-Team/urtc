@@ -20,7 +20,7 @@
 
 [立即体验](http://jappstore.com/91cy)
 
-[安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtcandroiddemo.rar) 
+[安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Fucloud_rtc_android_app_code.zip) 
 
 [安卓 app 源码-GitHub](https://github.com/ucloud/urtc-android-demo) 
 
