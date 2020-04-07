@@ -762,10 +762,10 @@ public interface UcloudRTCScreenShot {
  
 ```java
 mSdkEngine.takeSnapShot(false,viewInfo.getStreamInfo(), new UcloudRTCScreenShot() {
-​                        @Override
-​                        public void onReceiveRGBAData(ByteBuffer rgbBuffer, int width, int height) {
-​                            Log.d(TAG, "onReceiveRGBAData: rgbBuffer: " + rgbBuffer + " width: " + width + " height: " + height);
-​                            final Bitmap bitmap = Bitmap.createBitmap(width * 1, height * 1, Bitmap.Config.ARGB_8888);
+			@Override
+                        public void onReceiveRGBAData(ByteBuffer rgbBuffer, int width, int height) {
+                            Log.d(TAG, "onReceiveRGBAData: rgbBuffer: " + rgbBuffer + " width: " + width + " height: " + height);
+                            final Bitmap bitmap = Bitmap.createBitmap(width * 1, height * 1, Bitmap.Config.ARGB_8888);
 
                             bitmap.copyPixelsFromBuffer(rgbBuffer);
                             String name = "/mnt/sdcard/urtcscreen_" + System.currentTimeMillis() + ".jpg";
