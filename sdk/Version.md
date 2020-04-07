@@ -589,10 +589,8 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 ## 1.7.1版
 
-
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w    
 更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档。    
-
 
     
 ## 1.7.0版
@@ -653,50 +651,13 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 该版本发布于 2020-02-18，sdk ucloudrtclib_1.6.7_zy_d5311475    
 
-新增16k 音频采样功能：    
-使用音频采样功能前确保：    
-1. URTCRecordManager 初始化过，即调用过 URTCRecordManager.init("mnt/sdcard/urtc/mp4")接口;    
-
-```java
-/**
-​     * 录像的存储路径，不包括录像名
-​     * @param videoPath 录像的存储文件夹,录像名在开始录像时单独指定
-​     */
-​    public static synchronized void init(String videoPath)
-```
-2. 确保在本地正常开始推流后      
-
-以下为音频采样功能相关接口     
- ```java
- /**
-​     * 开始重采样
-​     * @param ucloudRtcAudioResample 重采样回调接口
-​     * @param file 保存pcm文件的路径，如果不为null，sdk会在调用stopAudioResample后把采样存在所设路径，如果为null，则不保存音频采样，只回调接口
-​     */
-​    public void startAudioResample(UcloudRtcAudioResample ucloudRtcAudioResample,String file) 
-
-
- public interface UcloudRtcAudioResample {
-​    /**
-​     *
-​     * @param data 音频数据
-​     * @param sampleRate 采样率 目前16k hz
-​     * @param channelCount 声道数
-​     * @param bitDepth 样本位数，16位
-​     * @param type 音源，0 麦克风采集声音 1 混音声音，目前暂未使用
-​     */
-​    void onAudioRecordCallback(byte[] data, int sampleRate, int channelCount, int bitDepth, int type);
-
- /**
-​     * 结束重采样
-​     */
-​    public void stopAudioResample()  
-```
+新增16k 音频采样功能。    
 
 ## 1.6.7版  
 
 该版本发布于 2020-02-13   
-新增渲染模式设置      
+新增渲染模式设置.  
+
 ```java
 /**
  * SDK 渲染图像伸缩方式
@@ -718,6 +679,7 @@ public enum UCloudRtcSdkScaleType {
 ```
 
  - 本地渲染     
+ 
 ```java
 /**
 ​     * 开启本地预览
@@ -744,6 +706,7 @@ public enum UCloudRtcSdkScaleType {
 ```
 
  - 动态渲染，譬如之前某个view设置了ASPECT_FILL,可以在渲染的过程中动态修改为其它渲染方式。如果不在渲染过程中调用，则设置的模式直到下次渲染的时候生效
+
 ```java
 /**
 ​     * 设置渲染模式
@@ -765,6 +728,7 @@ public enum UCloudRtcSdkScaleType {
 该版本发布于 2020-02-10    
 
 新增截图功能：    
+
 ```java
 /**
  *给指定的流截屏
