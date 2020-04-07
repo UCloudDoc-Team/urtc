@@ -577,22 +577,21 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 该版本发布于2019-6-26。  
 
-1、支持1对1 1对多音视频通话  单房间支持最多15人 6人同时连麦    
-2、支持纯音频通话模式   
-3、抗丢包 15%     
-4、断线制动重连   
-5、支持配置自动发布模式   
+1. 支持1对1 1对多音视频通话  单房间支持最多15人 6人同时连麦    
+2. 支持纯音频通话模式   
+3. 抗丢包 15%     
+4. 断线制动重连   
+5. 支持配置自动发布模式   
 
 
 
 # ** Android **
 
-
 ## 1.7.1版
 
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
-
 更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档
+
 ```java
  /**
      * 开始服务端混流转推
@@ -614,6 +613,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 更新内容；    
 1.完善断线重连机制，增加远端断线回调，app可以根据此回调显示遮盖物等操作，注意此回调是确定远端断线后的回调，当远端出现网络失去连接等情况时还有机会连上，等到一定时间后，大约10几秒sdk确定远端无法连接上后会给与回调。
+
 ```java
 /**
      * peer 失去连接回调，给app用以做场景化的处理
@@ -623,6 +623,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
     void onPeerLostConnection(int type ,UCloudRtcSdkStreamInfo info);
 ```
 2.增加后台和锁屏的操作接口，后台和锁屏分两种情况，第一种情况，如果需要保持后台和锁屏时通信不断，需要使用前台service机制，在app退到后台时候开启前台service可以保证摄像头不中断。第二种情况如果需要保持通信不断，请在退到后台时候调用controlLocalVideo（false）controlAudio（false），后台期间可以正常执行其它录音，打电话的操作，回到前台时调用controlLocalVideo（true），controlAudio（true）恢复rtc通信。
+
 ```java
 /**
      * @param enable true启用 false禁用
@@ -637,6 +638,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 ```
 
 3.增加推流时横竖屏固定和自动模式选择，譬如在横屏模式下退到后台，同时调用controlLocalVideo（false），可能因为手机界面从横屏activity切换到竖屏lunch时屏幕方向旋转，导致推流的画面最后一帧出现旋转。UCLOUD_RTC_PUSH_LANDSCAPE_MODE就可以避免出现这样的情况。
+
 ```java
  /**
      * 自动模式，会根据设备方向和摄像头方向进行计算
@@ -653,6 +655,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
      */
     UCLOUD_RTC_PUSH_PORTRAIT_MODE 
 ```
+
 4.修复textureview渲染某些情况下的异常
 
 ## 1.6.9版
@@ -664,8 +667,8 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 1、录像支持 init时候传文件夹，也可以不传，此模式下startRecord方法需要传完整的录像文件路径即可，目前也只支持mp4录制
 
 如果init传了文件夹，则startReocord方法只需传录像名即可
-
 startRecord接口调整为 
+
 ```java
 /**
  * 开始录像、
