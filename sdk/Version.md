@@ -593,20 +593,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w    
 更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档。    
 
-```java
- /**
-     * 开始服务端混流转推
-     * @param mixProfile 混流参数配置，参见{@link UCloudRtcSdkMixProfile}
-     */
-    void startMix(UCloudRtcSdkMixProfile mixProfile);
 
-    /**
-     * 结束混流转推
-     * @param type mixprofile中设置的推流类型
-     * @param pushUrls mixprofile中pushurl的子集，需要结束推流的地址集合
-     */
-    void stopMix(int type, JSONArray pushUrls);
-```
     
 ## 1.7.0版
 
