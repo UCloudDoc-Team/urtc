@@ -583,15 +583,11 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4. 断线制动重连   
 5. 支持配置自动发布模式   
 
+# ** Web **
+
+通过集成SDK，可以快速实现实时音视频通话。
 
 # ** Android **
-
-## 1.7.1版
-该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
-更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档
-
-# ** Android **
-
 ## 1.7.1版
 
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
