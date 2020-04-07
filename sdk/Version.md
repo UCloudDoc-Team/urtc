@@ -586,6 +586,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 # ** Android **
 
+
 ## 1.7.1版
 
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
