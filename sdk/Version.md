@@ -589,8 +589,8 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 该版本发布于 2020-03-20，sdk ucloudrtclib_1.7.1_0bd0905e_w
 更新内容；增加旁路推流的功能，及其相关接口，更多参数请参见api文档
 
-```java
-    void stopMix(int type, JSONArray pushUrls);
+```
+void stopMix(int type, JSONArray pushUrls);
 ```
 
 # ** iOS **
