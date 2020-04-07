@@ -280,7 +280,7 @@ m_rtcengine->leaveChannel()
 ## 2. 开发语言以及系统要求
 
   - 开发语言：Java
-  - 系统要求：Android 5.0以上版本
+  - 系统要求：Android 4.3以上版本
 
 ## 3. 开发环境
 
