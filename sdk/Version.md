@@ -584,7 +584,9 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 5、支持配置自动发布模式   
 
 
+
 # ** Android **
+
 
 ## 1.7.1版
 
