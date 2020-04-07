@@ -61,7 +61,7 @@ URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，
 
 |平台     | SDK 兼容性                             |
 |-|-|
-|Android  | 支持Android 5.0及以上版本              |
+|Android  | 支持Android 4.3及以上版本              |
 |MAC OS   | 支持MAC OS 10.0及以上版本              |
 |IOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad |
 |Windows  | 支持Windows 7及以上版本                |
