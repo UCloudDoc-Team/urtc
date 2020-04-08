@@ -18,7 +18,7 @@
 
 ![](/images/demoImage/andriodImage.png)
 
-[立即体验](http://jappstore.com/91cy)
+[立即体验](http://d.7short.com/91c1)
 
 [安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Fucloud_rtc_android_demo_20200408.zip) 
 
