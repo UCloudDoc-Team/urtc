@@ -30,8 +30,7 @@
 
 ![](/images/demoImage/iOSdemo.png)
 
-扫描二维码下载   
-或用手机浏览器输入这个网址:  http://app.urtc.com.cn/vy1e    
+扫描二维码下载 或 用手机浏览器输入这个网址：http://app.urtc.com.cn/vy1e    
 
 [iOS app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2FUCloudRtcSdk-ios-demo-20200325.zip)
 
