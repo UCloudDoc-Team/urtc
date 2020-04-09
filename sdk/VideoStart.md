@@ -56,6 +56,11 @@ import { Client } from 'urtc-sdk';
 ```
 ## 4. 实现音视频通话
 
+下图展示了基础的一对一音视频通话的 API 调用：    
+
+![](/images/sdk/VideoStartWeb.png)
+
+
 ### 4.1 初始化SDK
 
 加入房间之前，需要初始化，创建client。   
