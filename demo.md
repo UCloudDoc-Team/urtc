@@ -16,7 +16,7 @@
 
 ## 安卓 DEMO
 
-![](/images/demoImage/andriodImage.png) ![](/images/demoImage/andrioddemo.png)
+![](/images/demoImage/andrioddemo.png)
 
 [链接下载](http://app.urtc.com.cn/91c1)
 
@@ -26,7 +26,7 @@
 
 ## iOS DEMO
 
-![](/images/demoImage/iosImage.png) ![](/images/demoImage/iOSdemo.png)
+![](/images/demoImage/iOSdemo.png)
 
 [链接下载](http://app.urtc.com.cn/vy1e)
 
