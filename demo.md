@@ -16,10 +16,10 @@
 
 ## 安卓 DEMO
 
+- 扫码下载
 ![](/images/demoImage/andrioddemo.png)
 
-- 扫码下载
-- 输入网址下载：http://app.urtc.com.cn/91c1
+- 手机输入网址下载：http://app.urtc.com.cn/91c1
 
 [安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Fucloud_rtc_android_demo_20200408.zip) 
 
@@ -27,10 +27,10 @@
 
 ## iOS DEMO
 
+- 扫码下载
 ![](/images/demoImage/iOSdemo.png)
 
-- 扫码下载
-- 输入网址下载：http://app.urtc.com.cn/vy1e
+- 手机输入网址下载：http://app.urtc.com.cn/vy1e
 
 [iOS app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2FUCloudRtcSdk-ios-demo-20200325.zip)
 
