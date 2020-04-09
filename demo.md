@@ -16,11 +16,9 @@
 
 ## 安卓 DEMO
 
-- 扫码下载
-
 ![](/images/demoImage/andrioddemo.png)
 
-- 手机输入网址下载应用：http://app.urtc.com.cn/91c1
+扫描二维码下载 或 用手机浏览器输入这个网址：http://app.urtc.com.cn/91c1    
 
 [安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Fucloud_rtc_android_demo_20200408.zip) 
 
