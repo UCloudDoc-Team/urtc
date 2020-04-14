@@ -31,7 +31,9 @@
 
 ## 开启录制失败
 
-故障原因：控制台上，未开启录制服务，具体操作参考[开通云端录制](urtc/cloudRecord/index)。 
+故障原因：    
+1. 控制台上，未开通 录制服务，具体操作参考[开通云端录制](urtc/cloudRecord/index)。 
+2. 客户端上，未操作 录制功能，具体操作参考[云端录制SDK代码示例](urtc/cloudRecord/RecordStart)。
 
 ## 网络切换时，断开后是否需要调用接口处理
 
