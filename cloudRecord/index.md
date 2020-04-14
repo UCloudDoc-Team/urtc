@@ -3,7 +3,7 @@
 URTC 云端录制，是URTC针对实时音视频研发的录制服务。  
 
 无需额外的SDK，通过简单的操作方法，帮助开发者快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。   
-客户端上开启录制功能，参考[云端录制SDK代码示例](urtc/cloudRecord/RecordStart)。
+客户端上操作录制功能，参考[云端录制SDK代码示例](urtc/cloudRecord/RecordStart)。
 
 ## 功能说明：  
 
