@@ -285,7 +285,9 @@ m_rtcengine->leaveChannel()
 ## 2. 开发语言以及系统要求
 
   - 开发语言：Java
-  - 系统要求：Android 4.3以上版本
+  - 系统要求：Android 4.1及以上版本的移动设备
+  - Android SDK API：等级 16 或以上
+  - ABI支持：armeabi-v7a、arm64-v8a
 
 ## 3. 开发环境
 
