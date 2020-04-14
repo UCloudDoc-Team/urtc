@@ -2,7 +2,8 @@
 
 URTC 云端录制，是URTC针对实时音视频研发的录制服务。  
 
-无需额外的SDK，通过简单的操作方法，帮助开发者快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。  
+无需额外的SDK，通过简单的操作方法，帮助开发者快速、灵活的实现录制服务，实现一对一、一对多的音视频通话或直播的录制。   
+客户端上开启录制功能，参考[云端录制SDK代码示例](urtc/cloudRecord/RecordStart)。
 
 ## 功能说明：  
 
@@ -14,7 +15,8 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
   
 ## 1、开通录制服务
   
-  [登录控制台](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 产品应用下，增值功能中的录制服务内，点击【开通服务】。  
+ 客户端上需要录制功能，首先需要在控制台上开通录制服务。    
+ [登录控制台](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)，实时音视频 URTC 产品应用下，增值功能中的录制服务内，点击【开通服务】。  
   
   ![ ](/images/record/openRecord.png)
   
