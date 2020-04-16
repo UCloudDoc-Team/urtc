@@ -6,7 +6,7 @@
 
 `AppID`是[UCloud控制台](https://console.ucloud.cn/)创建URTC应用时生成的随机字符串，是URTC后台服务器识别URTC客户身份的唯一标识。
 
-URTC 根据`AppID`识别应用，并通过`AppID`提供计费、数据统计、质量监控等服务。在[UCloud控制台](https://console.ucloud.cn/)注册后，你可以创建多个项目，每个项目都有一个唯一的`AppID`。
+URTC 根据`AppID`识别应用，并通过`AppID`提供计费、数据统计、质量监控等服务。在[UCloud控制台](https://console.ucloud.cn/)注册后，你可以创建多个URTC项目，每个项目都有一个唯一的`AppID`。
 
 用户在初始化 SDK 客户端实例时需要填入`AppID`，不同的`AppID`生成的客户端完全独立，无法互通。
 
