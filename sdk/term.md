@@ -2,30 +2,30 @@
 
 这里介绍URTC产品涉及到的一些术语概念。
 
-## Appid
+## AppID
 
-`Appid`是[UCloud控制台](https://console.ucloud.cn/)创建URTC应用时生成的随机字符串，是URTC后台服务器识别URTC客户身份的唯一标识。
+`AppID`是[UCloud控制台](https://console.ucloud.cn/)创建URTC应用时生成的随机字符串，是URTC后台服务器识别URTC客户身份的唯一标识。
 
-URTC 根据`Appid`识别应用，并通过`Appid`提供计费、数据统计、质量监控等服务。在[UCloud控制台](https://console.ucloud.cn/)注册后，你可以创建多个项目，每个项目都有一个唯一的`Appid`。
+URTC 根据`AppID`识别应用，并通过`AppID`提供计费、数据统计、质量监控等服务。在[UCloud控制台](https://console.ucloud.cn/)注册后，你可以创建多个项目，每个项目都有一个唯一的`AppID`。
 
-用户在初始化 SDK 客户端实例时需要填入`Appid`，不同的`Appid`生成的客户端完全独立，无法互通。
+用户在初始化 SDK 客户端实例时需要填入`AppID`，不同的`AppID`生成的客户端完全独立，无法互通。
 
-## Appkey
+## AppKey
 
-`Appkey`是[UCloud控制台](https://console.ucloud.cn/)创建URTC应用时生成的随机字符串，用于`Token`鉴权，并作为生成`Token`的参数之一。
+`AppKey`是[UCloud控制台](https://console.ucloud.cn/)创建URTC应用时生成的随机字符串，用于`Token`鉴权，并作为生成`Token`的参数之一。
 
-`Appkey`建议保存在客户的后端服务器中，客户端SDK需要`Token`时，通过客户端后端服务器直接传参，生成`Token`，以保证`Appkey`的安全性。
+`AppKey`建议保存在客户的后端服务器中，客户端SDK需要`Token`时，通过客户端后端服务器直接传参，生成`Token`，以保证`AppKey`的安全性。
 
 ##  动态密钥Token
 
-动态密钥`Token`，是URTC后端服务器验证客户端身份的关键信息，通过`Appid`、`Appkey`生成。使用SDK时，必须传入有效的`Token`，才能成功的加入房间。
+动态密钥`Token`，是URTC后端服务器验证客户端身份的关键信息，通过`AppID`、`AppKey`生成。使用SDK时，必须传入有效的`Token`，才能成功的加入房间。
  - 在测试阶段，可以通过客户端生成`Token` ，以便尽快开始集成测试。    
  - 在产环境中，建议在后台服务器中部署`Token`服务。客户端加入房间之前，向后台服务器申请`Token`，以保证`Token`的安全性。    
 
 ## 房间
 
 房间是使用URTC SDK提供的，可以实时通话、互动直播的通道。   
-房间由后台服务器自动创建，同一个`Appid`下的用户，加入同一个房间即可开始实时通话、互动直播。房间内没有用户后房间自动销毁。    
+房间由后台服务器自动创建，同一个`AppID`下的用户，加入同一个房间即可开始实时通话、互动直播。房间内没有用户后房间自动销毁。    
 
 URTC支持2种房间类型：实时通话房间、互动直播房间。
 
@@ -36,7 +36,7 @@ URTC支持2种房间类型：实时通话房间、互动直播房间。
 
 ## 用户Id
 
-用户Id是客户端加入房间时的身份标识，同一个`Appid`下的用户必须唯一。
+用户Id是客户端加入房间时的身份标识，同一个`App`下的用户必须唯一。
 
 加入房间时，后台服务器会验证用户Id和生成`Token`的用户Id是否一致，用户Id一致才能加入成功。
 
