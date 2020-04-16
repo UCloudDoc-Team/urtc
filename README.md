@@ -22,8 +22,9 @@ RTC产品，按照客户端的接收的音视频（客户端的下行），实�
 
 ## [SDK集成指南](/urtc/sdk/index)
 
-SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推的方法。
+SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推的方法。
 
+* [URTC常用术语](urtc/sdk/term)
 * [Token生成指导](/urtc/sdk/token)
 * [SDK版本说明](/urtc/sdk/Version)
 * [快速集成SDK](/urtc/sdk/VideoStart)    
