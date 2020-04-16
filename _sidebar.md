@@ -9,6 +9,7 @@
 * [产品价格](/urtc/price)
 * [快速上手](/urtc/quick)
 * [SDK集成指南](/urtc/sdk/index)
+    * [URTC常用术语](urtc/sdk/term)
     * [Token生成指导](/urtc/sdk/token)
     * [SDK版本说明](/urtc/sdk/Version)
     * [快速集成SDK](/urtc/sdk/VideoStart)    
