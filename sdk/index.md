@@ -2,12 +2,17 @@
 
 SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推的方法。
 
+* [URTC常用术语](urtc/sdk/term)
 * [Token生成指导](urtc/sdk/token)
 * [SDK版本说明](urtc/sdk/Version)
 * [快速集成SDK](urtc/sdk/VideoStart)
 * [屏幕共享](urtc/sdk/Video/screenshare)
 * [播放混音](urtc/sdk/Audio/AudioMixing)
 * [旁路推流](urtc/sdk/Video/cdnSteaming)
+
+## URTC常用术语
+
+介绍URTC产品使用中常用的术语概念。
 
 ## Token生成指导
 
