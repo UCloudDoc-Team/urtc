@@ -4,6 +4,20 @@
 
 # ** Web **
 
+## 1.5.0版
+
+该版本发布于 2020-03-27。
+
+1. 支持发布图片流
+2. 新增startRecord, stopRecord, updateRecordStreams, startRelay, stopRelay, updateRelayStreams 方法，用于录制、旁路推流功能
+3. 录制/转推新增 customMain, customFlow, single 的布局
+4. 新增 record-notify 及 relay-notify 事件，用于通知录制/转推中的错误
+5. 新增 setRole 方法，允许 live 模式下，切换角色，进行连麦
+6. 对本地浏览器不支持的编码格式的流进行订阅时，将会收到订阅失败的错误提示
+7. 新增 play, resume 方法，播放音视频流时，无需用户自己操作 video 和 audio 标签，使播放更简单
+8. 发布流增加音轨，允许用户针对该音轨进行处理，如展示声音的波形图等
+9. 其他一些问题的修复及内部优化
+
 ## 1.4.20版
 
 该版本发布于 2020-03-27。
