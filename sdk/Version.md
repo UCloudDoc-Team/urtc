@@ -6,7 +6,7 @@
 
 ## 1.5.0版
 
-该版本发布于 2020-03-27。
+该版本发布于 2020-04-20。
 
 1. 支持发布图片流
 2. 新增startRecord, stopRecord, updateRecordStreams, startRelay, stopRelay, updateRelayStreams 方法，用于录制、旁路推流功能
