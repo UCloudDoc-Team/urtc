@@ -37,8 +37,6 @@ Client 类包含以下方法：
 |[unmuteAudio 方法 ](https://github.com/ucloud/urtc-sdk-web#client-unmuteaudio) | 启用音频轨道 | 
 |[muteVideo 方法 ](https://github.com/ucloud/urtc-sdk-web#client-mutevideo) | 禁用视频轨道 | 
 |[unmuteVideo 方法 ](https://github.com/ucloud/urtc-sdk-web#client-unmutevideo) | 启用视频轨道 | 
-|[startRecording 方法 ](https://github.com/ucloud/urtc-sdk-web#client-startrecording) | 开启服务端录制 | 
-|[stopRecording 方法 ](https://github.com/ucloud/urtc-sdk-web#client-stoprecording) | 结束服务端录制 | 
 |[getUser 方法 ](https://github.com/ucloud/urtc-sdk-web#client-getuser) | 获取当前用户信息 | 
 |[getUsers 方法 ](https://github.com/ucloud/urtc-sdk-web#client-getusers) | 获取所有远端用户信息 | 
 |[getStream 方法 ](https://github.com/ucloud/urtc-sdk-web#client-getstream) | 获取某条流信息 | 
@@ -68,9 +66,12 @@ Client 类包含以下方法：
 |[startPreviewing 方法 ](https://github.com/ucloud/urtc-sdk-web#client-startpreviewing) | 开启预览 | 
 |[stopPreviewing 方法 ](https://github.com/ucloud/urtc-sdk-web#client-stoppreviewing) | 停止预览 | 
 |[replaceTrack 方法 ](https://github.com/ucloud/urtc-sdk-web#client-replacetrack) | 替换音频轨道或视频轨道 | 
-|[startMix 方法 ](https://github.com/ucloud/urtc-sdk-web#client-startmix) | 开始录制或转推 | 
-|[stopMix 方法 ](https://github.com/ucloud/urtc-sdk-web#client-stopmix) | 结束录制或转推 | 
-|[queryMix 方法 ](https://github.com/ucloud/urtc-sdk-web#client-querymix) | 查询录制或转推 | 
-|[addMixStreams 方法 ](https://github.com/ucloud/urtc-sdk-web#client-addmixstreams) | 为录制或转推添加需要混合的流 | 
-|[removeMixStreams 方法 ](https://github.com/ucloud/urtc-sdk-web#client-removemixstreams) | 删除录制或转推中混合的流 | 
+|[startRecord 方法 ](https://github.com/ucloud/urtc-sdk-web#client-startrecord) |开启录制 |
+|[stopRecord 方法 ](https://github.com/ucloud/urtc-sdk-web#client-stoprecord) |结束录制 |
+|[updateRecordStreams 方法 ](https://github.com/ucloud/urtc-sdk-web#client-updaterecordstreams) |增加/删除录制的流 |
+|[startRelay 方法 ](https://github.com/ucloud/urtc-sdk-web#client-startrelay) |开启旁路推流 |
+|[stopRelay 方法 ](https://github.com/ucloud/urtc-sdk-web#client-stoprelay) |结束旁路推流 |
+|[updateRelayStreams 方法 ](https://github.com/ucloud/urtc-sdk-web#client-updaterelaystreams) |增加/删除旁路推流的流 |
+
+
 
