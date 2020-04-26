@@ -38,7 +38,7 @@ client.startMix({
     codec: 'h264',
     quality: 'CB',
     frameRate: 15,
-    bitRate: 500
+    bitRate: 1500
   },
   width: 1280,
   height: 720,
@@ -94,7 +94,7 @@ relayconfig.mbgColor.mRed = 0;
 relayconfig.mbgColor.mGreen = 0; 
 relayconfig.mbgColor.mBlue = 0;
 //转推背景色
-relayconfig.mBitrate = 500;
+relayconfig.mBitrate = 1500;
 //码率
 relayconfig.mFramerate = 15;
 //帧率
