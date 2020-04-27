@@ -64,10 +64,16 @@ import sdk,{ Client } from 'urtc-sdk';
 ### 4.1 初始化SDK
 
 
-检测当前浏览器支持的音视频的编解码格式
+检测当前浏览器对 WebRTC 的适配情况
 
 ```js
 const result = sdk.isSupportWebRTC();
+```
+
+获取token方式。测试时使用此接口，正式使用建议调用服务端接口
+
+```js
+const token = sdk.generateToken(AppId, AppKey, RoomId, UserId);
 ```
 
 加入房间之前，需要初始化，创建client。   
