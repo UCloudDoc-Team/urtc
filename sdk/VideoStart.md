@@ -45,7 +45,7 @@ yarn add urtc-sdk
 2）项目中引入SDK并创建 client
 
 ```
-import { Client } from 'urtc-sdk';
+import sdk,{ Client } from 'urtc-sdk';
 ```
 ### 3.2 直接引入SDK
 
@@ -62,6 +62,13 @@ import { Client } from 'urtc-sdk';
 
 
 ### 4.1 初始化SDK
+
+
+检测当前浏览器支持的音视频的编解码格式
+
+```js
+const result = sdk.isSupportWebRTC();
+```
 
 加入房间之前，需要初始化，创建client。   
 
