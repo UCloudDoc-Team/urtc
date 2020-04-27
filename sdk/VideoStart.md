@@ -359,24 +359,41 @@ m_rtcengine->leaveChannel()
 
 ```java
 public class UCloudRtcApplication extends Application {
-        @Override
-        public void onCreate() {
-            super.onCreate();
-            URTCSdkEnv.initEnv(getApplicationContext(), this);
-            URTCSdkEnv.setLogLevel(URTCSdkLogLevel.URTC_SDK_LogLevelInfo) ;
-	    //设置日志等级
-            URTCSdkEnv.setSdkMode(URTCSdkMode.RTC_SDK_MODE_TRIVAL);
-	    //设置测试模式、正式模式
-            URTCSdkEnv.setTokenSeckey(CommonUtils.SEC_KEY);
-	    //测试模式下设置自己的秘钥
-            WindowManager windowManager = (WindowManager) 
-            getSystemService(Context.WINDOW_SERVICE);
-            DisplayMetrics outMetrics = new DisplayMetrics();
-            windowManager.getDefaultDisplay().getMetrics(outMetrics);
-            CommonUtils.mItemWidth = outMetrics.widthPixels / 3;
-            CommonUtils.mItemHeight = CommonUtils.mItemWidth;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "onCreate: " + this);
+        if (TextUtils.equals(getCurrentProcessName(this), getPackageName())) {
+            init();//判断成功后才执行初始化代码
         }
     }
+
+    private void init(){
+	sContext = this;
+	//初始化sdk环境
+	UCloudRtcSdkEnv.initEnv(getApplicationContext());
+	//打印日志到logcat
+	UCloudRtcSdkEnv.setWriteToLogCat(true);
+	//开启log上报
+	UCloudRtcSdkEnv.setLogReport(true);
+	//设置log级别
+	UCloudRtcSdkEnv.setLogLevel(UCloudRtcSdkLogLevel.UCLOUD_RTC_SDK_LogLevelInfo);
+	//设置sdk模式（测试模式）
+	UCloudRtcSdkEnv.setSdkMode(UCloudRtcSdkMode.UCLOUD_RTC_SDK_MODE_TRIVAL);
+	//重连次数
+	UCloudRtcSdkEnv.setReConnectTimes(60);
+	//设置测试模式的用户私有秘钥
+	UCloudRtcSdkEnv.setTokenSeckey(CommonUtils.SEC_KEY);
+
+	WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+	DisplayMetrics outMetrics = new DisplayMetrics();
+	windowManager.getDefaultDisplay().getMetrics(outMetrics);
+	CommonUtils.mItemWidth = (outMetrics.widthPixels - UiHelper.dipToPx(this, 15)) / 3;
+	CommonUtils.mItemHeight = CommonUtils.mItemWidth;
+	//初始化bugly日志
+	CrashReport.initCrashReport(getApplicationContext(), "9a51ae062a", true);
+    }
+}
 ```
 
 ### 5.2 继承实现`UCloudRtcSdkEventListener` 实现事件处理
