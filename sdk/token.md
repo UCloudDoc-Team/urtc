@@ -225,7 +225,7 @@ header 部分采用为json 字符串，然后进行base64 编码。
 Jsonmsg = {
 "user_id"： uid，
 "room_id"：roomId，
-"app_id"： = appId
+"app_id"：appId
 }
 header=base64(Jsonmsg) ;
 ```
