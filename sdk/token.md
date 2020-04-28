@@ -189,6 +189,44 @@ generateToken({
 })
 ```
 
+## ** PHP **
+
+  - PHP 参考代码如下
+
+```php
+
+   class AuthToken {
+
+    // 此方法生成token
+    public function generateToken($uid, $roomid, $appid, $appkey){
+        $token = "";
+        try {
+            $header = ['user_id'=>$uid, 'room_id'=>$roomid, 'app_id'=>$appid];
+            $headerjson = json_encode($header);
+            $base64headerjson = base64_encode($headerjson);
+            $time_stamp = time();  
+            $rand_num = dechex($time_stamp);
+            $sign = $this->generateSignature($uid, $appid, $appkey,$roomid, $time_stamp, $rand_num);
+            $token = $base64headerjson.".".$sign;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return $token ;
+    }
+
+
+    private function generateSignature($uid, $appid, $appkey,$roomid, $time_stamp, $rand_num){
+
+        $plain_str = $uid.$appid.$time_stamp.$rand_num.$roomid;
+        $encrypted_str = bin2hex(mhash(MHASH_SHA1,$plain_str,$appkey));
+        return $encrypted_str;
+    }
+
+}
+
+
+```
+
 <!-- tabs:end -->
 
 ## 2. Token的使用流程图
