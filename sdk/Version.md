@@ -602,6 +602,56 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 # ** Android **
 
+## 1.7.5
+
+该版本发布于2020-4-28，sdk 1.7.3。  
+更新内容：    
+1.增加调整录音音量 arm7 arm8   
+2.增加网络质量回调
+
+```java
+/**
+     * 网络质量监控回调
+     * @param userId 用户id
+     * @param streamType 流类型 {@link UCloudRtcSdkStreamType}
+     * @param mediaType 媒体类型 {@link UCloudRtcSdkMediaType}
+     * @param quality 质量监控 {@link UCloudRtcSdkNetWorkQuality}
+     */
+    void onNetWorkQuality(String userId,UCloudRtcSdkStreamType streamType,UCloudRtcSdkMediaType mediaType,UCloudRtcSdkNetWorkQuality quality);
+```
+
+3.增加maven 仓库    
+4.增加修改混流接口
+
+```java
+/**
+     * 开始服务端混流转推
+     * @param mixProfile 混流参数配置，参见{@link UCloudRtcSdkMixProfile}
+     */
+    void startMix(UCloudRtcSdkMixProfile mixProfile);
+
+    /**
+     * 结束混流转推
+     * @param type mixprofile中设置的推流类型
+     * @param pushUrls mixprofile中pushurl的子集，需要结束推流的地址集合
+     */
+    void stopMix(int type, JSONArray pushUrls);
+
+    /**
+     * 动态添加混流
+     * @param streams 需要被添加推流的流信息集合
+     */
+    void addMixStream(JSONArray streams);
+
+    /**
+     * 动态删除混流
+     * @param streams 需要被取消推流的流信息集合
+     */
+    void delMixStream(JSONArray streams);
+```
+5.修改镜像功能，支持前置摄像头镜像。    
+
+
 ## 1.7.3版
 
 该版本发布于2020-4-5，sdk 20120511 1.7.3    
