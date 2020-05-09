@@ -34,7 +34,7 @@ client.startRecording({
 }, function onSuccess(Record) {
 
 	//开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
-
+	//播放录制地址规则：const url = `http://${bucket}.${region}.ufileos.com/${Record.FileName}.mp4`;
 }, function(Err) {
 
 	//开始录制错误返回值
