@@ -58,7 +58,7 @@ import sdk,{ Client } from 'urtc-sdk';
 
 下图展示了基础的一对一音视频通话的 API 调用：    
 
-![](/images/sdk/VideoStartWeb.png)
+![](/images/sdk/VideoStartWebv2.png)
 
 
 ### 4.1 初始化SDK
