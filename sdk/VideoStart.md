@@ -131,9 +131,12 @@ client.unsubscribe(StreamId, onSuccess, onFailure)
 
 ```js
 client.on('stream-published', (stream) => {
-    // 使用 HtmlMediaElement 播放媒体流。将流的 mediaStream 给 Video/Audio 元素的 srcObject 属性，即可播放，注意设置 autoplay 属性以支持视频的自动播放，其他属性请参见 [<video>](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/video)
-    htmlMediaElement.srcObject = stream.mediaStream;
-}); // 监听本地流发布成功事件，在当前用户执行 publish 后，与服务器经多次协商，建立好连接后，会触发此事件
+    client.play({
+        streamId: stream.sid,
+        container: divElement
+    });
+    // 此处 divElement 代表播放发布流的外层容器元素，也可以是这个外层容器元素的 ID，而外层容器一般是一个设置了宽高的 div 元素，请根据实际情况进行传值
+}); // 监听本地流发布成功事件，在当前用户执行 publish 后，与服务器经多次协商，成功后会触发此事件
 ```
 2、 监听 "stream-added" 事件，当有远端流加入时订阅该流。    
 
@@ -147,18 +150,37 @@ client.on('stream-added', (stream) => {
 
 ```js
 client.on('stream-subscribed', (stream) => {
-    // 使用 HtmlMediaElement 播放媒体流
-    htmlMediaElement.srcObject = stream.mediaStream;
-}); // 监听远端流订阅成功事件，在当前用户执行 subscribe 后，与服务器经多次协商，建立好连接后，会触发此事件
+    client.play({
+        streamId: stream.sid,
+        container: divElement
+    });
+    // divElement 如上面所说
+}); // 监听远端流订阅成功事件，在当前用户执行 subscribe 后，与服务器经多次协商，成功后会触发此事件
 ```
 4、监听 "stream-removed" 事件，当远端流被移除时（停止发布、关闭网页等）， 停止播放该流并移除它的画面。    
 
 ```js
 client.on('stream-removed', (stream) => {
-    htmlMediaElement.srcObject = null;
-    // 并在页面中删除该媒体元素
+    // 在页面中删除播放该流的外层容器元素
 }); // 监听移除的远端流事件，在远端用户取消推流或流已关闭时，服务器会推送此事件的消息。
 
+```
+
+5、监听 "stream-reconnected" 事件，当网络切换、网络故障等导致远端流重新连接时，直接删除原来的流，并播放新的流。    
+
+```js
+client.on('stream-reconnected', (streams) => {
+    const { previous, current } = streams;
+    // 从本地缓存的流的数据里找到对应的流并用重连后该流的数据更新原流的数据，或直接删除原来的流，并使用新的流
+    let idx = allStreams.findIndex(item => item.sid === previous.sid);
+    if (idx >= 0) {
+        allStreams.splice(idx, 1, current);
+    }
+    client.play({
+        streamId: current.sid,
+        container: divElement
+    });
+}); // 当网络断开又恢复时，发布/订阅流可能会被重连，重连成功后，会通过此事件通知业务侧
 ```
 
 ### 4.6 退出房间
