@@ -94,6 +94,7 @@ const client = new Client(AppId, Token, {
  - `role`用于设置用户权限。在互动直播中，需要设置主播和连麦方的权限为` push-and-pull` ，不需要连麦时设置主播为 `push` ；观众设置为 `pull` 。
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
+
 ### 4.2 加入一个房间并发布本地流
 ```js
 client.joinRoom(roomId, userId, () => {
