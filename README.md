@@ -65,7 +65,7 @@ URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里�
 * [Android学生端](/urtc/scenarioSDK/AIclass/StudentAndriod)  
 * [iOS学生端](/urtc/scenarioSDK/AIclass/StudentIOS)  
 
-## [常见问题](/urtc/faq)
+## [常见问题](urtc/faq/index)
 
 介绍URTC SDK集成、使用过程中的常见问题。
 
