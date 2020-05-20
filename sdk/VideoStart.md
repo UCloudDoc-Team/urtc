@@ -484,6 +484,8 @@ sdkEngine.configLocalScreenPublish(false) ;
 // 设置桌面是否发布，作用同上
 sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
 // //互动直播模式下，设置用户权限：仅上行发布、仅下行订阅、双向发布订阅权限
+sdkEngine.setClassType(UCloudRtcSdkRoomType.UCLOUD_RTC_SDK_ROOM_SMALL) ; 
+// 设置大小班模式，默认小班
 sdkEngine.setAutoPublish(true) ; 
 // 是否自动发布
 sdkEngine.setAutoSubscribe(true) ;
