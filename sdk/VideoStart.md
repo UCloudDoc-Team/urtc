@@ -482,10 +482,10 @@ sdkEngine.configLocalAudioPublish(true) ;
 // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
 sdkEngine.configLocalScreenPublish(false) ; 
 // 设置桌面是否发布，作用同上
-sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
-// //互动直播模式下，设置用户权限：仅上行发布、仅下行订阅、双向发布订阅权限
 sdkEngine.setClassType(UCloudRtcSdkRoomType.UCLOUD_RTC_SDK_ROOM_SMALL) ; 
-// 设置大小班模式，默认小班
+// 设置房间类型，有两种 实时会议（小班课） 和互动直播（大班课）类型可选 ，默认为实时会议（小班课）
+sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
+// 如果是互动直播（大班课）模式，需要设置用户权限：仅上行发布、仅下行订阅、双向发布订阅权限；实时会议（小班课）会忽略这个配置
 sdkEngine.setAutoPublish(true) ; 
 // 是否自动发布
 sdkEngine.setAutoSubscribe(true) ;
