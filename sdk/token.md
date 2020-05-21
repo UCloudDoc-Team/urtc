@@ -7,6 +7,7 @@
  - 测试环境中，可以通过客户端自行生成`Token` ，以便尽快开始集成测试。
  - 生产环境中，需要在后台服务器中部署`Token` 服务。客户端加入房间之前，向后台服务器申请`Token` ，以保证`Token` 的安全性。
  
+ 通过客户端传入`userID`、`roomID`、`AppID`，服务端通过这些传入的参数和`AppKey`生成`Token` 。    
  这里提供几种参考代码，供直接使用。
 
 
@@ -31,9 +32,9 @@ import (
 
 func GenerateRoomToken(uid, appId, roomId, appCertificate string, unixTs int64, randomInt uint32) (string, error) {
     mapCombine := make(map[string]interface{})
-    mapCombine["user_id"] = uid
-    mapCombine["room_id"] = roomId
-    mapCombine["app_id"] = appId
+    mapCombine["user_id"] = uid   //uid为自定义的用户id
+    mapCombine["room_id"] = roomId   //roomId为自定义的房间id
+    mapCombine["app_id"] = appId    //appid为UCloud控制台上创建URTC应用时生成的appid
     jsonCombine, err := json.Marshal(mapCombine)
     if err != nil {
         return "", errors.New("SYSTEM_ERROR")
@@ -84,7 +85,9 @@ public class AuthToken {
         String token = "";
         try {
 			String headerjson = "{" + "\"user_id\""+":"+ "\"" +uid  +"\""+","+ "\"room_id\""+":"+ "\""+ roomid+ "\""+","+ "\"app_id\"" +":"+ "\""+ appid + "\""+ "}" ;
-		
+		  //uid为自定义的用户id
+                  //roomId为自定义的房间id
+                  //appid为UCloud控制台上创建URTC应用时生成的appid
 			final Base64.Encoder encoder = Base64.getEncoder();
 			final byte[] textByte = headerjson.getBytes("UTF-8");
 			final String base64header = encoder.encodeToString(textByte);
@@ -157,6 +160,9 @@ generateToken(obj) {
         let time = Math.round(Date.now() / 1000);
         let randNum = _that.randNum(8);
         let string = obj.user_id + obj.app_id + time + randNum + obj.room_id;
+	//uid为自定义的用户id
+        //roomId为自定义的房间id
+        //appid为UCloud控制台上创建URTC应用时生成的appid
         let shaObj = new jsSHA("SHA-1", 'TEXT');
         console.log(obj.appkey)
         log(obj.appkey)
@@ -179,8 +185,8 @@ generateToken(obj) {
 ```js
 generateToken({
     app_id: appId,//控制台创建项目获取到的appkey
-    room_id: roomId,//房间号
-    user_id: userId,//用户id
+    room_id: roomId,//自定义的房间id
+    user_id: userId,//自定义的用户id
     appkey: appkey//控制台创建项目获取到的appkey
 }).then(function(data) {
     //返回当前用户的token 
@@ -202,6 +208,9 @@ generateToken({
         $token = "";
         try {
             $header = ['user_id'=>$uid, 'room_id'=>$roomid, 'app_id'=>$appid];
+	      //uid为自定义的用户id
+              //roomId为自定义的房间id
+              //appid为UCloud控制台上创建URTC应用时生成的appid
             $headerjson = json_encode($header);
             $base64headerjson = base64_encode($headerjson);
             $time_stamp = time();  
