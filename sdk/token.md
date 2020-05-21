@@ -325,7 +325,7 @@ token = header+ “.”+ signture\\
 
 ## 4. Token验证方法
 
-使用服务端生成的Token，可以与这里生成的Token对比校验，判断当前服务端Token生成方法是否正确：https://tools.urtc.com.cn/ 。    
+服务端生成的Token，可以与这里生成的Token对比校验：https://tools.urtc.com.cn/ ，判断当前服务端Token生成方法是否正确。    
 可以通过：https://time.is/Unix 来获取实时时间。
 
 ## 5. 申明
