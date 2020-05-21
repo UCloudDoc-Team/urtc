@@ -1312,11 +1312,18 @@ ENDIF(CROSS_COMPILE)
 ```
 ## 5.3 运行demo
 
-编译完毕后，运行 ./enginedemo roomid userid rtsp://xxx 加入房间并推RTSP视频流。    
-推流成功，用户可以处理回调函数URTCEventHandler.cpp中的onLocalPublish处理，如果code==0，则推流成功。
+编译完毕后，加入房间并推RTSP视频流。   
 
-> roomid：自定义的房间号，同一个房间的用户可以通讯。    
-> userid ：自定义的用户号，每个客户端id需要唯一。    
-> rtsp://xxx，为通过RTSP拉流设备的网络地址。    
+```
+./enginedemo roomid userid rtsp://xxx
+
+// roomid：自定义的房间号，同一个房间的用户可以通讯。    
+// userid ：自定义的用户号，每个客户端id需要唯一。    
+// rtsp://xxx，为通过RTSP拉流设备的网络地址。    
+
+```
+
+推流成功，用户可以处理回调函数`URTCEventHandler.cpp`中的`onLocalPublish`处理，如果code==0，则推流成功。    
+推流成功后，即可直播观看RTSP视频。
 
 <!-- tabs:end -->
