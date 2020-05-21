@@ -1282,7 +1282,7 @@ urtclib/interface/UCloudRtcComDefine.h urtclib/interface/UCloudRtcEngine.h urtcl
 ### 5.1 在目标机器上编译
 
 如果在目标机器上编译使用下面的命令：
-```
+```cpp
 cd build
 //生成Makefile等
 cmake ../.
@@ -1295,7 +1295,7 @@ bin/enginedemo rtsp://path/to/rtspstream
 
 ### 5.2 交叉编译
 如果使用交叉编译，需要修改CMakeList.txt，这样交叉编译速度会有所提高。
-```
+```cpp
 //打开文件CMakeList.txt中下面的注释
 SET(CROSS_COMPILE 1)
 
@@ -1314,7 +1314,7 @@ ENDIF(CROSS_COMPILE)
 
 编译完毕后，加入房间并推RTSP视频流。   
 
-```
+```cpp
 ./enginedemo roomid userid rtsp://xxx
 
 // roomid：自定义的房间号，同一个房间的用户可以通讯。    
