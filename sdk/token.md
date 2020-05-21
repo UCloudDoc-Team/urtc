@@ -323,6 +323,11 @@ signture = format(“%s%d%d”, sign, unixts, random)\\
 token = header+ “.”+ signture\\
 ```
 
-## 4. 申明
+## 4. Token验证方法
+
+使用服务端生成的Token，可以与这里生成的Token对比校验，判断当前服务端Token生成方法是否正确：https://tools.urtc.com.cn/ 。    
+可以通过：https://time.is/Unix 来获取实时时间。
+
+## 5. 申明
 
 Token是SDK验证APP的重要参数，是用户进入系统的身份验证手段，token 错误将无法进入系统，请确认token 生成代码正确。
