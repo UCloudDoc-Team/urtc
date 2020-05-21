@@ -1318,8 +1318,8 @@ ENDIF(CROSS_COMPILE)
 ./enginedemo roomid userid rtsp://xxx
 
 // roomid：自定义的房间号，同一个房间的用户可以通讯。    
-// userid ：自定义的用户号，每个客户端id需要唯一。    
-// rtsp://xxx，为通过RTSP拉流设备的网络地址。    
+// userid：自定义的用户号，每个客户端id需要唯一。    
+// rtsp://xxx：通过RTSP拉流设备的网络地址。    
 
 ```
 
