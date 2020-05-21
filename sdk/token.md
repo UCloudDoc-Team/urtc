@@ -323,7 +323,7 @@ signture = format(“%s%d%d”, sign, unixts, random)\\
 token = header+ “.”+ signture\\
 ```
 
-## 4. Token验证方法
+## 4. 验证Token正确性
 
 后台服务器生成的`Token`，可以与 https://tools.urtc.com.cn 生成的`Token`对比校验，判断`Token`生成方法是否正确。    
 
