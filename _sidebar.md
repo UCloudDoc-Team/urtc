@@ -18,6 +18,7 @@
     * [旁路推流](/urtc/sdk/Video/cdnSteaming)    
 * [云端录制](/urtc/cloudRecord/index)  
     * [云端录制SDK代码示例](/urtc/cloudRecord/RecordStart)    
+    * [录制回放](/urtc/cloudRecord/PlayRecordFile)
     * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](/urtc/cloudRecord/RecordWatermark)  
 * [质量监控](/urtc/quality/qualityDocs)
