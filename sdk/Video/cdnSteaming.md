@@ -187,34 +187,47 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP
 ### Android开启旁路推流
 
 ```
-sdkEngine.startMix(UCloudRtcSdkMixProfile mixProfile)
-
+JSONArray pushURL = new JSONArray();
+//推流地址
+pushURL.put("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);
+UCloudRtcSdkMixProfile mixProfile = UCloudRtcSdkMixProfile.getInstance().assembleMixParamsBuilder()
+		.pushUrl(pushURL)
+		.mainViewUserId(mUserid) //指定主讲人id
+		.mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal()) //主屏幕播放类型为摄像头
+		.build();
+sdkEngine.startMix(mixProfile);
 ```
 ### Android开启旁路推流的回调
 
 ```
-
+JSONArray pushURL = new JSONArray();
+jsonArray.put("");
+sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,jsonArray);
 ```
 ### Android添加混流
 
 ```
-
-```
-### Android添加混流的回调
-
-```
-
+JSONArray streams = new JSONArray();
+JSONObject remote = new JSONObject();
+//添加的流id
+remote.put("user_id","testId");
+//流类型
+remote.put("media_type",UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
+streams.put(remote);
+sdkEngine.addMixStream(streams);
 ```
 
 ### Android删除混流
 
 ```
-
-```
-### Android删除混流的回调
-
-```
-
+JSONArray streams = new JSONArray();
+JSONObject remote = new JSONObject();
+//删除的流id
+remote.put("user_id","testId");
+//流类型
+remote.put("media_type",UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
+streams.put(remote);
+sdkEngine.delMixStream(streams);
 ```
 
 
