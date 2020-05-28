@@ -25,8 +25,8 @@ URTC 云端录制的音视频文件，会自动存放在配置好的对象存储
 
 推荐在后端服务端直接部署UFile SDK。通过GetPrivateURL接口，给UFile SDK传入文件名、有效期，即获取私有空间的URL地址。
     
-可以从这里获取[UFile SDK](ufile/tools/sdk)，除了JS SDK其他均可以直接在服务端使用。    
-使用SDK时，注意要先在配置文件填写`bucket`、`PublicKey`、`PrivateKey`、存储空间域名。    
+> 可以从这里获取[UFile SDK](ufile/tools/sdk)，除了JS SDK其他均可以直接在服务端使用。    
+> 使用SDK时，注意要先在配置文件填写`bucket`、`PublicKey`、`PrivateKey`、存储空间域名。    
 
  
  
