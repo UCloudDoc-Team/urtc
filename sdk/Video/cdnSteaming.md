@@ -181,6 +181,43 @@ RTMP_STREAM_PUBLISH_STATE_STOPFAILURE
 RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP 
 //异常停止推流
 ```
+
+## ** Android **
+
+### Android开启旁路推流
+
+```
+sdkEngine.startMix(UCloudRtcSdkMixProfile mixProfile)
+
+```
+### Android开启旁路推流的回调
+
+```
+
+```
+### Android添加混流
+
+```
+
+```
+### Android添加混流的回调
+
+```
+
+```
+
+### Android删除混流
+
+```
+
+```
+### Android删除混流的回调
+
+```
+
+```
+
+
 <!-- tabs:end -->
 
 ## 4. 开发注意事项
