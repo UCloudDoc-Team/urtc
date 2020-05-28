@@ -9,7 +9,7 @@ URTC 云端录制的音视频文件，会自动存放在配置好的对象存储
 |未使用CDN加速| http://"存储空间域名"/"file_name".mp4 |
 |使用了CDN加速| http://"CDN加速域名"/"file_name".mp4 |
 
- - 存储空间域名，可在[UFile](https://console.ucloud.cn/ufile/ufile) 查看。
+ - 存储空间域名，可在[UFile](https://console.ucloud.cn/ufile/ufile) 查看，也可以通过"bucket存储空间名称.region地域.ufileos.com"拼接而成。
  - CDN加速域名，可在[UCDN](https://console.ucloud.cn/ucdn/ucdndomainmanage) 查看。
  - file_name，为录制任务开始时，返回的文件名。
 
