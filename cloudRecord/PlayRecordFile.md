@@ -1,31 +1,24 @@
 # 录制回放
 URTC 云端录制的音视频文件，会自动存放在配置好的对象存储UFile的存储空间中。
 录制回放，实际上是播放UFile的录像文件的URL。
-
 ## 拼接录制文件的URL地址
 录制任务开始后，会回调当前录制文件的文件名。而由于对象存储UFile的配置不同，录制文件的URL拼接参数不尽相同。
-
 | UFile空间类型 | UFile配置 | 录制文件的URL拼接方法 |
 |-|-|-|
 |公开空间|未使用CDN加速| http://"存储空间域名"/"file_name".mp4 |
 |公开空间|使用了CDN加速| http://"CDN加速域名"/"file_name".mp4 |
 |私有空间|未使用CDN加速| http://"存储空间域名"/"file_name".mp4?UCloudPublicKey="UCloudPublicKey"&Expires="Expires"&Signature="Signature" |
 |私有空间|使用了CDN加速| http://"CDN加速域名"/"file_name".mp4?UCloudPublicKey="UCloudPublicKey"&Expires="Expires"&Signature="Signature"  |
-
  - 存储空间域名，可在[UFile](https://console.ucloud.cn/ufile/ufile) 查看。
  - CDN加速域名，可在[UCDN](https://console.ucloud.cn/ucdn/ucdndomainmanage) 查看。
  - API公钥`UCloudPublicKey`，可在[UAPI](https://console.ucloud.cn/uapi/apikey) 查看。
  - API有效期`Expires`，用unix时间表示，指URL的超时时间；如果没有这个参数，表示URL永不过期。
  - API签名`Signature`，需要在后台业务服务器生成，具体的生成方法可以参照这里[]()。
 
-
-
-
-
 ## API签名的算法
-UFileREST API 基于 HMAC（哈希消息身份验证码）密钥使用自定义HTTP 方案进行身份验证。
-生成签名时，客户端会传入`PublicKey`、`PrivateKey`、操作API action及参数，服务端通过这些传入的参数，来生成签名返回给客户端。
-
+UFileREST API 基于 HMAC（哈希消息身份验证码）密钥使用自定义HTTP 方案进行身份验证。    
+生成签名时，客户端会传入`PublicKey`、`PrivateKey`、操作API action及参数，服务端通过这些传入的参数，来生成签名返回给客户端。    
+通过服务端生成的签名，可以与[验证签名](http://testsign2.cn-sh2.ufileos.com/signGenerator.html) 的签名对比，确认签名方法正确。    
 
 Signature的伪代码计算方式如下：
 
@@ -492,6 +485,5 @@ func encodeSha1(s string) string {
 <!-- tabs:end -->
 
 
-通过服务端生成的签名，可以与[验证签名](http://testsign2.cn-sh2.ufileos.com/signGenerator.html) 的签名对比，确认签名方法正确。
  
  
