@@ -215,7 +215,7 @@ sdkEngine.startMix(mixProfile);
 ### Android停止旁路推流
 
 ```
-JSONArray pushURL = new JSONArray();
+JSONArray jsonArray = new JSONArray();
 jsonArray.put("");//地址留空停止对所有url的转推
 sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,jsonArray); //类型是转推+录制
 ```
