@@ -187,22 +187,37 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP
 ### Android开启旁路推流
 
 ```
-JSONArray pushURL = new JSONArray();
 //推流地址
+JSONArray pushURL = new JSONArray();
 pushURL.put("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);
+//背景色
+JSONObject bgColor = new JSONObject();
+bgColor.put("r", 0);
+bgColor.put("g", 0);
+bgColor.put("b", 0);
+				
 UCloudRtcSdkMixProfile mixProfile = UCloudRtcSdkMixProfile.getInstance().assembleMixParamsBuilder()
-		.pushUrl(pushURL)
+		.type(MIX_TYPE_BOTH) //同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：录像
+		.layout(LAYOUT_CLASS_ROOM) //讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
+		.pushUrl(pushURL)  //混流地址
 		.mainViewUserId(mUserid) //指定主讲人id
 		.mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal()) //主屏幕播放类型为摄像头
+		.resolution(640, 480) //640*480
+		.bgColor(bgColor)  //背景色
+		.frameRate(15) //画面帧率
+		.bitRate(500) //画面码率
+		.videoCodec(VIDEO_CODEC_H264) //h264视频编码。VIDEO_CODEC_H265：H265
+		.qualityLevel(QUALITY_H264_CB) //编码质量
+		.audioCodec(AUDIO_CODEC_AAC) //aac音频编码
 		.build();
 sdkEngine.startMix(mixProfile);
 ```
-### Android开启旁路推流的回调
+### Android停止旁路推流
 
 ```
 JSONArray pushURL = new JSONArray();
-jsonArray.put("");
-sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,jsonArray);
+jsonArray.put("");//地址留空停止对所有url的转推
+sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,jsonArray); //类型是转推+录制
 ```
 ### Android添加混流
 
