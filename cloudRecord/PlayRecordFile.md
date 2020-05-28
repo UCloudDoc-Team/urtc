@@ -4,7 +4,7 @@ URTC 云端录制的音视频文件，会自动存放在配置好的对象存储
 
 
 ## 获取UFile公开空间的URL地址
-| UFile配置 | 录制文件的URL拼接方法 |
+| UFile配置 | 录制文件的URL |
 |-|-|
 |未使用CDN加速| http://"存储空间域名"/"file_name".mp4 |
 |使用了CDN加速| http://"CDN加速域名"/"file_name".mp4 |
@@ -14,7 +14,7 @@ URTC 云端录制的音视频文件，会自动存放在配置好的对象存储
  - file_name，为录制任务开始时，返回的文件名。
 
 ## 获取UFile私有空间的URL地址
-| UFile配置 | 录制文件的URL拼接方法 |
+| UFile配置 | 录制文件的URL |
 |-|-|
 |未使用CDN加速| http://"存储空间域名"/"file_name".mp4?UCloudPublicKey="UCloudPublicKey"&Expires="Expires"&Signature="Signature" |
 |使用了CDN加速| http://"CDN加速域名"/"file_name".mp4?UCloudPublicKey="UCloudPublicKey"&Expires="Expires"&Signature="Signature"  |
