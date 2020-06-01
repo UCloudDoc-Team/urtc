@@ -26,6 +26,7 @@ Client 类包含以下方法：
 | -| -|
 |[创建客户端 ](https://github.com/ucloud/urtc-sdk-web#client-constructor) | 构造函数 | 
 |[joinRoom 方法 ](https://github.com/ucloud/urtc-sdk-web#client-joinroom) | 加入房间 | 
+|[setrole 方法 ](https://github.com/ucloud/urtc-sdk-web#client-setrole) | 设置用户角色 | 
 |[leaveRoom 方法 ](https://github.com/ucloud/urtc-sdk-web#client-leaveroom) | 离开房间 | 
 |[publish 方法 ](https://github.com/ucloud/urtc-sdk-web#client-publish) | 发布本地流 | 
 |[unpublish 方法 ](https://github.com/ucloud/urtc-sdk-web#client-unpublish) | 取消发布本地流 | 
