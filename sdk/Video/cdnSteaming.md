@@ -188,38 +188,52 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP
 
 ```
 UCloudRtcSdkMixProfile mixProfile = new UCloudRtcSdkMixProfile();
-mixProfile.setType(MIX_TYPE_BOTH);/同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：录像
-mixProfile.setLayout(LAYOUT_CLASS_ROOM);//讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
+//同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：录像
+mixProfile.setType(MIX_TYPE_BOTH);
+//讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
+mixProfile.setLayout(LAYOUT_CLASS_ROOM);
+//画面分辨率
 mixProfile.setWidth(640);
 mixProfile.setHeight(480);
-mixProfile.setBgColor(0, 0, 0);//背景色
-
-mixProfile.setFrameRate(15);//画面帧率
-mixProfile.setBitrate(500);//画面码率
-mixProfile.setVideoCodec(VIDEO_CODEC_H264);//h264视频编码。VIDEO_CODEC_H265：H265
-mixProfile.setQualityLevel(QUALITY_H264_CB);//编码质量
-mixProfile.setAudioCodec(AUDIO_CODEC_AAC);//aac音频编码
-
-mixProfile.setPushUrl("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);//推流地址
-mixProfile.setMainViewUserId(mUserid);//主讲人id
-mixProfile.setMainViewType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());//主屏幕播放类型为摄像头
-mixProfile.setStreamMode(UCloudRtcSdkMixProfile.ADD_STREAM_MODE_AUTO);//自动添加模式
+//背景色
+mixProfile.setBgColor(0, 0, 0);
+//画面帧率
+mixProfile.setFrameRate(15);
+//画面码率
+mixProfile.setBitrate(500);
+//h264视频编码。VIDEO_CODEC_H265：H265
+mixProfile.setVideoCodec(VIDEO_CODEC_H264);
+//编码质量
+mixProfile.setQualityLevel(QUALITY_H264_CB);
+//aac音频编码
+mixProfile.setAudioCodec(AUDIO_CODEC_AAC);
+//推流地址
+mixProfile.setPushUrl("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);
+//主讲人id
+mixProfile.setMainViewUserId(mUserid);
+//主屏幕播放类型为摄像头
+mixProfile.setMainViewType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
+//自动添加模式
+mixProfile.setStreamMode(UCloudRtcSdkMixProfile.ADD_STREAM_MODE_AUTO);
 sdkEngine.startMix(mixProfile);
 ```
 ### Android停止旁路推流
 
 ```
-sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,""); //类型是转推+录制,地址留空停止对所有url的转推
+//类型是转推+录制,地址留空停止对所有url的转推
+sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,""); 
 ```
 ### Android添加混流
 
 ```
+//参数一用户id，参数二推流来源（屏幕或camera）
 sdkEngine.addMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 ```
 
 ### Android删除混流
 
 ```
+//参数一用户id，参数二推流来源（屏幕或camera）
 sdkEngine.delMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 ```
 
