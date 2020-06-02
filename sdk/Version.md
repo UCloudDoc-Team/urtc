@@ -664,9 +664,15 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 # ** Android **
 
+## 1.7.6
+
+该版本发布于2020-5-14，sdk 1.7.6。  
+更新内容：  
+1.优化蓝牙的问题
+
 ## 1.7.5
 
-该版本发布于2020-4-28，sdk 1.7.3。  
+该版本发布于2020-4-28，sdk 1.7.5。  
 更新内容：    
 1.增加调整录音音量 arm7 arm8   
 2.增加网络质量回调
