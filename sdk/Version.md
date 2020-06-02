@@ -276,13 +276,13 @@ sdk未做变更，此次发布仅用于解决 1.4.3 未发布成功的问题
 
 该版本发布于2020-4-27。  
 
-1、新增远端音频播放首帧回调
-2、新增远端视频首帧回调
-3、桌面流可加声音
-4、新增registerAudioFrameObserver  用于采集数据回调替换
-5、新增registerVideoFrameObserver 用于采集数据回调替换
-6、新增muteRomoteCamBeforeSub 用于订阅前mute远端cam
-7、新增muteRomoteMicBeforeSub 用于订阅前mute远端mic
+1、新增远端音频播放首帧回调  
+2、新增远端视频首帧回调  
+3、桌面流可加声音  
+4、新增registerAudioFrameObserver  用于采集数据回调替换  
+5、新增registerVideoFrameObserver 用于采集数据回调替换  
+6、新增muteRomoteCamBeforeSub 用于订阅前mute远端cam  
+7、新增muteRomoteMicBeforeSub 用于订阅前mute远端mic  
 
 
 ## 1.6.5版
