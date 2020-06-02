@@ -521,7 +521,7 @@ sdkEngine.setAutoPublish(mPublishMode == CommonUtils.AUTO_MODE ? true : false);
 
 ```java
 sdkEngine.publish(UCloudRtcSdkMediaType mtype, boolean hasvideo, boolean hasaudio)
-回调事件
+//回调事件
 public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
@@ -540,19 +540,19 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
   - 渲染本地媒体流
 
-在`onLocalPublish` 回调成功后，再函数中可以调用视频渲染。
+在`onLocalPublish` 回调成功后，在函数中可以调用视频渲染。
 
 ```java
 localrenderview.setBackgroundColor(Color.TRANSPARENT);
 sdkEngine.startPreview(info.getmMediatype(), localrenderview);
-不想渲染时可以调用停止渲染接口
+//不想渲染时可以调用停止渲染接口
 sdkEngine.stopPreview(UCloudRtcSdkMediaType mediatype
 ```
   - 取消发布媒体流
 
 ```js
 sdkEngine.unPublish(UCloudRtcSdkMediaType mtype)
-回调事件
+//回调事件
 public void onLocalUnPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 ```
 
