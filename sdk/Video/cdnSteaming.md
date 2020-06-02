@@ -187,62 +187,54 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP
 ### Android开启旁路推流
 
 ```
-//推流地址
-JSONArray pushURL = new JSONArray();
-pushURL.put("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);
+UCloudRtcSdkMixProfile mixProfile = new UCloudRtcSdkMixProfile();
+//同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：录像
+mixProfile.setType(MIX_TYPE_BOTH);
+//讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
+mixProfile.setLayout(LAYOUT_CLASS_ROOM);
+//画面分辨率
+mixProfile.setWidth(640);
+mixProfile.setHeight(480);
 //背景色
-JSONObject bgColor = new JSONObject();
-bgColor.put("r", 0);
-bgColor.put("g", 0);
-bgColor.put("b", 0);
-				
-UCloudRtcSdkMixProfile mixProfile = UCloudRtcSdkMixProfile.getInstance().assembleMixParamsBuilder()
-		.type(MIX_TYPE_BOTH) //同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：录像
-		.layout(LAYOUT_CLASS_ROOM) //讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
-		.pushUrl(pushURL)  //混流地址
-		.mainViewUserId(mUserid) //指定主讲人id
-		.mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal()) //主屏幕播放类型为摄像头
-		.resolution(640, 480) //640*480
-		.bgColor(bgColor)  //背景色
-		.frameRate(15) //画面帧率
-		.bitRate(500) //画面码率
-		.videoCodec(VIDEO_CODEC_H264) //h264视频编码。VIDEO_CODEC_H265：H265
-		.qualityLevel(QUALITY_H264_CB) //编码质量
-		.audioCodec(AUDIO_CODEC_AAC) //aac音频编码
-		.build();
+mixProfile.setBgColor(0, 0, 0);
+//画面帧率
+mixProfile.setFrameRate(15);
+//画面码率
+mixProfile.setBitrate(500);
+//h264视频编码。VIDEO_CODEC_H265：H265
+mixProfile.setVideoCodec(VIDEO_CODEC_H264);
+//编码质量
+mixProfile.setQualityLevel(QUALITY_H264_CB);
+//aac音频编码
+mixProfile.setAudioCodec(AUDIO_CODEC_AAC);
+//推流地址
+mixProfile.setPushUrl("rtmp://rtcpush.ugslb.com/rtclive/"+mRoomid);
+//主讲人id
+mixProfile.setMainViewUserId(mUserid);
+//主屏幕播放类型为摄像头
+mixProfile.setMainViewType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
+//自动添加模式
+mixProfile.setStreamMode(UCloudRtcSdkMixProfile.ADD_STREAM_MODE_AUTO);
 sdkEngine.startMix(mixProfile);
 ```
 ### Android停止旁路推流
 
 ```
-JSONArray jsonArray = new JSONArray();
-jsonArray.put("");//地址留空停止对所有url的转推
-sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,jsonArray); //类型是转推+录制
+//类型是转推+录制,地址留空停止对所有url的转推
+sdkEngine.stopMix(UCloudRtcSdkMixProfile.MIX_TYPE_BOTH,""); 
 ```
 ### Android添加混流
 
 ```
-JSONArray streams = new JSONArray();
-JSONObject remote = new JSONObject();
-//添加的流id
-remote.put("user_id","testId");
-//流类型
-remote.put("media_type",UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
-streams.put(remote);
-sdkEngine.addMixStream(streams);
+//参数一用户id，参数二推流来源（屏幕或camera）
+sdkEngine.addMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 ```
 
 ### Android删除混流
 
 ```
-JSONArray streams = new JSONArray();
-JSONObject remote = new JSONObject();
-//删除的流id
-remote.put("user_id","testId");
-//流类型
-remote.put("media_type",UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
-streams.put(remote);
-sdkEngine.delMixStream(streams);
+//参数一用户id，参数二推流来源（屏幕或camera）
+sdkEngine.delMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 ```
 
 
