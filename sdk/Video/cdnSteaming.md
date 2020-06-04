@@ -40,7 +40,7 @@ client.startMix({
     codec: 'h264',
     quality: 'CB',
     frameRate: 15,
-    bitRate: 1500
+    bitRate: 1000
   },
   width: 1280,
   height: 720,
@@ -96,7 +96,7 @@ relayconfig.mbgColor.mRed = 0;
 relayconfig.mbgColor.mGreen = 0; 
 relayconfig.mbgColor.mBlue = 0;
 //转推背景色
-relayconfig.mBitrate = 1500;
+relayconfig.mBitrate = 1000;
 //码率
 relayconfig.mFramerate = 15;
 //帧率
@@ -134,7 +134,7 @@ relayconfig.mbgColor.mRed = 0;
 relayconfig.mbgColor.mGreen = 0; 
 relayconfig.mbgColor.mBlue = 0;
 //码率
-relayconfig.mBitrate = 500;
+relayconfig.mBitrate = 1000;
 //帧率
 relayconfig.mFramerate = 15;
 //输出分辨率宽度
@@ -193,14 +193,14 @@ mixProfile.setType(MIX_TYPE_BOTH);
 //讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
 mixProfile.setLayout(LAYOUT_CLASS_ROOM);
 //画面分辨率
-mixProfile.setWidth(640);
-mixProfile.setHeight(480);
+mixProfile.setWidth(1280);
+mixProfile.setHeight(720);
 //背景色
 mixProfile.setBgColor(0, 0, 0);
 //画面帧率
 mixProfile.setFrameRate(15);
 //画面码率
-mixProfile.setBitrate(500);
+mixProfile.setBitrate(1000);
 //h264视频编码。VIDEO_CODEC_H265：H265
 mixProfile.setVideoCodec(VIDEO_CODEC_H264);
 //编码质量
@@ -250,14 +250,14 @@ mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yk
 mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
 mixConfig.layouts = @[]; //可选多布局
 mixConfig.bgColor = @{@"r": @200,@"g": @100, @"b": @50}; ////背景色
-mixConfig.bitrate = 600; //比特率
-mixConfig.framerate = 50; //画面帧率
+mixConfig.bitrate = 1000; //比特率
+mixConfig.framerate = 15; //画面帧率
 mixConfig.videocodec = @"H264"; //视频编码
 mixConfig.qualitylevel = @"CB"; //编码质量
 mixConfig.audiocodec = @"aac"; //aac音频编码
 mixConfig.mainviewtype = 1; //主讲人id
-mixConfig.width = 640; //画面分辨率 宽
-mixConfig.height = 720; //画面分辨率 高
+mixConfig.width = 720; //画面分辨率 宽
+mixConfig.height = 1280; //画面分辨率 高
 //开始旁路推流
 [self.manager startMix:mixConfig];
 ```
