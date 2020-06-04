@@ -238,13 +238,11 @@ sdkEngine.delMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 ```
 
 
-<!-- tabs:end -->
-
 ## ** iOS **
 
 ### iOS开启旁路推流
 
-``
+```
 UCloudRtcMixConfig *mixConfig = [UCloudRtcMixConfig new];
 mixConfig.type = 1; //1 转推 2 录制 3 转推和录制 4 更新设置
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
@@ -286,14 +284,12 @@ mixStopConfig.pushurl = @[@""];
 //streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
 [self.manager addMixStream:streams];
 ```
-
 ### iOS删除混流
 
 ```
 //streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
 [self.manager deleteMixStream:streams];
 ```
-
 
 <!-- tabs:end -->
 
