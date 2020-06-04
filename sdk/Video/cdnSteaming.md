@@ -240,6 +240,63 @@ sdkEngine.delMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 
 <!-- tabs:end -->
 
+## ** iOS **
+
+### iOS开启旁路推流
+
+``
+UCloudRtcMixConfig *mixConfig = [UCloudRtcMixConfig new];
+mixConfig.type = 1; //1 转推 2 录制 3 转推和录制 4 更新设置
+mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
+mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yketwz111"]; //转推地址
+mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
+mixConfig.layouts = @[]; //可选多布局
+mixConfig.bgColor = @{@"r": @200,@"g": @100, @"b": @50}; ////背景色
+mixConfig.bitrate = 600; //比特率
+mixConfig.framerate = 50; //画面帧率
+mixConfig.videocodec = @"H264"; //视频编码
+mixConfig.qualitylevel = @"CB"; //编码质量
+mixConfig.audiocodec = @"aac"; //aac音频编码
+mixConfig.mainviewtype = 1; //主讲人id
+mixConfig.width = 640; //画面分辨率 宽
+mixConfig.height = 720; //画面分辨率 高
+mixConfig.bucket = @"urtc-test"; 
+mixConfig.region =@"cn-bj";
+mixConfig.watertype = 1; //0 (无水印) 1 (时间水印) 、 2 (图片水印) 、 3（文字水印)
+mixConfig.waterpos = 1; //1 lefttop 2 leftbottom
+mixConfig.waterurl = @"http://urtc-living-test.cn-bj.ufileos.com/test.png"; //watertype 2时代表图片水印url 、watertype 3代表水印文字
+mixConfig.mimetype = 0; //1输出纯音频 默认输出音视频 
+mixConfig.addstreammode = 1; //1自动 2手动 默认自动
+mixConfig.keyuser = @""; //缺省不要配置这个参数，如果配置了这个参数，如果该用户的所有推流结束，则录制或者转推任务都会立刻结束
+//开始旁路推流
+[self.manager startMix:mixConfig];
+```
+### iOS停止旁路推流
+
+```
+//类型是转推+录制,地址留空停止对所有url的转推
+UCloudRtcMixStopConfig *mixStopConfig = [UCloudRtcMixStopConfig new];
+mixStopConfig.type = 1;
+mixStopConfig.pushurl = @[@""];
+[self.manager stopMix: mixStopConfig];
+```
+### iOS添加混流
+
+```
+//streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
+[self.manager addMixStream:streams];
+```
+
+### iOS删除混流
+
+```
+//streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
+[self.manager deleteMixStream:streams];
+```
+
+
+<!-- tabs:end -->
+
 ## 4. 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
