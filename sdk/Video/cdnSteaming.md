@@ -262,7 +262,7 @@ mixConfig.height = 1280; //画面分辨率 高
 self.manager?.startMix(mixConfig);
 ```
 
-```objective-c
+```objectivec
 UCloudRtcMixConfig *mixConfig = [UCloudRtcMixConfig new];
 mixConfig.type = 1; //1 转推  3 转推和录制
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
@@ -291,7 +291,7 @@ mixStopConfig.pushurl = @[@""];
 self.manager?.stopMix(mixstopConfig)
 ```
 
-```objective-c
+```objectivec
 UCloudRtcMixStopConfig *mixStopConfig = [UCloudRtcMixStopConfig new];
 mixStopConfig.type = 1;
 mixStopConfig.pushurl = @[@""];
@@ -303,7 +303,7 @@ mixStopConfig.pushurl = @[@""];
 self.manager?.addMixStream(streams)
 ```
 
-```objective-c
+```objectivec
 //streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
 [self.manager addMixStream:streams];
 ```
@@ -314,7 +314,7 @@ self.manager?.addMixStream(streams)
 self.manager?.deleteMixStream(streams);
 ```
 
-```objective-c
+```objectivec
 //streams [{"user_id": "","media_type": 1 //1 摄像头  2 桌面}]
 [self.manager deleteMixStream:streams];
 ```
