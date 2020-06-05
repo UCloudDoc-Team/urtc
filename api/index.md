@@ -9,7 +9,7 @@
 |加入房间|[joinRoom](https://github.com/ucloud/urtc-sdk-web#client-joinroom)|[joinChannel](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-joinChannel)|joinChannel|joinRoom|
 |离开房间|[leaveRoom](https://github.com/ucloud/urtc-sdk-web#client-leaveroom)|[leaveChannel](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-leaveChannel)|leaveChannel|leaveRoom|
 |房间类型|[type](https://github.com/ucloud/urtc-sdk-web#client-constructor)|[setChannelType](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-setChannelType)|setClassType|roomType|
-|用户权限|[role](https://github.com/ucloud/urtc-sdk-web#client-constructor)|[setStreamRole](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-setStreamRole)|setStreamRole|streamProfile|
+|用户权限|[setRole](https://github.com/ucloud/urtc-sdk-web#client-setrole)|[setStreamRole](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-setStreamRole)|setStreamRole|streamProfile|
 |发布流|[publish](https://github.com/ucloud/urtc-sdk-web#client-publish)|[publish](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-publish)|publish|publish|
 |视频分辨率|[setVideoProfile](https://github.com/ucloud/urtc-sdk-web#client-setvideoprofile)|[setVideoProfile](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-setVideoProfile)|setVideoProfile|videoProfile|
 |监听事件|[on](https://github.com/ucloud/urtc-sdk-web#client-on)|[EventListener](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-regRtcEventListener)|EventListener|EngineDelegate|
