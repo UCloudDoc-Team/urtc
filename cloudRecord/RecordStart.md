@@ -52,7 +52,7 @@ client.stopRecord(function onSuccess() {
 ## ** Windows **
 
 
-## 录制音视频
+## Windows录制音视频
 
 ```cpp
 tUCloudRtcRecordConfig recordconfig;
@@ -81,7 +81,7 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 ## ** Android **
 
 
-## 录制音视频
+## Android录制音视频
 
 ```java
 //                如果主窗口是当前用户
@@ -127,7 +127,7 @@ void onRecordStop(int code);
 
 ## ** iOS **
 
-## 2.1 开始录制
+## 2.1 iOS开始录制
 
 ```objectivec
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
@@ -163,7 +163,7 @@ void onRecordStop(int code);
   self.engine?.startRecord(recordConfig)
 ```
 
-## 2.2 获取录制的文件地址
+## 2.2 iOS获取录制的文件地址
 
 视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
@@ -181,7 +181,7 @@ void onRecordStop(int code);
     
  ```  
 
-## 2.3 停止录制
+## 2.3 iOS停止录制
 
 示例代码：    
 
