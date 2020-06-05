@@ -12,7 +12,7 @@
 
 ## ** Web **
 
-## 2.1 开始录制
+## 2.1 Web开始录制
 
 ```js
 client.startRecord({
@@ -29,11 +29,11 @@ client.startRecord({
 })
 ```
 
-> 1. 不设定其他的参数时，默认会录制房间内所有的视频流，混流合成分辨率为 1280 x 720 的MP4文件。
-> 2. 可以设定录制文件的分辨率；设置单流录制、混流录制以及混流的风格；设置录制加水印；仅录制分享的屏幕/摄像头。
-> 3. 可以查看[startRecord 参数](https://github.com/ucloud/urtc-sdk-web#client-startrecord)，了解更多的录制参数。
+> - 不设定其他的参数时，默认会录制房间内所有的视频流，混流合成分辨率为 1280 x 720 的MP4文件。
+> - 可以设定录制文件的分辨率；设置单流录制、混流录制以及混流的风格；设置录制加水印；仅录制分享的屏幕/摄像头。
+> - 可以查看[startRecord 参数](https://github.com/ucloud/urtc-sdk-web#client-startrecord)，了解更多的录制参数。
 
-## 2.2 停止录制
+## 2.2 Web停止录制
 
 ```js
 client.stopRecord(function onSuccess() {
