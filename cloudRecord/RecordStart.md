@@ -198,8 +198,7 @@ void onRecordStop(int code);
 
 ## 3. 开发注意事项
 
- - 录像需要混流时，可以指定主界面是哪个用户，[垂直风格（大小布局）](urtc/cloudRecord/RecordLaylout?id=垂直风格)下，主界面是哪个用户，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`去实现，如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`。
-
+ - 录像需要混流时，可以指定主界面是哪个用户，垂直风格（大小布局）下，主界面是哪个用户的摄像头/共享屏幕，哪个用户就占据大窗口。主界面用户可以是客户端推流用户，也可以是客户端订阅用户，这个参数只要靠`mainviewuid`、`mainViewType`去实现。如果是上述第一种情况，可以不指定，sdk自动获取，如果是第二种，就需要App SDK使用者拿到当前订阅的用户id，用这个id去设置录像的`mainviewuid`、`mainViewType`。
  - 更多的录像的参数说明可以参照各个客户端的sdk API文档以及 [混流风格](urtc/cloudRecord/RecordLaylout)。 
 
 
