@@ -15,22 +15,9 @@
 ## 2.1 开始录制
 
 ```js
-client.startRecording({
+client.startRecord({
   bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
   region: string  // 必传，存储服务所在的地域
-  waterMark?: {
-	  position?: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom' // 选传，指定水印的位置，前面四种类型分别对应 左上，左下，右上，右下，默认 'left-top'
-	  type?: 'time' | 'image' | 'text' // 选传，水印类型，分别对应时间水印、图片水印、文字水印，默认为 'time'
-	  remarks?:  string,   // 选传，水印备注，当为时间水印时，传空字符串，当为图片水印时，此处需为图片的 URL（此时必传），当为文字水印时，此处需为水印文字
-	},
-  mixStream?: {
-	  uid?: string,        // 选传，指定某用户的流作为主画面，不传时，默认为当前开启录制的用户的流作为主画面
-	  type?: 'screen' | 'camera',   // 选传，指定主画面使用的流的媒体类型（当同一用户推多路流时），不传时，默认使用 camera
-	  width?: number,      // 选传，设置混流后视频的宽度，不传时，默认为 1280
-	  height?: number,     // 选传，设置混流后视频的高度，不传时，默认为 720
-	  template?: number,   // 选传，指定混流布局模板，可使用 1-9 对应的模板，默认为 1
-	  isAverage?: boolean, // 选传，是否均分，均分对应平铺风格，不均分对应垂直风格，默认为 true
-	}
 }, function onSuccess(Record) {
 
 	//开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
@@ -46,7 +33,7 @@ client.startRecording({
 ## 2.2 停止录制
 
 ```js
-client.stopRecording(function onSuccess() {
+client.stopRecord(function onSuccess() {
 
 	//停止录制成功时执行的回调函数
 
