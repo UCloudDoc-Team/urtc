@@ -6,7 +6,7 @@
 URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。
 
 
-## [产品简介](/urtc/introduction/index)
+## 产品简介
 
 介绍产品的功能、客户端的兼容性，产品架构、应用场景。
 
