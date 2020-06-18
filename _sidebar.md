@@ -2,7 +2,7 @@
 
 
 * [概览](/urtc/README)
-* [产品简介](/urtc/introduction/index)
+* 产品简介
     * [产品功能](/urtc/introduction/functions)
     * [产品架构](/urtc/introduction/structure)
     * [应用场景](/urtc/introduction/scenario)
