@@ -1,5 +1,3 @@
-
-
 # Token生成指导
 
 ## 1. 参考实现代码
@@ -239,6 +237,66 @@ generateToken({
 }
 
 
+```
+
+## ** Python **
+
+  - Python 参考代码如下
+
+```python
+# -*- coding: utf-8 -*-
+
+import hmac
+import base64
+import random
+import time
+from hashlib import sha1
+
+app_id_str = "xxx"
+app_secret_str = "xxx"
+
+// appid、app_secret为UCloud控制台上创建URTC应用时生成的appid、appkey。
+// user_id为自定义的用户id，room_id为自定义的房间id
+
+class GenerateToken(object):
+    def __init__(self):
+        self.app_id = app_id_str
+        self.app_secret = app_secret_str
+
+    @staticmethod
+    def get_headerbase64(app_id, user_id, room_id):
+        params_data = """{"user_id":"%s","room_id":"%s","app_id":"%s"}""" % (
+            str(user_id), str(room_id), str(app_id))
+            
+        headerbase64 = str(base64.b64encode(params_data.encode("utf-8")), "utf-8")
+        return headerbase64
+
+    @staticmethod
+    def get_random_hex():
+        random_int = random.randint(10000000, 99999999)
+        return str(random_int)
+
+    @staticmethod
+    def get_timestamp():
+        timestamp = round(time.time())
+        return str(timestamp)
+
+    @staticmethod
+    def get_encrypt_hmac_sha1(app_secret, data):
+        sha1_str = hmac.new(app_secret.encode(encoding="utf-8"), data.encode(encoding="utf8"), sha1)
+        secret = sha1_str.hexdigest()
+        return secret
+
+    def generate_sign(self, user_id, room_id):
+        base64_str = self.get_headerbase64(self.app_id, user_id, room_id)
+        timestamp = self.get_timestamp()
+        random_str = self.get_random_hex()
+        list_str = [user_id, self.app_id, timestamp, random_str, room_id]
+        strformat = "".join(list_str)
+        sign = self.get_encrypt_hmac_sha1(self.app_secret, strformat)
+        signture = "{}{}{}".format(sign, timestamp, random_str)
+        token = "{}.{}".format(base64_str, signture)
+        return token
 ```
 
 <!-- tabs:end -->
