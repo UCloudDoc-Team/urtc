@@ -1,18 +1,13 @@
 # Token生成指导
-
 ## 1. 参考实现代码
-
  - 测试环境中，可以通过客户端自行生成`Token` ，以便尽快开始集成测试。
  - 生产环境中，需要在后台服务器中部署`Token` 服务。客户端加入房间之前，向后台服务器申请`Token` ，以保证`Token` 的安全性。
- 
- 生成`Token`时，客户端会传入`userID`、`roomID`、`AppID`，服务端通过这些传入的参数和`AppKey`生成`Token` 。
-
- - `userID`，自定义的用户id
- - `roomID`，自定义的房间id
- - `AppID`，UCloud控制台创建项目获取到的AppID
- - `AppKey`，UCloud控制台创建项目获取到的AppKey
-  
- 这里提供几种参考代码，供直接使用。
+生成`Token`时，客户端会传入`userID`、`roomID`、`AppID`，服务端通过这些传入的参数和`AppKey`生成`Token` 。
+>  `userID`，自定义的用户id
+>  `roomID`，自定义的房间id
+>  `AppID`，UCloud控制台创建项目获取到的AppID
+>  `AppKey`，UCloud控制台创建项目获取到的AppKey
+这里提供几种参考代码，供直接使用。
 
 <!-- tabs:start -->
 
