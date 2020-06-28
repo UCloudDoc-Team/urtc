@@ -208,7 +208,7 @@ generateToken({
         $token = "";
         try {
             $header = ['user_id'=>$uid, 'room_id'=>$roomid, 'app_id'=>$appid];
-	      //uid为自定义的用户id
+              //uid为自定义的用户id
               //roomId为自定义的房间id
               //appid为UCloud控制台上创建URTC应用时生成的appid
             $headerjson = json_encode($header);
@@ -228,11 +228,10 @@ generateToken({
 
         $plain_str = $uid.$appid.$time_stamp.$rand_num.$roomid;
         $encrypted_str = bin2hex(mhash(MHASH_SHA1,$plain_str,$appkey));
-        return $encrypted_str;
+        return $encrypted_str.$time_stamp.$rand_num;
     }
 
 }
-
 
 ```
 
