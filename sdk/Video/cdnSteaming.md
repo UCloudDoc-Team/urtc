@@ -337,4 +337,4 @@ hls播放地址为：http://hls.company.com/test/{Roomid}/playlist.m3u8
 
  - 开启旁路推流时，房间内必须有人发布流。
  - 旁路推流，混流时的合成风格，可以参考 [混流风格](urtc/cloudRecord/RecordLaylout)。
- - 旁路推流时，可以设置推流到Ulive、第三方CDN，然后通过拉流地址观看。
+ - 旁路推流时，可以设置推流到直播云ULive、第三方CDN，然后通过拉流地址观看。
