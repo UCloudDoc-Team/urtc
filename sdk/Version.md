@@ -10,7 +10,7 @@
 1. 修复 updateRecordStreams 和 updateRelayStreams 方法在 replace 模式下，未变更 mainViewUId 和 mainViewType 的问题
 2. 修复 updateRecordStreams 和 updateRelayStreams 方法变更 streamAddMode 添流模式的问题
 3. 修复录制/转推日志上报问题
-4. 新增 "1280*720_1", "1280*720_2", "1920\*1080_1", "1920\*1080_2" 四种 profile
+4. 新增 "1280\*720_1", "1280\*720_2", "1920\*1080_1", "1920\*1080_2" 四种 profile
 
 
 ## 1.5.14版
