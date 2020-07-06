@@ -3,6 +3,80 @@
 <!-- tabs:start -->
 
 # ** Web **
+## 1.5.9版
+
+该版本发布于 2020-06-16。
+
+## 1.5.9版
+
+该版本发布于 2020-06-16。
+
+## 1.5.9版
+
+该版本发布于 2020-06-16。
+
+
+## 1.5.17版
+
+该版本发布于 2020-07-03。
+
+1. 修复 updateRecordStreams 和 updateRelayStreams 方法在 replace 模式下，未变更 mainViewUId 和 mainViewType 的问题
+2. 修复 updateRecordStreams 和 updateRelayStreams 方法变更 streamAddMode 添流模式的问题
+3. 修复录制/转推日志上报问题
+4. 新增 "1280*720_1", "1280*720_2", "1920\*1080_1", "1920\*1080_2" 四种 profile
+
+
+## 1.5.14版
+
+该版本发布于 2020-06-24。
+
+1. 修复 queryMix 查询未开启录制/转推任务的房间时，返回错误的问题
+2. 修复 live 模式下屏幕共享时帧率升不上去的问题
+3. 修复无 network-quality 报告的问题
+4. 上报加入房间失败时的日志
+
+## 1.5.10版
+
+该版本发布于 2020-06-16。
+
+1. 修复连续快速播放并停止播放播放时出现不能完全停止播放的问题
+2. 新增 publishStream 和 unpublishStream 方法，用于发布/取消发布 createStream 创建的流
+3. 将 removeStream 方法更名为 destroyStream
+4. 修复 createStream 创建屏幕共享流时可能会关闭麦克风失败的问题
+
+## 1.5.9版
+
+该版本发布于 2020-06-16。
+
+1. 新增 updateRecordStreams 及 updateRelayStreams 的 replace 操作类型，用于完整替换（切换）录制/转推的流
+
+## 1.5.8版
+
+该版本发布于 2020-06-12。
+
+1. 新增 setVideoProfile 方法，可用于未发布的流的video profile的更改。
+
+
+## 1.5.7版
+
+该版本发布于 2020-06-12。
+
+1. 新增 removeStream 方法，用于删除通过 createStream 创建且未发布的流
+2. 修复 createStream 创建的屏幕共享预览流，无 screenshare-stopped 事件通知的问题
+3. 修复 resume 后 getAudioVolume 仍无法获取正确音量的问题
+4. 修复 mute 订阅流未通知到服务器的问题
+5. 修复未订阅流时，收到 mute 信令，但 sdk 未修正该流的 mute 状态的问题
+6. 修复通过 createStream 创建的流未暴露 mediaStream 的问题
+7. 修复部分浏览器在屏幕共享时报错而无法推流的问题
+
+## 1.5.6版
+
+该版本发布于 2020-06-08。
+
+1. 新增 stop 方法，用于停止播放一条流
+2. 新增 createStream 方法，用于创建本地（预览）流，便于预览及直接发布
+3. 修复对后台返回 null 消息时的处理
+4. 修复对后台发送多余 userst 消息的处理
 
 ## 1.5.5版
 
