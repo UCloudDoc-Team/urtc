@@ -321,11 +321,11 @@ self.manager?.deleteMixStream(streams);
 
 <!-- tabs:end -->
 
-## 4. 播放CDN直播流
+## 4. 播放直播流
 
-不同CDN直播服务平台的CDN直播流域名规则，不完全相同，这里只以UCloud的 [直播云ULive](https://docs.ucloud.cn/ulive/README) 举例。    
+不同直播服务平台的直播流域名规则，不完全相同，这里只以UCloud的 [直播云ULive](https://docs.ucloud.cn/ulive/README) 举例。    
 
-推流域名：publish.company.com，接入点：test。rtmp播放域名：rtmp.company.com， hls播放域名：hls.company.com 。    
+示例： 推流域名：publish.company.com，接入点：test。rtmp播放域名：rtmp.company.com， hls播放域名：hls.company.com 。    
 则    
 推流地址为： rtmp://publish.company.com/test/{Roomid}       
 rtmp播放地址为： rtmp://rtmp.company.com/test/{Roomid}    
