@@ -188,8 +188,8 @@ RTMP_STREAM_PUBLISH_STATE_EXCEPTIONSTOP
 
 ```java
 UCloudRtcSdkMixProfile mixProfile = new UCloudRtcSdkMixProfile();
-//同时支持转推+录制。MIX_TYPE_TRANSCODING_PUSH：单推流，MIX_TYPE_RECORD：单录像
-mixProfile.setType(MIX_TYPE_BOTH);
+//MIX_TYPE_TRANSCODING_PUSH：旁路推流
+mixProfile.setType(MIX_TYPE_TRANSCODING_PUSH);
 //讲课模式。 LAYOUT_AVERAGE：均分模式，LAYOUT_CUSTOM：自定义模式
 mixProfile.setLayout(LAYOUT_CLASS_ROOM);
 //画面分辨率
@@ -244,7 +244,7 @@ sdkEngine.delMixStream("testId", UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal());
 
 ```swift
 let mixConfig = UCloudRtcMixConfig.init();
-mixConfig.type = 1; //1 转推  3 转推和录制
+mixConfig.type = 1; //1 旁路推流
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
 mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yketwz111"]; //转推地址
 mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
@@ -264,7 +264,7 @@ self.manager?.startMix(mixConfig);
 
 ```objectivec
 UCloudRtcMixConfig *mixConfig = [UCloudRtcMixConfig new];
-mixConfig.type = 1; //1 转推  3 转推和录制
+mixConfig.type = 1; //1 旁路推流
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
 mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yketwz111"]; //转推地址
 mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
@@ -284,7 +284,7 @@ mixConfig.height = 1280; //画面分辨率 高
 ### iOS停止旁路推流
 
 ```swift
-//类型是转推+录制,地址留空停止对所有url的转推
+//地址留空停止对所有url的转推
 let mixStopConfig = UCloudRtcMixStopConfig.init()
 mixStopConfig.type = 1;
 mixStopConfig.pushurl = @[@""];
