@@ -10,7 +10,7 @@
 
 > 电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器。 
 
-[WEB DEMO 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-js-demo.zip) 
+[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo%E6%BA%90%E7%A0%81%2Furtc-js-demo-master-20200707.zip) 
 
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
 
@@ -30,7 +30,7 @@
 
 扫描二维码下载 或 用手机浏览器输入这个网址：https://app.urtc.com.cn/vy1e 
 
-[iOS app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2FUCloudRtcSdk-ios-demo-20200325.zip)
+[iOS app 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo%E6%BA%90%E7%A0%81%2Furtc-ios-demo-master-20200707.zip)
 
 [iOS app 源码-GitHub](https://github.com/ucloud/urtc-ios-demo)
 
@@ -40,6 +40,6 @@
 
 [立即体验](http://urtcdemo.cn-bj.ufileos.com/URTCwindowsDEMOx8620200426v.zip) 
 
-[Windows客户端 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-win-demo.rar)
+[Windows客户端 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo%E6%BA%90%E7%A0%81%2Furtc-win-demo-master-20200707.zip)
 
 [Windows客户端 源码-GitHub](https://github.com/ucloud/urtc-win-demo)
