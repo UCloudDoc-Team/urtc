@@ -2,32 +2,35 @@
 
 <!-- tabs:start -->
 
-# ** Web **
+## ** Web **
 
 视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。    
 
-## 实现方法
+### 实现方法
 
 balabala……    
 
-## 示例代码
+### 示例代码
 
 balabala……    
 
-## 开发注意事项
-
-balabala……  
-
-# ** Windows **
+## ** Windows **
 
 视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。      
 
+### 实现方法
 
-# ** Android **
+balabala……    
+
+### 示例代码
+
+balabala……    
+
+## ** Android **
 
 视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。  
 
-## 示例代码
+### 示例代码
 
 view传本地的就是本地截图，远端的view就是远端的截图。    
 
@@ -58,11 +61,11 @@ private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
 }
 ```
 
-# ** iOS **
+## ** iOS **
 
 视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。    
 
-## 示例代码
+### 示例代码
 
 view传本地的就是本地截图，远端的view就是远端的截图。  
 
@@ -76,4 +79,8 @@ view传本地的就是本地截图，远端的view就是远端的截图。
 
 
 <!-- tabs:end -->
+
+## 开发注意事项
+
+balabala……  
 
