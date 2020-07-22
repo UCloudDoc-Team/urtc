@@ -8,9 +8,7 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 
 # ** Web **
 
-* Chrome及firefox 屏幕共享
-
-> 注：在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
+在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
 ## 无插件屏幕共享
 
