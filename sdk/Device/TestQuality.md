@@ -21,28 +21,120 @@
      - [200,400) 下行网络质量较差
      - ≧ 400 下行网络质量很差
 
+通过 getAudioStats 方法、getVideoStats 方法获取详细的网络情况：
 
-通过getAudioStats 方法、getVideoStats 方法获取详细的网络情况：
+| getAudioStats 方法 | 反馈的参数意义                                                                            |
+| ------------------ | ----------------------------------------------------------------------------------------- |
+| br 码率            | 音频码率 24~48Kbps 之间可以认为代表码率稳定；<br>低于 24Kbps 时，码率过低，会影响声音质量 |
+| lostpre  丢包率    | 丢包率在 10%以内，可以认为网络稳定；<br>大于 10%时，网络丢包严重                          |
+| vol 声音大小       | 声音大小持续在 1-100 之间变化，可以认为声音正常；<br>持续小于 20 时，音量可能过小         |
+| mime 编码格式      | 固定为 opus                                                                               |
 
-| getAudioStats 方法 | 反馈的参数意义|
-|-|-|
-|br 码率|音频码率24~48Kbps之间可以认为代表码率稳定；<br>低于24Kbps时，码率过低，会影响声音质量|
-|lostpre  丢包率 |丢包率在10%以内，可以认为网络稳定；<br>大于10%时，网络丢包严重|
-|vol 声音大小 | 声音大小持续在1-100之间变化，可以认为声音正常；<br>持续小于20时，音量可能过小|
-|mime 编码格式|固定为 opus|
-
-| getVideoStats 方法 | 反馈的参数意义|
-|-|-|
-| br 码率| 视频根据不同参数情况，码率范围不一；<br>可以根据 查看[不同参数的视频码率](https://github.com/ucloud/urtc-sdk-web#getsupportprofilenames)要求 |
-| lostpre 丢包率|丢包率在10%以内，可以认为网络稳定；<br>大于10%时，网络丢包严重|
-| frt 帧率|视频根据不同参数情况，帧率不一|
-| w 视频宽度|视频根据不同参数情况，宽高不一|
-| h 视频高度|视频根据不同参数情况，宽高不一|
-| mime: 编码格式|'vp8' 或 'h264'|
+| getVideoStats 方法 | 反馈的参数意义                                                                                                                                 |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| br 码率            | 视频根据不同参数情况，码率范围不一；<br>可以根据 查看 [不同参数的视频码率](https://github.com/ucloud/urtc-sdk-web#getsupportprofilenames) 要求 |
+| lostpre 丢包率     | 丢包率在 10%以内，可以认为网络稳定；<br>大于 10%时，网络丢包严重                                                                               |
+| frt 帧率           | 视频根据不同参数情况，帧率不一                                                                                                                 |
+| w 视频宽度         | 视频根据不同参数情况，宽高不一                                                                                                                 |
+| h 视频高度         | 视频根据不同参数情况，宽高不一                                                                                                                 |
+| mime: 编码格式     | 'vp8' 或 'h264'                                                                                                                                |
 
 ## 示例代码
 
-参考以下示例代码，在你的项目中进行通话前网络质量探测。
+#### getNetworkStats
+```
+client.getNetworkStats(StreamId, onSuccess, onFailure)
+```
+##### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
+  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(NetworkStats) {}
+```
+
+函数参数 NetworkStats 为返回值，为 object 类型，类型说明如下：
+
+```
+{
+  rtt: number   //  往返时延，单位 ms
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+#### getAudioStats
+```
+client.getAudioStats(StreamId, onSuccess, onFailure)
+```
+##### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
+  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(AudioStats) {}
+```
+
+函数参数 AudioStats 为返回值，为 object 类型，类型说明如下：
+
+```
+{
+  br: number        // 码率
+  lostpre: number   // 丢包率
+  vol: number       // 声音大小
+  mime: string      // 编码格式，固定为 opus
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
+
+#### getVideoStats
+```
+client.getVideoStats(StreamId, onSuccess, onFailure)
+```
+##### 参数说明
+
+- StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
+  
+- onSuccess: function 类型，选传，方法调用成功时执行的回调函数，函数说明如下
+
+```
+function onSuccess(VideoStats) {}
+```
+
+函数参数 AudioStats 为返回值，为 object 类型，类型说明如下：
+
+```
+{
+  br: number        // 码率
+  lostpre: number   // 丢包率
+  frt: number       // 帧率
+  w: number         // 视频宽度
+  h: number         // 视频高度
+  mime: string      // 编码格式，'vp8' 或 'h264'
+}
+```
+
+- onFailure: 选传，函数类型，方法调用失败时执行的回调函数。
+
+```
+function(Err) {}
+```
+Err 为错误信息
 
 ## 开发注意事项
 
