@@ -41,11 +41,17 @@
 
 ## 示例代码
 
-#### getNetworkStats
+
+
+
+## 相关API
+
+### getNetworkStats方法
+
 ```
 client.getNetworkStats(StreamId, onSuccess, onFailure)
 ```
-##### 参数说明
+#### 参数说明
 
 - StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
   
@@ -70,11 +76,11 @@ function(Err) {}
 ```
 Err 为错误信息
 
-#### getAudioStats
+### getAudioStats 方法
 ```
 client.getAudioStats(StreamId, onSuccess, onFailure)
 ```
-##### 参数说明
+#### 参数说明
 
 - StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
   
@@ -102,11 +108,12 @@ function(Err) {}
 ```
 Err 为错误信息
 
-#### getVideoStats
+### getVideoStats方法
+
 ```
 client.getVideoStats(StreamId, onSuccess, onFailure)
 ```
-##### 参数说明
+#### 参数说明
 
 - StreamId: string 类型，可选，本地或远端流的 ID 即 [Stream](#stream) 的 sid 属性值，当不传时，默认获取第一条本地流的网络状态
   
