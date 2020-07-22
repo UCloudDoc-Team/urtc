@@ -15,7 +15,7 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 ## 无插件屏幕共享
 
 下表中的浏览器，可以使用无插件屏幕分享。   
-| windows系统 | mac |
+| windows 7+ 系统 | macOS 10.0+ 系统 |
 |-|-|
 | Chrome 72+ | Chrome 72+ |
 | Firefox 66+ | Firefox 66+|
