@@ -57,7 +57,7 @@ client.getAudioStats(StreamId, (AudioStats) => {
 
 ```
 
-通过 getAudioStats 方法、getVideoStats 方法获取详细的网络情况：
+在网络不好的情况，可以通过 getAudioStats 方法、getVideoStats 方法获取详细的网络情况，可以选择保存这些信息作为上报故障时的日志：
 
 | getAudioStats 方法 | 反馈的参数意义                                                                            |
 | ------------------ | ----------------------------------------------------------------------------------------- |
