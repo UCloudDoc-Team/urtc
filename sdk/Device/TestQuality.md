@@ -26,10 +26,6 @@
 ## 示例代码
 
 ```
-import sdk, { Client } from "urtc-sdk";
-
-let client = new Client(AppId, Token, ClientOptions);
-
 client.getNetworkStats(StreamId, (NetworkStats) => {
   const { rtt } = NetworkStats;
   console.log(`Stream accessDelay : ${rtt}ms`)
