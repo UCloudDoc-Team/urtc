@@ -9,14 +9,14 @@
 在正式加入房间前，可以在本地创建两个 Client，然后一个客户端发布流、一个客户端订阅流，进入同一个测试用的房间。  
 其中发布流用来测上行网络的连接状况，另一路订阅流测下行网络的连接状况。
 
-- 1、调用 client.publish 方法发布一路流后，你可以调用 getNetworkStats 方法、getAudioStats 方法、getVideoStats 方法，获取上行网络连接数据。  
+- 1、调用 client.publish 方法发布流后，你可以调用 getNetworkStats 方法、getAudioStats 方法、getVideoStats 方法，获取上行网络连接数据。  
   可以通过反馈的 getNetworkStats RTT 值大致判断上行网络的质量：
 
   - [0,100) 上行网络质量好
   - [100,200) 上行网络质量较差
   - ≧ 200 上行网络质量很差
 
-- 2、调用 client.subscribe 成功订阅第二路流后，你也可以调用 getNetworkStats 方法、getAudioStats 方法、getVideoStats 方法 方法获取下行网络连接数据。  
+- 2、调用 client.subscribe 成功订阅流后，你也可以调用 getNetworkStats 方法、getAudioStats 方法、getVideoStats 方法 方法获取下行网络连接数据。  
   可以通过 NetworkStats RTT 值大致判断下行网络的质量：
   - [0,200) 下行网络质量好
   - [200,400) 下行网络质量较差
