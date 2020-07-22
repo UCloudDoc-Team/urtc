@@ -33,8 +33,8 @@ client.getNetworkStats(StreamId, (NetworkStats) => {
   console.log(error);
 })
 
-client.getVideoStats(StreamId, (AudioStats) => {
-  const { br, lostpre, frt, w, h, mime } = NetworkStats;
+client.getVideoStats(StreamId, (VideoStats) => {
+  const { br, lostpre, frt, w, h, mime } = VideoStats;
   console.log(`Stream  br : ${br}`)
   console.log(`Stream  lostpre : ${lostpre}`)
   console.log(`Stream  frt : ${frt}`)
@@ -46,7 +46,7 @@ client.getVideoStats(StreamId, (AudioStats) => {
 })
 
 client.getAudioStats(StreamId, (AudioStats) => {
-  const { br, lostpre, vol, mime } = NetworkStats;
+  const { br, lostpre, vol, mime } = AudioStats;
   console.log(`Stream  br : ${br}`)
   console.log(`Stream  lostpre : ${lostpre}`)
   console.log(`Stream  vol : ${vol}`)
