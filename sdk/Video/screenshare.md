@@ -8,7 +8,9 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 
 # ** Web **
 
-在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
+* Chrome及firefox 屏幕共享
+
+> 注：在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
 ## 无插件屏幕共享
 
@@ -33,9 +35,6 @@ client.publish(
     video: boolean, // 必填，指定是否使用摄像头设备
     screen: boolean, // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
   },
-  succ => {
-    console.log("add screen stream success ", succ);
-  },
   err => {
     console.log("add screen stream  failure ", err);
   }
@@ -57,9 +56,6 @@ client.publish(
     video: boolean, // 必填，指定是否使用摄像头设备
     screen: boolean, // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
     extensionId?: string // 选填，指定使用的Chrome插件的 extensionId，使用Chrome屏幕共享插件时必填
-  },
-  succ => {
-    console.log("add screen stream success ", succ);
   },
   err => {
     console.log("add screen stream  failure ", err);
