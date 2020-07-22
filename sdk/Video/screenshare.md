@@ -14,8 +14,20 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 
 ## 无插件屏幕共享
 
-Chrome 72及以上版本，可以使用无插件屏幕分享。   
-在 Chrome、firefox 上共享屏幕时 调用`publish`方法把`video`字段设为 `false`， `screen` 字段设为 `true` 即可。   
+下表中的浏览器，可以使用无插件屏幕分享。   
+| windows系统 | mac |
+|-|-|
+| Chrome 72+ | Chrome 72+ |
+| Firefox 66+ | Firefox 66+|
+| Opera 60+ | NA |
+| Edge 79+ | NA |
+| 360极速浏览器12+ | NA |
+| 360 安全浏览器 12+ | NA |
+| NA | Safari 13+ |
+| NA | Opera 60+ |
+
+
+在以上浏览器中共享屏幕时 调用`publish`方法把`video`字段设为 `false`， `screen` 字段设为 `true` 即可。   
 
 ```js
 client.publish(
