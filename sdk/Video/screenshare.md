@@ -31,7 +31,7 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 ```js
 client.publish(
   {
-     audio: boolean, // 必填，指定是否使用麦克风设备
+    audio: boolean, // 必填，指定是否使用麦克风设备
     video: boolean, // 必填，指定是否使用摄像头设备
     screen: boolean, // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
   },
