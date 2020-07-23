@@ -2,7 +2,7 @@
 
 可以调整视频画面的清晰度和流畅度，获得较高的用户体验。    
 
-通过 ？ 方法来设置包含视频分辨率、帧率、码率、方向模式等参数。   
+通过视频的profile方法来设置包含视频分辨率、帧率、码率、方向模式等参数。   
 
 
 <!-- tabs:start -->
@@ -12,11 +12,19 @@
 
 ### 实现方法
 
-balabala……    
+设置视频的 profile（通过getSupportProfileNames获取到视频质量的值，不设置时，默认为 "640*480"）限制 client 使用的视频大小、帧率、带宽等。 
 
 ### 示例代码
-
-balabala……    
+```js
+client.setVideoProfile({
+  previewId?: string,   // 选填，本地（预览）流的 previewId，不填时，为修改全局的 video profile 设置，供后续创建或发布的流使用
+  profile: string      // 必填，指定 video profile
+}, function() {
+ //成功时回调
+}, function(Err){
+ //失败时回调，Err 为错误信息
+})
+```  
 
 
 ## ** Windows **
