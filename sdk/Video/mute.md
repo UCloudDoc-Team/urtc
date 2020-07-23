@@ -7,21 +7,21 @@
 
 各个客户端API方法稍有差异，这里罗列出API方法供调用。
 
-Web  | 方法说明
+Web API | 方法说明
 :-: | :-: 
 muteAudio 方法	 | 禁用音频轨道，可以关闭本端、远端音频，根据stream设置
 unmuteAudio 方法	 | 启用音频轨道，可以打开本端、远端音频，根据stream设置
 muteVideo 方法	 | 禁用视频轨道，可以关闭本端、远端视频，根据stream设置
 unmuteVideo 方法	 | 启用视频轨道，可以打开本端、远端视频，根据stream设置
 
-Windows  |  方法说明
+Windows API |  方法说明
 :-: | :-: 
 muteLocalMic 方法	 | 打开/关闭本地麦克风
 muteLocalVideo 方法	 | 打开/关闭本地视频
 muteRemoteAudio 方法	 | 打开/关闭远端音频
 muteRemoteVideo 方法	 | 打开/关闭远端视频
 
-Android |  方法说明
+Android API |  方法说明
 :-: | :-: 
 muteLocalMic 方法	 | 打开关闭本地音频
 muteLocalVideo 方法	 | 打开关闭本地视频
@@ -29,7 +29,7 @@ muteRemoteAudio 方法	 | 打开关闭远端音频
 muteRemoteScreen 方法	 | 打开关闭远端桌面
 muteRemoteVideo 方法	 | 打开关闭远端视频
 
-iOS |  方法说明
+iOS API |  方法说明
 :-: | :-: 
 setMute 方法	 | 设置本地流是否静音
 openCamera 方法	 | 设置本地流是否禁用视频
