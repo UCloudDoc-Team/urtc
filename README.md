@@ -24,15 +24,28 @@ RTC产品，按照客户端的接收的音视频（客户端的下行），实�
 
 ## [SDK集成指南](/urtc/sdk/index)
 
-SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推的方法。
+SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成方法，SDK版本说明，集成URTC SDK步骤，各种常用及高级功能。
 
 * [URTC常用术语](urtc/sdk/term)
 * [Token生成指导](/urtc/sdk/token)
 * [SDK版本说明](/urtc/sdk/Version)
 * [快速集成SDK](/urtc/sdk/VideoStart)    
-* [屏幕共享](/urtc/sdk/Video/screenshare)    
-* [播放混音](/urtc/sdk/Audio/AudioMixing)   
-* [旁路推流](/urtc/sdk/Video/cdnSteaming)    
+* 常用功能
+		* [屏幕共享](/urtc/sdk/Video/screenshare)     
+		* [关闭音视频](/urtc/sdk/Video/mute)    
+		* [设置视频参数](/urtc/sdk/Video/videoProfile)   
+	    * [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch) 
+* 高级功能
+		* [旁路推流](/urtc/sdk/Video/cdnSteaming)     
+		* [调整音量](/urtc/sdk/Audio/AudioVolume)   		
+		* [播放混音](/urtc/sdk/Audio/AudioMixing)   	
+		* [视频快照](/urtc/sdk/Video/videoSnap)   
+		* [视频采集旋转](urtc/sdk/Video/VideoRotation)   
+		* [自定义视频采集](/urtc/sdk/Video/CustomVideoInput)   
+		* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
+		* [通话中质量监测](/urtc/sdk/Device/CallQuality)   
+		* [自动断网重连策略](/urtc/sdk/Device/ReConnect)   
+		* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)  
 
 ## [云端录制](/urtc/cloudRecord/index)  
 
