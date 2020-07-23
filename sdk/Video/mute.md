@@ -9,10 +9,10 @@
 
 Web API|方法说明
 :-: | :-: 
-muteAudio 方法	 | 禁用音频轨道，可以关闭本端、远端音频，根据stream设置
-unmuteAudio 方法	 | 启用音频轨道，可以打开本端、远端音频，根据stream设置
-muteVideo 方法	 | 禁用视频轨道，可以关闭本端、远端视频，根据stream设置
-unmuteVideo 方法	 | 启用视频轨道，可以打开本端、远端视频，根据stream设置
+muteAudio 方法	 | 关闭本地麦克风，可以关闭本端、远端音频，根据stream设置
+unmuteAudio 方法	 | 打开本地麦克风，可以打开本端、远端音频，根据stream设置
+muteVideo 方法	 | 关闭本地视频，可以关闭本端、远端视频，根据stream设置
+unmuteVideo 方法	 | 打开远端视频，可以打开本端、远端视频，根据stream设置
 
 Windows API|方法说明
 :-: | :-: 
@@ -23,15 +23,15 @@ muteRemoteVideo 方法	 | 打开/关闭远端视频
 
 Android API|方法说明
 :-: | :-: 
-muteLocalMic 方法	 | 打开关闭本地音频
-muteLocalVideo 方法	 | 打开关闭本地视频
-muteRemoteAudio 方法	 | 打开关闭远端音频
-muteRemoteScreen 方法	 | 打开关闭远端桌面
-muteRemoteVideo 方法	 | 打开关闭远端视频
+muteLocalMic 方法	 | 打开/关闭本地麦克风
+muteLocalVideo 方法	 | 打开/关闭本地视频
+muteRemoteAudio 方法	 | 打开/关闭远端音频
+muteRemoteVideo 方法	 | 打开/关闭远端视频
+muteRemoteScreen 方法	 | 打开/关闭远端桌面
 
 iOS API|方法说明
 :-: | :-: 
-setMute 方法	 | 设置本地流是否静音
-openCamera 方法	 | 设置本地流是否禁用视频
-setRemoteStream:muteVideo 方法	 | 设置远程流是否禁用视频
-setRemoteStream:muteAudio 方法	 | 设置远程流是否禁用音频
+setMute 方法	 | 打开/关闭本地麦克风
+openCamera 方法	 | 打开/关闭本地视频
+setRemoteStream:muteVideo 方法	 | 打开/关闭远端音频
+setRemoteStream:muteAudio 方法	 | 打开/关闭远端视频
