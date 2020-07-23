@@ -15,14 +15,14 @@ muteVideo 方法	 | 关闭视频，可以关闭本端、远端视频，根据Str
 unmuteVideo 方法	 | 打开视频，可以打开本端、远端视频，根据StreamId设置
 
 Windows API|方法说明
- -:: | -:: 
+:-: |:-: 
 muteLocalMic 方法	 | 打开/关闭本地麦克风
 muteLocalVideo 方法	 | 打开/关闭本地视频
 muteRemoteAudio 方法	 | 打开/关闭远端音频
 muteRemoteVideo 方法	 | 打开/关闭远端视频
 
 Android API|方法说明
- -:: | -:: 
+:-: |:-: 
 muteLocalMic 方法	 | 打开/关闭本地麦克风
 muteLocalVideo 方法	 | 打开/关闭本地视频
 muteRemoteAudio 方法	 | 打开/关闭远端音频
@@ -30,7 +30,7 @@ muteRemoteVideo 方法	 | 打开/关闭远端视频
 muteRemoteScreen 方法	 | 打开/关闭远端桌面
 
 iOS API|方法说明
- -:: | -:: 
+:-: |:-: 
 setMute 方法	 | 打开/关闭本地麦克风
 openCamera 方法	 | 打开/关闭本地视频
 setRemoteStream:muteVideo 方法	 | 打开/关闭远端音频
