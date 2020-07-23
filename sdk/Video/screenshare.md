@@ -20,9 +20,9 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 | Firefox 66+ | Firefox 66+|
 | Opera 60+ | Opera 60+ |
 | Edge 79+ | NA |
-| 360极速浏览器12+ | NA |
+| 360 极速浏览器12+ | NA |
 | 360 安全浏览器 12+ | NA |
-| NA | Safari 13+ |
+| NA | 苹果Safari 13+ |
 
 
 在以上浏览器中共享屏幕时 调用`publish`方法把`video`字段设为 `false`， `screen` 字段设为 `true` 即可。   
