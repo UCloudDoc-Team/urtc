@@ -9,10 +9,10 @@
 
 Web API|方法说明
 :-: | :-: 
-muteAudio 方法	 | 关闭麦克风，可以关闭本端、远端音频，根据stream设置
-unmuteAudio 方法	 | 打开麦克风，可以打开本端、远端音频，根据stream设置
-muteVideo 方法	 | 关闭视频，可以关闭本端、远端视频，根据stream设置
-unmuteVideo 方法	 | 打开视频，可以打开本端、远端视频，根据stream设置
+muteAudio 方法	 | 关闭麦克风，可以关闭本端、远端音频，根据StreamId设置
+unmuteAudio 方法	 | 打开麦克风，可以打开本端、远端音频，根据StreamId设置
+muteVideo 方法	 | 关闭视频，可以关闭本端、远端视频，根据StreamId设置
+unmuteVideo 方法	 | 打开视频，可以打开本端、远端视频，根据StreamId设置
 
 Windows API|方法说明
 :-: | :-: 
