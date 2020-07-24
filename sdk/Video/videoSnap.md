@@ -27,36 +27,46 @@ client.snapshot({
 
 ## ** Android **
 
+视频快照，可以将采集的本地视频或者接收的远端视频，截图保存到本地。  
 
 ### 示例代码
 
 view传本地的就是本地截图，远端的view就是远端的截图。    
 
-```js
-private void addScreenShotCallBack(UCloudRtcSdkSurfaceVideoView view){
-        view.setScreenShotBack(new UcloudRTCSceenShot() {
-            @Override
-            public void onReceiveRGBAData(ByteBuffer rgbBuffer, int width, int height) {
-                final Bitmap bitmap = Bitmap.createBitmap(width * 1, height * 1, Bitmap.Config.ARGB_8888);
-                bitmap.copyPixelsFromBuffer(rgbBuffer);
-                String name = "/mnt/sdcard/urtcscreen_"+System.currentTimeMillis() +".jpg";
-                File file = new File(name);
-                try {
-                    FileOutputStream out = new FileOutputStream(file);
-                    if (bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)) {
-                        out.flush();
-                        out.close();
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+
+```java
+    private UCloudRTCScreenShot mUCloudRTCScreenShot = new UCloudRTCScreenShot() {
+        @Override
+        public void onReceiveRGBAData(ByteBuffer rgbBuffer, int width, int height) {
+            final Bitmap bitmap = Bitmap.createBitmap(width * 1, height * 1, Bitmap.Config.ARGB_8888);
+            bitmap.copyPixelsFromBuffer(rgbBuffer);
+            String name = "/mnt/sdcard/urtcscreen_"+System.currentTimeMillis() +".jpg";
+            File file = new File(name);
+            try {
+                FileOutputStream out = new FileOutputStream(file);
+                if (bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out)) {
+                    out.flush();
+                    out.close();
                 }
-                Log.d(TAG, "screen shoot : " + name);
-                ToastUtils.shortShow(RoomActivity.this,"screen shoot : " + name);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        });
-}
+            Log.d(TAG, "screen shoot : " + name);
+            ToastUtils.shortShow(RoomActivity.this,"screen shoot : " + name);
+        }
+    };
+	
+	private void addScreenShotCallBack(View view){		
+        if(view instanceof UCloudRtcSdkSurfaceVideoView){//view类型是UCloudRtcSdkSurfaceVideoView类型
+            ((UCloudRtcSdkSurfaceVideoView)view).setScreenShotBack(mUCloudRTCScreenShot);
+        }else if(view instanceof UCloudRtcRenderView){//view类型是UCloudRtcRenderView类型
+            ((UCloudRtcRenderView)view).setScreenShotBack(mUCloudRTCScreenShot);
+        }else if(view instanceof TextureView) {//view类型是TextureView类型
+            ((TextureView)view).setScreenShotBack(mUCloudRTCScreenShot);
+        }
+    }
 ```
 
 ## ** iOS **
