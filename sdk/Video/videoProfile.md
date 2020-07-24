@@ -39,14 +39,71 @@ balabala……
 
 ## ** Android **
 
+可以调整视频画面的清晰度和流畅度，获得较高的用户体验。    
+
+通过setVideoProfile方法来设置包含视频分辨率、帧率、码率等参数。  
+
 ### 实现方法
 
-balabala……    
+public UCloudRtcSdkErrorCode setVideoProfile(UCloudRtcSdkVideoProfile profile);
+
+UCloudRtcSdkVideoProfile类型说明如下：
+```java
+    /**
+     * 视频配置分辨率 320*180,对应传输最小码率 100kbps 最大码率 200kbps 初始码率 100kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_320_180,
+    /**
+     * 视频配置分辨率 352_288,对应传输最小码率 100kbps 最大码率 300kbps 初始码率 200kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_352_288,
+    /**
+     * 视频配置分辨率 480_360,对应传输最小码率 100kbps 最大码率 400kbps 初始码率 200kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_480_360,
+    /**
+     * 视频配置分辨率 640_360,对应传输最小码率 200kbps 最大码率 400kbps 初始码率 300kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_640_360,
+    /**
+     * 视频配置分辨率 640_480,对应传输最小码率 200kbps 最大码率 500kbps 初始码率 300kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480,
+    /**
+     * 视频配置分辨率 1280_720,对应传输最小码率 500kbps 最大码率 1000kbps 初始码率 600kbps
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720,
+
+    /**
+     * 用于外部扩展接入时，会把最低码率，起始码率设置成1500 kbps 可调用extendParams 设置fps,width * height，不设置默认值为25fps,640 * 480
+     * 同时会影响到录像的分辨率，相关请参考{@link UCloudRtcSdkCaptureMode}
+     */
+    UCLOUD_RTC_SDK_VIDEO_PROFILE_EXTEND,
+
+    /**
+     * 标清,关联录制房间视频的分辨率 640*360以下
+     */
+    UCLOUD_RTC_SDK_VIDEO_RESOLUTION_STANDARD,
+
+    /**
+     * 高清，关联录制房间视频的分辨率 720p及以下
+     */
+    UCLOUD_RTC_SDK_VIDEO_RESOLUTION_HIGH,
+
+    /**
+     * 超清，关联录制房间视频的分辨率 720p及以上
+     */
+    UCLOUD_RTC_SDK_VIDEO_RESOLUTION_SUPER_HIGH;
+
+``` 
 
 ### 示例代码
 
-balabala……  
+```java
+//设置640*480分辨率
+sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480);
 
+``` 
 
 ## ** iOS **
   
