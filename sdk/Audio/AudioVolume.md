@@ -79,35 +79,58 @@ balabala……
 
 ### 获取用户音量（回调方法）
 
-balabala……  
+分为本地音量和远端音量
   
 示例代码：    
 
-balabala……   
+```java
+//本地音量获取回调，volume范围0-100
+        public void onLocalAudioLevel(int volume) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "Local volume is: " + volume);
+                }
+            });
+        }
+
+//远端音量获取回调，uid表示用户标志，volume范围0-100
+        public void onRemoteAudioLevel(String uid, int volume) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "Remote userid: " + uid + " volume is: " + volume);
+                }
+            });
+        }
+```  
 
 ### 设置采集音量
 
-balabala……  
+可以实时调整 SDK 采集到的录音音量。
   
 示例代码：    
 
-balabala……   
+```java
+//参数为0-400的整型类型。
+sdkEngine.adjustRecordVolume(volume); 
+```
 
 ### 设置播放音量
 
-balabala……  
+无 
   
 示例代码：    
 
-balabala……   
+无  
 
 ### 设置混音音量
 
-balabala……  
+无 
   
 示例代码：    
 
-balabala……   
+无  
 
 
 # ** iOS **
