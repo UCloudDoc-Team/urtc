@@ -30,12 +30,61 @@ client.setVideoProfile({
 ## ** Windows **
 
 ### 实现方法
-
-balabala……    
+///设置编码发送视频质量
+	///@param profile 分辨率
+	///@param videoconfig video配置
+	virtual void setVideoProfile(eUCloudRtcVideoProfile profile, tUCloudVideoConfig& videoconfig) = 0;
+ 
+ 	///设置采集渲染视频分辨率
+	///@param profile 分辨率
+	///@param videoconfig video配置
+	virtual void setVideoCaptureProfile(eUCloudRtcVideoProfile profile) = 0;
+	
+ 	///设置桌面分享采集发送profile
+	///@param profile 分辨率
+	virtual void setDesktopProfile(eUCloudRtcScreenProfile profile) = 0;
 
 ### 示例代码
+//创建引擎,加入房间成功后
+auto engine = UCloudRtcEngine::sharedInstance();
+....
+//设置cam采集和发送的分辨率
+//视频profile
+typedef enum {
+	UCLOUD_RTC_VIDEO_PROFILE_NONE = -1, 
+	UCLOUD_RTC_VIDEO_PROFILE_320_180 = 1,
+	UCLOUD_RTC_VIDEO_PROFILE_320_240 = 2,
+	UCLOUD_RTC_VIDEO_PROFILE_640_360 = 3,
+	UCLOUD_RTC_VIDEO_PROFILE_640_480 = 4,
+	UCLOUD_RTC_VIDEO_PROFILE_1280_720 = 5,
+	UCLOUD_RTC_VIDEO_PROFILE_1920_1080 = 6,
+	UCLOUD_RTC_VIDEO_PROFILE_240_180 = 7,
+	UCLOUD_RTC_VIDEO_PROFILE_480_360 = 8,
+	UCLOUD_RTC_VIDEO_PROFILE_960_720 = 9
+} eUCloudRtcVideoProfile;
 
-balabala……  
+tUCloudVideoConfig objConfig;
+engine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720,objConfig); //当指定UCLOUD_RTC_VIDEO_PROFILE_NONE  以第二个参数传入实际值为准
+engine->setVideoCaptureProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720);
+
+//设置桌面的采集分辨率
+//桌面profile
+typedef enum {
+	UCLOUD_RTC_SCREEN_PROFILE_LOW = 1,
+	UCLOUD_RTC_SCREEN_PROFILE_MIDDLE = 2,
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH = 3,
+
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS = 4,
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_1 = 5,     //最大2m码率 25帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_1 = 6, //最大2.5m码率 25帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_0 = 7,     //最大1.6m码率 15帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_0 = 8 //最大2m码率 18帧
+} eUCloudRtcScreenProfile;
+engine->setDesktopProfile(UCLOUD_RTC_SCREEN_PROFILE_MIDDLE);
+
+//离开房间销毁引擎
+engine->leaveChannel();
+engine->destroy();
 
 ## ** Android **
 
