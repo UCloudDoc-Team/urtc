@@ -17,21 +17,40 @@ balabala……
 
 ### 开发注意事项
 
-balabala……  
 
 ## ** Windows **
 
 ### 实现方法
 
-balabala……    
+	///网络评分回调
+	///@param uid 用户ID
+	///@param rtype 网络上下型类型
+	///@param Quality 评分
+	virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, eUCloudRtcQualityType& Quality) {}
 
 ### 示例代码
 
-balabala……    
+重载实现相关接口
 
 ### 开发注意事项
-
-balabala……  
+UCLOUD_RTC_NETWORK_TX 上行
+UCLOUD_RTC_NETWORK_RX 下行
+网络评分分为以下等级
+//网络评分
+typedef enum {
+	//未知
+	UCLOUD_RTC_QUALITY_UNKNOWN = 0, 
+	//很坏
+	UCLOUD_RTC_QUALITY_DOWN = 5,  
+	//勉强能沟通但不顺畅
+	UCLOUD_RTC_QUALITY_BAD = 4,  
+	//用户主观感受有瑕疵但不影响沟通
+	UCLOUD_RTC_QUALITY_POOR =  3, 
+	// 用户主观感觉和 excellent 差不多
+	UCLOUD_RTC_QUALITY_GOOD = 2, 
+	//网络质量极好
+	UCLOUD_RTC_QUALITY_EXCELLENT = 1, 
+}eUCloudRtcQualityType; 
 
 ## ** Android **
 
