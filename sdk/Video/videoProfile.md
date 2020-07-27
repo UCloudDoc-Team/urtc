@@ -32,25 +32,24 @@ client.setVideoProfile({
 ### 实现方法
 
 ```c++
-///设置编码发送视频质量
-	///@param profile 分辨率
-	///@param videoconfig video配置
-	virtual void setVideoProfile(eUCloudRtcVideoProfile profile, tUCloudVideoConfig& videoconfig) = 0;
+//设置编码发送视频质量
+//@param profile 分辨率
+//@param videoconfig video配置
+virtual void setVideoProfile(eUCloudRtcVideoProfile profile, tUCloudVideoConfig& videoconfig) = 0;
  
- 	///设置采集渲染视频分辨率
-	///@param profile 分辨率
-	///@param videoconfig video配置
-	virtual void setVideoCaptureProfile(eUCloudRtcVideoProfile profile) = 0;
+//设置采集渲染视频分辨率
+//@param profile 分辨率
+virtual void setVideoCaptureProfile(eUCloudRtcVideoProfile profile) = 0;
 	
- 	///设置桌面分享采集发送profile
-	///@param profile 分辨率
-	virtual void setDesktopProfile(eUCloudRtcScreenProfile profile) = 0;
+//设置桌面分享采集发送profile
+//@param profile 分辨率
+virtual void setDesktopProfile(eUCloudRtcScreenProfile profile) = 0;
 ```
 
 ### 示例代码
 
 ```c++
-//创建引擎,加入房间成功后
+//创建引擎，加入房间成功后
 auto engine = UCloudRtcEngine::sharedInstance();
 ....
 //设置cam采集和发送的分辨率
@@ -128,7 +127,7 @@ UCloudRtcSdkVideoProfile类型说明如下：
     UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720,
 
     /**
-     * 用于外部扩展接入时，会把最低码率，起始码率设置成1500 kbps 可调用extendParams 设置fps,width * height，不设置默认值为25fps,640 * 480
+     * 用于外部扩展接入时，会把最低码率，起始码率设置成1500 kbps 可调用extendParams 设置fps，width * height，不设置默认值为25fps，640 * 480
      * 同时会影响到录像的分辨率，相关请参考{@link UCloudRtcSdkCaptureMode}
      */
     UCLOUD_RTC_SDK_VIDEO_PROFILE_EXTEND,
@@ -153,6 +152,7 @@ UCloudRtcSdkVideoProfile类型说明如下：
 ### 示例代码
 
 ```java
+
 //设置640*480分辨率
 sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480);
 
