@@ -117,11 +117,68 @@ UCloudRtcSdkNetWorkQuality是一个枚举类型，参数说明如下：
 
 ### 实现方法
 
-balabala……    
-
-### 示例代码
-
-balabala……    
+``` objc
+/// 网络质量检测
+/// @param manager UCloudRtcEngine
+/// @param userId 用户id
+/// @param txQuality 上行质量（枚举值）
+/// @param rxQuality 下行质量（枚举值）
+- (void)uCloudRtcEngine:(UCloudRtcEngine *)manager networkQuality:(NSString *)userId txQuality:(UCloudRtcNetworkQuality)txQuality rxQuality:(UCloudRtcNetworkQuality)rxQuality {
+    NSString *txQualityStr;
+    NSString *rxQualityStr;
+    switch (txQuality) {
+        case UCloudRtcNetworkQualityUnknown:
+            txQualityStr = @"未知";
+            break;
+        case UCloudRtcNetworkQualityExcellent:
+            txQualityStr = @"优秀";
+            break;
+        case UCloudRtcNetworkQualityGood:
+            txQualityStr = @"良好";
+            break;
+        case UCloudRtcNetworkQualityPoor:
+            txQualityStr = @"一般";
+            break;
+        case UCloudRtcNetworkQualityPoorer:
+            txQualityStr = @"较差";
+            break;
+        case UCloudRtcNetworkQualityPoorest:
+            txQualityStr = @"糟糕";
+            break;
+        case UCloudRtcNetworkQualityDisconnect:
+            txQualityStr = @"连接断开";
+            break;
+        default:
+            break;
+    }
+   switch (rxQuality) {
+        case UCloudRtcNetworkQualityUnknown:
+            rxQualityStr = @"未知";
+            break;
+        case UCloudRtcNetworkQualityExcellent:
+            rxQualityStr = @"优秀";
+            break;
+        case UCloudRtcNetworkQualityGood:
+            rxQualityStr = @"良好";
+            break;
+        case UCloudRtcNetworkQualityPoor:
+            rxQualityStr = @"一般";
+            break;
+        case UCloudRtcNetworkQualityPoorer:
+            rxQualityStr = @"较差";
+            break;
+        case UCloudRtcNetworkQualityPoorest:
+            rxQualityStr = @"糟糕";
+            break;
+        case UCloudRtcNetworkQualityDisconnect:
+           rxQualityStr = @"连接断开";
+           break;
+        default:
+            break;
+    }
+    NSLog(@"userId:%@, 上行网络质量:%@，下行网络质量:%@",userId, txQualityStr, rxQualityStr);
+}
+```
 
 ### 开发注意事项
 
