@@ -15,9 +15,12 @@
 获取媒体流的音量，返回值范围 [0,100] 
   
 示例代码：    
+
 ```js
+
 client.getAudioVolume(StreamId);
 //StreamId: string 类型，选传，本地或远端流的 ID 即 Stream 的 sid 属性值。当不传时，默认获取第一条本地流的音量大小
+
 ```
 
 
@@ -26,7 +29,9 @@ client.getAudioVolume(StreamId);
 设置媒体流的音量，可设置的音量范围 [0,100] 
   
 示例代码：    
+
 ```js
+
 client.setAudioVolume({
   streamId?: string,   
   // 选填，发布/订阅流的 ID，不填时，为第一条发布流
@@ -37,41 +42,61 @@ client.setAudioVolume({
 }, function callback(Err) {
   //Err 为返回值，为空时，说明已执行成功，否则执行失败，值为执行失败的错误信息
 });
+
 ```
 
 
 ## ** Windows **
 
 ### 获取用户音量（回调方法）
-本地音量回调
+
+```c++
+
+//本地音量回调
 virtual void onLocalAudioLevel(int volume) 
-远端用户音量回调 
+
+//远端用户音量回调 
 virtual void onRemoteAudioLevel(const char* uid, int volume) 
 
-示例代码：    
-无
+```
+
 	
 ### 设置采集音量
-	virtual int setRecordingDeviceVolume(int volume) = 0;
-  
+
+```c++
+
+virtual int setRecordingDeviceVolume(int volume) = 0;
+
+```
+
 示例代码：    
 
+```c++
 autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle();
 mediaEngine->setRecordingDeviceVolume(80);
 mediaEngine->UnInitAudioMoudle();
 UCloudRtcMediaDevice::destory();
+```
+
 ### 设置播放音量
 
+```c++
+
 virtual int setPlaybackDeviceVolume(int volume) = 0;
-  
+
+```
 示例代码：    
+
+```c++
 
 autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle();
 mediaEngine->setPlaybackDeviceVolume(80);
 mediaEngine->UnInitAudioMoudle();
 UCloudRtcMediaDevice::destory();
+
+```
 
 
 
@@ -80,8 +105,6 @@ UCloudRtcMediaDevice::destory();
 
 ### 获取用户音量（回调方法）
 
-分为本地音量和远端音量
-  
 示例代码：    
 
 ```java
