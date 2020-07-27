@@ -183,8 +183,6 @@ typedef NS_ENUM(NSInteger)
 
 ### 示例代码
 
-分辨率枚举值:
-
 ``` objc
 // 设置分辨率720P
 sdkEngine.videoProfile = UCloudRtcEngine_VideoProfile_720P;
