@@ -161,25 +161,30 @@ sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480);
 
 ## ** iOS **
   
-
 ### 实现方法
 
-balabala……    
+请在加入房间之前设置,暂不支持加入房间后动态修改分辨率，枚举值如下:
+
+```objc
+typedef NS_ENUM(NSInteger)
+{
+    UCloudRtcEngine_VideoProfile_180P = 0,   // 分辨率:240*180,  码率范围:100-200kpbs, 帧率:15fps
+    UCloudRtcEngine_VideoProfile_360P_1 = 1, // 分辨率:480*360,  码率范围:100-300kpbs, 帧率:15fps(默认值)
+    UCloudRtcEngine_VideoProfile_360P_2 = 2, // 分辨率:640*360,  码率范围:100-400kpbs, 帧率:20fps
+    UCloudRtcEngine_VideoProfile_480P = 3,   // 分辨率:640*480,  码率范围:100-500kpbs, 帧率:20fps
+    UCloudRtcEngine_VideoProfile_720P = 4,   // 分辨率:1280*720, 码率范围:300-1000kpbs,帧率:30fps
+    UCloudRtcEngine_VideoProfile_1080P = 5,  // 分辨率:1920*1080,码率范围:500-1500kpbs,帧率:30fps
+} UCloudRtcEngineVideoProfile;
+```
+
 
 ### 示例代码
 
-balabala……  
-
-## ** macOS **
-    
-
-### 实现方法
-
-balabala……    
-
-### 示例代码
-
-balabala……  
+分辨率枚举值:
+``` objc
+// 设置分辨率720P
+sdkEngine.videoProfile = UCloudRtcEngine_VideoProfile_720P;
+```  
 
 <!-- tabs:end -->
 
