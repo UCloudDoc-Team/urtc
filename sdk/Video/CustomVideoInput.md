@@ -2,41 +2,6 @@
 
 <!-- tabs:start -->
 
-## ** Windows **
-
-```cpp
-//该方法用于注册视频观测器对象
-//@param codec 编码类型
-virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
-
-//开启外部采集视频
-//@param enable 是否使用扩展的外部采集摄像头
-//@param videocapture 外部视频源
-//@return 0 succ
-virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
-    
-//视频监听回调
-class _EXPORT_API UCloudIVideoFrameObserver
-    {
-    public:
-        //视频采集到每一帧得回调
-        //@param videoframe 视频数据
-        virtual  bool onCaptureFrame(tUCloudRtcVideoFrame *videoFrame) = 0;
-
-    };
-    
-```
-    
-### 开发注意事项
-   
-初始化引擎后：    
-1.调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。    
-2.当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
-3.在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换，拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。    
-4.当需要切换回内置数据采集时`enableExtendVideocapture(false,customCapture)`。    
-   
-> 注意：windows支持最大1920*1080p的yuvi420的数据，进行替换时需要先进行转成yuvi420数据进行替换。
-
 ## ** Android **
 
 实时音视频应用中，通常会使用默认的音视频采集模块，在部分场景中，需要自定义视频采集。
@@ -205,5 +170,40 @@ public interface UcloudRTCDataProvider {
         }
     };
 ```
+
+## ** Windows **
+
+```cpp
+//该方法用于注册视频观测器对象
+//@param codec 编码类型
+virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
+
+//开启外部采集视频
+//@param enable 是否使用扩展的外部采集摄像头
+//@param videocapture 外部视频源
+//@return 0 succ
+virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
+    
+//视频监听回调
+class _EXPORT_API UCloudIVideoFrameObserver
+    {
+    public:
+        //视频采集到每一帧得回调
+        //@param videoframe 视频数据
+        virtual  bool onCaptureFrame(tUCloudRtcVideoFrame *videoFrame) = 0;
+
+    };
+    
+```
+    
+### 开发注意事项
+   
+初始化引擎后：    
+1.调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。    
+2.当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
+3.在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换，拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。    
+4.当需要切换回内置数据采集时`enableExtendVideocapture(false,customCapture)`。    
+   
+> 注意：windows支持最大1920*1080p的yuvi420的数据，进行替换时需要先进行转成yuvi420数据进行替换。
 
 <!-- tabs:end -->
