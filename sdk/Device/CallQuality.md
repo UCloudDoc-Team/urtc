@@ -2,15 +2,15 @@
 
 在实时音视频通话、互动直播中，可以通过获取统计数据，来监测通话质量。
 
-
 <!-- tabs:start -->
 
 ## ** Web **
 
 ### 实现方法
 
-监听事件“network-quality”，返回值：uplink 代表上行网络质量，downlink 代表下行网络质量， 
-'0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
+监听事件`network-quality`，返回值：`uplink` 代表上行网络质量，`downlink` 代表下行网络质量。   
+网络评分返回，包含：'0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
+
 - '0': 网络质量未知
 - '1': 网络质量优秀
 - '2': 网络质量良好
@@ -23,34 +23,16 @@
 
 ```js
 client.on('network-quality', function(state){
-	//返回的参数为 {uplink: Quality, downlink: Quality}，其中，uplink 代表上行网络质量，downlink 代表下行网络质量，其值 Quality 为字符串，是 '0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
+//返回的参数为 {uplink: Quality, downlink: Quality}，其中，uplink 代表上行网络质量，downlink 代表下行网络质量
+//其值 Quality 为字符串，是 '0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
 })
 ```    
-
-### 开发注意事项
-
 
 ## ** Windows **
 
 ### 实现方法
 
 ```cpp
-
-//网络评分回调
-//@param uid 用户ID
-//@param rtype 网络上下型类型
-//@param Quality 评分
-virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, eUCloudRtcQualityType& Quality) {}
-
-```
-### 示例代码
-
-重载实现相关接口
-
-### 开发注意事项
-
-```cpp
-
 UCLOUD_RTC_NETWORK_TX 上行
 UCLOUD_RTC_NETWORK_RX 下行
 
@@ -69,27 +51,24 @@ typedef enum {
 	//网络质量极好
 	UCLOUD_RTC_QUALITY_EXCELLENT = 1, 
 }eUCloudRtcQualityType; 
+```
+### 实现方法
+
+```cpp
+//网络评分回调
+//@param uid 用户ID
+//@param rtype 网络上下型类型
+//@param Quality 评分
+virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, eUCloudRtcQualityType& Quality) {}
 
 ```
+
 ## ** Android **
 
 ### 实现方法
 
-流建立后，接收服务端反馈的网络质量，根据抖动、延迟和丢包得出一个综合评价。
-
-### 示例代码
-
-```java
-//userId:用户id streamType：流类型 streamType：媒体类型 quality：质量评价等级
-        @Override
-        public void onNetWorkQuality(String userId, UCloudRtcSdkStreamType streamType, UCloudRtcSdkMediaType mediaType, UCloudRtcSdkNetWorkQuality quality) {
-            Log.d(TAG, "onNetWorkQuality: userid: " + userId + "streamType: " + streamType + "mediatype : "+ mediaType + " quality: " + quality);
-        }
-
-```    
-### 开发注意事项
-
-UCloudRtcSdkNetWorkQuality是一个枚举类型，参数说明如下：
+流建立后，接收服务端反馈的网络质量，根据抖动、延迟和丢包得出一个综合评价。    
+`UCloudRtcSdkNetWorkQuality`是一个枚举类型，参数说明如下：
 
 ```java
     /**
@@ -123,6 +102,15 @@ UCloudRtcSdkNetWorkQuality是一个枚举类型，参数说明如下：
 
 ```  
 
+### 示例代码
+
+```java
+//userId:用户id streamType：流类型 streamType：媒体类型 quality：质量评价等级
+@Override
+public void onNetWorkQuality(String userId, UCloudRtcSdkStreamType streamType, UCloudRtcSdkMediaType mediaType, UCloudRtcSdkNetWorkQuality quality) {
+      Log.d(TAG, "onNetWorkQuality: userid: " + userId + "streamType: " + streamType + "mediatype : "+ mediaType + " quality: " + quality);
+      }
+```    
 
 
 ## ** iOS **
@@ -191,11 +179,6 @@ UCloudRtcSdkNetWorkQuality是一个枚举类型，参数说明如下：
     NSLog(@"userId:%@, 上行网络质量:%@，下行网络质量:%@",userId, txQualityStr, rxQualityStr);
 }
 ```
-
-### 开发注意事项
-
-balabala……  
-
 
 
 <!-- tabs:end -->
