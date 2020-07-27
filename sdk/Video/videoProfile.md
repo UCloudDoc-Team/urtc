@@ -99,9 +99,11 @@ engine->destroy();
 
 ### 实现方法
 
+```java
 public UCloudRtcSdkErrorCode setVideoProfile(UCloudRtcSdkVideoProfile profile);
+```
 
-UCloudRtcSdkVideoProfile类型说明如下：
+`UCloudRtcSdkVideoProfile`类型说明如下：
 
 ```java
     /**
@@ -155,7 +157,6 @@ UCloudRtcSdkVideoProfile类型说明如下：
 ### 示例代码
 
 ```java
-
 //设置720P分辨率
 sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720;
 
