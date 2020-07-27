@@ -37,7 +37,6 @@ balabala……
 ### 麦克风测试
 
 ```cpp
-
 //开启录音测试
 //@param  audiolevel 回调实例
 virtual int startRecordingDeviceTest(UCloudRtcAudioLevelListener* audiolevel) = 0;
@@ -50,7 +49,6 @@ virtual int stopRecordingDeviceTest() = 0;
 ### 示例代码
 
 ```cpp
-
 auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle()
 mediaEngine->startRecordingDeviceTest(pAudioListener);  //pAudioListener 继承实现UCloudRtcAudioLevelListener对象的指针
@@ -61,7 +59,6 @@ mediaEngine->UnInitAudioMoudle();
 ### 扬声器测试
 
 ```cpp
-
 //开启播放设备测试
 //@param  testAudioFilePath 文件路径
 virtual int startPlaybackDeviceTest(const char* testAudioFilePath) = 0;
@@ -74,7 +71,6 @@ virtual int stopPlaybackDeviceTest() = 0;
 ### 示例代码
 
 ```cpp
-
 auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle()
 mediaEngine->startPlaybackDeviceTest(filePath);  //播放测试文件路径
@@ -86,7 +82,6 @@ mediaEngine->UnInitAudioMoudle();
 ### 摄像头测试
 
 ```cpp
-
 //开启摄像头Capture测试
 //@param  profile 分辨率
 //@param  observer 回调实例
@@ -101,7 +96,6 @@ virtual int stopCaptureFrame() = 0;
 ### 示例代码
 
 ```cpp
-
 auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle()
 mediaEngine->startCaptureFrame(profile,pObserver);  
