@@ -43,36 +43,37 @@ client.setAudioVolume({
 ## ** Windows **
 
 ### 获取用户音量（回调方法）
+本地音量回调
+virtual void onLocalAudioLevel(int volume) 
+远端用户音量回调 
+virtual void onRemoteAudioLevel(const char* uid, int volume) 
 
-balabala……  
-  
 示例代码：    
-
-balabala……   
-
+无
+	
 ### 设置采集音量
-
-balabala……  
+	virtual int setRecordingDeviceVolume(int volume) = 0;
   
 示例代码：    
 
-balabala……   
-
+autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
+mediaEngine->InitAudioMoudle();
+mediaEngine->setRecordingDeviceVolume(80);
+mediaEngine->UnInitAudioMoudle();
+UCloudRtcMediaDevice::destory();
 ### 设置播放音量
 
-balabala……  
+virtual int setPlaybackDeviceVolume(int volume) = 0;
   
 示例代码：    
 
-balabala……   
+autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
+mediaEngine->InitAudioMoudle();
+mediaEngine->setPlaybackDeviceVolume(80);
+mediaEngine->UnInitAudioMoudle();
+UCloudRtcMediaDevice::destory();
 
-### 设置混音音量
 
-balabala……  
-  
-示例代码：    
-
-balabala……   
 
 
 # ** Android **
