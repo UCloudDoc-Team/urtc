@@ -30,6 +30,8 @@ client.setVideoProfile({
 ## ** Windows **
 
 ### 实现方法
+
+```c++
 ///设置编码发送视频质量
 	///@param profile 分辨率
 	///@param videoconfig video配置
@@ -43,8 +45,11 @@ client.setVideoProfile({
  	///设置桌面分享采集发送profile
 	///@param profile 分辨率
 	virtual void setDesktopProfile(eUCloudRtcScreenProfile profile) = 0;
+```
 
 ### 示例代码
+
+```c++
 //创建引擎,加入房间成功后
 auto engine = UCloudRtcEngine::sharedInstance();
 ....
@@ -86,17 +91,16 @@ engine->setDesktopProfile(UCLOUD_RTC_SCREEN_PROFILE_MIDDLE);
 engine->leaveChannel();
 engine->destroy();
 
+```
+
 ## ** Android **
-
-可以调整视频画面的清晰度和流畅度，获得较高的用户体验。    
-
-通过setVideoProfile方法来设置包含视频分辨率、帧率、码率等参数。  
 
 ### 实现方法
 
 public UCloudRtcSdkErrorCode setVideoProfile(UCloudRtcSdkVideoProfile profile);
 
 UCloudRtcSdkVideoProfile类型说明如下：
+
 ```java
     /**
      * 视频配置分辨率 320*180,对应传输最小码率 100kbps 最大码率 200kbps 初始码率 100kbps
