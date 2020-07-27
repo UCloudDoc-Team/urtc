@@ -9,9 +9,9 @@
 
 不同浏览器告警或报错信息不同，基本可以归纳为两类：
 
-- 1. 调用 `audio` 或 `video` 的 `play` 方法时，会报类似于 DOMException: play() failed because the user didn’t interact with the document first. 的错误信息。
+- 1. 调用 `audio` 或 `video` 的 `play` 方法时，会报类似于 `DOMException: play() failed because the user didn’t interact with the document first.` 的错误信息。
 
-- 2. 开启 `audio` 或 `video`  的 `autoplay` 时，即标签上填有 'autoplay' 属性，如 `<audio autoplay/>`，浏览器控制台会有类似于 `The AudioContext was not allowed to start` 的告警信息。此时，如果页面中使用的是 `video` 标签，一般会处于 `白屏` 状态。
+- 2. 开启 `audio` 或 `video`  的 `autoplay` 时，即标签上填有 'autoplay' 属性，如 `<audio autoplay/>`，浏览器控制台会有类似于 `The AudioContext was not allowed to start` 的告警信息。此时，如果页面中使用的是 `video` 标签，一般会处于 **白屏** 状态。
 
 
 ## 解决方法
