@@ -161,36 +161,27 @@ sdkEngine.adjustRecordVolume(volume);
 
 ### 获取用户音量（回调方法）
 
-balabala……  
-  
-示例代码：    
-
-balabala……   
+示例代码：
+``` objc
+/// 音量状态值回调
+/// @param manager UCloudRtcEngine
+/// @param audioStatus UCloudRtcAudioStats
+-(void)uCloudRtcEngine:(UCloudRtcEngine *)manager didReceiveAudioStatus:(UCloudRtcAudioStats *)audioStatus {
+    NSLog(@"audio status info userId:%@,streamId:%@, volume:%ld",audioStatus.userId, audioStatus.streamId,audioStatus.volume);
+}
+```
 
 ### 设置采集音量
 
-balabala……  
-  
-示例代码：    
-
-balabala……   
+无   
 
 ### 设置播放音量
 
-balabala……  
-  
-示例代码：    
-
-balabala……   
+无   
 
 ### 设置混音音量
 
-balabala……  
-  
-示例代码：    
-
-balabala……   
-
+无  
 
 <!-- tabs:end -->
 
