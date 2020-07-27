@@ -52,7 +52,7 @@ typedef enum {
 	UCLOUD_RTC_QUALITY_EXCELLENT = 1, 
 }eUCloudRtcQualityType; 
 ```
-### 实现方法
+### 示例代码
 
 ```cpp
 //网络评分回调
