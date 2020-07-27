@@ -29,7 +29,7 @@ class _EXPORT_API UCloudIVideoFrameObserver
     
 ### 开发注意事项
    
-初始化引擎后    
+初始化引擎后：    
 1.调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。    
 2.当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
 3.在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换，拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。    
