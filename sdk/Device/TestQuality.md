@@ -25,7 +25,7 @@
 
 ## 示例代码
 
-```
+```js
 client.getNetworkStats(StreamId, (NetworkStats) => {
   const { rtt } = NetworkStats;
   console.log(`Stream accessDelay : ${rtt}ms`)
