@@ -22,7 +22,7 @@ balabala……
 
 ### 实现方法
 
-```c++
+```cpp
 
 //网络评分回调
 //@param uid 用户ID
@@ -37,7 +37,7 @@ virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, e
 
 ### 开发注意事项
 
-```
+```cpp
 
 UCLOUD_RTC_NETWORK_TX 上行
 UCLOUD_RTC_NETWORK_RX 下行
