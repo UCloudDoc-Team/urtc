@@ -68,7 +68,8 @@ typedef enum {
 } eUCloudRtcVideoProfile;
 
 tUCloudVideoConfig objConfig;
-engine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720,objConfig); //当指定UCLOUD_RTC_VIDEO_PROFILE_NONE  以第二个参数传入实际值为准
+engine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720,objConfig); 
+//当指定UCLOUD_RTC_VIDEO_PROFILE_NONE  以第二个参数传入实际值为准
 engine->setVideoCaptureProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720);
 
 //设置桌面的采集分辨率
