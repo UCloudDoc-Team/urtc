@@ -13,7 +13,36 @@
 
 ## 实现方法
 
-balabala……  
+通过设置采集旋转方向，保证视频和StatusBar的相对位置在采集端和播放端始终一致，视频采集旋转方向与 UIInterfaceOrientation方向一致。
+```objc
+typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
+    UCloudRtcOrientationModeAdaptive,       // 自适应模式
+    UCloudRtcOrientationModeLandscapeLeft,  // Home键位置向左
+    UCloudRtcOrientationModeLandscapeRight, // Home键位置向右
+};
+```
+>  UCloudRtcOrientationModeAdaptive模式
+- 该模式下，采集方向会根据重力感应自动调整，使采集端和播放端始终一致。
+
+> UCloudRtcOrientationModeLandscapeLeft模式
+- 设备横屏，固定Home键向左，该模式下，输出的视频相对StatusBar总是处于横屏模式。
+
+例如：
+```objc
+// 固定横屏 Home键位置向左
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
+```
+
+``` objc
+// 根据屏幕旋转方向设置视频采集方向
+sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
+```
+
+> UCloudRtcOrientationModeLandscapeRight模式
+- 和UCloudRtcOrientationModeLandscapeLeft模式相对应的模式。
 
 <!-- tabs:end -->
 
