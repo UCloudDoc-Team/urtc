@@ -40,16 +40,16 @@ UCLOUD_RTC_NETWORK_RX 下行
 typedef enum {
 	//未知
 	UCLOUD_RTC_QUALITY_UNKNOWN = 0, 
-	//很坏
-	UCLOUD_RTC_QUALITY_DOWN = 5,  
-	//勉强能沟通但不顺畅
-	UCLOUD_RTC_QUALITY_BAD = 4,  
-	//用户主观感受有瑕疵但不影响沟通
-	UCLOUD_RTC_QUALITY_POOR =  3, 
-	// 用户主观感觉和 excellent 差不多
-	UCLOUD_RTC_QUALITY_GOOD = 2, 
 	//网络质量极好
 	UCLOUD_RTC_QUALITY_EXCELLENT = 1, 
+	// 用户主观感觉和 excellent 差不多
+	UCLOUD_RTC_QUALITY_GOOD = 2, 
+	//用户主观感受有瑕疵但不影响沟通
+	UCLOUD_RTC_QUALITY_POOR =  3, 
+	//勉强能沟通但不顺畅
+	UCLOUD_RTC_QUALITY_BAD = 4,  	
+	//很坏
+	UCLOUD_RTC_QUALITY_DOWN = 5,  
 }eUCloudRtcQualityType; 
 ```
 ### 示例代码
