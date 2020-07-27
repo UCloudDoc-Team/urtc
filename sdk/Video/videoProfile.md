@@ -32,7 +32,6 @@ client.setVideoProfile({
 ### 实现方法
 
 ```cpp
-
 //设置编码发送视频质量
 //@param profile 分辨率
 //@param videoconfig video配置
@@ -50,7 +49,6 @@ virtual void setDesktopProfile(eUCloudRtcScreenProfile profile) = 0;
 ### 示例代码
 
 ```cpp
-
 //创建引擎，加入房间成功后
 auto engine = UCloudRtcEngine::sharedInstance();
 ....
