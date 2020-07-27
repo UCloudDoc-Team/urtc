@@ -73,14 +73,18 @@ view传本地的就是本地截图，远端的view就是远端的截图。
 
 ### 示例代码
 
+
+### 示例代码
+
 view传本地的就是本地截图，远端的view就是远端的截图。  
 
-```
-    UIGraphicsBeginImageContext(view.frame.size);
-    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
-    UIImage *image =  UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+```objc
+// 本地视频快照
+[sdkEngine captuerVideoImage:^(UIImage *image) {
+    if (image) {
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    }
+}];
 ```
 
 
