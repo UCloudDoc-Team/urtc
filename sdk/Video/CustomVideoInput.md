@@ -206,27 +206,4 @@ public interface UcloudRTCDataProvider {
     };
 ```
 
-## ** iOS **
-
-### 实现方法
-
-balabala……    
-
-### 示例代码
-
-balabala……    
-
-
-## ** macOS **
-
-### 实现方法
-
-balabala……    
-
-### 示例代码
-
-balabala……    
-
-
-
 <!-- tabs:end -->
