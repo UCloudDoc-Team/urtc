@@ -12,13 +12,16 @@
 
 ### 实现方法
 
-设置视频的 profile（通过getSupportProfileNames获取到视频质量的值，不设置时，默认为 "640*480"）限制 client 使用的视频大小、帧率、带宽等。 
+设置视频的 `profile` 限制 客户端 使用的视频大小、帧率、带宽等。 
+
+> 设置之前，可以先通过`getSupportProfileNames`获取到视频质量支持的值，不设置时，默认为 "640*480"。
 
 ### 示例代码
+
 ```js
 client.setVideoProfile({
   previewId?: string,   // 选填，本地（预览）流的 previewId，不填时，为修改全局的 video profile 设置，供后续创建或发布的流使用
-  profile: string      // 必填，指定 video profile
+  profile: "1280*720"      // 必填，指定 video profile为 720P
 }, function() {
  //成功时回调
 }, function(Err){
@@ -69,21 +72,20 @@ typedef enum {
 
 tUCloudVideoConfig objConfig;
 engine->setVideoProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720,objConfig); 
-//当指定UCLOUD_RTC_VIDEO_PROFILE_NONE  以第二个参数传入实际值为准
+//当指定UCLOUD_RTC_VIDEO_PROFILE_NONE，以第二个参数传入实际值为准
 engine->setVideoCaptureProfile(UCLOUD_RTC_VIDEO_PROFILE_1280_720);
 
 //设置桌面的采集分辨率
 //桌面profile
 typedef enum {
-	UCLOUD_RTC_SCREEN_PROFILE_LOW = 1,
-	UCLOUD_RTC_SCREEN_PROFILE_MIDDLE = 2,
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH = 3,
-
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS = 4,
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH_1 = 5,     //最大2m码率 25帧
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_1 = 6, //最大2.5m码率 25帧
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH_0 = 7,     //最大1.6m码率 15帧
-	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_0 = 8 //最大2m码率 18帧
+	UCLOUD_RTC_SCREEN_PROFILE_LOW = 1,    //分辨率180P
+	UCLOUD_RTC_SCREEN_PROFILE_MIDDLE = 2,    //分辨率360P
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH = 3,    //分辨率720P 1M码率 5帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS = 4,    //分辨率1080P 1.5M码率 5帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_1 = 5,     //分辨率720P 2M码率 25帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_1 = 6, //分辨率1080P 最大2.5M码率 25帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_0 = 7,     //分辨率720P 1.6M码率 15帧
+	UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS_0 = 8 //分辨率1080P 2M码率 18帧
 } eUCloudRtcScreenProfile;
 engine->setDesktopProfile(UCLOUD_RTC_SCREEN_PROFILE_MIDDLE);
 
@@ -154,8 +156,8 @@ UCloudRtcSdkVideoProfile类型说明如下：
 
 ```java
 
-//设置640*480分辨率
-sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480);
+//设置720P分辨率
+sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720;
 
 ``` 
 
@@ -181,6 +183,7 @@ typedef NS_ENUM(NSInteger)
 ### 示例代码
 
 分辨率枚举值:
+
 ``` objc
 // 设置分辨率720P
 sdkEngine.videoProfile = UCloudRtcEngine_VideoProfile_720P;
