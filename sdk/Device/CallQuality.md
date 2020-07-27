@@ -22,21 +22,27 @@ balabala……
 
 ### 实现方法
 
-	///网络评分回调
-	///@param uid 用户ID
-	///@param rtype 网络上下型类型
-	///@param Quality 评分
-	virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, eUCloudRtcQualityType& Quality) {}
+```c++
 
+//网络评分回调
+//@param uid 用户ID
+//@param rtype 网络上下型类型
+//@param Quality 评分
+virtual void onNetworkQuality(const char* uid, eUCloudRtcNetworkQuality&rtype, eUCloudRtcQualityType& Quality) {}
+
+```
 ### 示例代码
 
 重载实现相关接口
 
 ### 开发注意事项
+
+```
+
 UCLOUD_RTC_NETWORK_TX 上行
 UCLOUD_RTC_NETWORK_RX 下行
-网络评分分为以下等级
-//网络评分
+
+//网络评分分为以下等级
 typedef enum {
 	//未知
 	UCLOUD_RTC_QUALITY_UNKNOWN = 0, 
@@ -52,6 +58,7 @@ typedef enum {
 	UCLOUD_RTC_QUALITY_EXCELLENT = 1, 
 }eUCloudRtcQualityType; 
 
+```
 ## ** Android **
 
 ### 实现方法
