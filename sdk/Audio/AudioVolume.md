@@ -50,7 +50,7 @@ client.setAudioVolume({
 
 ### 获取用户音量（回调方法）
 
-```c++
+```cpp
 
 //本地音量回调
 virtual void onLocalAudioLevel(int volume) 
@@ -63,7 +63,7 @@ virtual void onRemoteAudioLevel(const char* uid, int volume)
 	
 ### 设置采集音量
 
-```c++
+```cpp
 
 virtual int setRecordingDeviceVolume(int volume) = 0;
 
@@ -71,7 +71,7 @@ virtual int setRecordingDeviceVolume(int volume) = 0;
 
 示例代码：    
 
-```c++
+```cpp
 autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle();
 mediaEngine->setRecordingDeviceVolume(80);
@@ -81,14 +81,14 @@ UCloudRtcMediaDevice::destory();
 
 ### 设置播放音量
 
-```c++
+```cpp
 
 virtual int setPlaybackDeviceVolume(int volume) = 0;
 
 ```
 示例代码：    
 
-```c++
+```cpp
 
 autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle();
