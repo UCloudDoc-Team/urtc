@@ -3,17 +3,12 @@
 
 <!-- tabs:start -->
 
-## ** Android **
-
-### 实现方法
-
-暂无  
-
 # ** iOS **
 
 ## 实现方法
 
-通过设置采集旋转方向，保证视频和StatusBar的相对位置在采集端和播放端始终一致，视频采集旋转方向与 UIInterfaceOrientation方向一致。
+通过设置采集旋转方向，保证视频和StatusBar的相对位置在采集端和播放端始终一致，视频采集旋转方向与 `UIInterfaceOrientation`方向一致。
+
 ```objc
 typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
     UCloudRtcOrientationModeAdaptive,       // 自适应模式
@@ -21,13 +16,15 @@ typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
     UCloudRtcOrientationModeLandscapeRight, // Home键位置向右
 };
 ```
->  UCloudRtcOrientationModeAdaptive模式
-- 该模式下，采集方向会根据重力感应自动调整，使采集端和播放端始终一致。
 
-> UCloudRtcOrientationModeLandscapeLeft模式
-- 设备横屏，固定Home键向左，该模式下，输出的视频相对StatusBar总是处于横屏模式。
+>  `UCloudRtcOrientationModeAdaptive`模式
+> 该模式下，采集方向会根据重力感应自动调整，使采集端和播放端始终一致。
+
+> `UCloudRtcOrientationModeLandscapeLeft`模式
+> 设备横屏，固定Home键向左，该模式下，输出的视频相对`StatusBar`总是处于横屏模式。
 
 例如：
+
 ```objc
 // 固定横屏 Home键位置向左
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
@@ -42,11 +39,12 @@ sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
 ```
 
 > UCloudRtcOrientationModeLandscapeRight模式
-- 和UCloudRtcOrientationModeLandscapeLeft模式相对应的模式。
+> 和UCloudRtcOrientationModeLandscapeLeft模式相对应的模式。
+
+## ** Android **
+
+### 实现方法
+
+文档待更新
 
 <!-- tabs:end -->
-
-
-## 开发注意事项
-
-balabala……  
