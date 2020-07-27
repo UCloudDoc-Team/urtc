@@ -166,7 +166,7 @@ sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720;
   
 ### 实现方法
 
-请在加入房间之前设置,暂不支持加入房间后动态修改分辨率，枚举值如下:
+请在加入房间之前设置，暂不支持加入房间后动态修改分辨率，枚举值如下:
 
 ```objc
 typedef NS_ENUM(NSInteger)
