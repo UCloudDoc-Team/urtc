@@ -35,7 +35,6 @@ SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成�
 	* [关闭音视频](/urtc/sdk/Video/mute)    
 	* [设置视频参数](/urtc/sdk/Video/videoProfile)   
 	* [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch) 
-* 高级功能    
 	* [旁路推流](/urtc/sdk/Video/cdnSteaming)     
 	* [调整音量](/urtc/sdk/Audio/AudioVolume)   		
 	* [播放混音](/urtc/sdk/Audio/AudioMixing)   	
