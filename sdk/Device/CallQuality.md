@@ -23,7 +23,7 @@
 
 ```js
 client.on('network-quality', function(state){
-	//返回的参数为 {uplink: Quality, downlink: Quality}，其中，uplink 代表上行网络质量，downlink 代表下行网络质量，
+	//返回的参数为 {uplink: Quality, downlink: Quality}，其中，uplink 代表上行网络质量，downlink 代表下行网络质量，其值 Quality 为字符串，是 '0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
 })
 ```    
 
