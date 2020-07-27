@@ -11,7 +11,7 @@
 
 Android sdk支持`yuv420p`系列的外部源以及`rgba`、`abgr`，`rgb565`等`rgba`系列数据，作为自定义视频源。    
 
-### 开发注意事项
+### 示例代码
 
 ```java
 public interface UcloudRTCDataProvider {
@@ -59,8 +59,9 @@ public interface UcloudRTCDataProvider {
 //        UCloudRtcSdkEnv.setCaptureMode(
 //                UCloudRtcSdkCaptureMode.UCLOUD_RTC_CAPTURE_MODE_EXTEND);
 ```
+### 开发注意事项
 
-调用范例，具体内容请参考demo源码内RoomActivity，需要根据自己的实际情况来，范例只是做个参考
+调用范例，具体内容请参考demo源码内`RoomActivity`，需要根据自己的实际情况来，范例只是做个参考。
 
 ```java
 
