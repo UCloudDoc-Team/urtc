@@ -230,8 +230,3 @@ balabala……
 
 
 <!-- tabs:end -->
-
-## 开发注意事项
-
-balabala……  
-
