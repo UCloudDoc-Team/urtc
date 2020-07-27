@@ -9,11 +9,23 @@
 
 ### 实现方法
 
-balabala……    
+监听事件“network-quality”，返回值：uplink 代表上行网络质量，downlink 代表下行网络质量， 
+'0' | '1' | '2' | '3' | '4' | '5' | '6' 几种类型之一。
+'0': 网络质量未知
+'1': 网络质量优秀
+'2': 网络质量良好
+'3': 网络质量一般
+'4': 网络质量较差
+'5': 网络质量糟糕
+'6': 网络连接断开
 
 ### 示例代码
 
-balabala……    
+```js
+client.on('network-quality', function(state){
+	//返回的参数为 {uplink: Quality, downlink: Quality}，其中，uplink 代表上行网络质量，downlink 代表下行网络质量，
+})
+```    
 
 ### 开发注意事项
 
