@@ -25,7 +25,6 @@
 		* [旁路推流](/urtc/sdk/Video/cdnSteaming)     		
 		* [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch)     
 		* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
-		* [通话中质量监测](/urtc/sdk/Device/CallQuality)   
 		* [自动断网重连策略](/urtc/sdk/Device/ReConnect)   
 		* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)   
 * [云端录制](/urtc/cloudRecord/index)  
