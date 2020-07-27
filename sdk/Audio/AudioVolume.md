@@ -17,7 +17,6 @@
 示例代码：    
 
 ```js
-
 client.getAudioVolume(StreamId);
 //StreamId: string 类型，选传，本地或远端流的 ID 即 Stream 的 sid 属性值。当不传时，默认获取第一条本地流的音量大小
 
@@ -31,7 +30,6 @@ client.getAudioVolume(StreamId);
 示例代码：    
 
 ```js
-
 client.setAudioVolume({
   streamId?: string,   
   // 选填，发布/订阅流的 ID，不填时，为第一条发布流
@@ -51,7 +49,6 @@ client.setAudioVolume({
 ### 获取用户音量（回调方法）
 
 ```cpp
-
 //本地音量回调
 virtual void onLocalAudioLevel(int volume) 
 
@@ -64,7 +61,6 @@ virtual void onRemoteAudioLevel(const char* uid, int volume)
 ### 设置采集音量
 
 ```cpp
-
 virtual int setRecordingDeviceVolume(int volume) = 0;
 
 ```
@@ -82,14 +78,12 @@ UCloudRtcMediaDevice::destory();
 ### 设置播放音量
 
 ```cpp
-
 virtual int setPlaybackDeviceVolume(int volume) = 0;
 
 ```
 示例代码：    
 
 ```cpp
-
 autp mediaEngine = UCloudRtcMediaDevice::sharedInstance();
 mediaEngine->InitAudioMoudle();
 mediaEngine->setPlaybackDeviceVolume(80);
@@ -140,28 +134,13 @@ UCloudRtcMediaDevice::destory();
 sdkEngine.adjustRecordVolume(volume); 
 ```
 
-### 设置播放音量
-
-无 
-  
-示例代码：    
-
-无  
-
-### 设置混音音量
-
-无 
-  
-示例代码：    
-
-无  
-
 
 # ** iOS **
 
 ### 获取用户音量（回调方法）
 
 示例代码：
+
 ``` objc
 /// 音量状态值回调
 /// @param manager UCloudRtcEngine
@@ -171,17 +150,6 @@ sdkEngine.adjustRecordVolume(volume);
 }
 ```
 
-### 设置采集音量
-
-无   
-
-### 设置播放音量
-
-无   
-
-### 设置混音音量
-
-无  
 
 <!-- tabs:end -->
 
