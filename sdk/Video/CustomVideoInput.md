@@ -15,7 +15,8 @@ balabala……
 
 ## ** Windows **
 
-```
+```cpp
+
 //该方法用于注册视频观测器对象
 //@param codec 编码类型
 virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
