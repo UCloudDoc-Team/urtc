@@ -5,31 +5,6 @@
 
 <!-- tabs:start -->
 
-## ** Web **
-
-### 麦克风测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 扬声器测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 摄像头测试
-
-balabala……    
-
-### 示例代码
-
-balabala……  
 
 
 ## ** Windows **
@@ -105,57 +80,9 @@ mediaEngine->UnInitAudioMoudle();
 
 ```
 
-# ** Android **
+## ** Web **
 
-### 麦克风测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 扬声器测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 摄像头测试
-
-balabala……    
-
-### 示例代码
-
-balabala……  
-
-# ** iOS **
-
-### 麦克风测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 扬声器测试
-
-balabala……    
-
-### 示例代码
-
-balabala……   
-
-### 摄像头测试
-
-balabala……    
-
-### 示例代码
-
-balabala……  
+文档待更新
 
 <!-- tabs:end -->
 
