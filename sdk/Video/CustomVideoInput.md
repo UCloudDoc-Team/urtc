@@ -14,38 +14,39 @@ balabala……
 
 
 ## ** Windows **
-	///该方法用于注册视频观测器对象
-	///@param codec 编码类型
-	virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
 
+```
+//该方法用于注册视频观测器对象
+//@param codec 编码类型
+virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
 
-	///开启外部采集视频
-	///@param enable 是否使用扩展的外部采集摄像头
-	///@param videocapture 外部视频源
-	///@return 0 succ
-	virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
+//开启外部采集视频
+//@param enable 是否使用扩展的外部采集摄像头
+//@param videocapture 外部视频源
+//@return 0 succ
+virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
     
-    //视频监听回调
-    class _EXPORT_API UCloudIVideoFrameObserver
+//视频监听回调
+class _EXPORT_API UCloudIVideoFrameObserver
     {
     public:
-        ///视频采集到每一帧得回调
-        ///@param videoframe 视频数据
+        //视频采集到每一帧得回调
+        //@param videoframe 视频数据
         virtual  bool onCaptureFrame(tUCloudRtcVideoFrame *videoFrame) = 0;
 
     };
     
+```
+    
 ### 开发注意事项
-   初始化引擎后
-   1.调用registerVideoFrameObserver 注册相关的视频数据回调监听实例
    
-   2.当需要使用外置视频源时 调用enableExtendVideocapture(true,nullptr)
-	
-   3.在回调类中实现onCaptureFrame接口，将自定义采集数据通过回调接口之间进行替换,copy到videoFrame->mDataBuf ,并且返回true,即可完成外置源的数据送入。
+初始化引擎后    
+1.调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。    
+2.当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
+3.在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换,拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。    
+4.当需要切换回内置数据采集时`enableExtendVideocapture(false,customCapture)`。    
    
-   4.当需要切换回内置数据采集时enableExtendVideocapture(false,customCapture)；
-   
-   注意：windows支持最大1920*1080p的yuvi420的数据，进行替换时需要先进行转成yuvi420数据进行替换。
+> 注意：windows支持最大1920*1080p的yuvi420的数据，进行替换时需要先进行转成yuvi420数据进行替换。
 
 ## ** Android **
 
@@ -58,7 +59,7 @@ Android sdk支持`yuv420p`系列的外部源以及`rgba`、`abgr`，`rgb565`等`
 
 ### 开发注意事项
 
-```
+```java
 public interface UcloudRTCDataProvider {
 
     //0-3 表示转换类型
@@ -91,7 +92,7 @@ public interface UcloudRTCDataProvider {
 ```
 设置外部采集模式参数
 
-```
+```java
  //设置sdk 外部扩展模式及其采集的帧率，同时sdk内部会自动调整初始码率和最小码率
  //扩展模式只支持720p的分辨率及以下，若要自定义更高分辨率，请联系Ucloud商务定制，否则sdk会抛出异常，终止运行。
  sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_EXTEND.extendParams(30,640,480));
@@ -106,7 +107,9 @@ public interface UcloudRTCDataProvider {
 ```
 
 调用范例，具体内容请参考demo源码内RoomActivity，需要根据自己的实际情况来，范例只是做个参考
-```
+
+```java
+
 //生产者消费者队列
  private ArrayBlockingQueue<RGBSourceData> mQueue = new ArrayBlockingQueue(2);
 
@@ -174,8 +177,8 @@ public interface UcloudRTCDataProvider {
 
 ```
 
-```
- 		//sdk作为消费者消费数据
+```java
+    //sdk作为消费者消费数据
     private UcloudRTCDataProvider mUCloudRTCDataProvider = new UcloudRTCDataProvider() {
         private ByteBuffer cacheBuffer;
         private RGBSourceData rgbSourceData;
