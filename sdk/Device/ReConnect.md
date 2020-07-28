@@ -8,15 +8,17 @@
 
 ### 实现方法
 
-balabala……    
+通过on事件监听'stream-reconnected'，监听事件返回函数的参数为 {previous: Stream, current: Stream}，其中 previous 是重连前的发布/订阅流，current 是重连后的发布/订阅流， 通过重连前、后的流来做video的重新渲染。
 
 ### 示例代码
-
-balabala……    
-
+```js
+client.on('stream-reconnected', ({ previous: oldStream, current: newStream }) => {
+  //oldStream是重连之前的流，newStream是重连之后的流
+})    
+```
 ### 开发注意事项
 
-balabala……  
+请使用 current 来更新业务代码中的缓存。
 
 ## ** Windows **
 
