@@ -9,7 +9,7 @@
 
 通过设置采集旋转方向，保证视频和StatusBar的相对位置在采集端和播放端始终一致，视频采集旋转方向与 `UIInterfaceOrientation`方向一致。
 
-```objc
+```objectivec
 typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
     UCloudRtcOrientationModeAdaptive,       // 自适应模式
     UCloudRtcOrientationModeLandscapeLeft,  // Home键位置向左
@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
 
 ### 示例代码
 
-```objc
+```objectivec
 // 固定横屏 Home键位置向左
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
 }
 ```
 
-``` objc
+``` objectivec
 // 根据屏幕旋转方向设置视频采集方向
 sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
 ```
