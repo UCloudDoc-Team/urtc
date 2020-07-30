@@ -141,7 +141,7 @@ sdkEngine.adjustRecordVolume(volume);
 
 示例代码：
 
-``` objc
+```objectivec
 /// 音量状态值回调
 /// @param manager UCloudRtcEngine
 /// @param audioStatus UCloudRtcAudioStats
