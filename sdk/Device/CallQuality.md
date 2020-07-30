@@ -118,7 +118,7 @@ public void onNetWorkQuality(String userId, UCloudRtcSdkStreamType streamType, U
 
 ### 实现方法
 
-``` objc
+```objectivec
 /// 网络质量检测
 /// @param manager UCloudRtcEngine
 /// @param userId 用户id
