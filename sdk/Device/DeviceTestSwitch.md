@@ -42,13 +42,24 @@ UCloudRTC.deviceDetection({audio: true, video: true}, function(result) {
 });
 ```
 
-> 注：指定某设备时，可传入设备的ID，如: `UCloudRTC.deviceDetection({audio: true, microphoneId: 'xxx', video: true, cameraId: 'xxx' }, function(result) {//...}`
+在测试麦克风和摄像头时，可以先获取设备ID，再测试指定的设备ID，示例如下:     
+
+```js
+UCloudRTC.deviceDetection({audio: true, microphoneId: 'xxx', video: true, cameraId: 'xxx' }, function(result) {
+  if (result.audio && result.video) {
+    // 设备正常
+  } else {
+    // 设备异常，异常原因为 result.audioError 或 result.videoError
+  }
+})
+```
+
 
 ### 扬声器检测
 
 由于浏览器的安全限制，Web SDK 不支持直接播放本地音频文件。可以通过以下方法测试音频播放设备：
 
-使用 HTML5 的 <audio> 元素在页面上创建一个音频播放器，播放在线音频文件，并让用户确认是否有声音。
+使用 `HTML5` 的 `<audio>` 元素在页面上创建一个音频播放器，播放在线音频文件，并让用户确认是否有声音。
   
 
 ## ** Windows **
