@@ -10,7 +10,7 @@
 
 > 电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器。 
 
-[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo%E6%BA%90%E7%A0%81%2Furtc-js-demo-master-20200707.zip) 
+[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
 
