@@ -167,7 +167,7 @@ sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720;
 
 请在加入房间之前设置，暂不支持加入房间后动态修改分辨率，枚举值如下:
 
-```objc
+```objectivec
 typedef NS_ENUM(NSInteger)
 {
     UCloudRtcEngine_VideoProfile_180P = 0,   // 分辨率:240*180,  码率范围:100-200kpbs, 帧率:15fps
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSInteger)
 
 ### 示例代码
 
-``` objc
+``` objectivec
 // 设置分辨率720P
 sdkEngine.videoProfile = UCloudRtcEngine_VideoProfile_720P;
 ```  
