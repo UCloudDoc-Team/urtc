@@ -82,7 +82,43 @@ mediaEngine->UnInitAudioMoudle();
 
 ## ** Web **
 
-文档待更新
+### 麦克风检测
+
+```js
+UCloudRTC.deviceDetection({audio: true}, function(result) {
+  if (result.audio) {
+    // 设备正常
+  } else {
+    // 设备异常，异常原因为 result.audioError
+  }
+});
+```
+
+### 摄像头检测
+
+```js
+UCloudRTC.deviceDetection({video: true}, function(result) {
+  if (result.video) {
+    // 设备正常
+  } else {
+    // 设备异常，异常原因为 result.videoError
+  }
+});
+```
+
+### 同时检测麦克风及摄像头
+
+```js
+UCloudRTC.deviceDetection({audio: true, video: true}, function(result) {
+  if (result.audio && result.video) {
+    // 设备正常
+  } else {
+    // 设备异常，异常原因为 result.audioError 或 result.videoError
+  }
+});
+```
+
+> 注：指定某设备时，可传入设备的ID，如: `UCloudRTC.deviceDetection({audio: true, microphoneId: 'xxx', video: true, cameraId: 'xxx' }, function(result) {//...}`
 
 <!-- tabs:end -->
 
