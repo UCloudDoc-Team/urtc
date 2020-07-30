@@ -2,83 +2,7 @@
 
 加入房间之前，可以进行设备测试，检测麦克风、摄像头等音视频设备能否正常工作。    
 
-
 <!-- tabs:start -->
-
-
-
-## ** Windows **
-
-### 麦克风测试
-
-```cpp
-//开启录音测试
-//@param  audiolevel 回调实例
-virtual int startRecordingDeviceTest(UCloudRtcAudioLevelListener* audiolevel) = 0;
-
-//停止录音测试
-virtual int stopRecordingDeviceTest() = 0;
-
-```
-
-### 示例代码
-
-```cpp
-auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
-mediaEngine->InitAudioMoudle()
-mediaEngine->startRecordingDeviceTest(pAudioListener);  //pAudioListener 继承实现UCloudRtcAudioLevelListener对象的指针
-mediaEngine->stopRecordingDeviceTest();
-mediaEngine->UnInitAudioMoudle();
-
-```
-### 扬声器测试
-
-```cpp
-//开启播放设备测试
-//@param  testAudioFilePath 文件路径
-virtual int startPlaybackDeviceTest(const char* testAudioFilePath) = 0;
-
-//停止播放设备测试
-virtual int stopPlaybackDeviceTest() = 0;
-
-```
-
-### 示例代码
-
-```cpp
-auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
-mediaEngine->InitAudioMoudle()
-mediaEngine->startPlaybackDeviceTest(filePath);  //播放测试文件路径
-mediaEngine->stopPlaybackDeviceTest();
-mediaEngine->UnInitAudioMoudle();
-
-```
-
-### 摄像头测试
-
-```cpp
-//开启摄像头Capture测试
-//@param  profile 分辨率
-//@param  observer 回调实例
-virtual int startCaptureFrame(eUCloudRtcVideoProfile profile,
-UCloudRtcVideoFrameObserver* observer) = 0;
-
-//停止摄像头Capture测试
-virtual int stopCaptureFrame() = 0;
-
-```
-
-### 示例代码
-
-```cpp
-auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
-mediaEngine->InitAudioMoudle()
-mediaEngine->startCaptureFrame(profile,pObserver);  
-//profile 抓取的分辨率，pObserver继承实现UCloudRtcVideoFrameObserver的对象指针
-mediaEngine->stopCaptureFrame();
-mediaEngine->UnInitAudioMoudle();
-
-```
 
 ## ** Web **
 
@@ -126,6 +50,79 @@ UCloudRTC.deviceDetection({audio: true, video: true}, function(result) {
 
 使用 HTML5 的 <audio> 元素在页面上创建一个音频播放器，播放在线音频文件，并让用户确认是否有声音。
   
+
+## ** Windows **
+
+### 麦克风测试
+
+```cpp
+//开启录音测试
+//@param  audiolevel 回调实例
+virtual int startRecordingDeviceTest(UCloudRtcAudioLevelListener* audiolevel) = 0;
+
+//停止录音测试
+virtual int stopRecordingDeviceTest() = 0;
+
+```
+
+### 示例代码
+
+```cpp
+auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
+mediaEngine->InitAudioMoudle()
+mediaEngine->startRecordingDeviceTest(pAudioListener);  //pAudioListener 继承实现UCloudRtcAudioLevelListener对象的指针
+mediaEngine->stopRecordingDeviceTest();
+mediaEngine->UnInitAudioMoudle();
+
+```
+### 摄像头测试
+
+```cpp
+//开启摄像头Capture测试
+//@param  profile 分辨率
+//@param  observer 回调实例
+virtual int startCaptureFrame(eUCloudRtcVideoProfile profile,
+UCloudRtcVideoFrameObserver* observer) = 0;
+
+//停止摄像头Capture测试
+virtual int stopCaptureFrame() = 0;
+
+```
+
+### 示例代码
+
+```cpp
+auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
+mediaEngine->InitAudioMoudle()
+mediaEngine->startCaptureFrame(profile,pObserver);  
+//profile 抓取的分辨率，pObserver继承实现UCloudRtcVideoFrameObserver的对象指针
+mediaEngine->stopCaptureFrame();
+mediaEngine->UnInitAudioMoudle();
+
+```
+
+### 扬声器测试
+
+```cpp
+//开启播放设备测试
+//@param  testAudioFilePath 文件路径
+virtual int startPlaybackDeviceTest(const char* testAudioFilePath) = 0;
+
+//停止播放设备测试
+virtual int stopPlaybackDeviceTest() = 0;
+
+```
+
+### 示例代码
+
+```cpp
+auto mediaEngine = UCloudRtcMediaDevice::sharedInstance();
+mediaEngine->InitAudioMoudle()
+mediaEngine->startPlaybackDeviceTest(filePath);  //播放测试文件路径
+mediaEngine->stopPlaybackDeviceTest();
+mediaEngine->UnInitAudioMoudle();
+
+```
 
 <!-- tabs:end -->
 
