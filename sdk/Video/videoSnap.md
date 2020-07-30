@@ -75,7 +75,7 @@ view传本地的就是本地截图，远端的view就是远端的截图。
 
 view传本地的就是本地截图，远端的view就是远端的截图。  
 
-```objc
+```objectivec
 // 本地视频快照
 [sdkEngine captuerVideoImage:^(UIImage *image) {
     if (image) {
