@@ -19,7 +19,7 @@ URTC支持Android、IOS、MAC OS、Windows、Electron、WEB多平台的接入，
 |MAC OS   | 支持MAC OS 10.0及以上版本              |
 |IOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad |
 |Windows  | 支持Windows 7及以上版本                |
-|WEB      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本 <br> 支持移动端微信浏览器 7及以上版本  |
+|WEB      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持Edge 浏览器79及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本 <br> 支持移动端微信浏览器 7及以上版本  |
 |Electron | 支持Electron addon 2.0.7及以上版本     |
 
 ## 产品功能
