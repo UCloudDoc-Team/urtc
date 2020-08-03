@@ -20,7 +20,12 @@ unmuteVideo 方法	 | 打开视频，可以打开本端、远端视频，根据S
 
 ### 示例代码
 
-文档待更新
+```
+this.client.muteAudio(stream.sid);  // 关闭本地、远端音频
+this.client.unmuteAudio(stream.sid);  // 取消关闭本地、远端音频
+this.client.muteVideo(stream.sid);  // 关闭本地、远端视频
+this.client.unmuteVideo(stream.sid);  // 取消关闭本地、远端视频
+```
 
 ## ** Windows **
 
