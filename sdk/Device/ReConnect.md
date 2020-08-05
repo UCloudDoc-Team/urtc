@@ -38,17 +38,22 @@ client.on('stream-reconnected', ({ previous: oldStream, current: newStream }) =>
 
 ## ** Windows **
 
-### 实现方法
-
-balabala……    
+断网重连时，用户无需实现重连，sdk内部自动进行断网重连，重连结果通过以下空实现接口告知，用户可以在实现继承空接口实现自己相关得逻辑。
 
 ### 示例代码
 
-balabala……    
+//断线无法恢复
+virtual void onServerDisconnect()
+
+//断线重连中
+virtual void onRejoining(const char* uid, const char* roomid)
+
+//断线重连成功加入房间
+virtual void onReJoinRoom(const char* uid, const char* roomid)  
 
 ### 开发注意事项
 
-balabala……  
+不要在回调得接口中做耗时操作。
 
 ## ** Android **
 
