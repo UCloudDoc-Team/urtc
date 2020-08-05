@@ -86,12 +86,18 @@ sdk自主完成断网重连，重连结果通过回调接口通知app。
 
 ### 示例代码
 
- ```objective-c  
-// 设置断网重连次数 默认为：10次
-    sdkEngine.reConnectTimes = 30;
-// 设置重连时间间隔，默认60秒钟
-    sdkEngine.overTime = 10; 
+在配置参数时，可以自定义更改重连的次数、时间间隔。
 
+ ```objectivec  
+// 设置断网重连次数 默认为：10次
+    sdkEngine.reConnectTimes = 20;
+// 设置重连时间间隔，默认60秒钟
+    sdkEngine.overTime = 60; 
+```
+
+在房间内，可以监听重连状态：
+
+```objectivec 
 //重连结果监听
 -(void)uCloudRtcEngine:(UCloudRtcEngine *)engine connectState:(UCloudRtcConnectState)connectState{}
 ```
