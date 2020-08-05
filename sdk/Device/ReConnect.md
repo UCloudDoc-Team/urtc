@@ -82,18 +82,19 @@ public void onRejoinRoomResult(String roomid) ;
 
 ## ** iOS **
 
-### 实现方法
-
-balabala……    
+sdk自主完成断网重连，重连结果通过回调接口通知app。   
 
 ### 示例代码
 
-balabala……    
+ ```objective-c  
+// 设置断网重连次数 默认为：10次
+    sdkEngine.reConnectTimes = 30;
+// 设置重连时间间隔，默认60秒钟
+    sdkEngine.overTime = 10; 
 
-### 开发注意事项
-
-balabala……  
-
+//重连结果监听
+-(void)uCloudRtcEngine:(UCloudRtcEngine *)engine connectState:(UCloudRtcConnectState)connectState{}
+```
 
 
 <!-- tabs:end -->
