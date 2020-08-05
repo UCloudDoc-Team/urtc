@@ -1,4 +1,4 @@
-# 自动断网重连
+# 断网自动重连
 
 在切换网络或者网络较差，导致客户端断网时，SDK会自动重连服务器，让用户不掉线，通话不间断。
 
@@ -58,6 +58,7 @@ virtual void onReJoinRoom(const char* uid, const char* roomid)
 不要在回调得接口中做耗时操作。
 
 ## ** Android **
+
 sdk自主完成断网重连，重连结果通过回调接口通知app。
 
 ### 示例代码
