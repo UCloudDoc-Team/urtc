@@ -58,18 +58,24 @@ virtual void onReJoinRoom(const char* uid, const char* roomid)
 不要在回调得接口中做耗时操作。
 
 ## ** Android **
-
-### 实现方法
-
-balabala……    
+sdk自主完成断网重连，重连结果通过回调接口通知app。
 
 ### 示例代码
 
-balabala……    
+```java
+//与服务器断开
+public void onServerDisconnect() ;
+
+//断线重连中
+public void onRejoiningRoom(String roomid) ;
+
+//断线重连成功加入房间
+public void onRejoinRoomResult(String roomid) ; 
+```
 
 ### 开发注意事项
 
-balabala……  
+回调接口避免使用耗时操作。 
 
 
 
