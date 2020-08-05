@@ -172,6 +172,7 @@ iOS SDK支持分享整个屏幕。
 
 #### 发布屏幕流
 加入房间后，屏幕流根据需要调用发布接口。
+
 ```objectivec
 [sdkEngine publishWithMediaType:UCloudRtcStreamMediaTypeScreen];
 ```
