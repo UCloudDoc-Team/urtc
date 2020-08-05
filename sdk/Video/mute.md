@@ -40,7 +40,38 @@ muteRemoteVideo 方法	 | 打开/关闭远端视频
 
 ### 示例代码
 
-文档待更新
+//关闭视频流本地麦克风
+sdkEngine.muteLocalMic(true,UCLOUD_RTC_MEDIATYPE_VIDEO);
+//关闭桌面流本地麦克风
+sdkEngine.muteLocalMic(true,UCLOUD_RTC_MEDIATYPE_SCREEN);
+//关闭本地屏幕流
+sdkEngine.muteLocalVideo(true, UCLOUD_RTC_MEDIATYPE_SCREEN);
+//关闭本地视频流
+sdkEngine.muteLocalVideo(true, UCLOUD_RTC_MEDIATYPE_VIDEO);
+
+//关闭远端视频音频
+tUCloudRtcMuteSt romoteUser;
+romoteUser.mUserId = "xxxx";
+romoteUser.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
+sdkEngine.muteRemoteAudio(userId, true);
+
+//关闭远端桌面音频
+tUCloudRtcMuteSt romoteUser;
+romoteUser.mUserId = "xxxx";
+romoteUser.mStreamMtype = UCLOUD_RTC_MEDIATYPE_SCREEN;
+sdkEngine.muteRemoteAudio(userId, true);
+
+//关闭远端视频流
+tUCloudRtcMuteSt romoteUser;
+romoteUser.mUserId = "xxxx";
+romoteUser.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
+sdkEngine.muteRemoteVideo(userId, true);
+
+//关闭远端桌面流
+tUCloudRtcMuteSt romoteUser;
+romoteUser.mUserId = "xxxx";
+romoteUser.mStreamMtype = UCLOUD_RTC_MEDIATYPE_SCREEN;
+sdkEngine.muteRemoteScreen(userId, true);
 
 ## ** Android **
 
