@@ -96,14 +96,19 @@ muteRemoteScreen 方法	 | 打开/关闭远端桌面
 ```java
 //关闭本地麦克风
 sdkEngine.muteLocalMic(true);
+
 //关闭本地屏幕流
 sdkEngine.muteLocalVideo(true, UCLOUD_RTC_SDK_MEDIA_TYPE_SCREEN);
+
 //关闭本地视频流
 sdkEngine.muteLocalVideo(true, UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO);
+
 //关闭远端音频
 sdkEngine.muteLocalVideo(userId, true);
+
 //关闭远端视频流
 sdkEngine.muteRemoteVideo(userId, true);
+
 //关闭远端桌面流
 sdkEngine.muteRemoteScreen(userId, true);
 
