@@ -27,6 +27,7 @@
 		* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
 		* [通话中质量监测](/urtc/sdk/Device/CallQuality) 
 		* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)   
+		* [断网自动重连策略](/urtc/sdk/Device/ReConnect)  
 * [云端录制](/urtc/cloudRecord/index)  
     * [云端录制SDK代码示例](/urtc/cloudRecord/RecordStart)    
     * [录制回放](/urtc/cloudRecord/PlayRecordFile)
