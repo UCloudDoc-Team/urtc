@@ -20,7 +20,7 @@ unmuteVideo 方法	 | 打开视频，可以打开本端、远端视频，根据S
 
 ### 示例代码
 
-```
+```js
 this.client.muteAudio(stream.sid);  // 关闭本地、远端音频
 this.client.unmuteAudio(stream.sid);  // 取消关闭本地、远端音频
 this.client.muteVideo(stream.sid);  // 关闭本地、远端视频
@@ -40,12 +40,16 @@ muteRemoteVideo 方法	 | 打开/关闭远端视频
 
 ### 示例代码
 
+```cpp
 //关闭视频流本地麦克风
 sdkEngine.muteLocalMic(true,UCLOUD_RTC_MEDIATYPE_VIDEO);
+
 //关闭桌面流本地麦克风
 sdkEngine.muteLocalMic(true,UCLOUD_RTC_MEDIATYPE_SCREEN);
+
 //关闭本地屏幕流
 sdkEngine.muteLocalVideo(true, UCLOUD_RTC_MEDIATYPE_SCREEN);
+
 //关闭本地视频流
 sdkEngine.muteLocalVideo(true, UCLOUD_RTC_MEDIATYPE_VIDEO);
 
@@ -72,6 +76,8 @@ tUCloudRtcMuteSt romoteUser;
 romoteUser.mUserId = "xxxx";
 romoteUser.mStreamMtype = UCLOUD_RTC_MEDIATYPE_SCREEN;
 sdkEngine.muteRemoteScreen(userId, true);
+
+```
 
 ## ** Android **
 
