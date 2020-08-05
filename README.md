@@ -44,6 +44,7 @@ SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成�
 	* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
 	* [通话中质量监测](/urtc/sdk/Device/CallQuality)   
 	* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)  
+	* [断网自动重连策略](/urtc/sdk/Device/ReConnect)  
 
 ## [云端录制](/urtc/cloudRecord/index)  
 
