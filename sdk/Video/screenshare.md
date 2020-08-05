@@ -60,6 +60,7 @@ client.publish(
   }
 );
 ```
+### 开发注意事项
 
 * audio 属性建议设置为 false，避免订阅端收到的两路流中都有音频，导致回声，建议音频只推一路流，防止出现回音。
 * 在本地共享的时候，本地流的 Client 不要订阅本地的媒体流，否则会增加时长计费。
@@ -128,7 +129,6 @@ for(int i = 0;i < num;i++){
 
 ```
 
-### 开发注意事项
 
 ## ** Android **
 
@@ -161,7 +161,6 @@ sdkEngine.setAutoPublish(false);
 sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_SCREEN, true, false);
 ```
 
-### 开发注意事项
 
 
 ## ** iOS **
@@ -181,12 +180,5 @@ iOS SDK支持分享整个屏幕。
 ```objectivec
 [sdkEngine unpublishWithMediaType:UCloudRtcStreamMediaTypeScreen];
 ```
-
-### 开发注意事项
-
-
-
-
-
 
 <!-- tabs:end -->
