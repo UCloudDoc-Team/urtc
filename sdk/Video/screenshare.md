@@ -74,21 +74,58 @@ Windows SDK支持分享桌面、窗口、指定区域。
 
 #### 共享指定屏幕
 
-balabala……
+发布本地桌面指定屏幕可以按照以下步骤进行操作
 
 示例代码：
 
 ```cpp
+setUseDesktopCapture(UCLOUD_RTC_DESKTOPTYPE_SCREEN);
+setDesktopProfile(UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS);
 
+int num = getDesktopNums();
+tUCloudRtcDeskTopInfo[num];
+for(int i = 0;i < num;i++){
+  getDesktopInfo(i,tUCloudRtcDeskTopInfo[i]);
+}
+tUCloudRtcScreenPargram screenSet;
+screenSet.mScreenindex = tUCloudRtcDeskTopInfo[0].mDesktopId;
+screenSet.mXpos = 0;
+screenSet.mYpos = 0;
+screenSet.mWidth = tUCloudRtcDeskTopInfo[0].mScreenW;
+screenSet.mHeight =  tUCloudRtcDeskTopInfo[0].mScreenH;
+setCaptureScreenPagrams(screenSet);
+
+publish(UCLOUD_RTC_MEDIATYPE_SCREEN,true,true);
 ```
 
 #### 共享指定窗口
 
-balabala……
+发布本地桌面指定窗口可以按照以下步骤进行操作
 
 示例代码：
 
 ```cpp
+setUseDesktopCapture(UCLOUD_RTC_DESKTOPTYPE_WINDOW);
+setDesktopProfile(UCLOUD_RTC_SCREEN_PROFILE_HIGH_PLUS);
+
+std::string strWindowTitle = "your window";
+int num = getWindowNums();
+tUCloudRtcDeskTopInfo[num];
+for(int i = 0;i < num;i++){
+  getWindowInfo(i,tUCloudRtcDeskTopInfo[i]);
+  if( strcmp(tUCloudRtcDeskTopInfo[i].mDesktopTitle,strWindowTitle.data()) == 0 ){
+    tUCloudRtcScreenPargram windowSet;
+      windowSet.mScreenindex = tUCloudRtcDeskTopInfo[0].mDesktopId;
+      windowSet.mXpos = 0;    //x坐标
+      windowSet.mYpos = 0;    //y坐标
+      windowSet.mWidth = w;   //分享窗口得宽度
+      windowSet.mHeight =  h; //分享窗口得高度
+      setCaptureScreenPagrams(windowSet);
+      publish(UCLOUD_RTC_DESKTOPTYPE_WINDOW,true,true);
+      break;
+  }
+}
+
 
 ```
 
