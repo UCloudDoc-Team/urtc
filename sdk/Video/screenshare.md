@@ -154,10 +154,11 @@ sdkEngine.setAutoPublish(true);
 sdkEngine.configLocalScreenPublish(true);
 //设置为手动发布
 sdkEngine.setAutoPublish(false);
-...
+```
+
+```java
 //根据需要发布屏幕流
 sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_SCREEN, true, false);
-
 ```
 
 ### 开发注意事项
