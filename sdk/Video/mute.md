@@ -129,8 +129,20 @@ setRemoteStream:muteVideo 方法	 | 打开/关闭远端音频
 setRemoteStream:muteAudio 方法	 | 打开/关闭远端视频
 
 ### 示例代码
+```objective-c
+//关闭本地麦克风
+[rtcEngine setMute:YES];
 
-文档待更新
+//关闭本地视频流
+[rtcEngine openCamera:YES];
+
+//关闭远端音频
+[rtcEngine setRemoteStream:stream muteAudio:YES];
+
+//关闭远端视频流
+[rtcEngine setRemoteStream:stream muteVideo:YES];
+
+```
 
 
 <!-- tabs:end -->
