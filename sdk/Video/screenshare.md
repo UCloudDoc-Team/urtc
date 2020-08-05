@@ -6,11 +6,11 @@ Windows、安卓客户端的屏幕共享，已经在SDK里集成。具体参照�
 
 <!-- tabs:start -->
 
-# ** Web **
+## ** Web **
 
 在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
-## 无插件屏幕共享
+### 无插件屏幕共享
 
 下表中的浏览器，可以使用无插件屏幕分享。   
 
@@ -40,7 +40,7 @@ client.publish(
 );
 ```
 
-## 使用屏幕共享插件
+### 使用屏幕共享插件
 
 chrome 72及72版本以上无需下载插件，72版本以下则需要下载[URTC屏幕共享插件](http://urtcsdk.cn-bj.ufileos.com/URTC-screen-extention.zip)。
 
@@ -65,6 +65,76 @@ client.publish(
 * audio 属性建议设置为 false，避免订阅端收到的两路流中都有音频，导致回声，建议音频只推一路流，防止出现回音。
 * 在本地共享的时候，本地流的 Client 不要订阅本地的媒体流，否则会增加时长计费。
 * 创建屏幕共享流的时候，video 必须设置为 false。如果屏幕分享需要混音共享流，参考 [播放混音](urtc/sdk/Audio/AudioMixing)的方法。
+
+## ** Windows **
+
+### 实现方法
+
+Windows SDK支持分享桌面、窗口、指定区域。
+
+#### 共享指定屏幕
+
+balabala……
+
+示例代码：
+
+```cpp
+
+```
+
+#### 共享指定窗口
+
+balabala……
+
+示例代码：
+
+```cpp
+
+```
+
+### 开发注意事项
+
+## ** Android **
+
+### 实现方法
+
+Android SDK支持分享整个屏幕。
+
+balabala……
+
+示例代码：
+
+```java
+
+```
+
+### 开发注意事项
+
+
+## ** iOS **
+
+### 实现方法
+
+iOS SDK支持分享整个屏幕。
+
+balabala……
+
+示例代码：
+
+
+```objectivec
+
+```
+
+
+```swift
+
+```
+
+### 开发注意事项
+
+
+
 
 
 
