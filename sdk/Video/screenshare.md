@@ -134,13 +134,29 @@ for(int i = 0;i < num;i++){
 
 ### 实现方法
 
-Android SDK支持分享整个屏幕。
+Android SDK支持分享设备的整个屏幕，屏幕流可以根据需要自动发布或者手动发布。
 
-balabala……
-
-示例代码：
+#### 自动发布屏幕流
+加入房间后，屏幕流会自动推送。
 
 ```java
+//设定支持屏幕推流
+sdkEngine.configLocalScreenPublish(true);
+//设置为自动发布
+sdkEngine.setAutoPublish(true);
+```
+
+#### 手动发布屏幕流
+加入房间后，屏幕流根据需要调用发布接口。
+
+```java
+//设定支持屏幕推流
+sdkEngine.configLocalScreenPublish(true);
+//设置为手动发布
+sdkEngine.setAutoPublish(false);
+...
+//根据需要发布屏幕流
+sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_SCREEN, true, false);
 
 ```
 
