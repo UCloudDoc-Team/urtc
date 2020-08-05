@@ -170,18 +170,15 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_SCREEN, true, false);
 
 iOS SDK支持分享整个屏幕。
 
-balabala……
-
-示例代码：
-
+#### 发布屏幕流
+加入房间后，屏幕流根据需要调用发布接口。
+```objectivec
+[sdkEngine publishWithMediaType:UCloudRtcStreamMediaTypeScreen];
+```
+#### 取消发布屏幕流
 
 ```objectivec
-
-```
-
-
-```swift
-
+[sdkEngine unpublishWithMediaType:UCloudRtcStreamMediaTypeScreen];
 ```
 
 ### 开发注意事项
