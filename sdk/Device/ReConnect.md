@@ -38,7 +38,7 @@ client.on('stream-reconnected', ({ previous: oldStream, current: newStream }) =>
 
 ## ** Windows **
 
-断网重连时，用户无需实现重连，sdk内部自动进行断网重连，重连结果通过以下空实现接口告知，用户可以在实现继承空接口实现自己相关的逻辑。
+断网重连时，用户无需实现重连，sdk内部自动进行断网重连，重连结果通过以下接口告知，用户可以实现以下空接口来获得通知。
 
 ### 示例代码
 
