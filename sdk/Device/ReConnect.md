@@ -6,17 +6,17 @@
 
 ## ** Web **
 
-断网重连时，会触发两种事件：connection-state-change, stream-reconnected。
-1. connection-state-change 事件将通知与信令服务器的整体的连接的状态的变更，断网重连时，会有 'OPEN' => 'RECONNECTING'=> 'OPEN' 状态的变化;
-2. stream-reconnected 事件将通知每条具体的流的重连。
+断网重连时，会触发两种事件：`connection-state-change`, `stream-reconnected`。
+1. `connection-state-change` 事件将通知与信令服务器的整体的连接的状态的变更，断网重连时，会有 `OPEN` => `RECONNECTING`=> `OPEN` 状态的变化;
+2. `stream-reconnected` 事件将通知每条具体的流的重连。
 
 具体请参考 https://github.com/ucloud/urtc-sdk-web#client-on 中的说明。
 
 ### 实现方法
 
-1. 通过on事件监听'connection-state-change'，监听事件返回函数的参数为 {previous: State, current: State}，其中 previous 与 current 分别为连接状态变化前、后的值，页面中可通过此变化的值为提示用户当前的连接状态，不需要提示用户连接状态时，此事件可不处理。
+ - 1. 通过on事件监听`connection-state-change`，监听事件返回函数的参数为 `{previous: State, current: State}`，其中 `previous` 与 `current` 分别为连接状态变化前、后的值，页面中可通过此变化的值为提示用户当前的连接状态，不需要提示用户连接状态时，此事件可不处理。
 
-2. 通过on事件监听'stream-reconnected'，监听事件返回函数的参数为 {previous: Stream, current: Stream}，其中 previous 是重连前的发布/订阅流，current 是重连后的发布/订阅流， 通过重连前、后的流来做video的重新渲染，请务必处理此事件，用于本地缓存的更新。
+ - 2. 通过on事件监听`stream-reconnected`，监听事件返回函数的参数为 `{previous: Stream, current: Stream}`，其中 `previous` 是重连前的发布/订阅流，`current` 是重连后的发布/订阅流， 通过重连前、后的流来做`video`的重新渲染，请务必处理此事件，用于本地缓存的更新。
 
 ### 示例代码
 
