@@ -7,9 +7,11 @@
 
 ## ** Web **
 
+### 实现方法
+
 在开始屏幕共享前，请确保集成Web端SDK，详见[快速集成SDK](https://github.com/ucloud/urtc-sdk-web/blob/master/Manual.md) 。
 
-### 无插件屏幕共享
+#### 无插件屏幕共享
 
 下表中的浏览器，可以使用无插件屏幕分享。   
 
@@ -39,7 +41,7 @@ client.publish(
 );
 ```
 
-### 使用屏幕共享插件
+#### 使用屏幕共享插件
 
 chrome 72及72版本以上无需下载插件，72版本以下则需要下载[URTC屏幕共享插件](http://urtcsdk.cn-bj.ufileos.com/URTC-screen-extention.zip)。
 
