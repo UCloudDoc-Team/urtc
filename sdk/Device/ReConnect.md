@@ -34,7 +34,7 @@ client.on('stream-reconnected', ({ previous: oldStream, current: newStream }) =>
 
 ### 开发注意事项
 
-请务必处理 'stream-reconnected' 事件，并使用 current 来更新业务代码中的缓存，进而对其进行播放或其他处理。而 'connection-state-change' 事件请根据业务需求进行酌情处理。
+请务必处理 `stream-reconnected` 事件，并使用 `current` 来更新业务代码中的缓存，进而对其进行播放或其他处理。而 `connection-state-change` 事件请根据业务需求进行酌情处理。
 
 ## ** Windows **
 
