@@ -7,7 +7,7 @@
 ## ** Web **
 
 断网重连时，会触发两种事件：`connection-state-change`, `stream-reconnected`。
-1. `connection-state-change` 事件将通知与信令服务器的整体的连接的状态的变更，断网重连时，会有 `OPEN` => `RECONNECTING`=> `OPEN` 状态的变化;
+1. `connection-state-change` 事件将通知与信令服务器的整体的连接的状态的变更，断网重连时，会有 `OPEN` => `RECONNECTING`=> `OPEN` 状态的变化；
 2. `stream-reconnected` 事件将通知每条具体的流的重连。
 
 具体请参考 [SDK on绑定处理事件方法](https://github.com/ucloud/urtc-sdk-web#client-on) 中的说明。
