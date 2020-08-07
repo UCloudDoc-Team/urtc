@@ -19,7 +19,8 @@
 
 ### 结束连麦
 
-在结束连麦时，更改用户权限`role`为 `pull`，同时取消发布流`unpublish`，结束本次连麦。
+- 更改用户权限`role`为 `pull`。
+- 取消发布流`unpublish`，结束本次连麦。
 
 #### 示例代码
 
@@ -36,7 +37,6 @@ balabala
 ### 开始连麦
 
 - 在使用用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB` 的情况下，开始连麦时，要更改用户权限`setStreamRole`为`UCLOUD_RTC_USER_STREAM_ROLE_BOTH`。
-
 - 发布流`publish`，就能与老师、主播互动了。
 
 #### 示例代码
@@ -47,7 +47,8 @@ balabala
 
 ### 结束连麦
 
-在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`，同时取消发布流`unpublish`，结束本次连麦。
+- 在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`。
+- 取消发布流`unpublish`，结束本次连麦。
 
 #### 示例代码
 
@@ -64,7 +65,6 @@ balabala
 ### 开始连麦
 
 - 在使用用户权限`setStreamRole`为 `UCLOUD_RTC_SDK_STREAM_ROLE_SUB` 的情况下，开始连麦时，更改用户权限`setStreamRole`为`URTC_SDK_STREAM_ROLE_BOTH`。
-
 - 发布流`publish`，就能与老师、主播互动了。
 
 #### 示例代码
@@ -75,7 +75,8 @@ balabala
 
 ### 结束连麦
 
-在结束连麦时，更改用户权限`setStreamRole`为`URTC_SDK_STREAM_ROLE_BOTH`，同时取消发布流`unpublish`，结束本次连麦。
+- 在结束连麦时，更改用户权限`setStreamRole`为`URTC_SDK_STREAM_ROLE_BOTH`。
+- 取消发布流`unpublish`，结束本次连麦。
 
 #### 示例代码
 
@@ -106,7 +107,8 @@ balabala
 
 ### 结束连麦
 
-在结束连麦时，更改用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload`，同时取消发布流`unPublish`，就结束本次连麦。
+- 在结束连麦时，更改用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload`。
+- 取消发布流`unPublish`，就结束本次连麦。
 
 #### 示例代码
 
