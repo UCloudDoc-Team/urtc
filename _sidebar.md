@@ -18,10 +18,25 @@
 	<summary>常用功能new</summary>
 
 ​```
-这是折叠的代码1
-这是折叠的代码2
+
+		* [互动连麦](/urtc/sdk/Video/Interactive)            
+		* [屏幕共享](/urtc/sdk/Video/screenshare)     
+		* [关闭音视频](/urtc/sdk/Video/mute)    
+		* [设置视频参数](/urtc/sdk/Video/videoProfile)    
+		* [调整音量](/urtc/sdk/Audio/AudioVolume)   		
+		* [播放混音](/urtc/sdk/Audio/AudioMixing)   	
+		* [视频快照](/urtc/sdk/Video/videoSnap)   
+		* [视频采集旋转](urtc/sdk/Video/VideoRotation)   
+		* [自定义视频采集](/urtc/sdk/Video/CustomVideoInput)  
+		* [旁路推流](/urtc/sdk/Video/cdnSteaming)     		
+		* [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch)     
+		* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
+		* [通话中质量监测](/urtc/sdk/Device/CallQuality) 
+		* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)   
+		* [断网自动重连策略](/urtc/sdk/Device/ReConnect) 
 ​```
 </details>
+
 		* [互动连麦](/urtc/sdk/Video/Interactive)            
 		* [屏幕共享](/urtc/sdk/Video/screenshare)     
 		* [关闭音视频](/urtc/sdk/Video/mute)    
