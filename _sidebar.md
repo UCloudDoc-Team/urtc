@@ -14,6 +14,14 @@
     * [SDK版本说明](/urtc/sdk/Version)
     * [快速集成SDK](/urtc/sdk/VideoStart)    
     * 常用功能      
+<details>
+	<summary>常用功能new</summary>
+
+​```
+这是折叠的代码1
+这是折叠的代码2
+​```
+</details>
 		* [互动连麦](/urtc/sdk/Video/Interactive)            
 		* [屏幕共享](/urtc/sdk/Video/screenshare)     
 		* [关闭音视频](/urtc/sdk/Video/mute)    
