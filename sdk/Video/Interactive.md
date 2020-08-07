@@ -91,7 +91,8 @@ balabala
 
 ### 开始连麦
 
-在使用用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload` 的情况下，开始连麦时，首先要设置用户权限`role`为`UCloudRtcEngine_StreamProfileAll`，然后再发布流`publish`，就能与老师、主播互动了。
+- 在使用用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload` 的情况下，开始连麦时，更改用户权限`role`为`UCloudRtcEngine_StreamProfileAll`。
+- 发布流`publish`，就能与老师、主播互动了。
 
 #### 示例代码
 
