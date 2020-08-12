@@ -30,7 +30,7 @@
 
 ### 开发注意事项
 
-balabala
+待更新
 
 ## ** Windows **
 
@@ -58,7 +58,7 @@ balabala
 
 ### 开发注意事项
 
-balabala
+待更新
 
 ## ** Android **
 
@@ -86,7 +86,7 @@ balabala
 
 ### 开发注意事项
 
-balabala
+待更新
 
 ## ** iOS **
 
@@ -121,7 +121,7 @@ balabala
 ```
 ### 开发注意事项
 
-balabala
+待更新
 
 
 
