@@ -145,7 +145,7 @@
 
 
 <details>
-	<summary>## 更多风格</summary>
+	<summary> 更多风格</summary>
 
 
 ## 平铺风格2
