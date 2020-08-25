@@ -5,34 +5,28 @@
 
 ## 平铺风格
 
-默认风格，用户平铺在底图上，最多支持9个用户画面。  
+开启录制或者旁路推流时，`layout`选 1 ，为平铺混流布局。 这个是默认风格，用户平铺在底图上，最多支持9个用户画面。  
 
 不同风格的样式如下图所示：  
 
 ![ ](/images/record/pingpu1.png)
 
-![ ](/images/record/pingpu2.png)
+![ ](/images/record/pingpu2New.png)
 
-![ ](/images/record/pingpu3new.png)
+![ ](/images/record/pingpu3New.png)
 
 ![ ](/images/record/pingpu4.png)
 
-![ ](/images/record/pingpu5.png)
+![ ](/images/record/pingpu5And6.png)
 
-![ ](/images/record/pingpu6.png)
-
-![ ](/images/record/pingpu7.png)
-
-![ ](/images/record/pingpu8.png)
+![ ](/images/record/pingpu7And8.png)
 
 ![ ](/images/record/pingpu9.png)
 
 
-
-
 ## 垂直风格
 
-指定一个用户显示大视窗画面，其他用户的小视窗画面在右侧垂直排列，最多支持共9个用户画面。  
+开启录制或者旁路推流时，`layout`选 2 ，为平铺混流布局。这个风格种，可以指定一个用户显示大视窗画面，其他用户的小视窗画面在右侧垂直排列，最多支持共9个用户画面。  
 
 不同风格的样式如下图所示：  
 
@@ -124,7 +118,14 @@
 ![ ](/images/record/layout_custom_define.png)
 
 
+<details>
+	<summary>更多风格</summary>
 
+​```
+这是折叠的代码1
+这是折叠的代码2
+​```
+</details>
 
 
 
