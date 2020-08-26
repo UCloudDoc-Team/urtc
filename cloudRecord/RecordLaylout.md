@@ -69,10 +69,7 @@
 	<summary>代码示例</summary>
 
 ​```
-
 "custom": [ 
-//
-
                  {
                      "region": [
                          {
