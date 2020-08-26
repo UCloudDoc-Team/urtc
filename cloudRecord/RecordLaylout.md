@@ -68,7 +68,7 @@
 <details>
 	<summary>代码示例</summary>
 
-​```
+```
 "custom": [ 
                  {
                      "region": [
@@ -112,7 +112,7 @@
 	    //混流二画面，是左右的均分效果
             ],
 
-​```
+```
 
 </details>
   
