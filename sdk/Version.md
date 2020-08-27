@@ -496,7 +496,7 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 
 该版本发布于2019-11-7。  
 
-#### 功能更新
+### 功能更新
 1、支持x64为应用程序  
 2、优化日志上报，减少日志上报性能消耗  
 3、支持自定义渲染模式  
@@ -554,7 +554,7 @@ SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 
 该版本发布于2019-10-30。  
 
-#### 功能更新
+### 功能更新
 1、优化抗丢包能力，减少卡顿率    
 2、完善日志上报，提供更完善的监控指标查看    
 3、桌面采集和摄像头采集 支持rtsp 视频输入替换    
@@ -607,7 +607,7 @@ recordconfig.mBucketRegion = "your region";
 m_rtcengine->startRecord(recordconfig);
 ``` 
 
-#### 接口变更
+### 接口变更
 
 1、开始录制回调接口  回调增加录制文件名 bucket region 参数方便用户保持录制信息到自己的业务服务器。    
 
@@ -1186,7 +1186,7 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 * 增加切屏功能
 * 修改bug
 
-#### 1.0.1版
+### 1.0.1版
 
 该版本发布于2019-7-5，c5d06613   
 
@@ -1287,7 +1287,7 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 
 ## ** macOS **
 
-####  1.1版
+###  1.1版
 
 该版本发布于2019-7-24。  
 
