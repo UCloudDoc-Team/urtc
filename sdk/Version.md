@@ -2,15 +2,16 @@
 
 <!-- tabs:start -->
 
-# ** Web **
 
-## 1.6.3版
+## ** Web **
+
+### 1.6.3版
 
 该版本发布于 2020-08-26。
 
 1. 优化对 typescript 的支持
 
-## 1.6.2版
+### 1.6.2版
 
 该版本发布于 2020-08-20。
 
@@ -401,7 +402,7 @@ sdk未做变更，此次发布仅用于解决 1.4.3 未发布成功的问题
 
 1. 初次发布
 
-# ** Windows **
+## ** Windows **
 
 ## 1.6.30版
 
@@ -800,7 +801,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 
 
-# ** Android **
+## ** Android **
 
 ## 1.7.6
 
@@ -1221,7 +1222,7 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 * 支持获取sdk版本
 
 
-# ** iOS **
+## ** iOS **
 
 
 
@@ -1284,9 +1285,9 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 * 抗丢包 15%  
 * 支持配置自动发布模式
 
-# ** macOS **
+## ** macOS **
 
-##  1.1版
+###  1.1版
 
 该版本发布于2019-7-24。  
 
@@ -1305,7 +1306,7 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 5、支持配置自动发布模式   
 
 
-# ** Electron **
+## ** Electron **
 
 ## 1.3版
 
