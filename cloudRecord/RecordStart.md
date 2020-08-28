@@ -10,9 +10,9 @@
 
 <!-- tabs:start -->
 
-## ** Web **
+### ** Web **
 
-## 2.1 Web开始录制
+#### 2.1 Web开始录制
 
 ```js
 client.startRecord({
@@ -33,7 +33,7 @@ client.startRecord({
 > - 可以设定录制文件的分辨率；设置单流录制、混流录制以及混流的风格；设置录制加水印；仅录制分享的屏幕/摄像头。
 > - 可以查看[startRecord 参数](https://github.com/ucloud/urtc-sdk-web#client-startrecord)，了解更多的录制参数。
 
-## 2.2 Web停止录制
+#### 2.2 Web停止录制
 
 ```js
 client.stopRecord(function onSuccess() {
@@ -49,10 +49,10 @@ client.stopRecord(function onSuccess() {
 
 
 
-## ** Windows **
+### ** Windows **
 
 
-## Windows录制音视频
+#### Windows录制音视频
 
 ```cpp
 tUCloudRtcRecordConfig recordconfig;
@@ -78,10 +78,10 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 
 
 
-## ** Android **
+### ** Android **
 
 
-## Android录制音视频
+#### Android录制音视频
 
 ```java
 //                如果主窗口是当前用户
@@ -125,9 +125,9 @@ void onRecordStop(int code);
 ```    
 
 
-## ** iOS **
+### ** iOS **
 
-## 2.1 iOS开始录制
+#### 2.1 iOS开始录制
 
 ```objectivec
   UCloudRtcRecordConfig *recordConfig = [UCloudRtcRecordConfig new];
@@ -163,7 +163,7 @@ void onRecordStop(int code);
   self.engine?.startRecord(recordConfig)
 ```
 
-## 2.2 iOS获取录制的文件地址
+#### 2.2 iOS获取录制的文件地址
 
 视频录制开始的回调方法会包含自动生成的视频录制文件存放地址，如下方式获取：
 
@@ -181,7 +181,7 @@ void onRecordStop(int code);
     
  ```  
 
-## 2.3 iOS停止录制
+#### 2.3 iOS停止录制
 
 示例代码：    
 
