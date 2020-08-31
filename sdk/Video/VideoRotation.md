@@ -41,6 +41,30 @@ sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
 
 ### 实现方法
 
-文档待更新
+通过设置视频采集旋转方向，保证视频在采集端和播放端始终一致，设置模式一共有三种，横屏竖屏和自动旋转
+
+```java
+public enum UCloudRtcSdkPushOrentation {
+    /*自动模式，会根据设备方向和摄像头方向进行计算*/
+    UCLOUD_RTC_PUSH_AUTO_MODE,
+    /*固定横屏模式，固定设备方向为90°*/
+    UCLOUD_RTC_PUSH_LANDSCAPE_MODE,
+    /*固定竖屏方式，固定了设备方向为0°*/
+    UCLOUD_RTC_PUSH_PORTRAIT_MODE ,
+}
+```
+
+### 示例代码
+
+```java
+//自动模式
+UCloudRtcSdkEnv.setPushOrientation(UCloudRtcSdkPushOrentation.UCLOUD_RTC_PUSH_AUTO_MODE);
+
+//固定横屏模式
+UCloudRtcSdkEnv.setPushOrientation(UCloudRtcSdkPushOrentation.UCLOUD_RTC_PUSH_LANDSCAPE_MODE);
+
+//固定竖屏方式
+UCloudRtcSdkEnv.setPushOrientation(UCloudRtcSdkPushOrentation.UCLOUD_RTC_PUSH_PORTRAIT_MODE);
+```
 
 <!-- tabs:end -->
