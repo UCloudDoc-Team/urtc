@@ -14,7 +14,7 @@
 #### 示例代码
 
 ```js
-待更新
+const result = client.setRole('push-and-pull')//result: boolean 类型，成功时为 true，失败时为 false
 ```
 
 ### 结束连麦
@@ -25,12 +25,12 @@
 #### 示例代码
 
 ```js
-待更新
+const result = client.setRole('pull')//result: boolean 类型，成功时为 true，失败时为 false
 ```
 
 ### 开发注意事项
 
-待更新
+> -设置用户角色，本方法仅适用于直播模式（live 模式），加入房间前/后，都可通过调用本方法设置用户角色。
 
 ## ** Windows **
 
