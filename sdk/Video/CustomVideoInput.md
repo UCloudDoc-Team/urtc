@@ -173,8 +173,36 @@ public interface UcloudRTCDataProvider {
 ```
 ## ** iOS **
 
+默认内置的摄像头作为视频输入设备，将采集的视频推流。 如果需要自定义视频源进行推流，请将enableExtendVideoCapture设置为YES， 再将自定义的视频源发送给 UCloudRtcEngine。
+
+
+开启自定义视频源功能
+```objc
+self.manager.enableExtendVideoCapture = YES;
+```
+
+设置自定义视频源分辨率、帧率
+```objc
+UCloudRtcVideoFrame *videoFrame = [[UCloudRtcVideoFrame alloc] initVideoFrameWithWidth:320 height:180 fps:20];
+self.manager.extendVideoFrame = videoFrame;
+```
+
+将每帧视频源发送给 UCloudRtcEngine
+```objc
+/**
+ *@brief 上传自定义视频
+ *@param pixelBuffer 每帧图片信息
+ *@param timestamp 每帧对应的时间
+ *@param rotation 旋转方向
+*/
+- (void)publishPixelBuffer:(CVPixelBufferRef _Nonnull)pixelBuffer timestamp:(CMTime)timestamp rotation:(UCloudRtcVideoRotation)rotation;
+```
 
 ### 开发注意事项
+
+1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间前设置；
+2.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
+
 
 
 ## ** Windows **
