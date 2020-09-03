@@ -206,6 +206,8 @@
 1. 支持 iOS 下的浏览器播放。
 2. 添加对自动重连的处理
 
+<details>
+	<summary>Web 更早的版本发布说明</summary>
 
 ### 1.4.6版
 
@@ -402,7 +404,16 @@ sdk未做变更，此次发布仅用于解决 1.4.3 未发布成功的问题
 
 1. 初次发布
 
+</details>
+
 ## ** Windows **
+
+### 1.6.46版
+
+该版本发布于2020-8-27。  
+
+1、修复已知crash问题    
+2、增加桌面发布得profile，及相应结构修改    
 
 ### 1.6.30版
 
@@ -491,6 +502,8 @@ m_rtcengine->setChannelType(UCLOUD_RTC_CHANNEL_TYPE_BROADCAST);
 SDK会默认把权限设置为UCLOUD_RTC_USER_STREAM_ROLE_SUB
 ```
 
+<details>
+	<summary>Windows 更早的版本发布说明</summary>
 
 ### 1.5版
 
@@ -799,9 +812,46 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4. 断线制动重连   
 5. 支持配置自动发布模式 
 
+</details>
 
 
 ## ** Android **
+
+### 1.7.9
+
+该版本发布于2020-8-27。    
+1.增加弱网切换功能。    
+2.增加动态切换回显分辨率。    
+3.默认启用软件回声消除和噪声抑制。    
+4.匹配android 10 以上，增加 urtclogutil 29及以上的兼容。    
+5.断网重连后，sdk内部自动渲染本地摄像头画面。
+
+
+## 1.7.8
+
+该版本发布于2020-7-21。    
+1.修改startRemoteView逻辑。    
+2.修改leaveroom释放逻辑。    
+3.合入webrtc官方改动（https://chromium.googlesource.com/webm/libvpx/+/343352b556f5f61833174c08a35d697d280933e3），解决长时间720p视频播放时会闪退的问题。    
+4.注释部分native层打印。    
+5.sdk修改混淆规则，避免混淆内部类。    
+6.增加接口用于控制本地音频的录制和播放。    
+7.更新优化界面    
+
+## 1.7.7
+
+该版本发布于2020-7-2。    
+1.解决传入Ip地址前两位大于等于128会报错的问题    
+2.保持io.crossbar.autobahn不混淆    
+3.增加plc、speech_expand等音频相关指标    
+4.修改mix相关api的实现方法，把json封装到接口内部    
+5.修改postString中异常捕获类型    
+6.初始化ip地址并增加tryCatch,保证连接服务器过程中不停止    
+7.streamst移除时，当前user还存在其他stream的话，不删除user    
+8.解决断线前是mute状态时，重连后无法恢复mute的问题    
+9.修改取消订阅bug    
+10.deviceinfo的base64加密选项改为NO_WRAP    
+11.在业务层和信令层调用joinRoom时，增加判断条件authInfo里的内容是否为空
 
 ### 1.7.6
 
