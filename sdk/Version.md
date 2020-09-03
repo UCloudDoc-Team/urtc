@@ -832,7 +832,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 该版本发布于2020-7-21。    
 1.修改startRemoteView逻辑。    
 2.修改leaveroom释放逻辑。    
-3.合入webrtc官方改动（https://chromium.googlesource.com/webm/libvpx/+/343352b556f5f61833174c08a35d697d280933e3），解决长时间720p视频播放时会闪退的问题。    
+3.合入webrtc官方改动（ https://chromium.googlesource.com/webm/libvpx/+/343352b556f5f61833174c08a35d697d280933e3 ），解决长时间720p视频播放时会闪退的问题。 
 4.注释部分native层打印。    
 5.sdk修改混淆规则，避免混淆内部类。    
 6.增加接口用于控制本地音频的录制和播放。    
@@ -984,7 +984,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 4.修复textureview渲染某些情况下的异常。    
 
 <details>
-	<summary>Windows 更早的版本发布说明</summary>
+	<summary>Android 更早的版本发布说明</summary>
 
 
 ### 1.6.7版
