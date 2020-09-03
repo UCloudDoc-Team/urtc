@@ -15,6 +15,22 @@
 
 ```js
 const result = client.setRole('push-and-pull')//result: boolean 类型，成功时为 true，失败时为 false
+if(result){
+    client.publish({
+      audio: true/false
+      // 必填，指定是否使用麦克风设备
+      video: true/false
+      // 必填，指定是否使用摄像头设备
+      screen: true/false
+      // 必填，指定是否为屏幕共享，audio, video, screen 不可同时为 true，更不可同时为 false
+      microphoneId?: ''
+      // 选填，指定使用的麦克风设备的ID，可通过 getMicrophones 方法查询获得该ID，不填时，将使用默认麦克风设备
+      cameraId?: ''
+      // 选填，指定使用的摄像头设备的ID，可以通过 getCameras 方法查询获得该ID，不填时，将使用默认的摄像头设备
+      extensionId?: ''
+      // 选填，指定使用的 Chrome 插件的 extensionId，可使 72 以下版本的 Chrome 浏览器进行屏幕共享。
+    }, onFailure)
+}
 ```
 
 ### 结束连麦
@@ -26,6 +42,9 @@ const result = client.setRole('push-and-pull')//result: boolean 类型，成功�
 
 ```js
 const result = client.setRole('pull')//result: boolean 类型，成功时为 true，失败时为 false
+if(result){
+    client.unpublish(StreamId, onSuccess, onFailure)// 取消发布本地流
+}
 ```
 
 ### 开发注意事项
