@@ -115,6 +115,7 @@ if(result){
 sdkEngine.setAutoPublish(false);
 //更改权限同时具备发布和订阅
 sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_BOTH);
+
 //发布摄像头流，并带支持音频和视频
 sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
 ```
@@ -127,10 +128,12 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
 #### 示例代码
 
 ```java
-//更改权限为订阅
-sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
+
 //结束摄像头发布
 sdkEngine.unpublish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO);
+//更改权限为订阅
+sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
+
 ```
 
 ### 开发注意事项
