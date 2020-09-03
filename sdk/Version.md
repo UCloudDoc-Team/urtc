@@ -817,7 +817,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 ## ** Android **
 
-### 1.7.9
+### 1.7.9版
 
 该版本发布于2020-8-27。    
 1.增加弱网切换功能。    
@@ -827,7 +827,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 5.断网重连后，sdk内部自动渲染本地摄像头画面。
 
 
-## 1.7.8
+## 1.7.8版
 
 该版本发布于2020-7-21。    
 1.修改startRemoteView逻辑。    
@@ -838,7 +838,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 6.增加接口用于控制本地音频的录制和播放。    
 7.更新优化界面    
 
-## 1.7.7
+## 1.7.7版
 
 该版本发布于2020-7-2。    
 1.解决传入Ip地址前两位大于等于128会报错的问题    
@@ -853,13 +853,13 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 10.deviceinfo的base64加密选项改为NO_WRAP    
 11.在业务层和信令层调用joinRoom时，增加判断条件authInfo里的内容是否为空
 
-### 1.7.6
+### 1.7.6版
 
 该版本发布于2020-5-14，sdk 1.7.6。  
 更新内容：  
 1.优化蓝牙的问题
 
-### 1.7.5
+### 1.7.5版
 
 该版本发布于2020-4-28，sdk 1.7.5。  
 更新内容：    
@@ -982,6 +982,9 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 ```
 
 4.修复textureview渲染某些情况下的异常。    
+
+<details>
+	<summary>Windows 更早的版本发布说明</summary>
 
 
 ### 1.6.7版
@@ -1271,9 +1274,24 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 * 支持音量提示
 * 支持获取sdk版本
 
+</details>
+
 
 ## ** iOS **
 
+### 1.5.8版
+
+该版本发布于2020-08-21。   
+
+* 弱网自动切换
+* 强制对端下线或者重连操作功能
+
+### 1.5.7版
+
+该版本发布于2020-07-24。   
+
+* 性能优化
+* 修复已知问题
 
 
 ### 1.5.6版
