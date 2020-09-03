@@ -41,10 +41,11 @@ if(result){
 #### 示例代码
 
 ```js
-const result = client.setRole('pull')//result: boolean 类型，成功时为 true，失败时为 false
-if(result){
-    client.unpublish(StreamId, onSuccess, onFailure)// 取消发布本地流
-}
+client.unpublish(StreamId, function(){
+    const result = client.setRole('pull')//result: boolean 类型，成功时为 true，失败时为 false
+}, function(){
+    //取消本地发布失败
+})// 取消发布本地流
 ```
 
 ### 开发注意事项
