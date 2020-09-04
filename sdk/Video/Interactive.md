@@ -221,7 +221,8 @@ self.sdkEngine?.unpublish(with: .camera)
 ```
 ### 开发注意事项
 
-待更新
+1.需要手动控制连麦，将isAutoPublish设置为false；
+2.加入频道前，可以通过设置enableLocalAudio、enableLocalVideo关闭开启音频和视频，默认音频和视频都是开启的；
 
 
 
