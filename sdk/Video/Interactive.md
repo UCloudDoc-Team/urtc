@@ -132,7 +132,7 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
 
 ```java
 
-//结束摄像头发布
+//取消发布流
 sdkEngine.unpublish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO);
 //更改权限为订阅
 sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
@@ -175,7 +175,7 @@ typedef NS_ENUM(NSInteger, UCloudRtcStreamMediaType) {
 
 #### 示例代码
 
-加入房间前设置
+加入房间前设置:
 ```objc
 // 设置为false，要连麦需要手动发布 “publishWithMediaType:”
 self.sdkEngine.isAutoPublish = false;
@@ -186,7 +186,8 @@ self.sdkEngine.enableLocalAudio = NO;
 self.sdkEngine.enableLocalVideo = NO;
 ```
 
-发布本地的流媒体
+加入房间之后，互动连麦，发布本地流：
+
 ```objc
 // 连麦前修改权限
 self.sdkEngine.streamProfile = UCloudRtcEngine_StreamProfileAll;
@@ -207,17 +208,16 @@ self.sdkEngine?.publish(with: .camera)
 #### 示例代码
 
 ```objectivec
-    // 只有拉流权限
-    self.sdkEngine.streamProfile = UCloudRtcEngine_StreamProfileDownload;
-    
     // 结束本次连麦
     [self.sdkEngine unpublishWithMediaType:UCloudRtcStreamMediaTypeCamera];
-
+    
+    // 只有拉流权限
+    self.sdkEngine.streamProfile = UCloudRtcEngine_StreamProfileDownload;
 ```
 
 ```swift
-self.sdkEngine?.streamProfile = .streamProfileDownload
 self.sdkEngine?.unpublish(with: .camera)
+self.sdkEngine?.streamProfile = .streamProfileDownload
 ```
 ### 开发注意事项
 
