@@ -63,24 +63,67 @@ client.unpublish(StreamId, function(){
 #### 示例代码
 
 ```cpp
-待更新
+///发布
+	///@param type 媒体类型 摄像头或者桌面
+	///@param hasvideo 是否带视频
+	///@param hasaudio 是否带音频
+	///@return 0 succ
+	virtual int publish(eUCloudRtcMeidaType type, bool hasvideo, bool hasaudio) = 0;
 ```
+//媒体类型
+typedef enum {
+	//无
+	UCLOUD_RTC_MEDIATYPE_NONE = 0,
+	//摄像头流(音轨和视频轨)
+	UCLOUD_RTC_MEDIATYPE_VIDEO = 1,
+	//桌面
+	UCLOUD_RTC_MEDIATYPE_SCREEN = 2
+}eUCloudRtcMeidaType;
+
+//关闭自动发布
+sdkEngine.setAutoPublishSubscribe(false,true);
+sdkEngine.configLocalScreenPublish(false);
+sdkEngine.configLocalCameraPublish(false);
+sdkEngine.configLocalAudioPublish(false);
+//更改权限同时具备发布和订阅
+sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_BOTH);
+
+//发布摄像头流，并带支持音频和视频
+sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
+
+```
+
+在收到onLocalPublish成功后进行startPreview，开启渲染
+在收到onSubscribeResult成功后进行startRemoteView 开启远端渲染
 
 ### 结束连麦
 
+
 - 取消发布流`unpublish`，结束本次连麦。
+- 取消订阅流`unSubscribe` 结束订阅远端流
+- 调用stopPreview 停止本地渲染
+- 调用stopRemoteView 停止远端渲染
 - 在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`。
 
 
 #### 示例代码
 
 ```cpp
-待更新
-```
-
+    ///取消发布
+	///@param type 媒体类型
+	///@return 0 succ
+	virtual int unPublish(eUCloudRtcMeidaType type) = 0;
+    
+    sdkEngine.unPublish(UCLOUD_RTC_MEDIATYPE_VIDEO);
+    tUCloudRtcStreamInfo info;
+    info.mUserId = "sa";
+    
+    info.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
+    sdkEngine.unSubscribe(info);
+    sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_USER_STREAM_ROLE_SUB);
 ### 开发注意事项
+    取消对应的mediaType
 
-待更新
 
 ## ** Android **
 
