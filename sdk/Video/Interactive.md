@@ -35,8 +35,9 @@ if(result){
 
 ### 结束连麦
 
-- 更改用户权限`role`为 `pull`。
 - 取消发布流`unpublish`，结束本次连麦。
+- 更改用户权限`role`为 `pull`。
+
 
 #### 示例代码
 
@@ -67,8 +68,9 @@ client.unpublish(StreamId, function(){
 
 ### 结束连麦
 
-- 在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`。
 - 取消发布流`unpublish`，结束本次连麦。
+- 在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`。
+
 
 #### 示例代码
 
@@ -123,8 +125,8 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
 
 ### 结束连麦
 
-- 在结束连麦时，更改用户权限`setStreamRole`为`UCLOUD_RTC_SDK_STREAM_ROLE_SUB`。
 - 取消发布流`unpublish`，结束本次连麦。
+- 在结束连麦时，更改用户权限`setStreamRole`为`UCLOUD_RTC_SDK_STREAM_ROLE_SUB`。
 
 #### 示例代码
 
@@ -162,8 +164,8 @@ sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
 
 ### 结束连麦
 
-- 在结束连麦时，更改用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload`。
 - 取消发布流`unPublish`，就结束本次连麦。
+- 在结束连麦时，更改用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload`。
 
 #### 示例代码
 
