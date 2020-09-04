@@ -51,7 +51,7 @@ client.unpublish(StreamId, function(){
 
 ### 开发注意事项
 
-> 设置用户角色`setRole`方法，仅适用于互动直播的模式（live 模式）。加入房间前、加入房间后，都可通过调用本方法设置用户角色。
+- 设置用户角色`setRole`方法，仅适用于互动直播的模式（live 模式）。加入房间前、加入房间后，都可通过调用本方法设置用户角色。
 
 ## ** Windows **
 
@@ -69,7 +69,7 @@ client.unpublish(StreamId, function(){
 	///@param hasaudio 是否带音频
 	///@return 0 succ
 	virtual int publish(eUCloudRtcMeidaType type, bool hasvideo, bool hasaudio) = 0;
-```
+
 //媒体类型
 typedef enum {
 	//无
@@ -85,6 +85,7 @@ sdkEngine.setAutoPublishSubscribe(false,true);
 sdkEngine.configLocalScreenPublish(false);
 sdkEngine.configLocalCameraPublish(false);
 sdkEngine.configLocalAudioPublish(false);
+
 //更改权限同时具备发布和订阅
 sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_BOTH);
 
@@ -100,9 +101,7 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
 
 
 - 取消发布流`unpublish`，结束本次连麦。
-- 取消订阅流`unSubscribe` 结束订阅远端流
-- 调用stopPreview 停止本地渲染
-- 调用stopRemoteView 停止远端渲染
+- 调用`stopPreview` 停止本地渲染。
 - 在结束连麦时，更改用户权限`setStreamRole`为 `UCLOUD_RTC_USER_STREAM_ROLE_SUB`。
 
 
@@ -118,11 +117,12 @@ sdkEngine.publish(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO, true, true);
     tUCloudRtcStreamInfo info;
     info.mUserId = "sa";
     
-    info.mStreamMtype = UCLOUD_RTC_MEDIATYPE_VIDEO;
-    sdkEngine.unSubscribe(info);
     sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_USER_STREAM_ROLE_SUB);
+```
+
 ### 开发注意事项
-    取消对应的mediaType
+
+ - 手动连麦时，需关闭自动发布功能。    
 
 
 ## ** Android **
@@ -184,9 +184,9 @@ sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
 
 ### 开发注意事项
 
-1.支持摄像头和屏幕同时发布。    
-2.手动连麦时，需关闭自动发布功能。    
-3.推送屏幕流时，只支持视频发布，即publish第三个参数必须设置为false。    
+- 1.支持摄像头和屏幕同时发布。    
+- 2.手动连麦时，需关闭自动发布功能。    
+- 3.推送屏幕流时，只支持视频发布，即publish第三个参数必须设置为false。    
 
 ## ** iOS **
 
@@ -264,8 +264,8 @@ self.sdkEngine?.streamProfile = .streamProfileDownload
 ```
 ### 开发注意事项
 
-1.需要手动控制连麦，将isAutoPublish设置为false；
-2.加入频道前，可以通过设置enableLocalAudio、enableLocalVideo关闭开启音频和视频，默认音频和视频都是开启的；
+- 1.需要手动控制连麦，将isAutoPublish设置为false；    
+- 2.加入频道前，可以通过设置enableLocalAudio、enableLocalVideo关闭开启音频和视频，默认音频和视频都是开启的；
 
 
 
