@@ -152,14 +152,51 @@ sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
 - 在使用用户权限`UCloudRtcEngineStreamProfile`为 `UCloudRtcEngine_StreamProfileDownload` 的情况下，开始连麦时，更改用户权限`role`为`UCloudRtcEngine_StreamProfileAll`。
 - 发布流`publish`，就能与老师、主播互动了。
 
+### 实现方法
+```objc
+// 流媒体类型
+typedef NS_ENUM(NSInteger, UCloudRtcStreamMediaType) {
+    UCloudRtcStreamMediaTypeCamera = 1,  // 摄像头
+    UCloudRtcStreamMediaTypeScreen = 2, // 桌面
+};
+
+/**
+ @brief 发布
+ @param mediaType 流媒体类型:摄像头、桌面
+*/
+- (void)publishWithMediaType:(UCloudRtcStreamMediaType)mediaType;
+
+/**
+ @brief 取消发布
+ @param mediaType 流媒体类型:摄像头、桌面
+*/
+- (void)unpublishWithMediaType:(UCloudRtcStreamMediaType)mediaType;
+```
+
 #### 示例代码
 
-```objectivec
-待更新
+加入房间前设置
+```objc
+// 设置为false，要连麦需要手动发布 “publishWithMediaType:”
+self.sdkEngine.isAutoPublish = false;
+
+// 可以关闭音频
+self.sdkEngine.enableLocalAudio = NO;
+// 可以关闭视频
+self.sdkEngine.enableLocalVideo = NO;
+```
+
+发布本地的流媒体
+```objc
+// 连麦前修改权限
+self.sdkEngine.streamProfile = UCloudRtcEngine_StreamProfileAll;
+// 连麦
+[self.sdkEngine publishWithMediaType:UCloudRtcStreamMediaTypeCamera];
 ```
 
 ```swift
-待更新
+self.sdkEngine?.streamProfile = .streamProfileAll
+self.sdkEngine?.publish(with: .camera)
 ```
 
 ### 结束连麦
@@ -170,11 +207,17 @@ sdkEngine.setStreamRole(UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_SUB);
 #### 示例代码
 
 ```objectivec
-待更新
+    // 只有拉流权限
+    self.sdkEngine.streamProfile = UCloudRtcEngine_StreamProfileDownload;
+    
+    // 结束本次连麦
+    [self.sdkEngine unpublishWithMediaType:UCloudRtcStreamMediaTypeCamera];
+
 ```
 
 ```swift
-待更新
+self.sdkEngine?.streamProfile = .streamProfileDownload
+self.sdkEngine?.unpublish(with: .camera)
 ```
 ### 开发注意事项
 
