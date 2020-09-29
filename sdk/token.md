@@ -9,7 +9,7 @@
 >  `AppID`，UCloud控制台创建项目获取到的AppID；    
 >  `AppKey`，UCloud控制台创建项目获取到的AppKey；    
 
-这里提供几种参考代码，供直接使用。
+这里提供几种参考代码，供服务端直接使用，生成`Token`。
 
 <!-- tabs:start -->
 
