@@ -18,7 +18,7 @@ URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端�
 
 RTC产品，按照客户端的接收的音视频（客户端的下行），实时计费，后付费。这里介绍URTC产品价格，计费策略。
 
-## [快速上手](/urtc/quick)
+## [开通URTC服务](/urtc/quick)
 
 介绍快速创建URTC应用的方法、步骤。
 
