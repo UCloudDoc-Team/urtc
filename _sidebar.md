@@ -29,7 +29,7 @@
 		* [通话中质量监测](/urtc/sdk/Device/CallQuality) 
 		* [浏览器的自动播放策略](/urtc/sdk/Video/WebAutoPlay)   
 		* [断网自动重连策略](/urtc/sdk/Device/ReConnect)  
-* [开通云端录服务制](/urtc/cloudRecord/index)  
+* [开通云端录制服务](/urtc/cloudRecord/index)  
     * [云端录制SDK代码示例](/urtc/cloudRecord/RecordStart)    
     * [录制回放](/urtc/cloudRecord/PlayRecordFile)
     * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
