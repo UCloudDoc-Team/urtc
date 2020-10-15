@@ -8,7 +8,7 @@
     * [应用场景](/urtc/introduction/scenario)
 * [产品价格](/urtc/price)
 * [开通URTC服务](/urtc/quick)
-* [SDK集成指南](/urtc/sdk/index)
+* [URTC SDK集成指南](/urtc/sdk/index)
     * [URTC常用术语](urtc/sdk/term)
     * [Token生成指导](/urtc/sdk/token)
     * [SDK版本说明](/urtc/sdk/Version)
