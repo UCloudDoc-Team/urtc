@@ -6,13 +6,25 @@
 
 ![](/images/demoImage/webImage.png)
 
-[立即体验](https://demo.urtc.com.cn/) 
+[立即体验](https://web.urtc.com.cn/) 
+
+> 电脑端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器，安卓手机端推荐使用 微信浏览器。
+
+[WEB DEMO 源码-UCloud云下载](ufile) 
+
+[WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-web-demo) 
+
+## WEB 在线教学场景 DEMO
+
+![](/images/demoImage/webImage.png)
+
+[在线教学 体验](https://demo.urtc.com.cn/) 
 
 > 电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器。 
 
-[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
+[在线教学WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
-[WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
+[在线教学WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
 
 ## 安卓 DEMO
 
