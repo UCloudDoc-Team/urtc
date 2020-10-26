@@ -14,17 +14,33 @@
 
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-web-demo) 
 
-## WEB 在线教学场景 DEMO
+## WEB 班课DEMO
 
 ![](/images/demoImage/webImage.png)
 
-[在线教学 体验](https://demo.urtc.com.cn/) 
+班课DEMO 中集成了白板、文字聊天等教学场景中常用功能。
+
+[WEB 班课 体验](https://demo.urtc.com.cn/) 
 
 > 电脑和安卓端手机 推流使用chrome浏览器，IOS手机 推荐使用safari浏览器。 
 
-[在线教学WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
+[WEB DEMO 班课 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
-[在线教学WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
+[WEB DEMO 班课 源码-GitHub](https://github.com/ucloud/urtc-edu-demo) 
+
+## WEB 无延迟直播课DEMO
+
+![](/images/demoImage/webImage.png)
+
+无延迟直播课DEMO 中集成了白板、文字聊天等教学场景中常用功能。
+
+[无延迟直播课 体验](https://weilai.urtc.com.cn/) 
+
+> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用safari浏览器，安卓手机 推荐使用 微信浏览器。 
+
+[WEB DEMO 无延迟直播课 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-edu-demo-master-20201026.zip) 
+
+[WEB DEMO 无延迟直播课 源码-GitHub](https://github.com/ucloud/urtc-edu-demo) 
 
 ## 安卓 DEMO
 
