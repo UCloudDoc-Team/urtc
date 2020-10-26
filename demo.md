@@ -8,7 +8,7 @@
 
 [立即体验](https://web.urtc.com.cn/) 
 
-> 电脑端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器，安卓手机端推荐使用 微信浏览器。
+> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用safari浏览器，安卓手机 推荐使用 微信浏览器。
 
 [WEB DEMO 源码-UCloud云下载](ufile) 
 
@@ -20,7 +20,7 @@
 
 [在线教学 体验](https://demo.urtc.com.cn/) 
 
-> 电脑端和安卓端推荐使用chrome浏览器，IOS手机端推荐使用safari浏览器。 
+> 电脑和安卓端手机 推流使用chrome浏览器，IOS手机 推荐使用safari浏览器。 
 
 [在线教学WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
