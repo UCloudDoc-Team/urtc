@@ -859,7 +859,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 5.断网重连后，sdk内部自动渲染本地摄像头画面。
 
 
-## 1.7.8版
+### 1.7.8版
 
 该版本发布于2020-7-21。    
 1.修改startRemoteView逻辑。    
@@ -870,7 +870,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 6.增加接口用于控制本地音频的录制和播放。    
 7.更新优化界面    
 
-## 1.7.7版
+### 1.7.7版
 
 该版本发布于2020-7-2。    
 1.解决传入Ip地址前两位大于等于128会报错的问题    
