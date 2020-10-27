@@ -1,5 +1,5 @@
 # URTC SDK集成指南
-SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推的方法。
+SDK集成指南中，可以了解到Token生成方法，SDK版本说明，集成URTC SDK步骤，使用屏幕分享、播放混音、旁路推流的方法。
 
 ## [URTC常用术语](urtc/sdk/term)
 介绍URTC产品使用中常用的术语概念。
