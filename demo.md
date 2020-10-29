@@ -10,8 +10,6 @@
 
 > 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用Safari浏览器，安卓手机 推荐使用 微信浏览器。
 
-[WEB DEMO 源码-UCloud云下载](ufile) 
-
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-web-demo) 
 
 ## WEB 班课DEMO
