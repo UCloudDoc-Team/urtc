@@ -22,7 +22,7 @@
 
 [WEB 班课 体验](https://demo.urtc.com.cn/) 
 
-> 电脑和安卓端手机 推流使用chrome浏览器，IOS手机 推荐使用Safari浏览器。 
+> 电脑和安卓端手机 推流使用Chrome浏览器，IOS手机 推荐使用Safari浏览器。 
 
 [WEB DEMO 班课 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
