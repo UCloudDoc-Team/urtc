@@ -8,7 +8,7 @@
 
 [立即体验](https://web.urtc.com.cn/) 
 
-> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用safari浏览器，安卓手机 推荐使用 微信浏览器。
+> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用Safari浏览器，安卓手机 推荐使用 微信浏览器。
 
 [WEB DEMO 源码-UCloud云下载](ufile) 
 
@@ -22,7 +22,7 @@
 
 [WEB 班课 体验](https://demo.urtc.com.cn/) 
 
-> 电脑和安卓端手机 推流使用chrome浏览器，IOS手机 推荐使用safari浏览器。 
+> 电脑和安卓端手机 推流使用chrome浏览器，IOS手机 推荐使用Safari浏览器。 
 
 [WEB DEMO 班课 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
@@ -36,7 +36,7 @@
 
 [无延迟直播课 体验](https://weilai.urtc.com.cn/) 
 
-> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用safari浏览器，安卓手机 推荐使用 微信浏览器。 
+> 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用Safari浏览器，安卓手机 推荐使用 微信浏览器。 
 
 [WEB DEMO 无延迟直播课 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-edu-demo-master-20201026.zip) 
 
