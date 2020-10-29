@@ -28,7 +28,7 @@
 
 [WEB DEMO 班课 源码-GitHub](https://github.com/ucloud/urtc-edu-demo) 
 
-## WEB 无延迟直播课DEMO
+## WEB 直播课DEMO
 
 ![](/images/demoImage/webImage.png)
 
