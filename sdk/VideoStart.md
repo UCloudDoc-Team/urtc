@@ -119,6 +119,8 @@ client.joinRoom(roomId, userId, () => {
     client.subscribe(StreamId, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 subscribe 发布本地流
 ```
+StreamId: string 类型，必传，为需要订阅的远端流的 流ID，类型说明见  [Stream](https://github.com/ucloud/urtc-sdk-web#stream)。
+
 ### 4.4 取消发布本地流或取消订阅远端流
 ```js
 client.unpublish(StreamId, onSuccess, onFailure)
