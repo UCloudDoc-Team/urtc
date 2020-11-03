@@ -1,5 +1,5 @@
 # 产品功能
-URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。
+URTC SDK支持Web、Android、iOS、macOS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。
 ## 产品优势
 ### 全球实时传输  
 依托于UCloud强大的覆盖能力，全球就近接入，跨国跨运营商传输，提供覆盖全球的音视频通信服务。
@@ -17,8 +17,8 @@ URTC支持Web、Android、iOS、macOS、Windows、Electron、Linux多平台的�
 |-|-|
 |Web      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持Edge 浏览器79及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本 <br> 支持移动端微信浏览器 7及以上版本  |
 |Android  | 支持Android 4.1及以上版本              |
-|macOS   | 支持MAC OS 10.0及以上版本              |
-|iOS      | 支持IOS 9.0 及以上版本的 iPhone 或者 iPad |
+|macOS   | 支持macOS 10.0及以上版本              |
+|iOS      | 支持iOS 9.0 及以上版本的 iPhone 或者 iPad |
 |Windows  | 支持Windows 7及以上版本                |
 |Electron | 支持Electron addon 2.0.7及以上版本     |
 |Linux| 支持Linux Ubuntu 16.04、18.04版本     |
