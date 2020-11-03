@@ -3,7 +3,7 @@
 
 实时音视频（UCloud Real-Time Communication，简称URTC），依托于UCloud强大的覆盖能力，可以实现用户的就近接入，提供网络低延迟、低丢包率的音视频通信。
 
-URTC SDK支持Web、Android、IOS、MAC OS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。
+URTC SDK支持Web、Android、iOS、macOS、Windows、Electron多种客户端的集成接入。通过集成URTC SDK，能快速构建多人音视频通话、一对多或多对多的实时互动直播。
 
 
 ## 产品简介
@@ -63,7 +63,7 @@ URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里�
 
 ## [DEMO体验](/urtc/demo)
 
-提供Web、Android、IOS、Windows的demo，支持演示小班课/视频会议，大班课/直播，不同客户端加入同一个房间，就可以互通。
+提供Web、Android、iOS、Windows的DEMO，支持演示小班课/视频会议，大班课/直播，不同客户端加入同一个房间，就可以互通。
 
 ## [API文档](/urtc/api/index)
 
