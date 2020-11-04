@@ -16,7 +16,7 @@
 
 ```js
 client.startRecord({
-  bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 UFile 产品进行在存储，相关信息见控制台操作文档
+  bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 US3 产品进行在存储，相关信息见控制台操作文档
   region: string  // 必传，存储服务所在的地域
 }, function onSuccess(Record) {
 
