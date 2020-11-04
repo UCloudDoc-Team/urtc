@@ -28,7 +28,7 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
   
 ![ ](/images/record/newBucket.png)
 	 
- - UFile中已经配置了对象存储的情况下，可以直接选择配置的存储空间，点击【确定】，配置完毕。  
+ - US3 中已经配置了对象存储的情况下，可以直接选择配置的存储空间，点击【确定】，配置完毕。  
 
 ![ ](/images/record/newBucket2.png) 
 	 
