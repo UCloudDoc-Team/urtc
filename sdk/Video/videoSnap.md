@@ -58,13 +58,15 @@ view传本地的就是本地截图，远端的view就是远端的截图。
         }
     };
 	
-	private void addScreenShotCallBack(View view){		
+	private void addScreenShotCallBack(View view){
+	//setScreenShotBack作为老版本sdk兼容遗留接口保持
         if(view instanceof UCloudRtcSdkSurfaceVideoView){//view类型是UCloudRtcSdkSurfaceVideoView类型
             ((UCloudRtcSdkSurfaceVideoView)view).setScreenShotBack(mUCloudRTCScreenShot);
         }else if(view instanceof UCloudRtcRenderView){//view类型是UCloudRtcRenderView类型
             ((UCloudRtcRenderView)view).setScreenShotBack(mUCloudRTCScreenShot);
-        }else if(view instanceof TextureView) {//view类型是TextureView类型
-            ((TextureView)view).setScreenShotBack(mUCloudRTCScreenShot);
+        }else if(view instanceof TextureView) {
+	    //takesnapshot是新版本接口，该接口根据流的信息关联到当前用来显示该流的view进行截图，适用于textureview，UCloudRtcRenderView，本地和远程视图
+            sdkEngine.takeSnapShot(isLocal,streamInfo,mUCloudRTCScreenShot);
         }
     }
 ```
