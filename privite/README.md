@@ -80,22 +80,27 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ## ** 部署URTC 实时音视频服务 **
 
 ### 1. 服务安装前的准备工作
-+ Debian/Ubuntu     
+<details>
+<summary>Debian/Ubuntu </summary>
     `apt-get update -y`
     `apt-get -y install libprotobuf-dev libprotobuf-lite10 libprotobuf10 (Ubuntu18.04)`           
     `apt-get -y install libprotobuf-dev:amd64=2.6.1-1.3 libprotobuf-lite9v5:amd64=2.6.1-1.3 libprotobuf9v5:amd64=2.6.1-1.3 (Ubuntu16.04)`         
     `apt-get -y install libssl-dev libcurl4-openssl-dev libjson-c-dev libmagic-dev libevent-dev uuid-dev autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev libegl1-mesa-dev libgles2-mesa-dev libmirclient-dev libmircommon-dev  nasm yasm libx264-dev libx265-dev libnuma-dev libvpx-dev libfdk-aac-dev libmp3lame-dev libopus-dev redis-server`      
-    
-+ RedHat/CentOS       
+</details>  
+
+<details>
+<summary>RedHat/CentOS</summary>
    `yum install -y openssl-devel.x86_64 libcurl-devel.x86_64 json-c-devel.x86_64 file-devel.x86_64 libevent-devel.x86_64 libuuid-devel.x86_64 redis.x86_64  autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel libsysfs freetype-devel.x86_64 libass-devel.x86_64 libvorbis-devel.x86_64 libaom-devel.x86_64`
+</details>  
+
 
 ### 2. 配置并启动Redis
 #### 2.1 配置Redis 
-+ RedHat/CentOS 配置Redis    
-1）编辑Redis的配置文件`vim /etc/redis.conf`；                     
++ RedHat/CentOS 配置Redis       
+1）编辑Redis的配置文件`vim /etc/redis.conf`；                        
 2）找到 # requirepass foobared 去掉行首#打开注释；    
 3）foobared 替换为 urtc；    
-4）保存退出。       
+4）保存退出。         
 
 + Debian/Ubuntu 配置Redis    
 1）编辑Redis配置文件 vim /etc/redis/redis.conf；        
