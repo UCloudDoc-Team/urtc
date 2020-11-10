@@ -47,7 +47,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
  - urtc-signal 服务通过urtc-room 向Redis 注册信息。
  - urtc-record、urtc-room、urtc-signal 之间的服务调用也依赖Redis服务的注册信息。
  - urtc-room、urtc-record 配置文件里定义Redis的url/port/db/password等。
- - Redis 缺省配置是127.0.0.1:6379,db:0,password:urtc,可根据自己网络情况调整。
+ - Redis 缺省配置是127.0.0.1:6379，db:0，password:urtc，可根据自己网络情况调整。
  - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
  
 ### 3. 主机防火墙规则
