@@ -1,29 +1,13 @@
-# URTC私有化部署指导指南
+# URTC私有化部署
+
+
+<!-- tabs:start -->
+
+## ** 部署须知 **
+
 URTC SDK除了能在公有云环境下使用，还可以在私有化部署环境中使用。URTC私有化服务，分为URTC实时音视频服务、URTC录制服务。
 
-## 目录
-+ 1. 服务性能参数
-+ 2. 服务部署要求
-+ 使用须知
-+ 服务间调用关系
-+ 服务监听端口汇总
-+ 主机防火墙规则
-+ 服务配置所需参数汇总
-+ 服务依赖软件包安装
-+ 配置并启动Redis
-+ 安装配置并启动urtc-media
-+ 安装配置并启动urtc-signal  
-+ 安装配置并启动urtc-room
-+ 安装配置并启动urtc-record
-+ 安装配置并启动urtc-owt
-+ urtc-signal 常用测试接口
-+ urtc-room 常用测试接口
-+ 私有化部署最终产出       
-+ 常见问题排查
----
-
-
-## 1. 服务性能参数
+### 1. 服务性能参数
 
 URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持单机部署或者集群部署。
 
@@ -40,7 +24,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 >    录制 分辨率720P 码率1Mbps的视频，1个小时，录制的文件大小：1mbps x 3600s/8 = 450 MB    
 >    录制 分辨率360P 码率500kbps的视频，1个小时，录制的文件大小：0.5mbps x 3600s/8 = 225 MB    
 
-## 2. 服务部署要求
+### 2. 服务部署要求
 
  - URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
  - 私有化服务注册和发现，依赖Redis。
@@ -51,7 +35,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
  - Redis 缺省配置是127.0.0.1:6379,db:0,password:urtc,可根据自己网络情况调整。
  - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
 
-## 3. 服务间调用关系
+### 3. 服务间调用关系
 ```
         - - - - - - -               - - - - - - - -
         | urtc-room |  - - - - - >  |    Redis    |
@@ -73,7 +57,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 
 
-#### 主机防火墙规则
+### 主机防火墙规则
+
 服务器|协议|端口|源地址|动作|备注|服务|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |`rtc`|`TCP`|`6005`|`0.0.0.0`|`accept`|`room HTTP接口`|`RTC房间服务`|
@@ -85,8 +70,10 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |`record`|`TCP`|`10008`|`0.0.0.0`|`accept`|`合流API`|`RTC合流服务`|
 |`record`|`UDP`|`1-65535`|`0.0.0.0`|`accept`|`合流客户端拉流`|`RTC合流服务`|
 |`record`|`UDP`|`10080`|`0.0.0.0`|`accept`|`录制视频文件回放`|`RTC录制服务`|
----
-#### 服务配置所需参数汇总 
+
+
+### 服务配置所需参数汇总 
+
 |配置项|备注|
 |:----:|:----:|
 |`UCloud RTC 提供的服务License`|`对应urtc-room 配置文件中缺省URTC_SN`|
@@ -95,7 +82,9 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |`服务对外域名`|`对应urtc-signal 配置文件中缺省的URTC_DOMAIN`|
 |`服务对外域名HTTPs证书和私钥`|`对应urtc-room、urtc-signal 配置文件中缺省的cert/server.crt、cert/server.key`|
 
-#### 服务安装前的准备工作
+## ** 部署URTC 实时音视频 **
+
+### 服务安装前的准备工作
 + Debian/Ubuntu     
     `apt-get update -y`
     `apt-get -y install libprotobuf-dev libprotobuf-lite10 libprotobuf10 (Ubuntu18.04)`           
@@ -199,8 +188,11 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 设置urtc-room开机自启动      
     `systemctl enable urtc-room`
  
----  
-#### 安装配置并启动urtc-record
+
+## ** 部署URTC 实时音视频 **
+
+### 安装配置并启动urtc-record
+
 + RedHat/CentOS 安装urtc-record   
     `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
 
@@ -214,8 +206,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 设置urtc-record开机自启动
     `systemctl status urtc-record`     
 
----
-#### 安装配置并启动urtc-owt
+### 安装配置并启动urtc-owt
 + RedHat/CentOS 安装urtc-owt     
     `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
 
@@ -229,8 +220,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 设置urtc-owt开机自启动
     `systemctl enable urtc-owt`
 
----
-#### urtc-signal 常用测试接口
+### urtc-signal 常用测试接口
 + check 接口
 ```
 curl -sk "https://127.0.0.1:5005/check" | jq
@@ -265,8 +255,7 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
 ```
 dump 接口可以看到对应的RoomMembers,若学习不到则为Null,尝试重启服务,并检查Redis
 
---- 
-#### urtc-room 常用测试接口       
+### urtc-room 常用测试接口       
 + check 接口
 ```
 curl -sk "https://127.0.0.1:6005/check" | jq
@@ -309,12 +298,11 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
 ```
 dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服务,并检查Redis
 
----
-#### 私有化部署最终产出
+### 私有化部署最终产出
 上述配置完毕,产出服务端地址 https://URTC_DOMAIN:6005 供各客户端SDK调用
 
----
-#### 常见问题排查
+### 常见问题排查
+
 + Q:  自签证书浏览器报net::ERR_CERT_COMMON_NAME_INVALID 或者handshake异常    
   A: `若URTC_DOMAIN对应证书是自签、Web端需先浏览器访问不安全链接 https://URTC_DOMAIN:6005/uteach 添加证书信任`
  
@@ -331,7 +319,18 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 
 + Q:  安装失败: dpkg: 处理软件包 urtc-media(这只是个例子) (--configure)时出错：该软件包正处于非常不稳定的状态；您最好在配置它之前，先重新安装它，在处理时有错误发生：urtc-media E: Sub-process /usr/bin/dpkg returned an error code (1)        
   A: `rm -rf /var/lib/dpkg/info/urtc-media*`
-         
+  
+## ** SDK配置接入私有化 ** 
+
+### URTC实时音视频的配置
+
+- 1、Web客户端，将[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)配置为URTC音视频服务的域名及端口。
+- 2、Windows客户端，
+- 3、Android客户端，
+- 4、iOS/macOS客户端，
+
+### URTC录制的配置
 
 
-	
+
+<!-- tabs:end -->
