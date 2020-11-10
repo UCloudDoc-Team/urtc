@@ -375,7 +375,7 @@ engine->joinChannel(auth);
 
 #### 2.2 录制的回放
 
-如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。
+如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。    
 如果录制的文件，存储在公有云对象存储US3，则录制回放，可以参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
 <!-- tabs:end -->
