@@ -92,7 +92,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ### 2. 配置并启动Redis
 #### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis    
-1）编辑Redis的配置文件`vim /etc/redis.conf`；    
+1）编辑Redis的配置文件`vim /etc/redis.conf`；       
 2）找到 # requirepass foobared 去掉行首#打开注释；    
 3）foobared 替换为 urtc；    
 4）保存退出。       
@@ -151,7 +151,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 6）找到 cert/server.key 替换为服务对外域名的密钥；        
 7）保存退出。
 
->需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。    
+>需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥；否则浏览器访问时会有安全威胁的提示。    
 >域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
 
 #### 4.3 启动urtc-signal         
@@ -181,7 +181,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 6）找到 cert/server.key 替换为服务对外域名的密钥；    
 7）保存退出。    
 
->需要用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。         
+>需要用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥；否则浏览器访问时会有安全威胁的提示。         
 >域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。    
  
 #### 5.3 启动urtc-room       
