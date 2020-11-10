@@ -82,6 +82,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ### 1. 服务安装前的准备工作
 <details>
 <summary>Debian/Ubuntu </summary>
+        
 ```
     apt-get update -y
     apt-get -y install libprotobuf-dev libprotobuf-lite10 libprotobuf10 (Ubuntu18.04)          
@@ -92,6 +93,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 <details>
 <summary>RedHat/CentOS</summary>
+        
 ```
    yum install -y openssl-devel.x86_64 libcurl-devel.x86_64 json-c-devel.x86_64 file-devel.x86_64 libevent-devel.x86_64 libuuid-devel.x86_64 redis.x86_64  autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel libsysfs freetype-devel.x86_64 libass-devel.x86_64 libvorbis-devel.x86_64 libaom-devel.x86_64
 ```
@@ -102,13 +104,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 #### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis       
 1）编辑Redis的配置文件`vim /etc/redis.conf`；                        
-2）找到 # requirepass foobared 去掉行首#打开注释；    
+2）找到 # requirepass foobared 去掉行首的#；        
 3）foobared 替换为 urtc；    
 4）保存退出。         
 
 + Debian/Ubuntu 配置Redis    
 1）编辑Redis配置文件 vim /etc/redis/redis.conf；        
-2）找到 # requirepass foobar 去掉行首#打开注释；    
+2）找到 # requirepass foobar 去掉行首的#；        
 3）foobared 替换为 urtc；    
 4）保存退出。    
    
