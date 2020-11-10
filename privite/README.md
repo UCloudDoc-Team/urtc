@@ -5,7 +5,6 @@ URTC SDK除了能在公有云环境下使用，还可以在私有化部署环境
 <!-- tabs:start -->
 
 ## ** 部署须知 **
-
 ### 1. 服务性能参数
 URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持单机部署或者集群部署。    
 单台服务器的性能如下：
@@ -20,7 +19,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 >录制 分辨率720P 码率1Mbps的视频，1个小时，录制的文件大小：1mbps x 3600s/8 = 450 MB    
 >录制 分辨率360P 码率500kbps的视频，1个小时，录制的文件大小：0.5mbps x 3600s/8 = 225 MB    
 >3、URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
-
 
 ### 2. 服务间调用关系
 
@@ -66,7 +64,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |URTC录制服务|`UDP`|`1-65535`|`0.0.0.0`|`accept`|`合流客户端拉流`|`RTC合流服务`|
 |URTC录制服务|`UDP`|`10080`|`0.0.0.0`|`accept`|`录制视频文件回放`|`RTC录制服务`|
 
-
 ### 4. 服务配置所需参数汇总 
 
 |配置项|备注|
@@ -99,7 +96,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ```
 </details>  
 
-
 ### 2. 配置并启动Redis
 #### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis       
@@ -107,16 +103,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 2）找到 # requirepass foobared  去掉行首的#；   
 3）foobared 替换为 urtc；    
 4）保存退出。         
-
 + Debian/Ubuntu 配置Redis    
 1）编辑Redis配置文件 vim /etc/redis/redis.conf；        
 2）找到 # requirepass foobar 去掉行首的#；        
 3）foobared 替换为 urtc；    
 4）保存退出。    
-   
 #### 2.2 启动Redis
 执行： `systemctl restart redis`   
-
 #### 2.3 检查Redis状态         
 执行：`systemctl status redis`    
 确认Redis服务启动正常之后，可以进行下一步的安装。
@@ -125,34 +118,26 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 #### 3.1 安装urtc-media
 + RedHat/CentOS 安装urtc-media        
     `rpm -ivh urtc-media-$version-1.el7.x86_64.rpm`     
-
 + Debian/Ubuntu 安装urtc-media        
     `dpkg -i urtc-media_$version_amd64.deb`
-
 #### 3.2 配置urtc-media  
 1）编辑urtc-media配置文件 vim /home/urtc-media/conf/cfg.json；      
 2）找到 URTC_INTRANETIP 替换为主机内网IP；            
 3）找到 URTC_PUBLICIP 替换为主机公网IP；          
 4）保存退出。          
-
 #### 3.3 启动urtc-media      
 执行 `systemctl restart urtc-media`   
-
 #### 3.4 检查urtc-media状态    
 执行  `systemctl status urtc-media`  
-
 #### 3.5 设置urtc-media开机自启动 
 执行  `systemctl enable urtc-media`
-
 
 ### 4. 安装配置并启动urtc-signal   
 #### 4.1 安装urtc-signal 
 + RedHat/CentOS 安装urtc-signal       
 执行   `rpm -ivh urtc-signal-$version-1.el7.x86_64.rpm`        
-
 + Debian/Ubuntu 安装urtc-signal  
 执行   `dpkg -i urtc-signal_$version_amd64.deb`        
-
 #### 4.2 配置urtc-signal     
 1）编辑urtc-signal配置文件 vim /home/urtc-signal/conf/cfg.json；         
 2）找到 URTC_INTRANETIP 替换为主机内网IP；              
@@ -161,13 +146,10 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 5）找到 cert/server.crt 替换为服务对外域名的证书；         
 6）找到 cert/server.key 替换为服务对外域名的密钥；        
 7）保存退出。
-
 #### 4.3 启动urtc-signal         
 执行  `systemctl restart urtc-signal`
-
 #### 4.4 检查urtc-signal状态       
 执行 `systemctl status urtc-signal`
-
 #### 4.5 设置urtc-signal开机自启动       
 执行  `systemctl enable urtc-signal`
 
@@ -179,7 +161,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 + Debian/Ubuntu 安装urtc-room  
     `dpkg -i urtc-room_$version_amd64.deb`        
-    
 #### 5.2 配置urtc-room       
 1）编辑urtc-room配置文件 vim  /home/urtc-room/conf/cfg.json；     
 2）找到 URTC_SN 替换为UCloud RTC 提供的License；           
@@ -188,10 +169,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 5）找到 cert/server.crt 替换为服务对外域名的证书；       
 6）找到 cert/server.key 替换为服务对外域名的密钥；    
 7）保存退出。    
-
->需要用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥；否则浏览器访问时会有安全威胁的提示。         
->域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。    
- 
 #### 5.3 启动urtc-room       
 执行  `systemctl restart urtc-room`
 #### 5.4 检查urtc-room状态         
@@ -200,10 +177,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 执行 `systemctl enable urtc-room`
 
 ### 6. urtc-signal 常用测试接口
-
-+ check 接口
++ check 接口    
 执行 `curl -sk "https://127.0.0.1:5005/check" | jq`
-
 ```
 {
   "server": 2,
@@ -219,8 +194,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
   }
 }
 ```
-
-+ dump 接口
++ dump 接口    
 执行 `curl -sk "https://127.0.0.1:5005/dump" | jq`
 
 ```
@@ -234,14 +208,12 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
   "RegIsStop": 0,
   "TimeOutThreshold": 600
 }
-```
-   
+```   
 >dump 接口可以看到对应的RoomMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 7. urtc-room 常用测试接口       
-+ check 接口
++ check 接口    
 执行 `curl -sk "https://127.0.0.1:6005/check" | jq`
-
 ```
 {
   "ip": "本机内网IP",
@@ -256,10 +228,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
   }
 }
 ```
-
-+ dump 接口 
++ dump 接口     
 执行 `curl -sk "https://127.0.0.1:6005/dump" | jq`
-
 ```
 {
   "Version": 1,
@@ -281,15 +251,12 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
   "NodeMap": {}
 }
 ```
-
 >dump 接口可以看到SignalMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 8. 私有化部署最终产出
-
 上述配置完毕，产出服务端地址 https://URTC_DOMAIN:5005 供各客户端SDK调用。
 
 ### 9. 常见问题排查
-
 + Q:  自签证书浏览器报net::ERR_CERT_COMMON_NAME_INVALID 或者handshake异常    
   A: 若URTC_DOMAIN对应证书是自签、Web端需先浏览器访问不安全链接 https://URTC_DOMAIN:5005/uteach 添加证书信任。正常使用时，需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert、urtc-room 缺省的/home/urtc-room/cert的证书和密钥。域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
 
@@ -315,10 +282,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 #### 1.1 安装urtc-record
 + RedHat/CentOS 安装urtc-record   
     `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
-
 + Debian/Ubuntu 安装urtc-record   
     `dpkg -i urtc-record_$version_amd64.deb`    
-    
 #### 1.2 启动urtc-record     
 执行 `systemctl restart urtc-record`     
 #### 1.3 检查urtc-record状态   
@@ -330,10 +295,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 #### 2.1 安装urtc-owt 
 + RedHat/CentOS 安装urtc-owt     
     `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
-
 + Debian/Ubuntu 安装urtc-owt     
     `dpkg -i urtc-owt_$version_amd64.deb`
-
 #### 2.2 启动urtc-owt   
 执行  `systemctl restart urtc-owt`    
 #### 2.3 检查urtc-owt状态     
@@ -345,14 +308,12 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ## ** SDK配置私有化环境 **
 
 ### 1. URTC实时音视频的配置
-
 - 1、Web客户端，设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
 ```
 UCloudRTC.setServers({
   signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的IP或者域名
 })
 ```
-
 - 2、Windows客户端，设置[auth.mServerUrl]()的IP为URTC实时音视频服务的IP。    
 ```
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
@@ -364,14 +325,13 @@ auth.mUserToken = "xxx";    //就这样写
 auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP
 engine->joinChannel(auth);
 ```
-
 - 3、Android客户端，    
 
 ### 2. URTC录制的配置
 #### 2.1 SDK配置
+SDK 录制的配置，与公有云一致即可。
 
 #### 2.2 录制的回放
-
 如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。    
 如果录制的文件，存储在公有云对象存储US3，则录制回放，可以参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
