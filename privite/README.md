@@ -274,7 +274,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + Q:  自签证书浏览器报net::ERR_CERT_COMMON_NAME_INVALID 或者handshake异常    
   A: URTC_DOMAIN默认证书是自签、Web端浏览器需要将不安全链接 https://URTC_DOMAIN:5005/ws 添加证书信任。正常使用时，需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert、urtc-room 缺省的/home/urtc-room/cert的证书和密钥。
 
->域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
+>域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README)。
 
 + Q:  Redis排查signal、room学习不到对方地址   
   A: `redis-cli -h 127.0.0.1 -p 6379 -a urtc`       
