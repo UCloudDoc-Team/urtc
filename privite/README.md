@@ -352,20 +352,22 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 - 1、Web客户端，设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
 ```
 UCloudRTC.setServers({
-  signal: "wss://signalIP:5005" // signalIP 为 URTC 实时音视频服务的IP或者域名
+  signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的IP或者域名
 })
 ```
+
 - 2、Windows客户端，设置[auth.mServerUrl]()的IP为URTC实时音视频服务的IP。    
 ```
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
 tUCloudRtcAuth  auth；
-auth.mAppId = "xxx";
-auth.mRoomId = "xxx";
-auth.mUserId = "xxx";
-auth.mUserToken = "xxx";
-auth.mServerUrl =  "wss://ip:port/ws";
+auth.mAppId = "xxx";    //your appid
+auth.mRoomId = "xxx";    //your roomid
+auth.mUserId = "xxx";    //your userid
+auth.mUserToken = "xxx";    //
+auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP
 engine->joinChannel(auth);
 ```
+
 - 3、Android客户端，    
 
 ### 2. URTC录制的配置
