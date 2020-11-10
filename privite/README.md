@@ -14,7 +14,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |:----:|:----:|:----:|
 |1台2核4G服务器 |接入250路流 |不合流情况下，支持50路720P单流录制<br>合流情况下，支持2路720P合流录制 |
 
->说明：    
 >1、2核4G只是一个计算基准，并不是只能配置2核4G；随着机器配置增加或者集群部署机器数量增加，客户端数量倍数增加。    
 >2、有录制需要时，可以存储在录制服务的本地磁盘、也可以存储在公有云对象存储US3中。    
 >录制的文件大小计算方法：    
@@ -152,7 +151,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 6）找到 cert/server.key 替换为服务对外域名的密钥；        
 7）保存退出。
 
->注意：    
 >需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。    
 >域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
 
@@ -183,7 +181,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 6）找到 cert/server.key 替换为服务对外域名的密钥；    
 7）保存退出。    
 
->注意：    
 >需要用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。         
 >域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。    
  
@@ -228,7 +225,7 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
   "TimeOutThreshold": 600
 }
 ```
->说明：    
+   
 >dump 接口可以看到对应的RoomMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 7. urtc-room 常用测试接口       
@@ -273,7 +270,6 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
 }
 ```
 
->说明：    
 >dump 接口可以看到SignalMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 8. 私有化部署最终产出
@@ -344,6 +340,6 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
 - 4、iOS/macOS客户端，    
 
 ### 2. URTC录制的配置
-
+xxxxxxx
 
 <!-- tabs:end -->
