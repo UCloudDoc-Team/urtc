@@ -20,10 +20,10 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 >录制的文件大小计算方法：    
 >录制 分辨率720P 码率1Mbps的视频，1个小时，录制的文件大小：1mbps x 3600s/8 = 450 MB    
 >录制 分辨率360P 码率500kbps的视频，1个小时，录制的文件大小：0.5mbps x 3600s/8 = 225 MB    
->URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
+>3、URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
 
 
-### 3. 服务间调用关系
+### 2. 服务间调用关系
 
 ```
         - - - - - - -               - - - - - - - -
@@ -44,7 +44,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ```
 
 **说明：**
- - 私有化服务注册和发现，依赖Redis。
+ - URTC实时音视频服务包含urtc-room、urtc-signal、urtc-media，URTC录制服务包含urtc-record、urtc-owt。
+ - 私有化服务的注册和发现，依赖Redis。
  - urtc-room、urtc-signal 启动会向Redis 注册自身服务信息。
  - urtc-signal 服务通过urtc-room 向Redis 注册信息。
  - urtc-record、urtc-room、urtc-signal 之间的服务调用也依赖Redis服务的注册信息。
@@ -89,98 +90,114 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + RedHat/CentOS       
    `yum install -y openssl-devel.x86_64 libcurl-devel.x86_64 json-c-devel.x86_64 file-devel.x86_64 libevent-devel.x86_64 libuuid-devel.x86_64 redis.x86_64  autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel libsysfs freetype-devel.x86_64 libass-devel.x86_64 libvorbis-devel.x86_64 libaom-devel.x86_64`
 
----
-#### 2. 配置并启动Redis
+### 2. 配置并启动Redis
+#### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis    
-   `编辑Redis 配置文件 vim /etc/redis.conf`  
-   `找到 # requirepass foobared 去掉行首#打开注释`       
-   `foobared 替换为 urtc`     
-   `保存退出`     
+1）编辑Redis的配置文件`vim /etc/redis.conf`；    
+2）找到 # requirepass foobared 去掉行首#打开注释；    
+3）foobared 替换为 urtc；    
+4）保存退出。       
 
 + Debian/Ubuntu 配置Redis    
-   `编辑Redis配置文件 vim /etc/redis/redis.conf`  
-   `找到 # requirepass foobar 去掉行首#打开注释`       
-   `foobared 替换为 urtc`     
-   `保存退出`
+1）编辑Redis配置文件 vim /etc/redis/redis.conf；     
+2）找到 # requirepass foobar 去掉行首#打开注释；    
+3）foobared 替换为 urtc；    
+4）保存退出。    
+   
+#### 2.2 启动Redis
+执行： `systemctl restart redis`   
 
-+ 启动Redis   
-    `systemctl restart redis`   
-+ 检查Redis状态         
-    `systemctl status redis`
+#### 2.3 检查Redis状态         
+执行：`systemctl status redis`
+  
+确认Redis服务启动正常。
 
-#### 3. 安装配置并启动urtc-media
+
+### 3. 安装配置并启动urtc-media
+#### 3.1 安装urtc-media
 + RedHat/CentOS 安装urtc-media        
     `rpm -ivh urtc-media-$version-1.el7.x86_64.rpm`     
 
 + Debian/Ubuntu 安装urtc-media        
     `dpkg -i urtc-media_$version_amd64.deb`
 
-+ 配置urtc-media  
-    `编辑urtc-media配置文件 vim /home/urtc-media/conf/cfg.json`  
-    `找到 URTC_INTRANETIP 替换为主机内网IP`       
-    `找到 URTC_PUBLICIP 替换为主机公网IP`     
-    `保存退出`            
+#### 3.2 配置urtc-media  
+1）编辑urtc-media配置文件 vim /home/urtc-media/conf/cfg.json；      
+2）找到 URTC_INTRANETIP 替换为主机内网IP；            
+3）找到 URTC_PUBLICIP 替换为主机公网IP；          
+4）保存退出。          
 
-+ 启动urtc-media      
-    `systemctl restart urtc-media`   
-+ 检查urtc-media状态    
-    `systemctl status urtc-media`   
-+ 设置urtc-media开机自启动 
-    `systemctl enable urtc-media`
+#### 3.3 启动urtc-media      
+执行 `systemctl restart urtc-media`   
 
-#### 4. 安装配置并启动urtc-signal   
+#### 3.4 检查urtc-media状态    
+执行  `systemctl status urtc-media`  
+
+#### 3.5 设置urtc-media开机自启动 
+执行  `systemctl enable urtc-media`
+
+
+### 4. 安装配置并启动urtc-signal   
+#### 4.1 安装urtc-signal 
 + RedHat/CentOS 安装urtc-signal       
-    `rpm -ivh urtc-signal-$version-1.el7.x86_64.rpm`        
+执行   `rpm -ivh urtc-signal-$version-1.el7.x86_64.rpm`        
 
 + Debian/Ubuntu 安装urtc-signal  
-    `dpkg -i urtc-signal_$version_amd64.deb`        
-    
-+ 配置urtc-signal     
-    `编辑urtc-signal配置文件 vim /home/urtc-signal/conf/cfg.json`  
-    `找到 URTC_INTRANETIP 替换为主机内网IP`       
-    `找到 URTC_PUBLICIP 替换为主机公网IP`     
-    `找到 URTC_DOMAIN 替换为服务对外域名`     
-    `找到 cert/server.crt 替换为服务对外域名的证书`     
-    `找到 cert/server.key 替换为服务对外域名的密钥`     
-    `保存退出`
-    
-    `用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥`      
-           
- 
-+ 启动urtc-signal         
-    `systemctl restart urtc-signal`
-+ 检查urtc-signal状态       
-    `systemctl status urtc-signal`
-+ 设置urtc-signal开机自启动       
-    `systemctl enable urtc-signal`
+执行   `dpkg -i urtc-signal_$version_amd64.deb`        
 
-#### 5. 安装配置并启动urtc-room
+#### 4.2 配置urtc-signal     
+1）编辑urtc-signal配置文件 vim /home/urtc-signal/conf/cfg.json；         
+2）找到 URTC_INTRANETIP 替换为主机内网IP；              
+3）找到 URTC_PUBLICIP 替换为主机公网IP；            
+4）找到 URTC_DOMAIN 替换为服务对外域名；          
+5）找到 cert/server.crt 替换为服务对外域名的证书；         
+6）找到 cert/server.key 替换为服务对外域名的密钥；        
+7）保存退出。
+
+>注意：
+>需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。
+>域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
+
+#### 4.3 启动urtc-signal         
+执行  `systemctl restart urtc-signal`
+
+#### 4.4 检查urtc-signal状态       
+执行 `systemctl status urtc-signal`
+
+#### 4.5 设置urtc-signal开机自启动       
+执行  `systemctl enable urtc-signal`
+
+
+### 5. 安装配置并启动urtc-room
+#### 5.1 安装urtc-room 
 + RedHat/CentOS 安装urtc-room       
     `rpm -ivh urtc-room-$version-1.el7.x86_64.rpm`        
 
 + Debian/Ubuntu 安装urtc-room  
     `dpkg -i urtc-room_$version_amd64.deb`        
     
-+ 配置urtc-room       
-    `编辑urtc-room配置文件 vim  /home/urtc-room/conf/cfg.json`  
-    `找到 URTC_SN 替换为UCloud RTC 提供的License`       
-    `找到 URTC_PUBLICIP 替换为主机公网IP`     
-    `找到 URTC_INTRANETIP 替换为主机内网IP`     
-    `找到 cert/server.crt 替换为服务对外域名的证书`     
-    `找到 cert/server.key 替换为服务对外域名的密钥`     
-    `保存退出`
-    
-    `用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥`      
-           
+#### 5.2 配置urtc-room       
+1）编辑urtc-room配置文件 vim  /home/urtc-room/conf/cfg.json；     
+2）找到 URTC_SN 替换为UCloud RTC 提供的License；           
+3）找到 URTC_PUBLICIP 替换为主机公网IP；         
+4）找到 URTC_INTRANETIP 替换为主机内网IP；        
+5）找到 cert/server.crt 替换为服务对外域名的证书；       
+6）找到 cert/server.key 替换为服务对外域名的密钥；    
+7）保存退出。    
+
+>注意：
+>需要用服务对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-room 缺省的/home/urtc-room/cert的证书和密钥。否则浏览器访问时会有安全威胁的提示。     
+>域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
  
-+ 启动urtc-room       
+#### 5.3 启动urtc-room       
     `systemctl restart urtc-room`
-+ 检查urtc-room状态         
+#### 5.4 检查urtc-room状态         
     `systemctl status urtc-room`
-+ 设置urtc-room开机自启动      
+#### 5.5 设置urtc-room开机自启动      
     `systemctl enable urtc-room`
 
 ### 6. urtc-signal 常用测试接口
+
 + check 接口
 ```
 curl -sk "https://127.0.0.1:5005/check" | jq
@@ -213,7 +230,8 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
   "TimeOutThreshold": 600
 }
 ```
-dump 接口可以看到对应的RoomMembers,若学习不到则为Null,尝试重启服务,并检查Redis
+>说明：
+>dump 接口可以看到对应的RoomMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 7. urtc-room 常用测试接口       
 + check 接口
@@ -256,7 +274,9 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
   "NodeMap": {}
 }
 ```
-dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服务,并检查Redis
+
+>说明：
+>dump 接口可以看到SignalMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 8. 私有化部署最终产出
 
@@ -286,32 +306,33 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 ## ** 部署URTC录制服务 **
 
 ### 1. 安装配置并启动urtc-record
-
+#### 1.1 安装urtc-record
 + RedHat/CentOS 安装urtc-record   
     `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
 
 + Debian/Ubuntu 安装urtc-record   
     `dpkg -i urtc-record_$version_amd64.deb`    
     
-+ 启动urtc-record     
+#### 1.2 启动urtc-record     
     `systemctl restart urtc-record`     
-+ 检查urtc-record状态   
+#### 1.3 检查urtc-record状态   
     `systemctl status urtc-record`
-+ 设置urtc-record开机自启动
+#### 1.4 设置urtc-record开机自启动
     `systemctl status urtc-record`     
 
 ### 2. 安装配置并启动urtc-owt
+#### 2.1 安装urtc-owt 
 + RedHat/CentOS 安装urtc-owt     
     `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
 
 + Debian/Ubuntu 安装urtc-owt     
     `dpkg -i urtc-owt_$version_amd64.deb`
 
-+ 启动urtc-owt   
+#### 2.2 启动urtc-owt   
     `systemctl restart urtc-owt`
-+ 检查urtc-owt状态     
+#### 2.3 检查urtc-owt状态     
     `systemctl status urtc-owt`
-+ 设置urtc-owt开机自启动
+#### 2.4 设置urtc-owt开机自启动
     `systemctl enable urtc-owt`
       
     
@@ -322,7 +343,7 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 - 1、Web客户端，将[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)配置为URTC音视频服务的域名及端口。
 - 2、Windows客户端，
 - 3、Android客户端，
-- 4、iOS/macOS客户端，
+- 4、iOS/macOS客户端，    
 
 ### 2. URTC录制的配置
 
