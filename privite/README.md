@@ -104,7 +104,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 #### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis       
 1）编辑Redis的配置文件`vim /etc/redis.conf`；                        
-2）找到 # requirepass foobared 去掉行首的#；        
+2）找到 # requirepass foobared  去掉行首的#；   
 3）foobared 替换为 urtc；    
 4）保存退出。         
 
