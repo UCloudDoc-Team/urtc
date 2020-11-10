@@ -17,29 +17,20 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 >说明：    
 >1、2核4G只是一个计算基准，并不是只能配置2核4G；随着机器配置增加或者集群部署机器数量增加，客户端数量倍数增加。    
 >2、有录制需要时，可以存储在录制服务的本地磁盘、也可以存储在公有云对象存储US3中。    
->    录制的文件大小计算方法：    
->    录制 分辨率720P 码率1Mbps的视频，1个小时，录制的文件大小：1mbps x 3600s/8 = 450 MB    
->    录制 分辨率360P 码率500kbps的视频，1个小时，录制的文件大小：0.5mbps x 3600s/8 = 225 MB    
+>录制的文件大小计算方法：    
+>录制 分辨率720P 码率1Mbps的视频，1个小时，录制的文件大小：1mbps x 3600s/8 = 450 MB    
+>录制 分辨率360P 码率500kbps的视频，1个小时，录制的文件大小：0.5mbps x 3600s/8 = 225 MB    
+>URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
 
-### 2. 服务部署要求
-
- - URTC实时音视频服务推荐CentOS 7.2+、URTC录制服务推荐Ubuntu 18.04。    
- - 私有化服务注册和发现，依赖Redis。
- - urtc-room、urtc-signal 启动会向Redis 注册自身服务信息。
- - urtc-signal 服务通过urtc-room 向Redis 注册信息。
- - urtc-record、urtc-room、urtc-signal 之间的服务调用也依赖Redis服务的注册信息。
- - urtc-room、urtc-record 配置文件里定义Redis的url/port/db/password等。
- - Redis 缺省配置是127.0.0.1:6379,db:0,password:urtc,可根据自己网络情况调整。
- - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
 
 ### 3. 服务间调用关系
+
 ```
         - - - - - - -               - - - - - - - -
         | urtc-room |  - - - - - >  |    Redis    |
         - - - - - - -               - - - - - - - -
            ^    |                         ^
            |    |                         |               
-           |    |                         |   
            |    ↓                         |
        - - - - - - - -              - - - - - - - - 
        | urtc-signal | - - - - - >  | urtc-owt    |
@@ -52,6 +43,15 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
         - - - - - - - -            - - - - - - - - -           
 ```
 
+**说明：**
+ - 私有化服务注册和发现，依赖Redis。
+ - urtc-room、urtc-signal 启动会向Redis 注册自身服务信息。
+ - urtc-signal 服务通过urtc-room 向Redis 注册信息。
+ - urtc-record、urtc-room、urtc-signal 之间的服务调用也依赖Redis服务的注册信息。
+ - urtc-room、urtc-record 配置文件里定义Redis的url/port/db/password等。
+ - Redis 缺省配置是127.0.0.1:6379,db:0,password:urtc,可根据自己网络情况调整。
+ - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
+ 
 ### 4. 主机防火墙规则
 
 服务器|协议|端口|源地址|动作|备注|服务|
