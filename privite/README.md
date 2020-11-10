@@ -363,7 +363,7 @@ tUCloudRtcAuth  auth；
 auth.mAppId = "xxx";    //your appid
 auth.mRoomId = "xxx";    //your roomid
 auth.mUserId = "xxx";    //your userid
-auth.mUserToken = "xxx";    //
+auth.mUserToken = "xxx";    //就这样写
 auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP
 engine->joinChannel(auth);
 ```
