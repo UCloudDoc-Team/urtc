@@ -319,7 +319,8 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 
 + Q:  安装失败: dpkg: 处理软件包 urtc-media(这只是个例子) (--configure)时出错：该软件包正处于非常不稳定的状态；您最好在配置它之前，先重新安装它，在处理时有错误发生：urtc-media E: Sub-process /usr/bin/dpkg returned an error code (1)        
   A: `rm -rf /var/lib/dpkg/info/urtc-media*`
-  
+
+
 ## ** SDK配置接入私有化 ** 
 
 ### URTC实时音视频的配置
