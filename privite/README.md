@@ -92,13 +92,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ### 2. 配置并启动Redis
 #### 2.1 配置Redis 
 + RedHat/CentOS 配置Redis    
-1）编辑Redis的配置文件`vim /etc/redis.conf`；       
+1）编辑Redis的配置文件`vim /etc/redis.conf`；                     
 2）找到 # requirepass foobared 去掉行首#打开注释；    
 3）foobared 替换为 urtc；    
 4）保存退出。       
 
 + Debian/Ubuntu 配置Redis    
-1）编辑Redis配置文件 vim /etc/redis/redis.conf；     
+1）编辑Redis配置文件 vim /etc/redis/redis.conf；        
 2）找到 # requirepass foobar 去掉行首#打开注释；    
 3）foobared 替换为 urtc；    
 4）保存退出。    
