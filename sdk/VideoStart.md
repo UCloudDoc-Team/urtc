@@ -630,8 +630,9 @@ sdkEngine.leaveChannel() ;
   - 支持语言：objective-c、swift;  
   - Apple设备：iPhone最低支持iPhone5；  
   - 系统版本：最低支持iOS 9.0；  
-  - CPU架构：支持真机架构arm64，不支持模拟器i386、 x86架构；   
-  - 其他：不支持bitcode。
+  - CPU架构：支持arm64、armv7、x86架构，支持真机和模拟器运行；   
+  - 其他：v1.5.8及以后版本支持bitcode。
+  
 
 ## 3. 开发环境  
 
