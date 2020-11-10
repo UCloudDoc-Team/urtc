@@ -313,9 +313,8 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
     `systemctl status urtc-owt`
 + 设置urtc-owt开机自启动
     `systemctl enable urtc-owt`
-
-
-
+      
+    
 ## **SDK配置接入私有化** 
 
 ### 1. URTC实时音视频的配置
