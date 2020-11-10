@@ -108,8 +108,10 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 2）找到 # requirepass foobar 去掉行首的#；        
 3）foobared 替换为 urtc；    
 4）保存退出。    
+
 #### 2.2 启动Redis
 执行： `systemctl restart redis`   
+
 #### 2.3 检查Redis状态         
 执行：`systemctl status redis`    
 确认Redis服务启动正常之后，可以进行下一步的安装。
@@ -120,15 +122,19 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
     `rpm -ivh urtc-media-$version-1.el7.x86_64.rpm`     
 + Debian/Ubuntu 安装urtc-media        
     `dpkg -i urtc-media_$version_amd64.deb`
+
 #### 3.2 配置urtc-media  
 1）编辑urtc-media配置文件 vim /home/urtc-media/conf/cfg.json；      
 2）找到 URTC_INTRANETIP 替换为主机内网IP；            
 3）找到 URTC_PUBLICIP 替换为主机公网IP；          
-4）保存退出。          
+4）保存退出。  
+
 #### 3.3 启动urtc-media      
-执行 `systemctl restart urtc-media`   
+执行 `systemctl restart urtc-media`  
+
 #### 3.4 检查urtc-media状态    
 执行  `systemctl status urtc-media`  
+
 #### 3.5 设置urtc-media开机自启动 
 执行  `systemctl enable urtc-media`
 
@@ -138,6 +144,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 执行   `rpm -ivh urtc-signal-$version-1.el7.x86_64.rpm`        
 + Debian/Ubuntu 安装urtc-signal  
 执行   `dpkg -i urtc-signal_$version_amd64.deb`        
+
 #### 4.2 配置urtc-signal     
 1）编辑urtc-signal配置文件 vim /home/urtc-signal/conf/cfg.json；         
 2）找到 URTC_INTRANETIP 替换为主机内网IP；              
@@ -146,10 +153,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 5）找到 cert/server.crt 替换为服务对外域名的证书；         
 6）找到 cert/server.key 替换为服务对外域名的密钥；        
 7）保存退出。
+
 #### 4.3 启动urtc-signal         
 执行  `systemctl restart urtc-signal`
+
 #### 4.4 检查urtc-signal状态       
 执行 `systemctl status urtc-signal`
+
 #### 4.5 设置urtc-signal开机自启动       
 执行  `systemctl enable urtc-signal`
 
@@ -160,7 +170,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
     `rpm -ivh urtc-room-$version-1.el7.x86_64.rpm`        
 
 + Debian/Ubuntu 安装urtc-room  
-    `dpkg -i urtc-room_$version_amd64.deb`        
+    `dpkg -i urtc-room_$version_amd64.deb`      
+    
 #### 5.2 配置urtc-room       
 1）编辑urtc-room配置文件 vim  /home/urtc-room/conf/cfg.json；     
 2）找到 URTC_SN 替换为UCloud RTC 提供的License；           
@@ -168,11 +179,14 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 4）找到 URTC_INTRANETIP 替换为主机内网IP；        
 5）找到 cert/server.crt 替换为服务对外域名的证书；       
 6）找到 cert/server.key 替换为服务对外域名的密钥；    
-7）保存退出。    
+7）保存退出。 
+
 #### 5.3 启动urtc-room       
 执行  `systemctl restart urtc-room`
+
 #### 5.4 检查urtc-room状态         
 执行 `systemctl status urtc-room`
+
 #### 5.5 设置urtc-room开机自启动      
 执行 `systemctl enable urtc-room`
 
@@ -284,10 +298,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
     `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
 + Debian/Ubuntu 安装urtc-record   
     `dpkg -i urtc-record_$version_amd64.deb`    
+
 #### 1.2 启动urtc-record     
 执行 `systemctl restart urtc-record`     
+
 #### 1.3 检查urtc-record状态   
 执行 `systemctl status urtc-record`    
+
 #### 1.4 设置urtc-record开机自启动
 执行 `systemctl status urtc-record`        
 
@@ -297,10 +314,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
     `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
 + Debian/Ubuntu 安装urtc-owt     
     `dpkg -i urtc-owt_$version_amd64.deb`
+
 #### 2.2 启动urtc-owt   
 执行  `systemctl restart urtc-owt`    
+
 #### 2.3 检查urtc-owt状态     
 执行  `systemctl status urtc-owt`    
+
 #### 2.4 设置urtc-owt开机自启动
 执行  `systemctl enable urtc-owt`    
       
