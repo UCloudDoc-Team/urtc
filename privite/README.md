@@ -349,8 +349,23 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 ### 1. URTC实时音视频的配置
 
-- 1、Web客户端，将[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)配置为URTC音视频服务的域名及端口。
-- 2、Windows客户端，
+- 1、Web客户端，设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
+```
+UCloudRTC.setServers({
+  signal: "wss://signalIP:5005" // signalIP 为 URTC 实时音视频服务的IP或者域名
+})
+```
+- 2、Windows客户端，设置[auth.mServerUrl]（）的IP为URTC实时音视频服务的IP。    
+```
+engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
+tUCloudRtcAuth  auth；
+auth.mAppId = "xxx";
+auth.mRoomId = "xxx";
+auth.mUserId = "xxx";
+auth.mUserToken = "xxx";
+auth.mServerUrl =  "wss://ip:port/ws";
+engine->joinChannel(auth);
+```
 - 3、Android客户端，    
 
 ### 2. URTC录制的配置
@@ -358,6 +373,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 #### 2.2 录制的回放
 
-如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordSeverIP:10080/record。
+如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。
+如果录制的文件，存储在公有云对象存储US3，则录制回放，可以参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
 <!-- tabs:end -->
