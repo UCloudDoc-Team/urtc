@@ -53,7 +53,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
  - Redis 缺省配置是127.0.0.1:6379,db:0,password:urtc,可根据自己网络情况调整。
  - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
  
-### 4. 主机防火墙规则
+### 3. 主机防火墙规则
 
 服务器|协议|端口|源地址|动作|备注|服务|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -68,7 +68,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |URTC录制服务|`UDP`|`10080`|`0.0.0.0`|`accept`|`录制视频文件回放`|`RTC录制服务`|
 
 
-### 5. 服务配置所需参数汇总 
+### 4. 服务配置所需参数汇总 
 
 |配置项|备注|
 |:----:|:----:|
@@ -190,11 +190,11 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 >域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
  
 #### 5.3 启动urtc-room       
-    `systemctl restart urtc-room`
+执行  `systemctl restart urtc-room`
 #### 5.4 检查urtc-room状态         
-    `systemctl status urtc-room`
+执行 `systemctl status urtc-room`
 #### 5.5 设置urtc-room开机自启动      
-    `systemctl enable urtc-room`
+执行 `systemctl enable urtc-room`
 
 ### 6. urtc-signal 常用测试接口
 
@@ -230,7 +230,7 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
   "TimeOutThreshold": 600
 }
 ```
->说明：
+>说明：    
 >dump 接口可以看到对应的RoomMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 7. urtc-room 常用测试接口       
@@ -275,7 +275,7 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
 }
 ```
 
->说明：
+>说明：    
 >dump 接口可以看到SignalMembers，若查询不到则为Null，尝试重启服务，并检查Redis。
 
 ### 8. 私有化部署最终产出
