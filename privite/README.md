@@ -118,7 +118,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 执行： `systemctl restart redis`   
 
 #### 2.3 检查Redis状态         
-执行：`systemctl status redis`
+执行：`systemctl status redis`    
 确认Redis服务启动正常之后，可以进行下一步的安装。
 
 ### 3. 安装配置并启动urtc-media
@@ -161,9 +161,6 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 5）找到 cert/server.crt 替换为服务对外域名的证书；         
 6）找到 cert/server.key 替换为服务对外域名的密钥；        
 7）保存退出。
-
->需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert的证书和密钥；否则浏览器访问时会有安全威胁的提示。    
->域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
 
 #### 4.3 启动urtc-signal         
 执行  `systemctl restart urtc-signal`
@@ -294,8 +291,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ### 9. 常见问题排查
 
 + Q:  自签证书浏览器报net::ERR_CERT_COMMON_NAME_INVALID 或者handshake异常    
-  A: `若URTC_DOMAIN对应证书是自签、Web端需先浏览器访问不安全链接 https://URTC_DOMAIN:6005/uteach 添加证书信任`
- 
+  A: 若URTC_DOMAIN对应证书是自签、Web端需先浏览器访问不安全链接 https://URTC_DOMAIN:5005/uteach 添加证书信任。正常使用时，需要用服务器对外域名的证书和密钥文件(自签或者证书颁发机构购买)，替换urtc-signal 缺省的/home/urtc-signal/cert、urtc-room 缺省的/home/urtc-room/cert的证书和密钥。域名有关的内容，可以查阅[UCloud 域名服务](https://docs.ucloud.cn/udnr/README)；证书相关的内容，可以查阅[UCloud SSL证书服务](https://docs.ucloud.cn/ussl/README）。
+
 + Q:  Redis排查signal、room学习不到对方地址   
   A: `redis-cli -h 127.0.0.1 -p 6379 -a urtc`       
      `KEYS *`   
