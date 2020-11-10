@@ -351,10 +351,13 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 - 1、Web客户端，将[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)配置为URTC音视频服务的域名及端口。
 - 2、Windows客户端，
-- 3、Android客户端，
-- 4、iOS/macOS客户端，    
+- 3、Android客户端，    
 
 ### 2. URTC录制的配置
-xxxxxxx
+#### 2.1 SDK配置
+
+#### 2.2 录制的回放
+
+如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordSeverIP:10080/record。
 
 <!-- tabs:end -->
