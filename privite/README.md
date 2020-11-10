@@ -336,7 +336,7 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
     `systemctl enable urtc-owt`
       
     
-## ** 部署须知 **
+## ** SDK配置私有化环境 **
 
 ### 1. URTC实时音视频的配置
 
