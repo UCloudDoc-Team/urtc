@@ -52,9 +52,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
         - - - - - - - -            - - - - - - - - -           
 ```
 
-
-
-### 主机防火墙规则
+### 4. 主机防火墙规则
 
 服务器|协议|端口|源地址|动作|备注|服务|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -69,7 +67,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |`record`|`UDP`|`10080`|`0.0.0.0`|`accept`|`录制视频文件回放`|`RTC录制服务`|
 
 
-### 服务配置所需参数汇总 
+### 5. 服务配置所需参数汇总 
 
 |配置项|备注|
 |:----:|:----:|
@@ -79,9 +77,9 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |`服务对外域名`|`对应urtc-signal 配置文件中缺省的URTC_DOMAIN`|
 |`服务对外域名HTTPs证书和私钥`|`对应urtc-room、urtc-signal 配置文件中缺省的cert/server.crt、cert/server.key`|
 
-## ** 部署URTC 实时音视频 **
+## ** 部署URTC 实时音视频服务 **
 
-### 服务安装前的准备工作
+### 1. 服务安装前的准备工作
 + Debian/Ubuntu     
     `apt-get update -y`
     `apt-get -y install libprotobuf-dev libprotobuf-lite10 libprotobuf10 (Ubuntu18.04)`           
@@ -92,7 +90,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
    `yum install -y openssl-devel.x86_64 libcurl-devel.x86_64 json-c-devel.x86_64 file-devel.x86_64 libevent-devel.x86_64 libuuid-devel.x86_64 redis.x86_64  autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel libsysfs freetype-devel.x86_64 libass-devel.x86_64 libvorbis-devel.x86_64 libaom-devel.x86_64`
 
 ---
-#### 配置并启动Redis
+#### 2. 配置并启动Redis
 + RedHat/CentOS 配置Redis    
    `编辑Redis 配置文件 vim /etc/redis.conf`  
    `找到 # requirepass foobared 去掉行首#打开注释`       
@@ -110,8 +108,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 检查Redis状态         
     `systemctl status redis`
 
----
-#### 安装配置并启动urtc-media
+#### 3. 安装配置并启动urtc-media
 + RedHat/CentOS 安装urtc-media        
     `rpm -ivh urtc-media-$version-1.el7.x86_64.rpm`     
 
@@ -131,8 +128,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 设置urtc-media开机自启动 
     `systemctl enable urtc-media`
 
----
-#### 安装配置并启动urtc-signal   
+#### 4. 安装配置并启动urtc-signal   
 + RedHat/CentOS 安装urtc-signal       
     `rpm -ivh urtc-signal-$version-1.el7.x86_64.rpm`        
 
@@ -158,8 +154,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 + 设置urtc-signal开机自启动       
     `systemctl enable urtc-signal`
 
----
-#### 安装配置并启动urtc-room
+#### 5. 安装配置并启动urtc-room
 + RedHat/CentOS 安装urtc-room       
     `rpm -ivh urtc-room-$version-1.el7.x86_64.rpm`        
 
@@ -184,40 +179,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
     `systemctl status urtc-room`
 + 设置urtc-room开机自启动      
     `systemctl enable urtc-room`
- 
 
-## ** 部署URTC 实时音视频 **
-
-### 安装配置并启动urtc-record
-
-+ RedHat/CentOS 安装urtc-record   
-    `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
-
-+ Debian/Ubuntu 安装urtc-record   
-    `dpkg -i urtc-record_$version_amd64.deb`    
-    
-+ 启动urtc-record     
-    `systemctl restart urtc-record`     
-+ 检查urtc-record状态   
-    `systemctl status urtc-record`
-+ 设置urtc-record开机自启动
-    `systemctl status urtc-record`     
-
-### 安装配置并启动urtc-owt
-+ RedHat/CentOS 安装urtc-owt     
-    `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
-
-+ Debian/Ubuntu 安装urtc-owt     
-    `dpkg -i urtc-owt_$version_amd64.deb`
-
-+ 启动urtc-owt   
-    `systemctl restart urtc-owt`
-+ 检查urtc-owt状态     
-    `systemctl status urtc-owt`
-+ 设置urtc-owt开机自启动
-    `systemctl enable urtc-owt`
-
-### urtc-signal 常用测试接口
+### 6. urtc-signal 常用测试接口
 + check 接口
 ```
 curl -sk "https://127.0.0.1:5005/check" | jq
@@ -252,7 +215,7 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
 ```
 dump 接口可以看到对应的RoomMembers,若学习不到则为Null,尝试重启服务,并检查Redis
 
-### urtc-room 常用测试接口       
+### 7. urtc-room 常用测试接口       
 + check 接口
 ```
 curl -sk "https://127.0.0.1:6005/check" | jq
@@ -295,10 +258,11 @@ curl -sk "https://127.0.0.1:6005/dump" | jq
 ```
 dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服务,并检查Redis
 
-### 私有化部署最终产出
-上述配置完毕,产出服务端地址 https://URTC_DOMAIN:6005 供各客户端SDK调用
+### 8. 私有化部署最终产出
 
-### 常见问题排查
+上述配置完毕，产出服务端地址 https://URTC_DOMAIN:6005 供各客户端SDK调用。
+
+### 9. 常见问题排查
 
 + Q:  自签证书浏览器报net::ERR_CERT_COMMON_NAME_INVALID 或者handshake异常    
   A: `若URTC_DOMAIN对应证书是自签、Web端需先浏览器访问不安全链接 https://URTC_DOMAIN:6005/uteach 添加证书信任`
@@ -306,6 +270,7 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 + Q:  Redis排查signal、room学习不到对方地址   
   A: `redis-cli -h 127.0.0.1 -p 6379 -a urtc`       
      `KEYS *`   
+     
 + Q:  安装失败且dpkg -l | grep urtc 显示软件包状态未iHR      
   A: `dpkg -r 对应的软件包`        
      `编辑dpkg status文件 vim /var/lib/dpkg/status`          
@@ -316,18 +281,51 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
 
 + Q:  安装失败: dpkg: 处理软件包 urtc-media(这只是个例子) (--configure)时出错：该软件包正处于非常不稳定的状态；您最好在配置它之前，先重新安装它，在处理时有错误发生：urtc-media E: Sub-process /usr/bin/dpkg returned an error code (1)        
   A: `rm -rf /var/lib/dpkg/info/urtc-media*`
+  
+
+## ** 部署URTC录制服务 **
+
+### 1. 安装配置并启动urtc-record
+
++ RedHat/CentOS 安装urtc-record   
+    `rpm -ivh urtc-record-$version-1.el7.x86_64.rpm`     
+
++ Debian/Ubuntu 安装urtc-record   
+    `dpkg -i urtc-record_$version_amd64.deb`    
+    
++ 启动urtc-record     
+    `systemctl restart urtc-record`     
++ 检查urtc-record状态   
+    `systemctl status urtc-record`
++ 设置urtc-record开机自启动
+    `systemctl status urtc-record`     
+
+### 2. 安装配置并启动urtc-owt
++ RedHat/CentOS 安装urtc-owt     
+    `rpm -ivh urtc-owt-$version-1.el7.x86_64.rpm`     
+
++ Debian/Ubuntu 安装urtc-owt     
+    `dpkg -i urtc-owt_$version_amd64.deb`
+
++ 启动urtc-owt   
+    `systemctl restart urtc-owt`
++ 检查urtc-owt状态     
+    `systemctl status urtc-owt`
++ 设置urtc-owt开机自启动
+    `systemctl enable urtc-owt`
+
 
 
 ## **SDK配置接入私有化** 
 
-### URTC实时音视频的配置
+### 1. URTC实时音视频的配置
 
 - 1、Web客户端，将[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)配置为URTC音视频服务的域名及端口。
 - 2、Windows客户端，
 - 3、Android客户端，
 - 4、iOS/macOS客户端，
 
-### URTC录制的配置
+### 2. URTC录制的配置
 
 
 
