@@ -321,7 +321,7 @@ dump 接口可以看到SignalMembers,若学习不到则为Null,尝试重启服�
   A: `rm -rf /var/lib/dpkg/info/urtc-media*`
 
 
-## ** SDK配置接入私有化 ** 
+## **SDK配置接入私有化** 
 
 ### URTC实时音视频的配置
 
