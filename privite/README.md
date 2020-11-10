@@ -205,16 +205,17 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ### 6. urtc-signal 常用测试接口
 
 + check 接口
+执行 `curl -sk "https://127.0.0.1:5005/check" | jq`
+
 ```
-curl -sk "https://127.0.0.1:5005/check" | jq
 {
   "server": 2,
   "ip": "本机公网IP",
   "httpPort": "5005",
   "rpcPort": "5006",
   "data": {
-    "userNum": 0,
-    "inMBitsPerSec": 0.0049952,
+    "userNum": 0, 
+    "inMBitsPerSec": 0.0049952,  
     "outMBitsPerSec": 0.004592,
     "qps": 0,
     "stopNewConn": false
@@ -223,8 +224,9 @@ curl -sk "https://127.0.0.1:5005/check" | jq
 ```
 
 + dump 接口
+执行 `curl -sk "https://127.0.0.1:5005/dump" | jq`
+
 ```
-curl -sk "https://127.0.0.1:5005/dump" | jq
 {
   "RoomMembers": [
     "本机内网IP:6006"
@@ -241,8 +243,9 @@ curl -sk "https://127.0.0.1:5005/dump" | jq
 
 ### 7. urtc-room 常用测试接口       
 + check 接口
+执行 `curl -sk "https://127.0.0.1:6005/check" | jq`
+
 ```
-curl -sk "https://127.0.0.1:6005/check" | jq
 {
   "ip": "本机内网IP",
   "httpPort": "6005",
@@ -258,8 +261,9 @@ curl -sk "https://127.0.0.1:6005/check" | jq
 ```
 
 + dump 接口 
+执行 `curl -sk "https://127.0.0.1:6005/dump" | jq`
+
 ```
-curl -sk "https://127.0.0.1:6005/dump" | jq
 {
   "Version": 1,
   "RootRegion": [
