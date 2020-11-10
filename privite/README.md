@@ -355,7 +355,7 @@ UCloudRTC.setServers({
   signal: "wss://signalIP:5005" // signalIP 为 URTC 实时音视频服务的IP或者域名
 })
 ```
-- 2、Windows客户端，设置[auth.mServerUrl]（）的IP为URTC实时音视频服务的IP。    
+- 2、Windows客户端，设置[auth.mServerUrl]()的IP为URTC实时音视频服务的IP。    
 ```
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
 tUCloudRtcAuth  auth；
