@@ -339,7 +339,7 @@ UCloudRTC.setServers({
 })
 ```
 #### 1.2 Windows客户端
-设置[auth.mServerUrl]()的IP为URTC实时音视频服务的IP或者域名。      
+设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
 示例如下：    
 ```cpp
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
