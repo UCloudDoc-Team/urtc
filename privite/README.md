@@ -339,6 +339,8 @@ UCloudRTC.setServers({
   signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的IP或者域名
 })
 ```
+可以通过[Web DEMO](https://web.urtc.com.cn/)，将设置中的私有化信令地址，改为部署的地址，就可以直接在私有化环境中使用。    
+
 #### 1.2 Windows客户端
 设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
 示例如下：    
@@ -352,6 +354,8 @@ auth.mUserToken = "xxx";    //就这样写
 auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP或者域名
 engine->joinChannel(auth);
 ```
+可以通过安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，将设置中的私有化信令地址，改为部署的地址，就可以直接在私有化环境中使用。    
+
 #### 1.3 Android客户端
 设置私有化环境，并设置TP为URTC实时音视频服务的IP或者域名。    
 示例如下：   
