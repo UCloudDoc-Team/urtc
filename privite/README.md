@@ -361,11 +361,11 @@ engine->joinChannel(auth);
 
 ### 2. URTC录制的配置
 #### 2.1 SDK配置
-SDK 录制的配置，与公有云的[远端录制])(https://docs.ucloud.cn/urtc/cloudRecord/RecordStart)的方法、参数一致。
+SDK 录制的配置，与公有云的[远端录制])(https://docs.ucloud.cn/urtc/cloudRecord/RecordStart)的方法、参数一致。      
 据录制服务的配置文件决定，录制的内容存储在公有云 对象存储US3、本地磁盘，根默认是存储在本地磁盘。
 
 #### 2.2 录制的回放
-如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。    
+如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。      
 如果录制的文件，存储在公有云对象存储US3，则录制回放，可以参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
 <!-- tabs:end -->
