@@ -366,7 +366,7 @@ engine->joinChannel(auth);
 
 ### 2. URTC录制的配置
 #### 2.1 SDK配置
-SDK 录制的配置，与公有云的[远端录制](https://docs.ucloud.cn/urtc/cloudRecord/RecordStart)的方法、参数一致。      
+SDK 录制的配置，与公有云的[云端录制](https://docs.ucloud.cn/urtc/cloudRecord/RecordStart)的方法、参数一致。      
 录制服务的配置文件决定，录制的文件 存储在公有云 对象存储US3还是本地磁盘，默认是存储在本地磁盘。
 
 #### 2.2 录制的回放
