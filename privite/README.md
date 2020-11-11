@@ -352,7 +352,12 @@ auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP�
 engine->joinChannel(auth);
 ```
 #### 1.3 Android客户端
-
+设置私有化环境，并设置URL为URTC实时音视频服务的IP或者域名。    
+示例如下：   
+```java
+ UCloudRtcSdkEnv.setPrivateDeploy(true);
+ UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://xxx.xxx.xxx.xxx:5005/ws");
+```
 
 ### 2. URTC录制的配置
 #### 2.1 SDK配置
