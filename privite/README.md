@@ -357,7 +357,7 @@ engine->joinChannel(auth);
 安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，将设置中的私有化信令地址改为部署的地址，就可以直接在私有化环境中使用。    
 
 #### 1.3 Android客户端
-设置私有化环境，并设置TP为URTC实时音视频服务的IP或者域名。    
+设置私有化环境，并设置IP为URTC实时音视频服务的IP或者域名。    
 示例如下：   
 ```java
  UCloudRtcSdkEnv.setPrivateDeploy(true);
