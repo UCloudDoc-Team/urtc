@@ -332,17 +332,17 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 ### 1. URTC实时音视频的验证
 #### 1.1 Web客户端
-访问[Web DEMO](https://web.urtc.com.cn/)，打开【设置】，【私有化部署地址】中填入部署的音视频服务的服务器地址或者域名，格式为：wss://IP:5005。      
+访问[Web DEMO](https://web.urtc.com.cn/)，打开【设置】，【私有化部署地址】中填入部署的音视频服务的服务器域名，格式为：wss://domain:5005。      
 ![](/images/priviteImage/SETweb.png)
 
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
 ![](/images/priviteImage/joinroomWEB.png)
 
-如对接SDK，需要在SDK中设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
+如对接SDK，需要在SDK中设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的域名。    
 示例如下：    
 ```js
 UCloudRTC.setServers({
-  signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的IP或者域名
+  signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的域名
 })
 ```
 
