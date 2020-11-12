@@ -336,7 +336,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ![](/images/priviteImage/SETweb.png)
 
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
-![](/images/priviteImage/joinroomWindows.png)
+![](/images/priviteImage/joinroomWEB.png)
 
 如对接SDK，需要在SDK中设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
 示例如下：    
@@ -351,7 +351,7 @@ UCloudRTC.setServers({
 ![](/images//priviteImage/SETwindows.png)
 
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
-![](/images/priviteImage/joinroomWEB.png)
+![](/images/priviteImage/joinroomWindows.png)
 
 如对接SDK，需要设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
 示例如下：    
