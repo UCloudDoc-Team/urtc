@@ -342,18 +342,18 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 示例如下：    
 ```js
 UCloudRTC.setServers({
-  signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的域名
+  signal: "wss://domain:5005" // IP 为 URTC 实时音视频服务的域名
 })
 ```
 
 #### 1.2 Windows客户端
-安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，打开【设置】，选中【私有化】，并且在输入框中，填入部署的音视频服务的服务器地址或者域名，格式为：wss://IP:5005/ws。      
+安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，打开【设置】，选中【私有化】，并且在输入框中，填入部署的音视频服务的服务器地址或者域名，格式为：wss://domain:5005/ws。      
 ![](/images//priviteImage/SETwindows.png)
 
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
 ![](/images/priviteImage/joinroomWindows.png)
 
-如对接SDK，需要设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
+如对接SDK，需要设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的domain为URTC实时音视频服务的IP或者域名。      
 示例如下：    
 ```cpp
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
@@ -362,7 +362,7 @@ auth.mAppId = "xxx";    //your appid
 auth.mRoomId = "xxx";    //your roomid
 auth.mUserId = "xxx";    //your userid
 auth.mUserToken = "xxx";    //就这样写
-auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP或者域名
+auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 URTC 实时音视频服务的IP或者域名
 engine->joinChannel(auth);
 ```
 #### 1.3 Android客户端
