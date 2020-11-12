@@ -366,11 +366,11 @@ auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 URTC 实时音视频服�
 engine->joinChannel(auth);
 ```
 #### 1.3 Android客户端
-如对接SDK，需要设置私有化环境，并设置IP为URTC实时音视频服务的IP或者域名。    
+如对接SDK，需要设置私有化环境，并设置domain为URTC实时音视频服务的IP或者域名。    
 示例如下：   
 ```java
  UCloudRtcSdkEnv.setPrivateDeploy(true);
- UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://IP:5005/ws"); // IP 为 URTC 实时音视频服务的IP或者域名
+ UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://domain:5005/ws"); // domain 为 URTC 实时音视频服务的IP或者域名
 ```
 
 ### 2. URTC录制的验证
