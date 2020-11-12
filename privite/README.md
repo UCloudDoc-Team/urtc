@@ -378,7 +378,7 @@ engine->joinChannel(auth);
 本地文件存储路径为：http://recordServerIP:10080/record。    
 **浏览器中打开以上路径，确认录制文件存在，并且录制的内容与实际相符，说明URTC录制服务可用。**
 >录制服务的配置文件决定，录制的文件存储在公有云对象存储US3还是本地磁盘，默认是存储在本地磁盘。           
->如果录制的文件，存储在公有云对象存储US3，则录制回放，参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。      
+>如果录制的文件，存储在公有云对象存储US3，则可以通过录制结束时的地址进行回放。      
 
 
 <!-- tabs:end -->
