@@ -328,21 +328,30 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 执行  `systemctl enable urtc-owt`    
       
     
-## ** SDK配置私有化环境 **
+## ** 客户端验证私有化环境 **
 
-### 1. URTC实时音视频的配置
+### 1. URTC实时音视频的验证
 #### 1.1 Web客户端
-设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
+访问[Web DEMO](https://web.urtc.com.cn/)，打开【设置】，【私有化部署地址】中填入部署的音视频服务的服务器地址或者域名，格式为：wss://IP:5005。      
+![](/images/priviteImage/SETweb.png)
+**多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
+![](/images/priviteImage/joinroomWindows.png)
+
+如对接SDK，需要在SDK中设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的IP或者域名。    
 示例如下：    
 ```js
 UCloudRTC.setServers({
   signal: "wss://IP:5005" // IP 为 URTC 实时音视频服务的IP或者域名
 })
 ```
-访问[Web DEMO](https://web.urtc.com.cn/)，将设置中的私有化信令地址改为部署的地址，就可以直接在私有化环境中使用。    
 
 #### 1.2 Windows客户端
-设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
+安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，打开【设置】，选中【私有化】，并且在输入框中，填入部署的音视频服务的服务器地址或者域名，格式为：wss://IP:5005/ws。      
+![](/images//priviteImage/SETwindows.png)
+**多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
+![](/images/priviteImage/joinroomWEB.png)
+
+如对接SDK，需要设置[auth.mServerUrl](https://github.com/ucloud/urtc-win-demo/tree/private_bran/doc#class-setServerGetFrom)的IP为URTC实时音视频服务的IP或者域名。      
 示例如下：    
 ```cpp
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
@@ -354,8 +363,6 @@ auth.mUserToken = "xxx";    //就这样写
 auth.mServerUrl =  "wss://IP:5005/ws";// IP 为 URTC 实时音视频服务的IP或者域名
 engine->joinChannel(auth);
 ```
-安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，将设置中的私有化信令地址改为部署的地址，就可以直接在私有化环境中使用。    
-
 #### 1.3 Android客户端
 设置私有化环境，并设置IP为URTC实时音视频服务的IP或者域名。    
 示例如下：   
@@ -364,13 +371,12 @@ engine->joinChannel(auth);
  UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://IP:5005/ws"); // IP 为 URTC 实时音视频服务的IP或者域名
 ```
 
-### 2. URTC录制的配置
-#### 2.1 SDK配置
-SDK 录制的配置，与公有云的[云端录制](https://docs.ucloud.cn/urtc/cloudRecord/RecordStart)的方法、参数一致。      
-录制服务的配置文件决定，录制的文件 存储在公有云 对象存储US3还是本地磁盘，默认是存储在本地磁盘。
+### 2. URTC录制的验证
+使用以上客户端，录制一段音视频内容；关闭录制后，默认返回的录制地址，在私有化环境中默认不可用，需要查看录制服务的本地磁盘，确认录制文件是否正确的生成。    
+本地文件存储路径为：http://recordServerIP:10080/record。
+**浏览器中打开以上路径，确认录制文件存在，并且录制的内容与实际相符，说明URTC录制服务可用。**
+>录制服务的配置文件决定，录制的文件存储在公有云对象存储US3还是本地磁盘，默认是存储在本地磁盘。    
+>如果录制的文件，存储在公有云对象存储US3，则录制回放，参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
-#### 2.2 录制的回放
-如果录制的文件是存储在录制服务本地磁盘，则文件存储路径为：http://recordServerIP:10080/record。      
-如果录制的文件，存储在公有云对象存储US3，则录制回放，可以参考[公有云录制回放](https://docs.ucloud.cn/urtc/cloudRecord/PlayRecordFile)。
 
 <!-- tabs:end -->
