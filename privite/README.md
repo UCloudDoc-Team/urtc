@@ -52,6 +52,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
  - urtc-signal、urtc-room 默认开启tls、私有化环境需自行准备域名(可绑定hosts)和自签证书。
  
 ### 3. 主机防火墙规则
+部署私有化环境的主机，需要开放以下端口，打开防火墙的限制。    
 
 |服务器|协议|端口|源地址|动作|备注|服务|
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -74,6 +75,8 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 |`部署主机的内网IP`|`对应urtc-room、urtc-signal、urtc-media 配置文件中缺省的URTC_INTRANETIP`|
 |`服务对外域名`|`对应urtc-signal 配置文件中缺省的URTC_DOMAIN`|
 |`服务对外域名HTTPs证书和私钥`|`对应urtc-room、urtc-signal 配置文件中缺省的cert/server.crt、cert/server.key`|
+
+注：urtc-room 配置文件中缺省URTC_SN默认有3个并发的授权。若无正式授权，也可以接入3个客户端。    
 
 ## ** 部署URTC 实时音视频服务 **
 
