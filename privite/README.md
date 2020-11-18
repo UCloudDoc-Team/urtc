@@ -345,7 +345,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 >说明：    
 >因为浏览器的安全策略，Web客户端仅支持 HTTPS 协议 或者 http://localhost（http://127.0.0.1） ，服务对外域名 如果使用`自签证书`，那么：    
->1、Web浏览器访问时，需要在客户端本机绑定`hosts`，将`URTC实时音视频服务`、`域名`加入到`hosts`。             
+>1、Web浏览器访问时，需要在客户端本机绑定`hosts`，将`URTC实时音视频服务`、`域名`加入到 hosts。    
 >2、客户端本机先访问一次：https://domain:5005/ ，并且同意访问这个不安全的网址。      
 >3、再将域名`wss://domain:5005` 绑定到Web DEMO：https://web.urtc.com.cn/ 使用。    
 >4、Windows、Android、iOS、macOS客户端不受此限制。      
