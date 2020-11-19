@@ -358,7 +358,7 @@ UCloudRTC.setServers({
 ```
 
 #### 1.2 Windows客户端
-安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201111_32_Install.zip)，打开【设置】，选中【私有化】，并且在输入框中，填入部署的音视频服务的服务器地址或者域名，格式为：wss://domain:5005/ws。      
+安装[Windows DEMO](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201118_32_Install.zip)，打开【设置】，选中【私有化】，并且在输入框中，填入部署的音视频服务的服务器地址或者域名，格式为：wss://domain:5005/ws。      
 ![](/images//priviteImage/SETwindows.png)
 
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
