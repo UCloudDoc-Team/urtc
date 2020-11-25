@@ -140,6 +140,68 @@ client.unloadEffect(1)
 m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
 
 ```
+# ** Android **
 
+可以播放本地音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。   
+
+### 2.1  播放音乐
+
+```java
+
+
+```
+
+### 2.2  暂停播放
+
+```java
+
+
+```
+
+### 2.3  恢复播放
+
+```java
+
+
+```
+
+### 2.4  停止播放
+
+```java
+
+
+```
+
+# ** iOS **
+
+可以播放本地音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。  
+
+### 2.1  播放音乐
+
+```objectivec
+
+
+```
+
+### 2.2  暂停播放
+
+```objectivec
+
+
+```
+
+### 2.3  恢复播放
+
+```objectivec
+
+
+```
+
+### 2.4  停止播放
+
+```objectivec
+
+
+```
 
 <!-- tabs:end -->
