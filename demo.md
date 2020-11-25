@@ -44,7 +44,7 @@
 
 [立即体验](https://urtcdemo.cn-bj.ufileos.com/umeeting_20201125_32_Install.zip) 
 
-[Windows客户端 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo%E6%BA%90%E7%A0%81%2Furtc-win-demo-master-20201111.zip)
+[Windows客户端 源码-UCloud云下载](https://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-win-demo-master-20201125.zip)
 
 [Windows客户端 源码-GitHub](https://github.com/ucloud/urtc-win-demo)
 
