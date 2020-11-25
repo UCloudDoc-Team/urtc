@@ -343,11 +343,16 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 **多个客户端输入同一个房间号码，加入会议，相互能通话，说明URTC实时音视频服务可用。**    
 ![](/images/priviteImage/joinroomWEB.png)
 
->因为浏览器的安全策略，Web客户端仅支持 HTTPS 协议 或者 http://localhost（http://127.0.0.1） ，服务对外域名 如果使用`自签证书`，那么：    
->1、Web浏览器访问时，需要在客户端本机绑定`hosts`，将`URTC实时音视频服务IP`、`自签的域名`加入到 hosts。    
->2、客户端本机先访问一次：https://domain:5005/ ，并且同意访问这个不安全的网址。      
->3、再将域名`wss://domain:5005` 绑定到Web DEMO：https://web.urtc.com.cn/ 使用。    
->4、Windows、Android、iOS、macOS客户端不受此限制。      
+**自签证书时Web DEMO的验证方法**    
+因为浏览器的安全策略，Web客户端仅支持 HTTPS 协议 或者 http://localhost（http://127.0.0.1） ，服务对外域名 如果使用`自签证书`，需要按照以下步骤配置本机电脑：    
+1、Web浏览器访问时，需要在客户端本机绑定`hosts`，将`URTC实时音视频服务IP`、`自签的域名`加入到 hosts。    
+2、客户端本机先访问一次：https://domain:5005/ ，并且同意访问这个不安全的网址。    
+同意后，显示内容包含 `Forbidden`的页面 ，说明已经能访问到这个不安全的网址。    
+```
+{"methodtype":"","msg_id":0,"err":24130,"msg":"Forbidden"}
+```
+3、再将域名`wss://domain:5005` 绑定到Web DEMO：https://web.urtc.com.cn/ 使用。      
+4、Windows、Android、iOS、macOS客户端不受此限制。        
 
 如对接SDK，需要在SDK中设置[信令服务的访问地址](https://github.com/ucloud/urtc-sdk-web#setservers)的IP或者域名为URTC实时音视频服务的域名。    
 示例如下：    
