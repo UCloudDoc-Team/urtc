@@ -120,6 +120,10 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 
 #### 2.3 检查Redis状态         
 执行：`systemctl status redis`    
+
+#### 2.4 设置Redis开机自启动 
+执行：`systemctl enable redis`
+
 确认Redis服务启动正常之后，可以进行下一步的安装。
 
 ### 3. 安装配置并启动urtc-media
