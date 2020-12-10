@@ -134,7 +134,7 @@ client.unloadEffect(1)
 
 ## 播放混音音乐
 
-添加mp3、wav格式音频文件的示例代码：    
+添加mp3 格式音频文件的示例代码：    
 
 ```cpp
 m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace（是否取代麦克风输入）, bool loop（是否循环播放）,float musicvol（音乐音量 0.0 -- 1.0）)
