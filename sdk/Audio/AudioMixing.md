@@ -147,28 +147,28 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 ### 2.1  播放音乐
 
 ```java
-
+待更新
 
 ```
 
 ### 2.2  暂停播放
 
 ```java
-
+待更新
 
 ```
 
 ### 2.3  恢复播放
 
 ```java
-
+待更新
 
 ```
 
 ### 2.4  停止播放
 
 ```java
-
+待更新
 
 ```
 
@@ -179,28 +179,28 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 ### 2.1  播放音乐
 
 ```objectivec
-
+待更新
 
 ```
 
 ### 2.2  暂停播放
 
 ```objectivec
-
+待更新
 
 ```
 
 ### 2.3  恢复播放
 
 ```objectivec
-
+待更新
 
 ```
 
 ### 2.4  停止播放
 
 ```objectivec
-
+待更新
 
 ```
 
