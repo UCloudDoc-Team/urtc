@@ -41,6 +41,37 @@ client.publish(
   }
 );
 ```
+##### 分享屏幕及屏幕声音
+如果发布屏幕，希望分享电脑的播放声音，在发布 屏幕共享流的时候，设置`screen`、`screenAudio`都为`true`。     
+
+```js
+client.publish(
+  {
+    audio: false, // 必填，指定是否使用麦克风设备
+    video: false, // 必填，指定是否使用摄像头设备
+    screen: true, // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
+    screenAudio: true, // 选填，指定是否采集屏幕共享的音频（部分浏览器支持），默认为 false
+  },
+  err => {
+    console.log("add screen stream  failure ", err);
+  }
+);
+```
+##### 分享屏幕和麦克风声音 
+
+如果只需要发布麦克风的声音、屏幕共享的视频，在发布流的时候，设置`audio`为`true`，`screen`为`true`。   
+
+```js
+client.publish(
+  {
+    audio: true, // 必填，指定是否使用麦克风设备
+    video: false, // 必填，指定是否使用摄像头设备
+    screen: true, // 必填，指定是否为桌面共享，注意，video 和 screen 不可同时为 true
+  },
+  err => {
+    console.log("add screen stream  failure ", err);
+  }
+);
 
 #### 使用屏幕共享插件
 
@@ -63,11 +94,12 @@ client.publish(
   }
 );
 ```
+
 ### 开发注意事项
 
-* audio 属性建议设置为 false，避免订阅端收到的两路流中都有音频，导致回声，建议音频只推一路流，防止出现回音。
+* 在共享屏幕的时候，如果已经发布了摄像头流，那么共享屏幕的时候 audio 属性建议设置为 false，避免订阅端收到的两路流中都有音频，出现回声。
 * 在本地共享的时候，本地流的 Client 不要订阅本地的媒体流，否则会增加时长计费。
-* 创建屏幕共享流的时候，video 必须设置为 false。如果屏幕分享需要混音共享流，参考 [播放混音](urtc/sdk/Audio/AudioMixing)的方法。
+* 创建屏幕共享流的时候，video 必须设置为 false。如果屏幕分享需要混音播放音频文件，参考 [播放混音](urtc/sdk/Audio/AudioMixing)的方法。
 
 ## ** Windows **
 
