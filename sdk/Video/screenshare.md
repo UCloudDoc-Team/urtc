@@ -42,7 +42,7 @@ client.publish(
 );
 ```
 ##### 共享屏幕及屏幕声音
-如果发布屏幕，希望共享电脑的播放声音，在发布 屏幕共享流的时候，设置`screen`、`screenAudio`都为`true`。     
+如果共享屏幕的时候，希望共享电脑的播放声音，在发布 屏幕共享流的时候，设置`screen`、`screenAudio`都为`true`。     
 
 ```js
 client.publish(
@@ -59,7 +59,7 @@ client.publish(
 ```
 ##### 共享屏幕和麦克风声音 
 
-如果只需要发布麦克风的声音、屏幕共享的视频，在发布流的时候，设置`audio`为`true`，`screen`为`true`。   
+如果只需要发布屏幕共享的视频、麦克风的声音，在发布流的时候，设置`screen`为`true`，`audio`为`true`。   
 
 ```js
 client.publish(
