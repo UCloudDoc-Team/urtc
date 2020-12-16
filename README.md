@@ -62,7 +62,7 @@ URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里�
 
 ## [DEMO体验](/urtc/demo)
 
-提供Web、Android、iOS、Windows的DEMO，支持演示小班课/视频会议，大班课/直播，不同客户端加入同一个房间，就可以互通。
+提供Web、Android、iOS、Windows、macOS的DEMO及源码，支持演示小班课/视频会议，大班课/直播，不同客户端加入同一个房间，就可以互通。
 
 ## [API文档](/urtc/api/index)
 
