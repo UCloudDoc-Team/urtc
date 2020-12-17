@@ -42,7 +42,7 @@
 
 ![](/images/demoImage/windowsImage.png)
 
-[立即体验](https://urtcdemo.cn-bj.ufileos.com/umeeting_20201125_32_Install.zip) 
+[立即体验](http://urtcdemo.ufile.ucloud.com.cn/umeeting_20201217_32_Install.zip) 
 
 [Windows客户端 源码-UCloud云下载](https://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-win-demo-master-20201125.zip)
 
