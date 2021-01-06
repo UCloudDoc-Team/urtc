@@ -28,27 +28,15 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到直播
 ### Web开启旁路推流
 
 ```js
-client.startMix({
-  type: 'relay',
+client.startRelay({
   pushURL: ['rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll'],
   layout: {
     type: 'main',
     mainViewUid: 'user-xxx',
     mainViewType: 'camera'
   },
-  video: {
-    codec: 'h264',
-    quality: 'CB',
-    frameRate: 15,
-    bitRate: 1000
-  },
   width: 1280,
   height: 720,
-  backgroundColor: {
-    r: 0,
-    g: 0,
-    b: 0
-  }
 }, (err, result) => {
   if(err) {
     console.error(err);
@@ -59,23 +47,12 @@ client.startMix({
 
 ```
 
+注：此处仅列出了部分参数，更多参数请查看 [sdk 中 API 文档中的相关说明](https://github.com/ucloud/urtc-sdk-web#client-startrelay)
+
 ### Web停止旁路推流
 
 ```js
-client.stopMix({type: 'relay'}, (err, result) => {
-  if(err) {
-    console.error(err);
-    return;
-  }
-  console.log(result)；
-});
-
-```
-
-### Web查询旁路推流
-
-```js
-client.queryMix((err, result) => {
+client.stopRelay((err, result) => {
   if(err) {
     console.error(err);
     return;
