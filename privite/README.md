@@ -348,7 +348,7 @@ URTC服务器分为：URTC实时音视频服务、URTC录制服务，均支持�
 ![](/images/priviteImage/joinroomWEB.png)
 
 <details>
-	<summary>使用UCloud的`自签证书`时 Web DEMO验证步骤</summary>
+	<summary>使用UCloud的 自签证书 时 Web DEMO验证步骤</summary>
 
 因为浏览器的安全策略，Web客户端仅支持 HTTPS 协议 或者 http://localhost ，服务对外域名如果使用UCloud的`自签证书`，则不能直接访问DEMO进行验证。    
 需要按照以下步骤配置本机电脑：    
