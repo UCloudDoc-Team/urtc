@@ -81,48 +81,50 @@ virtual void onStartRecord (const int code, const char* msg, tUCloudRtcRecordInf
 ### ** Android **
 
 
-### Android录制音视频
+### 2.1 Android开始远端录制音视频
 
 ```java
-//                如果主窗口是当前用户
-UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
-                        .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
-                        .mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
-                        .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
-                        .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
-                        .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
-                        .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
-                        .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
-                        .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
-                        .build();
-                sdkEngine.startRecord(recordProfile);
-                //如果主窗口不是当前推流用户，而是被订阅的用户
-//                UCloudRtcSdkStreamInfo uCloudRtcSdkStreamInfo = mVideoAdapter.getStreamInfo(0);
-//                if(uCloudRtcSdkStreamInfo != null){
-//                    UcloudRtcSdkRecordProfile recordProfile = UcloudRtcSdkRecordProfile.getInstance().assembleRecordBuilder()
-//                            .recordType(UcloudRtcSdkRecordProfile.RECORD_TYPE_VIDEO)
-//                            .mainViewUserId(uCloudRtcSdkStreamInfo.getUId())
-//                            .mainViewMediaType(uCloudRtcSdkStreamInfo.getMediaType().ordinal())
-//                            .VideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_640_480.ordinal())
-//                            .Average(UcloudRtcSdkRecordProfile.RECORD_UNEVEN)
-//                            .WaterType(UcloudRtcSdkRecordProfile.RECORD_WATER_TYPE_IMG)
-//                            .WaterPosition(UcloudRtcSdkRecordProfile.RECORD_WATER_POS_LEFTTOP)
-//                            .WarterUrl("http://urtc-living-test.cn-bj.ufileos.com/test.png")
-//                            .Template(UcloudRtcSdkRecordProfile.RECORD_TEMPLET_9)
-//                            .build();
-//                    sdkEngine.startRecord(recordProfile);
-//                }
+UCloudRtcSdkMixProfile recordProfile = UCloudRtcSdkMixProfile.getInstance().assembleMixParamsBuilder()
+    .type(UCloudRtcSdkMixProfile.MIX_TYPE_RECORD)
+    //画面模式
+    .layout(UCloudRtcSdkMixProfile.LAYOUT_CLASS_ROOM_2)
+    //画面分辨率
+    .resolution(1280, 720)
+    //背景色
+    .bgColor(0, 0, 0)
+    //画面帧率
+    .frameRate(15)
+    //画面码率
+    .bitRate(1000)
+    //h264视频编码
+    .videoCodec(UCloudRtcSdkMixProfile.VIDEO_CODEC_H264)
+    //编码质量
+    .qualityLevel(UCloudRtcSdkMixProfile.QUALITY_H264_CB)
+    //音频编码
+    .audioCodec(UCloudRtcSdkMixProfile.AUDIO_CODEC_AAC)
+    //主讲人ID
+    .mainViewUserId(mUserid)
+    //主讲人媒体类型
+    .mainViewMediaType(UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
+    //加流方式手动
+    .addStreamMode(UCloudRtcSdkMixProfile.ADD_STREAM_MODE_MANUAL)
+    //添加流列表，也可以后续调用MIX_TYPE_UPDATE 动态添加
+    .addStream(mUserid,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
+    .build();
+sdkEngine.startRelay(recordProfile);
+```
 
-//UCloudRtcSdkEventListener 
-//录像开始回调
-void onRecordStart(int code,String fileName);
+### 2.2 Android停止录制音视频
 
-//录像结束
+```java
 sdkEngine.stopRecord();
+```
 
-//UCloudRtcSdkEventListener 结束回调
-void onRecordStop(int code);
-```    
+### 2.3 Android获取录制状态回调
+
+```java
+void onRecordStatusNotify(UCloudRtcSdkMediaServiceStatus status, int code, String msg, String userId, String roomId, String mixId, String fileName);
+```
 
 
 ### ** iOS **
