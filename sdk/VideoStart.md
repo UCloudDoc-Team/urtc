@@ -47,7 +47,7 @@ yarn add urtc-sdk
 2）项目中引入SDK并创建 client
 
 ```
-import sdk,{ Client } from 'urtc-sdk';
+import UCloudRTC from 'urtc-sdk';
 ```
 ### 3.2 直接引入SDK
 
@@ -69,19 +69,19 @@ import sdk,{ Client } from 'urtc-sdk';
 检测当前浏览器对 WebRTC 的适配情况
 
 ```js
-const result = sdk.isSupportWebRTC();
+const result = UCloudRTC.isSupportWebRTC();
 ```
 
 获取token方式。测试时使用此接口，正式使用建议调用服务端接口
 
 ```js
-const token = sdk.generateToken(AppId, AppKey, RoomId, UserId);
+const token = UCloudRTC.generateToken(AppId, AppKey, RoomId, UserId);
 ```
 
 加入房间之前，需要初始化，创建client。   
 
 ```js
-const client = new Client(AppId, Token, {
+const client = new UCloudRTC.Client(AppId, Token, {
   type?: "rtc"|"live"
   // 选填，设置房间类型，有两种 实时会议"rtc" 和互动直播"live" 类型可选 ，默认为实时会议 rtc
   role?: "pull" | "push" | "push-and-pull"
