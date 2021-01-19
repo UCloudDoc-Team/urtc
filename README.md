@@ -75,9 +75,8 @@ URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里�
 
 ## AI教学场景
 
-* [AI教学老师端](/urtc/scenarioSDK/AIclass/Teacher)  
-* [Android学生端](/urtc/scenarioSDK/AIclass/StudentAndriod)  
-* [iOS学生端](/urtc/scenarioSDK/AIclass/StudentIOS)  
+* [AI教学推流](/urtc/scenarioSDK/AIclass/Teacher)  
+
 
 ## [常见问题](urtc/faq/index)
 
