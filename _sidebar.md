@@ -40,9 +40,7 @@
      * [Android](/urtc/api/Android)  
      * [iOS](/urtc/api/iOS)  
 * AI教学场景
-     * [AI教学老师端](/urtc/scenarioSDK/AIclass/Teacher)  
-     * [Android学生端](/urtc/scenarioSDK/AIclass/StudentAndriod)  
-     * [iOS学生端](/urtc/scenarioSDK/AIclass/StudentIOS)  
+     * [AI教学推流端](/urtc/scenarioSDK/AIclass/Teacher)  
 * [常见问题](/urtc/faq/index)
      * [URTC Web SDK移动端兼容性](/urtc/faq/web_mobile)  
 * [错误码](/urtc/ErrorCode)
