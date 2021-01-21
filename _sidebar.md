@@ -43,6 +43,7 @@
      * [AI教学推流端](/urtc/scenarioSDK/AIclass/Teacher)  
 * [常见问题](/urtc/faq/index)
      * [URTC Web SDK移动端兼容性](/urtc/faq/web_mobile)  
+     * [应用企业防火墙限制](/urtc/faq/firewall)  
 * [错误码](/urtc/ErrorCode)
     
     
