@@ -83,7 +83,8 @@ URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里�
 介绍URTC SDK集成、使用过程中的常见问题。
 
 * [常见问题](/urtc/faq/index)
-* [URTC Web SDK移动端兼容性](/urtc/faq/web_mobile)  
+* [URTC Web SDK移动端兼容性](/urtc/faq/web_mobile) 
+* [应用企业防火墙限制](/urtc/faq/firewall)  
 
 ## [错误码](/urtc/ErrorCode)
 
