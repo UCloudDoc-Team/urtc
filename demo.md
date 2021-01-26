@@ -77,7 +77,7 @@
 
 [WEB DEMO 班课 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/urtc-js-demo-master-20200730.zip) 
 
-[WEB DEMO 班课 源码-GitHub](https://github.com/ucloud/urtc-edu-demo) 
+[WEB DEMO 班课 源码-GitHub](https://github.com/ucloud/urtc-js-demo) 
 
 ### WEB 直播课DEMO
 
