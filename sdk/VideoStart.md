@@ -24,7 +24,7 @@
 
 ## 2. Web端Demo源码
 
- - 可以参考 [angular、react、react Typescript、vue、纯JS Demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) ，了解不通js框架的demo接入示例。
+ - 可以参考 [angular、react、react Typescript、vue、纯JS Demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) ，Demo中集成了基础的音视频通话、桌面分享等功能，了解不通js框架的Demo接入示例。
  - 可以参考 [WEB Demo源码](https://github.com/ucloud/urtc-web-demo) ，Demo中集成了视频会议、开关摄像头、开关麦克风、开关扬声器、开关连麦、屏幕分享、录制、旁路推流、分享链接等功能，并对电脑、手机移动端UI做了适配。
  - 在线教育场景[Demo源码](https://github.com/ucloud/urtc-js-demo)，Demo中集成大班课、小班课，白板，IM，连麦等功能。
  
