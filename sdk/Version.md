@@ -956,7 +956,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 ### 1.8.6版
 
-发布于2020-12-10
+发布于2020-12-10    
 1.增加支持本地播放wav格式文件。    
 2.解决低采样率音乐播放有杂音的问题。    
 3.优化前后摄切换，解决部分设备多摄像头切换问题。    
