@@ -1400,7 +1400,7 @@ sdkEngine.startRemoteView(viewInfo.getStreamInfo(),
 
 ## ** iOS **
 
-### v1.7.2
+### 1.7.2
 
 该版本发布于2021-01-29。
 
