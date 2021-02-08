@@ -9,7 +9,7 @@
 
 ### 实现方法
 
-Android sdk支持`yuv420p`系列的外部源以及`rgba`、`abgr`，`rgb565`等`rgba`系列数据，作为自定义视频源。    
+Android sdk支持`i420`、`nv21`、`nv12`等`yuv420p`系列的外部源以及`rgba`、`abgr`、`rgb565`等`rgba`系列数据，作为自定义视频源。    
 
 ### 示例代码
 
@@ -27,6 +27,7 @@ public interface UcloudRTCDataProvider {
     public static final int RGB24_TO_I420 = 0x01001034;
     public static final int RGB565_TO_I420 = 0x01001025;
     public static final int NV21 = 0x01001090;
+    public static final int NV12 = 0x01001091;
     public static final int I420 = 0x01001099;
 
     /**
@@ -50,123 +51,89 @@ public interface UcloudRTCDataProvider {
  //设置sdk 外部扩展模式及其采集的帧率，同时sdk内部会自动调整初始码率和最小码率
  //扩展模式只支持720p的分辨率及以下，若要自定义更高分辨率，请联系Ucloud商务定制，否则sdk会抛出异常，终止运行。
  sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.UCLOUD_RTC_SDK_VIDEO_PROFILE_EXTEND.extendParams(30,640,480));
-// sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile));
 //设置捕获模式，二选一
 //        //普通摄像头捕获方式，与扩展模式二选一
 //        UCloudRtcSdkEnv.setCaptureMode(
 //                UCloudRtcSdkCaptureMode.UCLOUD_RTC_CAPTURE_MODE_LOCAL);
-        //rgb数据捕获，与普通捕获模式二选一
-//        UCloudRtcSdkEnv.setCaptureMode(
-//                UCloudRtcSdkCaptureMode.UCLOUD_RTC_CAPTURE_MODE_EXTEND);
+        //扩展摄像头或外部数据数据捕获，与普通捕获模式二选一
+        UCloudRtcSdkEnv.setCaptureMode(
+                UCloudRtcSdkCaptureMode.UCLOUD_RTC_CAPTURE_MODE_EXTEND);
 ```
 ### 开发注意事项
 
-调用范例，具体内容请参考demo源码内`RoomActivity`，需要根据自己的实际情况来，范例只是做个参考。
+调用范例，具体内容请参考demo源码内`UCloudRTCLiveActivity`，需要根据自己的实际情况来，范例只是做个参考。
 
 ```java
 
-//生产者消费者队列
- private ArrayBlockingQueue<RGBSourceData> mQueue = new ArrayBlockingQueue(2);
-
-//生产者往队列中push数据，这里只是用两张Bitmap decode 后的结果作为数据源模拟功能，如果有直接的数据源则可以直接调用provideRGBData方法
-       Runnable imgTask = new Runnable() {
-            @Override
-            public void run() {
-                    while(startCreateImg){
-                        try{
-//                        synchronized (mUCloudRTCDataProvider){
-//                            if(mQueue.size() != 0){
-//                                mUCloudRTCDataProvider.wait();
-//                            }
-//                            if(mQueue.size() == 0){
-                            RGBSourceData sourceData;
-                            Bitmap bitmap = null;
-                            int type;
-                            if(mPictureFlag < 25){
-                                BitmapFactory.Options options = new BitmapFactory.Options();
-                                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                                bitmap= BitmapFactory.decodeResource(getResources(),R.mipmap.timg2,options);
-                                type = UcloudRTCDataProvider.RGB565_TO_I420;
-                            }
-                            else{
-                                BitmapFactory.Options options = new BitmapFactory.Options();
-                                options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                                bitmap= BitmapFactory.decodeResource(getResources(),R.mipmap.img3,options);
-                                type = UcloudRTCDataProvider.RGBA_TO_I420;
-                            }
-
-                            if(++mPictureFlag >50)
-                                mPictureFlag = 0;
-                            if(bitmap != null){
-                                sourceData = new RGBSourceData(bitmap,bitmap.getWidth(),bitmap.getHeight(),type);
-                                mQueue.put(sourceData);
-                                Log.d(TAG, "create bitmap: " + bitmap + "count :" + memoryCount.incrementAndGet());
-                            }
-//                            }
-//                        }
-
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
+    // 创建缓存空间
+    private ByteBuffer videoSourceData = sdkEngine.getNativeOpInterface().
+                    createNativeByteBuffer(1280 * 720 * 4);
+ 
+    // 外部ByteBuffer视频数据保存到缓存中
+    private void createFrameByteBuffer(ByteBuffer frame) { // 获取外接视频数据
+        try {
+            if (frame != null) {
+                synchronized (extendByteBufferSync) {
+                    if (videoSourceData != null) {
+                        videoSourceData.clear();
+                        videoSourceData.put(frame);
+                        videoSourceData.flip();
                     }
-                    //这里在回收一遍 防止队列不阻塞了在destroy以后又产生了bitmap没回收
-                    while(mQueue.size() != 0 ){
-                        RGBSourceData rgbSourceData = mQueue.poll();
-                        if(rgbSourceData != null){
-                            recycleBitmap(rgbSourceData.getSrcData());
-                        }
-                    }
+                }
             }
-        };
-
-      if(UCloudRtcSdkEnv.getCaptureMode() == UcloudRtcSdkCaptureMode.UCLOUD_RTC_CAPTURE_MODE_EXTEND &&
-                (mRole == UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_BOTH ||
-                        mRole == UCloudRtcSdkStreamRole.UCLOUD_RTC_SDK_STREAM_ROLE_PUB)){
-            mCreateImgThread = new Thread(imgTask);
-            mCreateImgThread.start();
-            //把接口实现提供给sdk
-            UCloudRtcSdkEngine.onRGBCaptureResult(mUCloudRTCDataProvider);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-            
-        }
+    }
 
 ```
 
 ```java
-    //sdk作为消费者消费数据
-    private UcloudRTCDataProvider mUCloudRTCDataProvider = new UcloudRTCDataProvider() {
+    //sdk作为消费者消费数据，操作缓存数据时自行
+    private UCloudRTCDataProvider mUCloudRTCDataProvider = new UCloudRTCDataProvider() {
         private ByteBuffer cacheBuffer;
-        private RGBSourceData rgbSourceData;
 
         @Override
         public ByteBuffer provideRGBData(List<Integer> params) {
-            rgbSourceData = mQueue.poll();
-            if(rgbSourceData == null){
-//                mUCloudRTCDataProvider.notify();
+            if (videoSourceData == null ) {
+                Log.d("UCloudRTCLiveActivity", "provideRGBData byteBuffer data is null");
                 return null;
-            }else{
-                params.add(rgbSourceData.getType());
-                params.add(rgbSourceData.getWidth());
-                params.add(rgbSourceData.getHeight());
-                if(cacheBuffer == null){
+            } else {
+                params.add(UCloudRTCDataProvider.I420);
+                params.add(640);
+                params.add(480);
+                if (cacheBuffer == null) {
                     cacheBuffer = sdkEngine.getNativeOpInterface().
-                            createNativeByteBuffer(4096*2160*4);
-                }else{
+                            createNativeByteBuffer(1280 * 720 * 4);
+                    Log.d("UCloudRTCLiveActivity", "byteBuffer createNativeByteBuffer call ");
                     cacheBuffer.clear();
+                } else {
+                    cacheBuffer.rewind();
                 }
-                cacheBuffer.limit(rgbSourceData.getWidth()*rgbSourceData.getHeight()*4);
-                rgbSourceData.getSrcData().copyPixelsToBuffer(cacheBuffer);
-                recycleBitmap(rgbSourceData.getSrcData());
+                synchronized (extendByteBufferSync) {
+                    cacheBuffer.put(videoSourceData);
+                    videoSourceData.rewind();
+                }
+
+                cacheBuffer.flip();
                 return cacheBuffer;
             }
         }
 
-        public void releaseBuffer(){
-            if(rgbSourceData != null && !rgbSourceData.getSrcData().isRecycled()){
-                rgbSourceData.getSrcData().recycle();
+        @Override
+        public void releaseBuffer() { // 释放资源
+            Log.d("UCloudRTCLiveActivity", "releaseBuffer");
+            synchronized (extendByteBufferSync) {
+                if (videoSourceData != null) {
+                    videoSourceData.clear();
+                    sdkEngine.getNativeOpInterface().realeaseNativeByteBuffer(videoSourceData);
+                    videoSourceData = null;
+                }
             }
-            if(cacheBuffer != null){
+            if (cacheBuffer != null) {
+                cacheBuffer.clear();
                 sdkEngine.getNativeOpInterface().realeaseNativeByteBuffer(cacheBuffer);
+                cacheBuffer = null;
             }
         }
     };
