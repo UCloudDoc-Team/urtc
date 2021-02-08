@@ -89,7 +89,7 @@ public interface UcloudRTCDataProvider {
 ```
 
 ```java
-    //sdk作为消费者消费数据，操作缓存数据时自行
+    //sdk作为消费者消费数据
     private UCloudRTCDataProvider mUCloudRTCDataProvider = new UCloudRTCDataProvider() {
         private ByteBuffer cacheBuffer;
 
