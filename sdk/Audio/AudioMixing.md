@@ -143,6 +143,7 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 # ** Android **
 
 可以播放音乐文件，实现播放背景音乐的功能，支持单独本地播放和同时播放给房间内的其他人。
+目前支持wav,mp3和aac格式的音频文件。
 
 ### 2.1  播放音乐
 
