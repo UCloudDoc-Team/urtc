@@ -749,7 +749,7 @@ Internal
 
 ## MixerConfig：合流配置
 
-- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体类型，如`user1_type`。
+- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
 - ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
 - MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
