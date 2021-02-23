@@ -2,7 +2,7 @@
 
 # 1. 说明
 
-- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考  [Token生成指导](urtc/sdk/Token)。
+- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考  [Token生成指导](urtc/sdk/token)。
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
 
@@ -45,7 +45,7 @@
 --- | ---
 Version| 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
 Action| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
-Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/Token)。
+Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
 
@@ -274,9 +274,9 @@ Internal
 
 
 <details>
-	<summary>旁路推流开启后再开启录制**</summary>
+	<summary>旁路推流开启后再开启录制</summary>
 
-## 开启云端录制
+## 旁路推流开启后再开启录制
 
 ### 请求
 ```json
@@ -884,15 +884,15 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 	
   - ucloud_living_status_update
       EventType 表示转推服务状态发生变化
-    - Status: int 类型， 云端录制当前状态，请参考模块状态服务码，[服务状态码](#164-服务状态码)。
+    - Status: int 类型， 云端录制当前状态，请参考模块状态服务码，[服务状态码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_124-服务状态码)。
 
   - ucloud_living_warning.
       EventType 表示转推服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](#166-告警码)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_126-告警码)。
 
   - ucloud_living_error.
   	 EventType 表示转推服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码，[错误码](#165-错误码)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码，[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_living_stream_update.
@@ -907,11 +907,11 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 
   - ucloud_mixer_warning.
       EventType 表示合流录制服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](#166-告警码)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
 
   - ucloud_mixer_error.
   	 EventType 表示合流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](#165-错误码)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_mixer_stream_update.
