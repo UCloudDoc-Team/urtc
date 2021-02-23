@@ -10,6 +10,7 @@
     * [URTC常用术语](urtc/sdk/term)
     * [Token生成指导](/urtc/sdk/token)
     * [SDK版本说明](/urtc/sdk/Version)
+    * [Web SDK兼容性](/urtc/sdk/SDKLimit)
     * [快速集成SDK](/urtc/sdk/VideoStart)    
     * 常用功能      
 		* [互动连麦](/urtc/sdk/Video/Interactive)            
