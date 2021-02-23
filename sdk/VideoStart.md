@@ -311,7 +311,7 @@ m_rtcengine->leaveChannel()
   - 开发语言：Java
   - 系统要求：Android 4.1及以上版本的移动设备
   - Android SDK API：等级 16 或以上
-  - ABI支持：armeabi-v7a、arm64-v8a
+  - ABI支持：armeabi-v7a、arm64-v8a、x86、x86_64
 
 ## 3. 开发环境
 
@@ -319,12 +319,12 @@ m_rtcengine->leaveChannel()
 
 ## 4. 搭建开发环境
 
-  - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号加一串8位识别码，可以参考github上的接入demo。   
+  - 下载urtc android SDK包，SDK包为aar格式，名称为`ucloudrtclib`开头加版本号，可以参考github上的接入demo。   
   - 将aar 文件拷贝到自己的`lib` 目录下，然后添加到`lib` 中，修改要使用sdk模块目录下`build.gradle`，确保已经添加了如下依赖，如下所示：
 
 ```java
     dependencies {
-    implementation (name: 'ucloudrtclib_1.0.1_b52bc04c', ext: 'aar')
+    implementation (name: 'ucloudrtclib-1.0.1', ext: 'aar')
 ```
   - 如果项目混淆，请在混淆中添加一下urtc 混淆规则。
 
@@ -407,7 +407,7 @@ public class UCloudRtcApplication extends Application {
 	//重连次数
 	UCloudRtcSdkEnv.setReConnectTimes(60);
 	//设置测试模式的用户私有秘钥
-	UCloudRtcSdkEnv.setTokenSeckey(CommonUtils.SEC_KEY);
+	UCloudRtcSdkEnv.setTokenSeckey(CommonUtils.APP_KEY);//替换成自己的token
 
 	WindowManager windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
 	DisplayMetrics outMetrics = new DisplayMetrics();
@@ -462,24 +462,24 @@ UCloudRtcSdkEventListener eventListener = new UCloudRtcSdkEventListener() {
 ### 5.3 获取SDK 引擎 并进行基础配置
 
 ```java
-sdkEngine.setAudioOnlyMode(true) ; 
 // 设置纯音频模式
-sdkEngine.configLocalCameraPublish(false) ; 
+sdkEngine.setAudioOnlyMode(true) ; 
 // 设置摄像头是否发布
-sdkEngine.configLocalAudioPublish(true) ; 
+sdkEngine.configLocalCameraPublish(false) ; 
 // 设置音频是否发布，用于让sdk判断自动发布的媒体类型
-sdkEngine.configLocalScreenPublish(false) ; 
+sdkEngine.configLocalAudioPublish(true) ; 
 // 设置桌面是否发布，作用同上
-sdkEngine.setClassType(UCloudRtcSdkRoomType.UCLOUD_RTC_SDK_ROOM_SMALL) ; 
+sdkEngine.configLocalScreenPublish(false) ; 
 // 设置房间类型，有两种 实时会议（小班课） 和互动直播（大班课）类型可选 ，默认为实时会议（小班课）
-sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
+sdkEngine.setClassType(UCloudRtcSdkRoomType.UCLOUD_RTC_SDK_ROOM_SMALL) ; 
 // 如果是互动直播（大班课）模式，需要设置用户权限：仅上行发布、仅下行订阅、双向发布订阅权限；实时会议（小班课）会忽略这个配置
-sdkEngine.setAutoPublish(true) ; 
+sdkEngine.setStreamRole(URTCSdkStreamRole.URTC_SDK_STREAM_ROLE_BOTH);
 // 是否自动发布
-sdkEngine.setAutoSubscribe(true) ;
+sdkEngine.setAutoPublish(true) ; 
 // 是否自动订阅
-sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;
+sdkEngine.setAutoSubscribe(true) ;
 // 摄像头输出等级
+sdkEngine.setVideoProfile(UCloudRtcSdkVideoProfile.matchValue(mVideoProfile)) ;
 ```
 
 ## 6. 实现音视频通话
@@ -516,7 +516,7 @@ public void onLocalPublish(int code, String msg, UCloudRtcSdkStreamInfo info
 
   - 媒体发布类型
 
-现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`RoomActvity`中的处理。 
+现在的类型包括两大类，需要传入`publish`接口的`mtype`,`hasvideo`,`hasaudio`参数各不相同，混合类型是单一类型的组合，具体代码可参阅urtcdemo的`UCloudRTCLiveActivity`中的处理。 
 
  - 混合类型：音频+屏幕捕捉、视频+屏幕捕捉   
  - 单一类型        
