@@ -5,7 +5,9 @@
 - `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考  [Token生成指导](urtc/sdk/token)。
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
-
+- `restful api`中用`“$userId_$mediaType”`标记一路流：
+	- userId：string类型， 是用户Id。
+	- mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 
 # 2. 旁路推转推 RESTFUL API
 
@@ -747,7 +749,7 @@ Internal
 
 ## MixerConfig：合流配置
 
-- MaxResolutionStream：string类型，指定合流模板中最大分辨率的子画面显示的流，如`user1_type`。
+- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体类型，如`user1_type`。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
 - ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
 - MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
