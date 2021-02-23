@@ -14,6 +14,8 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到直播
  - 将参与会议的所有人混流、多个主播混流，推流到直播CDN。 
  - 支持多种混流风格。 
  - 混流时，支持添加时间水印、文字水印、图片水印。
- 
- 客户端可以直接通过[SDK直接调用API]()来实现 旁路推流。
- 也可以让服务端通过[RESTful API]()来实现 旁路推流。
+
+## 使用方式
+
+ - 客户端可以通过[SDK直接调用API](urtc/cdnSteaming/cdnSteaming_SDK)来实现 旁路推流。
+ - 服务端 可以通过[RESTful API](urtc/cdnSteaming/cdnSteaming_RESRful)来实现 旁路推流。
