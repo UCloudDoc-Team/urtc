@@ -14,15 +14,22 @@
 接口 | 请求 | 返回 | 描述
 --- | --- | --- | ---
 获取资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的jobId。
-开启任务 | job.start | job.stat | 将任务开启，通过此命令可以指定是否使用`转推`功能。
-开启直播 | job.live.start | job.live.stat | 开启旁路转推功能
-关闭直播 | job.live.stop | job.live.stat | 关闭旁路转推功能
+开启任务 | job.start | job.stat | 将任务开启，通过此命令可以开启`转推`、`合流录制`、`单流录制`功能。
+开启录制 | job.record.start | job.record.stat | 在转推开启后再开启云端录制功能
+关闭录制 | job.record.stop | job.record.stat | 在转推开启后再关闭云端录制功能
+开启转推 | job.live.start | job.live.stat | 在录制开启后再开启旁路转推功能
+关闭转推 | job.live.stop | job.live.stat | 在录制开启后再关闭旁路转推功能
 更新订阅流名单 | job.subscribe.update | job.subscribe.stat | 更新订阅流名单，可以通过该命令传入白名单或者黑名单。<br>需要注意的是，白名单和黑名单不允许共存。
 更新合流配置 | job.mixer.update | job.mixer.stat | 通过改命令更新合流模板，以及合流后的样式、水印等。
 更新流的状态 | job.stream.update | job.stream.stat | 通过改命令更新流的加入，退出，mute以及非mute状态。
 开启消息通知 | job.notify.update | job.notify.stat | 更新消息通知服务状态
 查询接口 | job.query | job.query.stat | 查询当前的任务参数信息
 关闭任务 | job.stop | job.stat | 关闭`job`，回收资源。
+
+> - 如果房间内只需要开启`转推`，则使用 `job.start` 开启转推；
+> - 如果房间内只需要开启`录制`，则使用 `job.start` 开启录制；
+> - 如果房间内已经了开启`录制`，则 `job.live.start` 开启转推；
+> - 如果房间内已经了开启`转推`，则 `job.record.start` 开启录制；
 
 
 ## 2.2 请求中的公共字段
