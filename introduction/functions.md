@@ -9,6 +9,7 @@ URTC SDK支持Web、Android、iOS、macOS、Windows、Electron多种客户端的
 通过全球就近接入点接入、基于HTTPDNS自研调度算法、丢包重传，实现弱网高质量通信，70%丢包仍可正常通信。
 ### 多通话模式       
 支持纯语音通话，支持一对一、多方视频通话，支持一对多互动连麦。
+<a name="SDKLimit"></a>
 ### 多平台接入       
 URTC支持Web、Android、iOS、macOS、Windows、Electron、Linux多平台的接入，参考 [快速集成](urtc/sdk/VideoStart)接入。    
 接入版本号如下表所示：
@@ -23,7 +24,7 @@ URTC支持Web、Android、iOS、macOS、Windows、Electron、Linux多平台的�
 |Electron | 支持Electron addon 2.0.7及以上版本     |
 |Linux| 支持Linux Ubuntu 16.04、18.04版本     |
    
-
+<a name="SDKfunction"></a>
 ## 产品功能
 
 | 功能| 功能说明 |
