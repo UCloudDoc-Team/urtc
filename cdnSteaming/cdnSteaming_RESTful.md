@@ -17,7 +17,7 @@
 开启任务 | job.start | job.stat | 将任务开启，通过此命令可以指定是否使用`转推`功能。
 开启直播 | job.live.start | job.live.stat | 开启旁路转推功能
 关闭直播 | job.live.stop | job.live.stat | 关闭旁路转推功能
-更新订阅流名单 | job.subscribe.update | job.subscribe.stat | 更新订阅流名单，可以通过该命令传入白名单或者黑名单，需要注意的是，白名单和黑名单不允许共存。
+更新订阅流名单 | job.subscribe.update | job.subscribe.stat | 更新订阅流名单，可以通过该命令传入白名单或者黑名单。<br>需要注意的是，白名单和黑名单不允许共存。
 更新合流配置 | job.mixer.update | job.mixer.stat | 通过改命令更新合流模板，以及合流后的样式、水印等。
 更新流的状态 | job.stream.update | job.stream.stat | 通过改命令更新流的加入，退出，mute以及非mute状态。
 开启消息通知 | job.notify.update | job.notify.stat | 更新消息通知服务状态
@@ -44,7 +44,7 @@
 接口 | 描述
 --- | ---
 Version| 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful#2.1 接口列表)。
+Action| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful##21-接口列表)。
 Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/Token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
@@ -70,7 +70,7 @@ Data| 不同Action需要携带的跟转码、合流、转推等配置有关的�
 接口 | 参数类型 | 描述
 --- | ---| ---
 Version|string类型|同请求字段中的`Version`。
-Ack| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful#2.1 接口列表)。
+Ack| string类型|详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful##21-接口列表)。
 RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
@@ -839,7 +839,7 @@ RESTful API 提供消息通知服务，用户可以指定模块消息通知到�
  ```
 
 
-# 12 回调通知
+# 12. 回调通知
 
 ## 描述
 
