@@ -14,3 +14,5 @@ Web SDK兼容的浏览器，具体如下表所示：
  - iOS 14.3及以上的系统放开了设备权限，除了 苹果safari 浏览器，其他浏览器 如 微信浏览器、谷歌Chrome浏览器，可以申请 麦克风、摄像头设备的使用权限，因此iOS 14.3及以上的系统中的 微信浏览器、谷歌Chrome浏览器 可以支持连麦。
  - 移动端浏览器兼容性情况，详见[URTC Web SDK移动端兼容性](urtc/faq/web_mobile)。
  - 其他客户端的兼容性情况，详见 [URTC多平台接入性](urtc/introduction/functions?id=SDKLimit) 。
+ - 其他客户端的兼容性情况，详见 [URTC多平台接入性](urtc/introduction/functions?id=SDKLimit) 。
+<a href="https://docs.ucloud.cn/urtc/sdk/term?id=appid" >SDKLimit</a>
