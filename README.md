@@ -23,11 +23,12 @@ RTC产品，按照客户端的接收的音视频（客户端的下行），实�
 
 ## [URTC SDK集成指南](/urtc/sdk/index)
 
-URTC SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成方法，SDK版本说明，集成URTC SDK步骤，各种常用功能。
+URTC SDK集成指南中，可以了解到URTC常用术语概念解释，Token生成方法，SDK版本说明，Web SDK兼容性，集成URTC SDK步骤，各种常用功能。
 
 * [URTC常用术语](urtc/sdk/term)
 * [Token生成指导](/urtc/sdk/token)
 * [SDK版本说明](/urtc/sdk/Version)
+* [Web SDK兼容性](/urtc/sdk/SDKLimit)
 * [快速集成SDK](/urtc/sdk/VideoStart)    
 * 常用功能    
 	* [互动连麦](/urtc/sdk/Video/Interactive)        
