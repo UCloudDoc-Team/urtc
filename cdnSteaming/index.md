@@ -18,4 +18,4 @@ URTC 旁路推流，支持将音视频会议、直播的内容，推流到直播
 ## 使用方式
 
  - 客户端可以通过[SDK直接调用API](urtc/cdnSteaming/cdnSteaming_SDK)来实现 旁路推流。
- - 服务端 可以通过[RESTful API](urtc/cdnSteaming/cdnSteaming_RESRful)来实现 旁路推流。
+ - 服务端 可以通过[RESTful API](urtc/cdnSteaming/cdnSteaming_RESTful)来实现 旁路推流。
