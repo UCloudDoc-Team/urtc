@@ -47,6 +47,6 @@ URTC Web SDK 兼容的浏览器，具体如下表所示：
 	- x86
 	- x86-64
 
-## inux兼容性
+## Linux兼容性
 
   - 系统要求：Linux Ubuntu 16.04、18.04
