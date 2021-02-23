@@ -142,33 +142,38 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 ```
 # ** Android **
 
-可以播放本地音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。   
+可以播放音乐文件，实现播放背景音乐的功能，支持单独本地播放和同时播放给房间内的其他人。
+目前支持wav,mp3和aac格式的音频文件。
 
 ### 2.1  播放音乐
 
 ```java
-待更新
+sdkEngine.startPlayAudioFile(
+                        "/sdcard/light.mp3",  //音频文件可以是设备上绝对路径，也可以是http指向的外部在线地址
+                        false,  // 是否混入发布流让远端听见
+                        false   // 是否循环播放
+                        )
 
 ```
 
 ### 2.2  暂停播放
 
 ```java
-待更新
+sdkEngine.pauseAudioFile();
 
 ```
 
 ### 2.3  恢复播放
 
 ```java
-待更新
+sdkEngine.resumeAudioFile();
 
 ```
 
 ### 2.4  停止播放
 
 ```java
-待更新
+sdkEngine.stopPlayAudioFile();
 
 ```
 
