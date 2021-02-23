@@ -11,6 +11,9 @@ URTC SDK支持Web、Android、iOS、macOS、Windows、Electron多种客户端的
 支持纯语音通话，支持一对一、多方视频通话，支持一对多互动连麦。
 
 <a name="SDKLimit"></a>
+[SDKLimit](urtc/sdk/SDKLimit)
+
+
 ### 多平台接入       
 URTC支持Web、Android、iOS、macOS、Windows、Electron、Linux多平台的接入，参考 [快速集成](urtc/sdk/VideoStart)接入。    
 接入版本号如下表所示：
