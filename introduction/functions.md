@@ -15,13 +15,14 @@ URTC支持Web、Android、iOS、macOS、Windows、Electron、Linux多平台的�
 
 |平台     | SDK 兼容性                             |
 |-|-|
-|Web      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持Edge 浏览器79及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本 <br> 支持移动端微信浏览器 7及以上版本  |
-|Android  | 支持Android 4.1及以上版本              |
+|Web      | 支持Chrome 60及以上版本 <br> 支持Safari 11及以上版本 <br> 支持Firefox 56及以上版本 <br> 支持opera 50及以上版本 <br> 支持Edge 浏览器79及以上版本 <br> 支持QQ浏览器 10及以上版本 <br> 支持360安全浏览器 10及以上版本 <br> 支持360极速浏览器 12及以上版本 <br> 支持移动端微信浏览器 7及以上版本  <br> Web 平台的支持情况还与设备型号及系统版本等有关，详见 [URTC SDK Web兼容性](urtc/sdk/SDKLimit)    |
+|Android  | 支持Android 4.1及以上版本 <br>Android SDK API：等级 16 或以上 <br>ABI支持：armeabi-v7a、arm64-v8a              |
 |macOS   | 支持macOS 10.0及以上版本              |
-|iOS      | 支持iOS 9.0 及以上版本的 iPhone 或者 iPad |
-|Windows  | 支持Windows 7及以上版本                |
+|iOS      | 支持iOS 9.0 及以上版本的 iPhone 或者 iPad <br>支持arm64、armv7、x86架构，支持真机和模拟器运行 <br>1.5.8及以后版本支持bitcode。|
+|Windows  | 支持Windows 7及以上版本 <br>支持 x86、x86-64架构            |
 |Electron | 支持Electron addon 2.0.7及以上版本     |
 |Linux| 支持Linux Ubuntu 16.04、18.04版本     |
+   
 
 ## 产品功能
 
