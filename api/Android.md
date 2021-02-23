@@ -9,13 +9,15 @@ URTC Android SDK API包含以下方法：
 | -| -|
 | UCloudRtcSdkEngine  | 包含URTC的主要方法  |
 | UCloudRtcSdkSurfaceVideoView.RemoteOpTrigger  | 静音远端音视频  |
-| UcloudRTCSceenShot  | 截屏  |
-| UcloudRTCDataProvider  | 外部数据推流  |
+| UCloudRTCScreenShot  | 截屏  |
+| UCloudRTCDataProvider  | 外部数据推流  |
 
 ## 1. UCloudRtcSdkEngine类包含以下方法
 
 | 方法 | 描述 |
 | -| -|
+| SCREEN_CAPTURE_REQUEST_CODE  | 申请桌面权限请求码  |
+| UCloudRtcSdkEventListener  | sdk 事件回调  |
 | createEngine  | 获取引擎类  |
 | destory  | 销毁引擎  |
 | getDefaultAudioDevice  | 获取音频默认设备  |
@@ -58,10 +60,21 @@ URTC Android SDK API包含以下方法：
 | stopRemoteView  | 停止远端渲染  |
 | subscribe  | 订阅远端媒体流  |
 | unSubscribe  | 取消订阅远端媒体流  |
-| startRecord  | 开始录制  |
-| stopRecord  | 结束录制  |
-| SCREEN_CAPTURE_REQUEST_CODE  | 申请桌面权限请求码  |
-| UCloudRtcSdkEventListener  | Sdk 事件回调  |
+| startRelay  | 开始转推或录制  |
+| stopRelay  | 结束转推或录制  |
+| updateMixConfig  | 更新转推或录制参数  |
+| adjustRecordVolume  | 调整采集录音音量大小  |
+| takeSnapShot  | 指定流截图  |
+| controlAudio  | 暂停或恢复音频  |
+| controlAudioPlayOut  | 暂停或恢复音频播放  |
+| controlAudioRecord  | 暂停或恢复音频录制  |
+| controlLocalVideo  | 暂停或恢复视频  |
+| changePushResolution  | 动态修改推流分辨率  |
+| startPlayAudioFile  | 播放音乐文件  |
+| stopPlayAudioFile  | 停止播放音乐文件  |
+| pauseAudioFile  | 暂停播放音乐文件  |
+| resumeAudioFile  | 恢复播放音乐文件  |
+| copyAssetsFileToSdcard  | 拷贝assets目录下文件到app目录下  |
 
 ## 2. UCloudRtcSdkSurfaceVideoView.RemoteOpTrigger接口
 
@@ -70,13 +83,13 @@ URTC Android SDK API包含以下方法：
 | onRemoteAudio  | 静音远端音频  |
 | onRemoteVideo  | 静音远端视频  |
 
-## 3. UcloudRTCSceenShot接口
+## 3. UCloudRTCScreenShot接口
 
 | 方法 | 描述 |
 | -| -|
 | onReceiveRGBAData  | 输出的截屏数据，rgba格式   |
 
-## 4. UcloudRTCDataProvider接口
+## 4. UCloudRTCDataProvider接口
 
 | 方法 | 描述 |
 | -| -|
