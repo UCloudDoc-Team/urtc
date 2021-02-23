@@ -6,7 +6,6 @@
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
 
----
 
 # 2. 旁路推转推 RESTFUL API
 
@@ -25,7 +24,6 @@
 查询接口 | job.query | job.query.stat | 查询当前的任务参数信息
 关闭任务 | job.stop | job.stat | 关闭`job`，回收资源。
 
----
 
 ## 2.2 请求中的公共字段
 
@@ -51,7 +49,6 @@ Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/Token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
 
----
 
 ## 2.3 返回中的公共字段D
 
@@ -78,8 +75,6 @@ RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
 Data|json对象|根据不同的请求类型，data中的内容也不同，其中包含着具体请求结果的私有数据。
-
----
 
 # 3. 获取云端资源
 
@@ -131,7 +126,6 @@ Internal
 - Data
     - JobId：string类型，申请到的任务标识，**后续所有请求必须带上这个JobId**。
 
----
 
 # 4. 开始旁路推流
 
@@ -278,7 +272,6 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
----
 
 <details>
 	<summary>旁路推流开启后再开启录制**</summary>
@@ -404,8 +397,6 @@ Internal
 }
 ```
 字段具体标识请阅读**配置参数详解**。
-
----
 
 
 </details>
@@ -928,7 +919,6 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
     - StreamUid: string类型，表示当前更新流的uid.
     - Status: string 类型，open 表示开始接收 close 表示停止接收
     - TimeStamp: string 类型，当前操作的时间戳。
----
 
 ## 16.4 服务状态码
 
