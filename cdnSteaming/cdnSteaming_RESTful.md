@@ -44,7 +44,7 @@
 接口 | 描述
 --- | ---
 Version| 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action| 请求类型，详情参看上文 [2.1 接口列表](#2.1 接口列表)。
+Action| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful#2.1 接口列表)。
 Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/Token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
@@ -70,7 +70,7 @@ Data| 不同Action需要携带的跟转码、合流、转推等配置有关的�
 接口 | 参数类型 | 描述
 --- | ---| ---
 Version|string类型|同请求字段中的`Version`。
-Ack|string类型|返回消息类型，详情参看上文 [2.1 接口列表](#2.1 接口列表)。
+Ack| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful#2.1 接口列表)。
 RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
@@ -95,10 +95,10 @@ Data|json对象|根据不同的请求类型，data中的内容也不同，其中
 }
 ```
 
-Internal
-    - AppId：string类型，开发者ID。AppId可从 URTC 产品中获取，可以参考[开通URTC服务](urtc/quick)。  
-    - RoomId：string类型，录制的房间ID。
-    - ChannelType: int类型，0 会议模式（小班课）,1 直播模式（大班课），
+Internal       
+    - AppId：string类型，开发者ID。AppId可从 URTC 产品中获取，可以参考[开通URTC服务](urtc/quick)。     
+    - RoomId：string类型，录制的房间ID。    
+    - ChannelType: int类型，0 会议模式（小班课）,1 直播模式（大班课）。    
 - Data：空
 
 
@@ -781,7 +781,7 @@ Internal
 
 # 11. 更新消息通知服务
 
-##描述
+## 描述
 
 RESTful API 提供消息通知服务，用户可以指定模块消息通知到用户的消息服务器地址，用户请求的JSON 方法如下所示。
 
@@ -847,7 +847,7 @@ RESTful API 提供消息通知服务，用户可以配置一个接收回调的HT
   
 当有事件需要回调通知时，可以通过HTTP/HTTPS 请求的方式将事件投递给用户的消息服务器。
 
-### 16.1 通知请求
+### 12.1 通知请求
 
    ```json
   {
@@ -865,7 +865,7 @@ RESTful API 提供消息通知服务，用户可以配置一个接收回调的HT
   ```
 Data 字段中的ServiceType, EventType 为请求包体重公共字段，所有回调重都包含这些字段，公共字段的含义详见 消息回调事件。
    
-## 16.2 消息回调事件
+## 12.2 消息回调事件
 
 EvenType | ServiceType 		| 事件描述
 ------ |   -----------   	| ---
@@ -876,7 +876,7 @@ ucloud_living_stream_update  	| job.living  (转推服务）	    | 转推服务�
 ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服务启用高可用
 
 
-## 16.3 错误码说明
+## 12.3 错误码说明
 
   - ucloud_session_failover.
   	EventType 表示服务启动高可用。启动高可用之后，服务端崩溃之后会重新开启一个以原始JodId为标识的服务，默认开启。
@@ -884,15 +884,15 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 	
   - ucloud_living_status_update
       EventType 表示转推服务状态发生变化
-    - Status: int 类型， 云端录制当前状态，请参考模块状态服务码。
+    - Status: int 类型， 云端录制当前状态，请参考模块状态服务码，[服务状态码](#164-服务状态码)。
 
   - ucloud_living_warning.
       EventType 表示转推服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码。[15.4 告警码](#)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](#166-告警码)。
 
   - ucloud_living_error.
   	 EventType 表示转推服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[15.3 错误码](#)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码，[错误码](#165-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_living_stream_update.
@@ -907,11 +907,11 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 
   - ucloud_mixer_warning.
       EventType 表示合流录制服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码。[15.4 告警码](#)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](#166-告警码)。
 
   - ucloud_mixer_error.
   	 EventType 表示合流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[15.3 错误码](#)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](#165-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_mixer_stream_update.
@@ -920,7 +920,7 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
     - Status: string 类型，open 表示开始接收 close 表示停止接收
     - TimeStamp: string 类型，当前操作的时间戳。
 
-## 16.4 服务状态码
+## 12.4 服务状态码
 
 状态码  		| 描述
 ------ |  ---
@@ -929,7 +929,7 @@ SERVICE_STATUS_RUNNING      	| 服务正在运行
 SERVICE_STATUS_EXITING      	| 服务正常退出
 SERVICE_STATUS_INTERRUPT    	| 服务中断退出
 
-## 16.5 错误码
+## 12.5 错误码
 
 错误码 | 枚举值 		| 描述
 ------ |   -----------   	| ---
@@ -941,7 +941,7 @@ ERROR_MIXERED_INVALID_VIDEO_PARAM   | 4		| 服务收到无效的视频合流参�
 ERROR_MIXERED_INVALID_AUDIO_PARAM  	| 5		| 服务收到无效的音频合流参数
 ERROR_MIXERED_STREAM_NON_EXISTENT	| 6		| 服务指定流信息不存在
 
-## 16.6 告警码
+## 12.6 告警码
 
 告警码 |  描述
 ------ |  ---
