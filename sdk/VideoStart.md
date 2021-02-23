@@ -6,23 +6,7 @@
 
 通过集成SDK，可以快速实现实时音视频通话。
 
-## 1. Web SDK兼容性
-
-使用一款Web SDK 兼容的浏览器，具体如下表所示：
-
-|平台 | 浏览器 |
-|-|-|
-|Windows 7+  | Chrome 60+ <br> Firefox 56+ <br> Opera 50+ <br> Edge 浏览器 79+ <br> QQ 浏览器 10+ <br> 360 安全浏览器 10+ <br> 360 极速浏览器 12+  |
-|macOS 10+    | Chrome 60+ <br> Firefox 56+ <br> Opera 50+  <br> Edge 浏览器 79+ <br> 360 极速浏览器 1+  <br> 苹果Safari 11+ |
-|Android 5.0+  | Chrome 60+ <br> 华为手机浏览器 10+ <br> 微信浏览器 7+ |
-|iOS 11+   | 苹果Safari 11+ <br> Chrome 60+（仅支持接收） <br> 微信浏览器 7+（仅支持接收） |
-|iOS 14.3+   | 苹果Safari 11+ <br> Chrome 60+  <br> 微信浏览器 7+|
-
- - iOS 14.3以下的系统有限制，仅允许 苹果safari 浏览器 使用麦克风、摄像头设备；不允许 其他浏览器 使用麦克风、摄像头设备，因此iOS 14.3以下的系统中的微信浏览器、谷歌Chrome浏览器中无法发布视频流，仅支持接收。
- - iOS 14.3及以上的系统放开了设备权限，除了 苹果safari 浏览器，其他浏览器 如 微信浏览器、谷歌Chrome浏览器，可以申请 麦克风、摄像头设备的使用权限，因此iOS 14.3及以上的系统中的 微信浏览器、谷歌Chrome浏览器 可以支持连麦。
- - 移动端浏览器兼容性情况，详见[URTC Web SDK移动端兼容性](urtc/faq/web_mobile)。
-
-## 2. Web端Demo源码
+## 1. 直接运行Web端Demo源码
 
  - 可以参考 [angular、react、react Typescript、vue、纯JS Demo源码](https://github.com/ucloud/urtc-sdk-web/tree/master/examples) ，Demo中集成了基础的音视频通话、桌面分享等功能，了解不通js框架的Demo接入示例。
  - 可以参考 [WEB Demo源码](https://github.com/ucloud/urtc-web-demo) ，Demo中集成了视频会议、开关摄像头、开关麦克风、开关扬声器、开关连麦、屏幕分享、录制、旁路推流、分享链接等功能，并对电脑、手机移动端UI做了适配。
@@ -30,11 +14,11 @@
  
 >由于浏览器的安全策略对除 127.0.0.1 以外的 `HTTP` 地址作了限制，Web SDK 仅支持  `HTTPS` 协议  或者 `http://localhost（http://127.0.0.1）`，请勿使用  `HTTP` 协议 部署你的项目。
 
-## 3. 引入SDK
+## 2. 引入SDK
 
 选择如下任意一种方法引入URTC Web SDK：   
 
-### 3.1 使用`npm`引入SDK
+### 2.1 使用`npm`引入SDK
 
 将 sdk 使用 ES6 语法作为模块引入。使用该方法需要先安装 `npm`，详见 [npm快速入门](https://www.npmjs.cn/getting-started/installing-node/)。
 
@@ -49,21 +33,21 @@ yarn add urtc-sdk
 ```
 import UCloudRTC from 'urtc-sdk';
 ```
-### 3.2 直接引入SDK
+### 2.2 直接引入SDK
 
 下载[URTC Web SDK](https://github.com/ucloud/urtc-sdk-web)，将 sdk 中 lib 目录下的 index.js 使用 script 标签引入。  
 
 ```
 <script type="text/javascript" src="index.js"><script>
 ```
-## 4. 实现音视频通话
+## 3. 实现音视频通话
 
 下图展示了基础的一对一音视频通话的 API 调用：    
 
 ![](/images/sdk/VideoStartWebv2.png)
 
 
-### 4.1 初始化SDK
+### 3.1 初始化SDK
 
 
 检测当前浏览器对 WebRTC 的适配情况
@@ -97,7 +81,7 @@ const client = new UCloudRTC.Client(AppId, Token, {
 
 > 注：创建 `client` 时传的 `token` 需要使用 `AppId` 和 `AppKey` 等数据生成，测试阶段，可临时使用  [sdk](https://github.com/ucloud/urtc-sdk-web)  提供的 `generateToken` 方法生成，但为保证  `AppKey`不暴露于公网，在生产环境中强烈建议自建服务，由 [服务器按规则](https://docs.ucloud.cn/urtc/sdk/token) 生成 `token` 供 sdk 使用。
 
-### 4.2 加入一个房间并发布本地流
+### 3.2 加入一个房间并发布本地流
 ```js
 client.joinRoom(roomId, userId, () => {
    client.publish({
@@ -116,7 +100,7 @@ client.joinRoom(roomId, userId, () => {
 	}, onFailure)
 }); // 在 joinRoom 的 onSuccess 回调函数中执行 publish 发布本地流
 ```
-### 4.3 订阅远端流
+### 3.3 订阅远端流
 ```js
 client.joinRoom(roomId, userId, () => {
     client.subscribe(StreamId, onFailure)
@@ -124,14 +108,14 @@ client.joinRoom(roomId, userId, () => {
 ```
 StreamId: string 类型，必传，为需要订阅的远端流的 流ID，类型说明见  [Stream](https://github.com/ucloud/urtc-sdk-web#stream)。
 
-### 4.4 取消发布本地流或取消订阅远端流
+### 3.4 取消发布本地流或取消订阅远端流
 ```js
 client.unpublish(StreamId, onSuccess, onFailure)
 // 取消发布本地流
 client.unsubscribe(StreamId, onSuccess, onFailure)
 //取消订阅远端流
 ```
-### 4.5 监听流事件
+### 3.5 监听流事件
 1、监听 "stream-published" 事件，发布成功后播放本地流。    
 
 ```js
@@ -188,11 +172,11 @@ client.on('stream-reconnected', (streams) => {
 }); // 当网络断开又恢复时，发布/订阅流可能会被重连，重连成功后，会通过此事件通知业务侧
 ```
 
-### 4.6 退出房间
+### 3.6 退出房间
 ```js
 client.leaveRoom();
 ```
-### 4.7 开始体验吧！
+### 3.7 开始体验吧！
 
 
 # ** Windows **
