@@ -191,7 +191,7 @@ Internal
     - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
 - ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
-- MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
+- MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cdnSteaming/Laylout)。
 - Layouts：array类型，这是一个二维数组，由不同画面数的模板组成的数组，只有当`MixedVideoLayout`为`0`时服务器才加载该参数，其他情况下可以不填此参数。
     - Id：合流区域标识，在同一个模板中不能重复。
     - Shape：合流区域的形状，目前仅支持矩形区域（`rectangle`）。
