@@ -336,7 +336,7 @@ Internal
 }
 ```
 
-#### stream
+#### stream：更新流
  
  - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
  - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
