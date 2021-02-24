@@ -151,7 +151,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
         "NotifyConfig": [
         	{
@@ -226,7 +226,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "TranscodingConfig": {
@@ -275,7 +275,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 
 <details>
@@ -307,7 +307,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 #### 旁路推流开启后再开启录制的返回
 
@@ -327,7 +327,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "RecordingConfig": {
@@ -345,7 +345,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 
 ### 停止云端录制
@@ -363,7 +363,7 @@ Internal
     "Data": {}
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 #### 旁路推流开启后再停止录制的返回
 
@@ -383,7 +383,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "RecordingConfig": {
@@ -401,7 +401,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 
 </details>
@@ -430,7 +430,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ### 5.2 更新订阅的黑白名单的返回
 
@@ -450,7 +450,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "SubscribeConfig": {
@@ -464,7 +464,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ## 6. 更新合流布局
 
@@ -497,7 +497,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ### 6.2 更新合流布局的返回
 
@@ -517,7 +517,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "MixerConfig": {
@@ -538,7 +538,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ## 7. 更新流的状态
 
@@ -563,7 +563,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ### 7.2 更新流的状态的响应
 ```json
@@ -586,7 +586,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ## 8. 查询任务状态
 
@@ -602,7 +602,7 @@ Internal
     "Data": {}
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ### 8.2 查询任务状态的返回
 ```json
@@ -621,7 +621,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": "user_type"
+            "KeyStream": “$userId_$mediaType”
         },
 
         "TranscodingConfig": {
@@ -683,7 +683,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+字段具体标识请阅读[配置参数详解](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_10-配置参数详解)。
 
 ## 9. 停止任务
 
@@ -964,6 +964,3 @@ ERROR_MIXERED_STREAM_NON_EXISTENT	| 6		| 服务指定流信息不存在
 告警码 |  描述
 ------ |  ---
 SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
-
-
- 
