@@ -5,7 +5,7 @@
 - `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考  [Token生成指导](urtc/sdk/token)。
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
-- `restful api`中用`“$userId_$mediaType”`标记一路流：
+- `restful api`中用`"$userId_$mediaType"`标记一路流：
 	- userId：string类型， 是用户Id。
 	- mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 
@@ -151,7 +151,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
         "NotifyConfig": [
         	{
@@ -176,7 +176,7 @@ Internal
             }
         },
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
             "MixedVideoLayout":  0/1/2/3/4/5,
@@ -226,7 +226,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "TranscodingConfig": {
@@ -245,7 +245,7 @@ Internal
         },
 
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
             "MixedVideoLayout":  0/1/2/3/4,
@@ -327,7 +327,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "RecordingConfig": {
@@ -383,7 +383,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "RecordingConfig": {
@@ -450,7 +450,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "SubscribeConfig": {
@@ -480,9 +480,8 @@ Internal
     },
     "Data": {
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 0/1/2,
             "MixedVideoLayout": 0/1/2/3/4,
             "WaterMark": {
@@ -517,13 +516,12 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 0/1/2,
             "MixedVideoLayout": 0/1/2/3/4,
             "WaterMark": {
@@ -554,7 +552,7 @@ Internal
     "Data": {
     	"Stream": {
             "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
+            "SubScribeId": "$userId_$mediaType"
             "HasVideo": true,
             "HasAudio": true,
             "MuteVideo": false,
@@ -577,7 +575,7 @@ Internal
     "Data": {
     	"Stream": {
             "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
+            "SubScribeId": "$userId_$mediaType"
             "HasVideo": true,
             "HasAudio": true,
             "MuteVideo": false,
@@ -621,7 +619,7 @@ Internal
     "Data": {
         "JobConfig": {
             "IdleTime": 60,
-            "KeyStream": “$userId_$mediaType”
+            "KeyStream": "$userId_$mediaType"
         },
 
         "TranscodingConfig": {
@@ -640,9 +638,8 @@ Internal
         },
 
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 0/1/2,
             "MixedVideoLayout": 0/1/2/3/4,
             "WaterMark": {
@@ -748,7 +745,7 @@ Internal
 
 ### MixerConfig：合流配置
 
-- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
+- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`"$userId_$mediaType"`。
     - userId：string类型， 是用户Id。
     - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
@@ -774,7 +771,7 @@ Internal
 ### stream：更新流
 
  - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
- - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
+ - SubScribeId: string类型，这路流的标识 "$userId_$mediaType"
     - userId：string类型， 是用户Id。
     - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
  - HasVideo: bool类型，是否有视频
