@@ -15,7 +15,7 @@
 
 接口 | 请求 | 返回 | 描述
 --- | --- | --- | ---
-获取资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的jobId。
+获取资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的`jobId`。<br>开多个任务时，需要调用多次，获取多个资源。
 开启任务 | job.start | job.stat | 将任务开启，通过此命令可以开启`转推`功能。
 开启录制 | job.record.start | job.record.stat | 在转推开启后再开启云端录制功能
 关闭录制 | job.record.stop | job.record.stat | 在转推开启后再关闭云端录制功能
