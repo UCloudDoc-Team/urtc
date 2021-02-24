@@ -374,7 +374,7 @@ Internal
 
 ### 7.1 更新合流布局的请求
 
-修改 MixerConfig 合流布局的样式，修改 MixedVideoLayout 布局样式。
+修改 MixerConfig 合流布局的样式，修改 MixedVideoLayout 布局样式，可设置为：0-5。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cdnSteaming/Laylout)。`0` 为自定义模板需参考`Layouts`中的模板信息。
 
 ```json
 {
