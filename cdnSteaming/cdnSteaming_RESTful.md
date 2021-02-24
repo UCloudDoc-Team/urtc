@@ -211,9 +211,9 @@ Internal
 ```
 字段具体标识请阅读 [配置参数详解](urtc/cdnSteaming/cdnSteaming_RESTfulAPI)。
 
-# 8. 查询任务状态
+## 5. 查询任务状态
 
-## 8.1 请求
+### 5.1 查询任务状态的请求
 ```json
 {
     "Version": "1.0",
@@ -227,7 +227,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 8.2 返回
+## 5.2 查询任务状态的返回
 ```json
 {
     "Version": "1.0",
@@ -308,9 +308,58 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-# 6. 更新合流布局
+## 6. 更新流
 
-## 6.1 请求
+### 6.1 更新流的请求
+```json
+{
+    "Version": "1.0",
+    "Action": "job.stream.update",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {
+    	"Stream": {
+            "CmdType":1/2/3, 1 加流 2删流 3 mute
+            "SubScribeId": "xxx_1"
+            "HasVideo": true,
+            "HasAudio": true,
+            "MuteVideo": false,
+            "MuteAudio": false
+    	}
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+### 6.2 更新流的响应
+```json
+{
+    "Version": "1.0",
+    "Action": "job.stream.status",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {
+    	"Stream": {
+            "CmdType":1/2/3, 1 加流 2删流 3 mute
+            "SubScribeId": "xxx_1"
+            "HasVideo": true,
+            "HasAudio": true,
+            "MuteVideo": false,
+            "MuteAudio": false
+    	}
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+
+## 7. 更新合流布局
+
+### 7.1 更新合流布局的请求
 
 ```json
 {
@@ -341,7 +390,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 6.2 返回
+### 7.2 更新合流布局的返回
 
 ```json
 {
@@ -381,53 +430,4 @@ Internal
 }
 ```
 字段具体标识请阅读**配置参数详解**。
-
-# 7. 更新流的状态
-
-## 7.1 请求
-```json
-{
-    "Version": "1.0",
-    "Action": "job.stream.update",
-    "Token": "xxxxxxx",
-    "Internal": {
-        "JobId": "xxx",
-    },
-    "Data": {
-    	"Stream": {
-            "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
-            "HasVideo": true,
-            "HasAudio": true,
-            "MuteVideo": false,
-            "MuteAudio": false
-    	}
-    }
-}
-```
-字段具体标识请阅读**配置参数详解**。
-
-## 7.2 响应
-```json
-{
-    "Version": "1.0",
-    "Action": "job.stream.status",
-    "Token": "xxxxxxx",
-    "Internal": {
-        "JobId": "xxx",
-    },
-    "Data": {
-    	"Stream": {
-            "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
-            "HasVideo": true,
-            "HasAudio": true,
-            "MuteVideo": false,
-            "MuteAudio": false
-    	}
-    }
-}
-```
-字段具体标识请阅读**配置参数详解**。
-
 
