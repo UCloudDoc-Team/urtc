@@ -40,7 +40,6 @@ URTC SDK集成指南中，可以了解到URTC常用术语概念解释，Token生
 	* [视频快照](/urtc/sdk/Video/videoSnap)   
 	* [视频采集旋转](urtc/sdk/Video/VideoRotation)   
 	* [自定义视频采集](/urtc/sdk/Video/CustomVideoInput)  
-	* [旁路推流](/urtc/sdk/Video/cdnSteaming)     		
 	* [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch)     
 	* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
 	* [通话中质量监测](/urtc/sdk/Device/CallQuality)   
@@ -64,7 +63,7 @@ URTC 旁路推流，是URTC针对实时音视频研发的推流服务，推到�
 * [SDK调用方法](/urtc/cdnSteaming/cdnSteaming_SDK)    
 * [RESTful 调用方法](/urtc/cdnSteaming/cdnSteaming_RESTful)    
 * [RESTful API列表](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI)    
-* [混流风格说明](/urtc/cdnSteaming/Laylout)  
+* [旁路推流混流风格说明](/urtc/cdnSteaming/Laylout)  
 
 ## [质量监控](/urtc/quality/qualityDocs)
 
