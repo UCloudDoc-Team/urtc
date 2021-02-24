@@ -128,7 +128,7 @@ URTC 旁路推流 支持 推多路音频流和视频流，设置不同的混流�
 ## 自定义混流布局
 
 开启录制或者旁路推流时，可以设置为自定义混流布局。    
-自定义混流布局参数，填在`custom`里，格式参照`RFC5707 Media Server Markup Language (MSML)`。    
+自定义混流布局参数，格式参照`RFC5707 Media Server Markup Language (MSML)`。    
 
 <details>
 	<summary>代码示例</summary>
