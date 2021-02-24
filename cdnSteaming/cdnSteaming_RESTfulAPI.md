@@ -1,6 +1,6 @@
 # 旁路转推 RESTful API
 
-# 1. 说明
+## 1. 说明
 
 - `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考  [Token生成指导](urtc/sdk/token)。
 
@@ -9,9 +9,9 @@
 	- userId：string类型， 是用户Id。
 	- mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 
-# 2. 旁路推转推 RESTFUL API
+## 2. 旁路推转推 RESTFUL API
 
-## 2.1 接口列表
+### 2.1 接口列表
 
 接口 | 请求 | 返回 | 描述
 --- | --- | --- | ---
@@ -30,7 +30,7 @@
 > - 如果房间内已经了开启`转推`，则 `job.record.start` 开启录制；
 
 
-## 2.2 请求中的公共字段
+### 2.2 请求中的公共字段
 
 ```json
 {
@@ -49,13 +49,13 @@
 接口 | 描述
 --- | ---
 Version| 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action| 请求的类型，如开启任务、关闭任务，全部类型参看上文[2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
+Action| 请求的类型，如开启任务、关闭任务，全部类型参看上文[2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_21-接口列表)。
 Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
 
 
-## 2.3 返回中的公共字段D
+### 2.3 返回中的公共字段D
 
 ```json
 {
@@ -75,15 +75,15 @@ Data| 不同Action需要携带的跟转码、合流、转推等配置有关的�
 接口 | 参数类型 | 描述
 --- | ---| ---
 Version|string类型|同请求字段中的`Version`。
-Ack| string类型|如开启任务、关闭任务，全部类型参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
+Ack| string类型|如开启任务、关闭任务，全部类型参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTfulAPI?id=_21-接口列表)。
 RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
 Data|json对象|根据不同的请求类型，data中的内容也不同，其中包含着具体请求结果的私有数据。
 
-# 3. 获取云端资源
+## 3. 获取云端资源
 
-## 3.1 获取云端资源的请求
+### 3.1 获取云端资源的请求
 
 ```json
 {
@@ -107,7 +107,7 @@ Internal
 - Data：空
 
 
-## 3.2 获取云端资源的返回
+### 3.2 获取云端资源的返回
 
 ```json
 {
@@ -132,9 +132,9 @@ Internal
     - JobId：string类型，申请到的任务标识，**后续所有请求必须带上这个JobId**。
 
 
-# 4. 开始旁路推流
+## 4. 开始旁路推流
 
-## 4.1 开始旁路推流的请求
+### 4.1 开始旁路推流的请求
 
 ```json
 {
@@ -208,7 +208,7 @@ Internal
 }
 ```
 
-## 4.2 开始旁路推流的返回
+### 4.2 开始旁路推流的返回
 
 ```json
 {
@@ -281,9 +281,9 @@ Internal
 <details>
 	<summary>旁路推流开启后再开启录制</summary>
 
-## 旁路推流开启后再开启录制
+### 旁路推流开启后再开启录制
 
-### 请求
+#### 旁路推流开启后再开启录制的请求
 ```json
 {
     "Version": "1.0",
@@ -309,7 +309,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-### 返回
+#### 旁路推流开启后再开启录制的返回
 
 ```json
 {
@@ -348,9 +348,9 @@ Internal
 字段具体标识请阅读**配置参数详解**。
 
 
-## 停止云端录制
+### 停止云端录制
 
-### 请求
+#### 旁路推流开启后再停止录制的请求
 
 ```json
 {
@@ -365,7 +365,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-### 返回
+#### 旁路推流开启后再停止录制的返回
 
 ```json
 {
@@ -406,9 +406,9 @@ Internal
 
 </details>
 
-# 5. 更新订阅名单
+## 5. 更新订阅的黑白名单
 
-## 5.1 更新订阅名单的请求
+### 5.1 更新订阅的黑白名单的请求
 
 ```json
 {
@@ -432,7 +432,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 5.2 更新订阅名单的返回
+### 5.2 更新订阅的黑白名单的返回
 
 ```json
 {
@@ -466,9 +466,9 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-# 6. 更新合流布局
+## 6. 更新合流布局
 
-## 6.1 更新合流布局的请求
+### 6.1 更新合流布局的请求
 
 ```json
 {
@@ -499,7 +499,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 6.2 更新合流布局的返回
+### 6.2 更新合流布局的返回
 
 ```json
 {
@@ -540,9 +540,9 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-# 7. 更新流的状态
+## 7. 更新流的状态
 
-## 7.1 更新流的状态的请求
+### 7.1 更新流的状态的请求
 ```json
 {
     "Version": "1.0",
@@ -565,7 +565,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 7.2 更新流的状态的响应
+### 7.2 更新流的状态的响应
 ```json
 {
     "Version": "1.0",
@@ -588,9 +588,9 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-# 8. 查询任务状态
+## 8. 查询任务状态
 
-## 8.1 查询任务状态的请求
+### 8.1 查询任务状态的请求
 ```json
 {
     "Version": "1.0",
@@ -604,7 +604,7 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-## 8.2 查询任务状态的返回
+### 8.2 查询任务状态的返回
 ```json
 {
     "Version": "1.0",
@@ -685,9 +685,9 @@ Internal
 ```
 字段具体标识请阅读**配置参数详解**。
 
-# 9. 停止任务
+## 9. 停止任务
 
-## 9.1 停止任务的请求
+### 9.1 停止任务的请求
 ```json
 {
     "Version": "1.0",
@@ -700,7 +700,7 @@ Internal
 }
 ```
 
-## 9.2 停止任务的返回
+### 9.2 停止任务的返回
 
 ```json
 {
@@ -719,21 +719,21 @@ Internal
 }
 ```
 
-# 10. 配置参数详解
+## 10. 配置参数详解
 
-## JobConfig: 任务的全局配置
+### JobConfig: 任务的全局配置
 
 - IdleTime：int类型，当房间内所有需要录制的流都断开后或者`KeyStream`指定的流断开后，`IdleTime`时间后服务器停止并回收任务。
 - KeyStream：string类型，指定房间内的关键流，如果设置此项字段，则在此路流结束后任务会超时回收，超时时间以`IdleTime`为准。
 `KeyStream`的生成规则是`$userid_$mediatype`，举个例子，用户`user001`的`摄像头流`可以用`user001_1`来表示，对应的`桌面流`可以用`user001_2`来表示。
 
-## NotifyConfig：消息回调到用户服务器
+### NotifyConfig：消息回调到用户服务器
    - NotifyUrl string类型，指定用户的消息服务地址
    - ServiceType string类型，指定模块的事件通知：旁路转推(job.living)。
    - EventType string类型，表示某个模块事件类型
    - Status string类型，表示要更新的状态  open 开启 close 关闭
 
-## TranscodingConfig：转码配置
+### TranscodingConfig：转码配置
 
 - Bitrate: int类型，转码后的码流。
 - Video：视频编码信息。
@@ -746,8 +746,7 @@ Internal
   - Codec：string类型，音频编码类型，目前仅支持aac。
   - SampleRate：int类型，音频采样率，目前仅支持 48khz。
 
-
-## MixerConfig：合流配置
+### MixerConfig：合流配置
 
 - MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
     - userId：string类型， 是用户Id。
@@ -772,7 +771,7 @@ Internal
   - Alpha：int类型，透明度，浮点型，取值范围 0 ~ 1。
 
 
-#### stream：更新流
+### stream：更新流
 
  - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
  - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
@@ -783,7 +782,7 @@ Internal
  - MuteVideo: bool类型，当前视频的状态，true是mute，false是unmute
  - MuteAudio: bool类型，当前音频的状态，true是mute，false是unmute
 
-## SubscribeConfig：订阅流配置
+### SubscribeConfig：订阅流配置
 
 - VideoStreamType: int类型，0 自动添加视频流（默认） 1 手动添加视频流
 - MaxSubscriptions: int类型，一个房间里最大的录像流数目，默认 32。
@@ -792,21 +791,21 @@ Internal
 - UnsubscribeAudio: array类型，音频黑名单，除了该名单以外的流都要录制音频，不能与`SubscribeAudio`共用。
 - UnsubscribeVideo: array类型，视频黑名单，除了该名单以外的流都要录制视频，不能与`SubscribeVideo`共用。
 
-## LiveConfig: 转推配置
+### LiveConfig: 转推配置
 
 - Type： string类型， 转推的协议类型，目前只支持 rtmp 。
 - Url: string类型， 转推服务器的地址。
 
 
-# 11. 更新消息通知服务
+## 11. 更新消息通知服务
 
-## 描述
+### 描述
 
 RESTful API 提供消息通知服务，用户可以指定模块消息通知到用户的消息服务器地址，用户请求的JSON 方法如下所示。
 
-## 11.1 开启消息通知
+### 11.1 开启消息通知
 
-### 开启消息通知的请求
+#### 开启消息通知的请求
 
  - NotifyConfig
    - NotifyUrl string类型，指定用户的消息服务地址
@@ -834,7 +833,7 @@ RESTful API 提供消息通知服务，用户可以指定模块消息通知到�
  }
  ```
  
- ### 11.2 开启消息通知的返回
+ #### 11.2 开启消息通知的返回
  
  ```json
  {
@@ -858,15 +857,15 @@ RESTful API 提供消息通知服务，用户可以指定模块消息通知到�
  ```
 
 
-# 12. 回调通知
+## 12. 回调通知
 
-## 描述
+### 描述
 
 RESTful API 提供消息通知服务，用户可以配置一个接收回调的HTTP/HTTPS 服务器地址来接收事件通知。    
   
 当有事件需要回调通知时，可以通过HTTP/HTTPS 请求的方式将事件投递给用户的消息服务器。
 
-### 12.1 通知请求
+#### 12.1 通知请求
 
    ```json
   {
@@ -884,7 +883,7 @@ RESTful API 提供消息通知服务，用户可以配置一个接收回调的HT
   ```
 Data 字段中的ServiceType, EventType 为请求包体重公共字段，所有回调重都包含这些字段，公共字段的含义详见 消息回调事件。
    
-## 12.2 消息回调事件
+### 12.2 消息回调事件
 
 EvenType | ServiceType 		| 事件描述
 ------ |   -----------   	| ---
@@ -895,7 +894,7 @@ ucloud_living_stream_update  	| job.living  (转推服务）	    | 转推服务�
 ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服务启用高可用
 
 
-## 12.3 错误码说明
+### 12.3 错误码说明
 
   - ucloud_session_failover.
   	EventType 表示服务启动高可用。启动高可用之后，服务端崩溃之后会重新开启一个以原始JodId为标识的服务，默认开启。
@@ -939,7 +938,7 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
     - Status: string 类型，open 表示开始接收 close 表示停止接收
     - TimeStamp: string 类型，当前操作的时间戳。
 
-## 12.4 服务状态码
+### 12.4 服务状态码
 
 状态码  		| 描述
 ------ |  ---
@@ -948,7 +947,7 @@ SERVICE_STATUS_RUNNING      	| 服务正在运行
 SERVICE_STATUS_EXITING      	| 服务正常退出
 SERVICE_STATUS_INTERRUPT    	| 服务中断退出
 
-## 12.5 错误码
+### 12.5 错误码
 
 错误码 | 枚举值 		| 描述
 ------ |   -----------   	| ---
@@ -960,7 +959,7 @@ ERROR_MIXERED_INVALID_VIDEO_PARAM   | 4		| 服务收到无效的视频合流参�
 ERROR_MIXERED_INVALID_AUDIO_PARAM  	| 5		| 服务收到无效的音频合流参数
 ERROR_MIXERED_STREAM_NON_EXISTENT	| 6		| 服务指定流信息不存在
 
-## 12.6 告警码
+### 12.6 告警码
 
 告警码 |  描述
 ------ |  ---
