@@ -58,10 +58,13 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
 
 ## [旁路推流](/urtc/cdnSteaming/index)  
 
-URTC 旁路推流，是URTC针对实时音视频研发的推流服务，推到直播的平台。
+URTC 旁路推流，是URTC针对实时音视频研发的推流服务，推到直播的平台。    
+支持通过SDK直接使用旁路推流，也支持调用RESTful API使用旁路推直播，支持多种预定模式的混流风格，也支持自定义风格。    
+推到直播平台的音视频流，可以通过直播平台的规则来播放。    
 
 * [SDK调用方法](/urtc/cdnSteaming/cdnSteaming_SDK)    
-* [RESTful 调用方法](/urtc/cdnSteaming/cdnSteaming_RESTful)    
+* [RESTful 调用方法](/urtc/cdnSteaming/cdnSteaming_RESTful)  
+* [播放直播流](urtc/cdnSteaming/cdnPlay)  
 * [RESTful API列表](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI)    
 * [旁路推流混流风格说明](/urtc/cdnSteaming/Laylout)  
 
