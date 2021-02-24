@@ -166,6 +166,40 @@ Internal
 }
 ```
 
+#### TranscodingConfig：转码配置
+
+- Bitrate: int类型，转码后的码流。
+- Video：视频编码信息。
+  - Codec：string类型，编码类型，目前仅支持h264。
+  - Width：int类型，分辨率，宽。
+  - Height：int类型，分辨率，高。
+  - Fps：int类型，帧率。
+  - Profile：string类型，可选，`baseline`、`highprofile`。
+- Audio：音频编码信息。
+  - Codec：string类型，音频编码类型，目前仅支持aac。
+  - SampleRate：int类型，音频采样率，目前仅支持 48khz。
+
+
+#### MixerConfig：合流配置
+
+- MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
+- BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
+- ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
+- MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
+- Layouts：array类型，这是一个二维数组，由不同画面数的模板组成的数组，只有当`MixedVideoLayout`为`0`时服务器才加载该参数，其他情况下可以不填此参数。
+    - Id：合流区域标识，在同一个模板中不能重复。
+    - Shape：合流区域的形状，目前仅支持矩形区域（`rectangle`）。
+    - Area：子流显示区域的坐标和大小。
+        - Left：string类型，用字符串表示的分数，屏幕里该画面左上角的横坐标的相对值，范围是 `[0/1, 1/1]`。从左到右布局，`0/1` 在最左端，`1/1` 在最右端。
+        - Top：string类型 ，用字符串表示的分数，屏幕里该画面左上角的纵坐标的相对值，范围是 `[0/1, 1/1]`。从上到下布局，`0/1` 在最上端，`1/1` 在最下端。
+        - Width：string类型，用字符串表示的分数，该画面宽度的相对值，取值范围是 `[0/1, 1/1]`。
+        - Height：string类型，用字符串表示的分数，该画面高度的相对值，取值范围是 `[0/1, 1/1]`。
+
+#### LiveConfig: 转推配置
+
+- Type： string类型， 转推的协议类型
+- Url: string类型， 转推服务器的地址
+
 ### 4.2 开始旁路推流的返回
 
 ```json
@@ -197,7 +231,7 @@ Internal
             }
         },
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": “$userId_$mediaType”,
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 2,
             "MixedVideoLayout": 1,
@@ -209,7 +243,7 @@ Internal
     }
 }
 ```
-字段具体标识请阅读 [配置参数详解](urtc/cdnSteaming/cdnSteaming_RESTfulAPI)。
+
 
 ## 5. 查询任务状态
 
@@ -225,7 +259,6 @@ Internal
     "Data": {}
 }
 ```
-字段具体标识请阅读**配置参数详解**。
 
 ## 5.2 查询任务状态的返回
 ```json
@@ -242,11 +275,6 @@ Internal
         "ChannelType": 0/1,
     },
     "Data": {
-        "JobConfig": {
-            "IdleTime": 60,
-            "KeyStream": "user_type"
-        },
-
         "TranscodingConfig": {
             "Bitrate": 1000,
             "Video": {
@@ -261,44 +289,13 @@ Internal
                 "SampleRate": 48000
             }
         },
-
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": “$userId_$mediaType”,
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "Crop": false,
-            "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
-            "WaterMark": {
-                "Type": 1/2/3,
-                "Image": "",
-                "Text": "",
-                "X": 10,
-                "Y": 10,
-                "Alpha": 0.1
-            }
+            "ResizeMode": 2,
+            "MixedVideoLayout": 1,
         },
-
-        "SubscribeConfig": {
-            "VideoStreamType": 0/1,
-            "MaxSubscriptions": 32,
-            "SubscribeAudio": ["", "", "", ""],
-            "UnsubscribeAudio": ["", "", "", ""],
-            "SubscribeVideo": ["", "", "", ""],
-            "UnsubscribeVideo": ["", "", "", ""]
-        },
-
-        "RecordingConfig": {
-            "MediaChannel": 2,
-            "FileType": ["mp4", "webm"],
-            "StorageConfig": {
-                "PublicKey": "xxxxxxx",
-                "SecretKey": "xxxxx",
-                "Region": "xxx",
-                "Bucket": "xxxxxx",
-                "FileNamePrefix": ""
-            }
-        },
-
         "LiveConfig": {
             "Type": "rtmp",
             "Url": "rtmp://xxxxx"
@@ -306,11 +303,12 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+
 
 ## 6. 更新流
 
 ### 6.1 更新流的请求
+
 ```json
 {
     "Version": "1.0",
@@ -322,7 +320,7 @@ Internal
     "Data": {
     	"Stream": {
             "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
+            "SubScribeId": “$userId_$mediaType”
             "HasVideo": true,
             "HasAudio": true,
             "MuteVideo": false,
@@ -334,6 +332,7 @@ Internal
 字段具体标识请阅读**配置参数详解**。
 
 ### 6.2 更新流的响应
+
 ```json
 {
     "Version": "1.0",
@@ -344,8 +343,8 @@ Internal
     },
     "Data": {
     	"Stream": {
-            "CmdType":1/2/3, 1 加流 2删流 3 mute
-            "SubScribeId": "xxx_1"
+            "CmdType":1/2/3, 1 加流 2 删流 3 mute/unmute流
+            "SubScribeId": “$userId_$mediaType”
             "HasVideo": true,
             "HasAudio": true,
             "MuteVideo": false,
@@ -361,6 +360,8 @@ Internal
 
 ### 7.1 更新合流布局的请求
 
+修改 MixerConfig 合流布局的样式，修改 MixedVideoLayout 布局样式。
+
 ```json
 {
     "Version": "1.0",
@@ -371,19 +372,11 @@ Internal
     },
     "Data": {
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": “$userId_$mediaType”,
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "Crop": false,
-            "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
-            "WaterMark": {
-                "Type": 1/2/3,
-                "Image": "",
-                "Text": "",
-                "X": 10,
-                "Y": 10,
-                "Alpha": 0.1
-            },
+            "ResizeMode": 2,
+            "MixedVideoLayout": 2,
         }
     }
 }
@@ -406,28 +399,51 @@ Internal
         "ChannelType": 0/1,
     },
     "Data": {
-        "JobConfig": {
-            "IdleTime": 60,
-            "KeyStream": "user_type"
-        },
-
         "MixerConfig": {
-            "MaxResolutionStream": "user_type",
+            "MaxResolutionStream": “$userId_$mediaType”,
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "Crop": false,
-            "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
-            "WaterMark": {
-                "Type": 1/2/3,
-                "Image": "",
-                "Text": "",
-                "X": 10,
-                "Y": 10,
-                "Alpha": 0.1
-            },
+            "ResizeMode": 2,
+            "MixedVideoLayout": 2,
         }
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+
+## 8. 停止旁路推流任务
+
+### 8.1 停止旁路推流任务的请求
+
+当房间内无用户，超过预设时间（默认为 60 秒） 后，也会自动停止旁路推流。
+
+```json
+{
+    "Version": "1.0",
+    "Action":"job.stop",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": { }
+}
+```
+
+### 8.2 停止旁路推流任务的返回
+
+```json
+{
+    "Version": "1.0",
+    "Ack": "job.distroied",
+    "RetCode": 0,
+    "Message": "OK",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": { }
+}
+```
 
