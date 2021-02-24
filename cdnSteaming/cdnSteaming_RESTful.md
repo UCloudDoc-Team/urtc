@@ -889,15 +889,15 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 	
   - ucloud_living_status_update
       EventType 表示转推服务状态发生变化
-    - Status: int 类型， 云端录制当前状态，请参考模块状态服务码，[服务状态码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_124-服务状态码)。
+    - Status: int 类型， 云端录制当前状态，请参考[服务状态码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_124-服务状态码)。
 
   - ucloud_living_warning.
       EventType 表示转推服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_126-告警码)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_126-告警码)。
 
   - ucloud_living_error.
   	 EventType 表示转推服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码，[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_living_stream_update.
@@ -912,11 +912,11 @@ ucloud_living_session_failover 	| job.living  (转推服务）	    | 转推服�
 
   - ucloud_mixer_warning.
       EventType 表示合流录制服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码，[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[告警码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
 
   - ucloud_mixer_error.
   	 EventType 表示合流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](urtc/cdnSteaming/cdnSteaming_RESTful?id=_125-错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_mixer_stream_update.
