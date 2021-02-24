@@ -1,4 +1,4 @@
-# 旁路转推 RESTful API使用指南
+# 旁路转推 RESTful API
 
 # 1. 说明
 
