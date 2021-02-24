@@ -19,7 +19,7 @@
 开启任务 | job.start | job.stat | 将任务开启，开启`转推`功能。
 开启录制 | job.record.start | job.record.stat | 在转推开启后再开启云端录制功能
 关闭录制 | job.record.stop | job.record.stat | 在转推开启后再关闭云端录制功能
-更新订阅流的黑白名单 | job.subscribe.update | job.subscribe.stat | 更新订阅流的黑白名单，传入白名单或者黑名单。<br>需要注意的是，白名单和黑名单不允许共存。
+更新订阅的黑白名单 | job.subscribe.update | job.subscribe.stat | 更新订阅的黑白名单，传入白名单或者黑名单。<br>需要注意的是，白名单和黑名单不允许共存。
 更新合流配置 | job.mixer.update | job.mixer.stat | 更新合流模板，合流后的风格样式、水印等。
 更新流 | job.stream.update | job.stream.stat | 更新流，可以添加、删除流，mute以及非mute流状态。
 开启消息通知 | job.notify.update | job.notify.stat | 更新消息通知服务状态
