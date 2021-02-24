@@ -41,5 +41,5 @@ iOS 平台上所有的应用内置浏览器只能使用系统提供的 WebView�
 
 ## 不兼容平台的处理
 
-对于不兼容webrtc的浏览器，可以通过[旁路推流](urtc/sdk/Video/cdnSteaming)，拉取HLS、flv音视频流来降级兼容。
+对于不兼容webrtc的浏览器，可以通过[旁路推流](cdnSteaming/index)，拉取HLS、flv音视频流来降级兼容。
 
