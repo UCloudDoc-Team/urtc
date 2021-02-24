@@ -61,12 +61,209 @@ Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
 Data|json对象|根据不同的请求类型，data中的内容也不同，其中包含着具体请求结果的私有数据。
 
-## 2. 旁路推流的调用时序
+## 2. 旁路推流 调用时序
 
 下图为实现 旁路推流 需要调用的 API 时序图。    
 
 ![](/images/cdnSteamingImage/cdnSteamingStart.png)
 
-
 >查询、更新流、更新合流配置都是可选的，且可以多次调用，但是必须在旁路推流过程中（开始旁路推流后到结束旁路推流前）调用。
 
+## 3 获取云端资源
+
+在开始录制前，必须调用 job.acquire 方法请求一个用于旁路推流的 JobId 。
+
+
+### 3.1 获取云端资源的请求
+
+```json
+{
+    "Version": "1.0",
+    "Action":"job.acquire",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 1,
+        "ChannelType": 0/1,
+    },
+    "Data": { }
+}
+```
+
+Internal       
+    - AppId：string类型，开发者ID。AppId可从 URTC 产品中获取，可以参考[开通URTC服务](urtc/quick)。     
+    - RoomId：string类型，录制的房间ID。    
+    - ChannelType: int类型，0 会议模式（小班课）,1 直播模式（大班课）。    
+- Data：空
+
+
+### 3.2 获取云端资源的返回
+
+```json
+{
+    "Version": "1.0",
+    "Ack": "job.init",
+    "RetCode": 0,
+    "Message": "OK",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": {
+        "JobId": "xxx"
+    }
+}
+```
+
+- Data
+    - JobId：string类型，申请到的任务标识，**后续所有请求必须带上这个JobId**。
+
+
+# 4. 开始旁路推流
+
+## 4.1 请求
+
+```json
+{
+    "Version": "1.0",
+    "Action":"job.start",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": {
+        "JobConfig": {
+            "IdleTime": 60,
+            "KeyStream": "user_type"
+        },
+        "NotifyConfig": [
+        	{
+                "Status": "open",
+                "ServiceType": "job.living",
+                "NotifyUrl": "http://127.0.0.1:123/callback",
+                "Token": "xxxx"
+        	},
+        ],
+        "TranscodingConfig": {
+            "Bitrate": 2000,
+            "Video": {
+                "Codec": "h264",
+                "Width":1920,
+                "Height": 1080,
+                "Fps": 30,
+                "Profile": "highprofile"
+            },
+            "Audio": {
+                "Codec": "aac",
+                "SampleRate": 48000
+            }
+        },
+        "MixerConfig": {
+            "MaxResolutionStream": "user_type",
+            "BackgroundColor": {"R": 0, "G": 0, "B": 0},
+            "ResizeMode": 0/1/2,
+            "MixedVideoLayout":  0/1/2/3/4/5,
+	
+            "WaterMark": {
+                "Type": 1/2/3,
+                "Image": "",
+                "Text": "",
+                "X": 10,
+                "Y": 10,
+                "Alpha": 0.1
+            }
+        },
+
+        "SubscribeConfig": {
+            "VideoStreamType": 0/1,
+            "MaxSubscriptions": 32,
+            "SubscribeAudio": ["", "", "", ""],
+            "UnsubscribeAudio": ["", "", "", ""],
+            "SubscribeVideo": ["", "", "", ""],
+            "UnsubscribeVideo": ["", "", "", ""]
+        },
+
+        "LiveConfig": {
+            "Type": "rtmp",
+            "Url": "rtmp://xxxxx"
+        }
+    }
+}
+```
+
+## 4.2 返回
+
+```json
+{
+    "Version": "1.0",
+    "Ack":"job.stat",
+    "RetCode": 0,
+    "Message": "OK",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": {
+        "JobConfig": {
+            "IdleTime": 60,
+            "KeyStream": "user_type"
+        },
+
+        "TranscodingConfig": {
+            "Bitrate": 2000,
+            "Video": {
+                "Codec": "h264",
+                "Width":1920,
+                "Height": 1080,
+                "Fps": 30,
+                "Profile": "highprofile"
+            },
+            "Audio": {
+                "Codec": "aac",
+                "SampleRate": 48000
+            }
+        },
+
+        "MixerConfig": {
+            "MaxResolutionStream": "user_type",
+            "BackgroundColor": {"R": 0, "G": 0, "B": 0},
+            "ResizeMode": 0/1/2,
+            "MixedVideoLayout":  0/1/2/3/4,
+            "WaterMark": {
+                "Type": 1/2/3,
+                "Image": "",
+                "Text": "",
+                "X": 10,
+                "Y": 10,
+                "Alpha": 0.1
+            }
+        },
+
+        "SubscribeConfig": {
+            "VideoStreamType": 0/1,
+            "MaxSubscriptions": 32,
+            "SubscribeAudio": ["", "", "", ""],
+            "UnsubscribeAudio": ["", "", "", ""],
+            "SubscribeVideo": ["", "", "", ""],
+            "UnsubscribeVideo": ["", "", "", ""]
+        },
+
+        "LiveConfig": {
+            "Type": "rtmp",
+            "Url": "rtmp://xxxxx"
+        }
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
