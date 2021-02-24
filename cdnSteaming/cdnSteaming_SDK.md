@@ -1,4 +1,4 @@
-# 旁路推流URTC SDK API使用指南
+# 旁路推流URTC SDK调用方法
 
 
 **SDK调用旁路推流的前提条件
