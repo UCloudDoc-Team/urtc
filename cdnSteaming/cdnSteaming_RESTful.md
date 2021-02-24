@@ -1,6 +1,6 @@
 # 旁路推流 RESTful 调用方法
 
-使用 RESTful API，无需集成 SDK，通过自己的业务服务器，可以向URTC服务请求 开启/关闭、更新 旁路推流的参数。
+使用 RESTful API，无需集成 SDK，通过自己的业务服务器，请求 开启/关闭 旁路推流、更新 旁路推流 的参数。
 
  - 开始/关闭 旁路推流
  - 查询当前的 旁路推流
@@ -319,7 +319,7 @@ Internal
     },
     "Data": {
     	"Stream": {
-            "CmdType":1/2/3,1 增加流 2 删除流 3 mute/unmute流
+            "CmdType":1/2/3,更新的动作：1 增加流 2 删除流 3 mute/unmute流
             "SubScribeId": “$userId_$mediaType”
             "HasVideo": true,
             "HasAudio": true,
@@ -329,7 +329,17 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
+
+#### stream
+ 
+ - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
+ - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
+ 	   - userId：string类型， 是用户Id。
+	    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
+ - HasVideo: bool类型，是否有视频
+ - HasAudio: bool类型，是否有音频
+ - MuteVideo: bool类型，当前视频的状态，true是mute，false是unmute
+ - MuteAudio: bool类型，当前音频的状态，true是mute，false是unmute
 
 ### 6.2 更新流的响应
 
