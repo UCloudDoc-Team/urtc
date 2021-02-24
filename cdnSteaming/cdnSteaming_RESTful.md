@@ -59,7 +59,7 @@ Ack| string类型|如开启任务、关闭任务，全部类型参看RESTful API
 RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
-Data|json对象|根据不同的请求类型，data中的内容也不同，其中包含着具体请求结果的私有数据。
+Data|json对象|根据不同的请求类型，data中的内容也不同。<br>包含着具体请求结果的私有数据。
 
 ## 2. 旁路推流 调用时序
 
@@ -67,7 +67,7 @@ Data|json对象|根据不同的请求类型，data中的内容也不同，其中
 
 ![](/images/cdnSteamingImage/cdnSteamingStartV2.png)
 
->查询、更新流、更新合流配置都是可选的，且可以多次调用，但是必须在旁路推流过程中（开始旁路推流后到结束旁路推流前）调用。
+>查询、更新流、更新合流配置都是可选的，且可以多次调用。但是必须在旁路推流过程中（开始旁路推流后到结束旁路推流前）调用。
 
 ## 3. 获取云端资源
 
@@ -183,6 +183,8 @@ Internal
 #### MixerConfig：合流配置
 
 - MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
+    - userId：string类型， 是用户Id。
+    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
 - ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
 - MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
@@ -197,8 +199,8 @@ Internal
 
 #### LiveConfig: 转推配置
 
-- Type： string类型， 转推的协议类型
-- Url: string类型， 转推服务器的地址
+- Type： string类型， 转推的协议类型，目前只支持 rtmp 。
+- Url: string类型， 转推服务器的地址。
 
 ### 4.2 开始旁路推流的返回
 
@@ -334,8 +336,8 @@ Internal
  
  - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
  - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
- 	   - userId：string类型， 是用户Id。
-	    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
+    - userId：string类型， 是用户Id。
+    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
  - HasVideo: bool类型，是否有视频
  - HasAudio: bool类型，是否有音频
  - MuteVideo: bool类型，当前视频的状态，true是mute，false是unmute
