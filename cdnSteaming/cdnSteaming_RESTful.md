@@ -65,7 +65,7 @@ Data|json对象|根据不同的请求类型，data中的内容也不同，其中
 
 下图为实现 旁路推流 需要调用的 API 时序图。    
 
-![](/images/cdnSteamingImage/cdnSteamingStart.png)
+![](/images/cdnSteamingImage/cdnSteamingStartV2.png)
 
 >查询、更新流、更新合流配置都是可选的，且可以多次调用，但是必须在旁路推流过程中（开始旁路推流后到结束旁路推流前）调用。
 
