@@ -69,7 +69,7 @@ Data|json对象|根据不同的请求类型，data中的内容也不同，其中
 
 >查询、更新流、更新合流配置都是可选的，且可以多次调用，但是必须在旁路推流过程中（开始旁路推流后到结束旁路推流前）调用。
 
-## 3 获取云端资源
+## 3. 获取云端资源
 
 在开始旁路推流之前，必须调用 job.acquire 方法请求一个用于旁路推流的 JobId 。每个 JobId 只能用于一次 旁路推流 的任务。
 
@@ -319,7 +319,7 @@ Internal
     },
     "Data": {
     	"Stream": {
-            "CmdType":1/2/3, 1 加流 2删流 3 mute
+            "CmdType":1/2/3,1 增加流 2 删除流 3 mute/unmute流
             "SubScribeId": “$userId_$mediaType”
             "HasVideo": true,
             "HasAudio": true,
@@ -343,7 +343,7 @@ Internal
     },
     "Data": {
     	"Stream": {
-            "CmdType":1/2/3, 1 加流 2 删流 3 mute/unmute流
+            "CmdType":1/2/3, 
             "SubScribeId": “$userId_$mediaType”
             "HasVideo": true,
             "HasAudio": true,
@@ -353,8 +353,6 @@ Internal
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
-
 
 ## 7. 更新合流布局
 
@@ -376,12 +374,11 @@ Internal
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "Crop": false,
             "ResizeMode": 2,
-            "MixedVideoLayout": 2,
+            "MixedVideoLayout": 2,修改 MixedVideoLayout 布局样式为2，表示 垂直风格
         }
     }
 }
 ```
-字段具体标识请阅读**配置参数详解**。
 
 ### 7.2 更新合流布局的返回
 
