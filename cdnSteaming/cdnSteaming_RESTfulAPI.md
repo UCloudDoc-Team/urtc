@@ -785,7 +785,7 @@ Internal
 ### SubscribeConfig：订阅流配置
 
 - VideoStreamType: int类型，0 自动添加视频流（默认） 1 手动添加视频流
-- MaxSubscriptions: int类型，一个房间里最大的录像流数目，默认 32。
+- MaxSubscriptions: int类型，一个房间里最大的录像流数目，默认 9。
 - SubscribeAudio: array类型，音频白名单，除了该名单以外的流都不录制音频，不能与`UnsubscribeAudio`共用。
 - SubscribeVideo: array类型，视频白名单，除了该名单以外的流都不录制视频，不能与`UnsubscribeVideo`共用。
 - UnsubscribeAudio: array类型，音频黑名单，除了该名单以外的流都要录制音频，不能与`SubscribeAudio`共用。
