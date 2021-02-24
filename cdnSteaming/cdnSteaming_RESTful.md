@@ -71,8 +71,7 @@ Data|json对象|根据不同的请求类型，data中的内容也不同，其中
 
 ## 3 获取云端资源
 
-在开始录制前，必须调用 job.acquire 方法请求一个用于旁路推流的 JobId 。
-
+在开始旁路推流之前，必须调用 job.acquire 方法请求一个用于旁路推流的 JobId 。每个 JobId 只能用于一次 旁路推流 的任务。
 
 ### 3.1 获取云端资源的请求
 
@@ -123,9 +122,9 @@ Internal
     - JobId：string类型，申请到的任务标识，**后续所有请求必须带上这个JobId**。
 
 
-# 4. 开始旁路推流
+## 4. 开始旁路推流
 
-## 4.1 请求
+### 4.1 开始旁路推流的请求
 
 ```json
 {
@@ -140,18 +139,49 @@ Internal
         "ChannelType": 0/1,
     },
     "Data": {
-        "JobConfig": {
-            "IdleTime": 60,
-            "KeyStream": "user_type"
+        "TranscodingConfig": {
+            "Bitrate": 2000,
+            "Video": {
+                "Codec": "h264",
+                "Width":1920,
+                "Height": 1080,
+                "Fps": 30,
+                "Profile": "highprofile"
+            },
+            "Audio": {
+                "Codec": "aac",
+                "SampleRate": 48000
+            }
         },
-        "NotifyConfig": [
-        	{
-                "Status": "open",
-                "ServiceType": "job.living",
-                "NotifyUrl": "http://127.0.0.1:123/callback",
-                "Token": "xxxx"
-        	},
-        ],
+        "MixerConfig": {
+            "MaxResolutionStream": “$userId_$mediaType”,
+            "ResizeMode": 2,
+            "MixedVideoLayout": 1,
+        },
+        "LiveConfig": {
+            "Type": "rtmp",
+            "Url": "rtmp://xxxxx"
+        }
+    }
+}
+```
+
+### 4.2 开始旁路推流的返回
+
+```json
+{
+    "Version": "1.0",
+    "Ack":"job.stat",
+    "RetCode": 0,
+    "Message": "OK",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": {
         "TranscodingConfig": {
             "Bitrate": 2000,
             "Video": {
@@ -169,28 +199,9 @@ Internal
         "MixerConfig": {
             "MaxResolutionStream": "user_type",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "ResizeMode": 0/1/2,
-            "MixedVideoLayout":  0/1/2/3/4/5,
-	
-            "WaterMark": {
-                "Type": 1/2/3,
-                "Image": "",
-                "Text": "",
-                "X": 10,
-                "Y": 10,
-                "Alpha": 0.1
-            }
+            "ResizeMode": 2,
+            "MixedVideoLayout": 1,
         },
-
-        "SubscribeConfig": {
-            "VideoStreamType": 0/1,
-            "MaxSubscriptions": 32,
-            "SubscribeAudio": ["", "", "", ""],
-            "UnsubscribeAudio": ["", "", "", ""],
-            "SubscribeVideo": ["", "", "", ""],
-            "UnsubscribeVideo": ["", "", "", ""]
-        },
-
         "LiveConfig": {
             "Type": "rtmp",
             "Url": "rtmp://xxxxx"
@@ -198,13 +209,29 @@ Internal
     }
 }
 ```
+字段具体标识请阅读 [配置参数详解](urtc/cdnSteaming/cdnSteaming_RESTfulAPI)。
 
-## 4.2 返回
+# 8. 查询任务状态
 
+## 8.1 请求
 ```json
 {
     "Version": "1.0",
-    "Ack":"job.stat",
+    "Action": "job.query",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {}
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+## 8.2 返回
+```json
+{
+    "Version": "1.0",
+    "Ack": "job.query.stat",
     "RetCode": 0,
     "Message": "OK",
     "Internal": {
@@ -221,13 +248,13 @@ Internal
         },
 
         "TranscodingConfig": {
-            "Bitrate": 2000,
+            "Bitrate": 1000,
             "Video": {
                 "Codec": "h264",
                 "Width":1920,
                 "Height": 1080,
-                "Fps": 30,
-                "Profile": "highprofile"
+                "Fps": 15,
+                "Profile": "baseline"
             },
             "Audio": {
                 "Codec": "aac",
@@ -238,8 +265,9 @@ Internal
         "MixerConfig": {
             "MaxResolutionStream": "user_type",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
+            "Crop": false,
             "ResizeMode": 0/1/2,
-            "MixedVideoLayout":  0/1/2/3/4,
+            "MixedVideoLayout": 0/1/2/3/4,
             "WaterMark": {
                 "Type": 1/2/3,
                 "Image": "",
@@ -259,6 +287,18 @@ Internal
             "UnsubscribeVideo": ["", "", "", ""]
         },
 
+        "RecordingConfig": {
+            "MediaChannel": 2,
+            "FileType": ["mp4", "webm"],
+            "StorageConfig": {
+                "PublicKey": "xxxxxxx",
+                "SecretKey": "xxxxx",
+                "Region": "xxx",
+                "Bucket": "xxxxxx",
+                "FileNamePrefix": ""
+            }
+        },
+
         "LiveConfig": {
             "Type": "rtmp",
             "Url": "rtmp://xxxxx"
@@ -267,3 +307,127 @@ Internal
 }
 ```
 字段具体标识请阅读**配置参数详解**。
+
+# 6. 更新合流布局
+
+## 6.1 请求
+
+```json
+{
+    "Version": "1.0",
+    "Action":"job.mixer.update",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {
+        "MixerConfig": {
+            "MaxResolutionStream": "user_type",
+            "BackgroundColor": {"R": 0, "G": 0, "B": 0},
+            "Crop": false,
+            "ResizeMode": 0/1/2,
+            "MixedVideoLayout": 0/1/2/3/4,
+            "WaterMark": {
+                "Type": 1/2/3,
+                "Image": "",
+                "Text": "",
+                "X": 10,
+                "Y": 10,
+                "Alpha": 0.1
+            },
+        }
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+## 6.2 返回
+
+```json
+{
+    "Version": "1.0",
+    "Ack": "job.mixer.stat",
+    "RetCode": 0,
+    "Message": "OK",
+    "Internal": {
+        "JobId": "xxx",
+        "AppId": "xxx",
+        "RoomId": "xxx",
+        "Mode": 0/1,
+        "ChannelType": 0/1,
+    },
+    "Data": {
+        "JobConfig": {
+            "IdleTime": 60,
+            "KeyStream": "user_type"
+        },
+
+        "MixerConfig": {
+            "MaxResolutionStream": "user_type",
+            "BackgroundColor": {"R": 0, "G": 0, "B": 0},
+            "Crop": false,
+            "ResizeMode": 0/1/2,
+            "MixedVideoLayout": 0/1/2/3/4,
+            "WaterMark": {
+                "Type": 1/2/3,
+                "Image": "",
+                "Text": "",
+                "X": 10,
+                "Y": 10,
+                "Alpha": 0.1
+            },
+        }
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+# 7. 更新流的状态
+
+## 7.1 请求
+```json
+{
+    "Version": "1.0",
+    "Action": "job.stream.update",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {
+    	"Stream": {
+            "CmdType":1/2/3, 1 加流 2删流 3 mute
+            "SubScribeId": "xxx_1"
+            "HasVideo": true,
+            "HasAudio": true,
+            "MuteVideo": false,
+            "MuteAudio": false
+    	}
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+## 7.2 响应
+```json
+{
+    "Version": "1.0",
+    "Action": "job.stream.status",
+    "Token": "xxxxxxx",
+    "Internal": {
+        "JobId": "xxx",
+    },
+    "Data": {
+    	"Stream": {
+            "CmdType":1/2/3, 1 加流 2删流 3 mute
+            "SubScribeId": "xxx_1"
+            "HasVideo": true,
+            "HasAudio": true,
+            "MuteVideo": false,
+            "MuteAudio": false
+    	}
+    }
+}
+```
+字段具体标识请阅读**配置参数详解**。
+
+
