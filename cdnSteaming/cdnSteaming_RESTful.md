@@ -139,7 +139,7 @@ Internal
         "JobId": "xxx",
         "AppId": "xxx",
         "RoomId": "xxx",
-        "Mode": 0/1,
+        "Mode": 1,
         "ChannelType": 0/1,
     },
     "Data": {
@@ -218,7 +218,7 @@ Internal
         "JobId": "xxx",
         "AppId": "xxx",
         "RoomId": "xxx",
-        "Mode": 0/1,
+        "Mode": 1,
         "ChannelType": 0/1,
     },
     "Data": {
@@ -277,7 +277,7 @@ Internal
         "JobId": "xxx",
         "AppId": "xxx",
         "RoomId": "xxx",
-        "Mode": 0/1,
+        "Mode": 1,
         "ChannelType": 0/1,
     },
     "Data": {
@@ -408,7 +408,7 @@ Internal
         "JobId": "xxx",
         "AppId": "xxx",
         "RoomId": "xxx",
-        "Mode": 0/1,
+        "Mode": 1,
         "ChannelType": 0/1,
     },
     "Data": {
@@ -453,7 +453,7 @@ Internal
         "JobId": "xxx",
         "AppId": "xxx",
         "RoomId": "xxx",
-        "Mode": 0/1,
+        "Mode": 1,
         "ChannelType": 0/1,
     },
     "Data": { }
