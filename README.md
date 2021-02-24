@@ -57,6 +57,15 @@ URTC 云端录制，是URTC针对实时音视频研发的录制服务。
 * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
 * [录制水印说明](/urtc/cloudRecord/RecordWatermark)  
 
+## [旁路推流](/urtc/cdnSteaming/index)  
+
+URTC 旁路推流，是URTC针对实时音视频研发的推流服务，推到直播的平台。
+
+* [SDK调用方法](/urtc/cdnSteaming/cdnSteaming_SDK)    
+* [RESTful 调用方法](/urtc/cdnSteaming/cdnSteaming_RESTful)    
+* [RESTful API列表](/urtc/cdnSteaming/cdnSteaming_RESTfulAPI)    
+* [混流风格说明](/urtc/cdnSteaming/Laylout)  
+
 ## [质量监控](/urtc/quality/qualityDocs)
 
 URTC服务支持监控实时通话质量，在控制台 实时音视频URTC 里，查看应用中的质量监控，可以查看房间监控、用户监控、流监控。
