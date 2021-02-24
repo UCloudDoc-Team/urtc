@@ -248,7 +248,7 @@ Internal
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
-            "MixedVideoLayout":  0/1/2/3/4,
+            "MixedVideoLayout":  0/1/2/3/4/5,
             "WaterMark": {
                 "Type": 1/2/3,
                 "Image": "",
@@ -483,7 +483,7 @@ Internal
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
+            "MixedVideoLayout": 0/1/2/3/4/5,
             "WaterMark": {
                 "Type": 1/2/3,
                 "Image": "",
@@ -523,7 +523,7 @@ Internal
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
+            "MixedVideoLayout": 0/1/2/3/4/5,
             "WaterMark": {
                 "Type": 1/2/3,
                 "Image": "",
@@ -641,7 +641,7 @@ Internal
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
             "ResizeMode": 0/1/2,
-            "MixedVideoLayout": 0/1/2/3/4,
+            "MixedVideoLayout": 0/1/2/3/4/5,
             "WaterMark": {
                 "Type": 1/2/3,
                 "Image": "",
