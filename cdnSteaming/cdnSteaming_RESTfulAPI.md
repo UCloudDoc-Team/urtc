@@ -49,7 +49,7 @@
 接口 | 描述
 --- | ---
 Version| 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action| 请求类型，详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
+Action| 请求的类型，如开启任务、关闭任务，全部类型参看上文[2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
 Token| 鉴权Token，生成规则参考 [Token生成指导](urtc/sdk/token)。
 Internal| 不同Action需要携带的与频道、房间等配置有关的参数。
 Data| 不同Action需要携带的跟转码、合流、转推等配置有关的参数。
@@ -75,7 +75,7 @@ Data| 不同Action需要携带的跟转码、合流、转推等配置有关的�
 接口 | 参数类型 | 描述
 --- | ---| ---
 Version|string类型|同请求字段中的`Version`。
-Ack| string类型|详情参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
+Ack| string类型|如开启任务、关闭任务，全部类型参看上文 [2.1 接口列表](urtc/cdnSteaming/cdnSteaming_RESTful?id=_21-接口列表)。
 RetCode|int类型|错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message|string类型|错误的文本提示。
 Internal|json对象|不同Action需要携带的与频道、房间等配置有关的参数。
@@ -750,6 +750,8 @@ Internal
 ## MixerConfig：合流配置
 
 - MaxResolutionStream：string类型，指定合流模板中,最大分辨率的子画面的用户ID及媒体流的类型，`“$userId_$mediaType”`。
+    - userId：string类型， 是用户Id。
+    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
 - BackgroundColor：json对象，背景色（RGB值），`{"R": 0, "G": 0, "B": 0}`代表黑色。
 - ResizeMode：int类型，合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边
 - MixedVideoLayout：int类型，合流布局模板选择，可设置为：0-5。`0` 为自定义模板需参考`Layouts`中的模板信息。1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体风格参照[混流风格](urtc/cloudRecord/RecordLaylout)。
@@ -770,8 +772,20 @@ Internal
   - Alpha：int类型，透明度，浮点型，取值范围 0 ~ 1。
 
 
+#### stream：更新流
+
+ - CmdType: string类型，更新的动作： 1 增加流 2 删除流 3 mute/unmute流
+ - SubScribeId: string类型，这路流的标识 “$userId_$mediaType”
+    - userId：string类型， 是用户Id。
+    - mediaType：int类型，是指摄像头流或桌面流，1 代表摄像头流，2 代表桌面流。
+ - HasVideo: bool类型，是否有视频
+ - HasAudio: bool类型，是否有音频
+ - MuteVideo: bool类型，当前视频的状态，true是mute，false是unmute
+ - MuteAudio: bool类型，当前音频的状态，true是mute，false是unmute
+
 ## SubscribeConfig：订阅流配置
 
+- VideoStreamType: int类型，0 自动添加视频流（默认） 1 手动添加视频流
 - MaxSubscriptions: int类型，一个房间里最大的录像流数目，默认 32。
 - SubscribeAudio: array类型，音频白名单，除了该名单以外的流都不录制音频，不能与`UnsubscribeAudio`共用。
 - SubscribeVideo: array类型，视频白名单，除了该名单以外的流都不录制视频，不能与`UnsubscribeVideo`共用。
@@ -780,8 +794,8 @@ Internal
 
 ## LiveConfig: 转推配置
 
-- Type： string类型， 转推的协议类型
-- Url: string类型， 转推服务器的地址
+- Type： string类型， 转推的协议类型，目前只支持 rtmp 。
+- Url: string类型， 转推服务器的地址。
 
 
 # 11. 更新消息通知服务
