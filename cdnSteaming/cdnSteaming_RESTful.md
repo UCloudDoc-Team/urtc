@@ -12,6 +12,8 @@
 
 ### 1.1 请求的公共字段
 
+-  RESTful API 使用POST接口类型。
+
 ```json
 {
     "Version": "1.0",
@@ -36,6 +38,8 @@ Data| 不同Action需要携带的跟转码、合流、转推等配置有关的�
 
 
 ## 1.2 返回中的公共字段
+
+-  RESTful API 的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。
 
 ```json
 {
