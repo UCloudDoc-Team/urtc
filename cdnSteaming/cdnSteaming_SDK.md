@@ -306,19 +306,7 @@ self.manager?.deleteMixStream(streams);
 
 <!-- tabs:end -->
 
-## 4. 播放直播流
-
-不同直播服务平台的直播流域名规则，不完全相同，这里只以UCloud的 [直播云ULive](https://docs.ucloud.cn/ulive/README) 举例。    
-
-示例： 推流域名：publish.company.com，接入点：test。rtmp播放域名：rtmp.company.com， hls播放域名：hls.company.com 。    
-则    
-推流地址为：rtmp://publish.company.com/test/{Roomid}       
-rtmp播放地址为：rtmp://rtmp.company.com/test/{Roomid}    
-hls播放地址为：http://hls.company.com/test/{Roomid}/playlist.m3u8    
-
-> 播放直播流产生的流量，按照 [直播云ULive产品价格](https://docs.ucloud.cn/ulive/charge) 而定。
-
-## 5. 开发注意事项
+## 4. 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
  - 旁路推流，混流时的合成风格，可以参考 [混流风格](urtc/cloudRecord/RecordLaylout)。
