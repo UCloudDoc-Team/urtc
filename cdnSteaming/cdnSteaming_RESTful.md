@@ -298,7 +298,6 @@ Internal
         "MixerConfig": {
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 2,
             "MixedVideoLayout": 1,
         },
@@ -388,7 +387,6 @@ Internal
         "MixerConfig": {
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 2,
             "MixedVideoLayout": 2,修改 MixedVideoLayout 布局样式为2，表示 垂直风格
         }
@@ -415,7 +413,6 @@ Internal
         "MixerConfig": {
             "MaxResolutionStream": "$userId_$mediaType",
             "BackgroundColor": {"R": 0, "G": 0, "B": 0},
-            "Crop": false,
             "ResizeMode": 2,
             "MixedVideoLayout": 2,
         }
