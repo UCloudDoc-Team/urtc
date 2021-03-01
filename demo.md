@@ -15,7 +15,7 @@
 
 > 电脑上 推荐使用Chrome谷歌浏览器，iOS手机 推荐使用Safari浏览器，安卓手机 推荐使用 微信浏览器。
 
-[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-web-demo-main-20210106.zip) 
+[WEB DEMO 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-web-demo-main-20210301.zip) 
 
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-web-demo) 
 
@@ -26,7 +26,7 @@
 
 扫描二维码下载 或 用手机浏览器输入这个网址：https://app.urtc.com.cn/91c1 
 
-[安卓 app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Fucloud_rtc_android_demo_20200408.zip) 
+[安卓 app 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-android-demo-master-20210301.zip) 
 
 [安卓 app 源码-GitHub](https://github.com/ucloud/urtc-android-demo) 
 
@@ -46,7 +46,7 @@
 
 [立即体验](http://urtcdemo.ufile.ucloud.com.cn/setup-20201224.zip) 
 
-[Windows客户端 源码-UCloud云下载](https://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-win-demo-master-20201125.zip)
+[Windows客户端 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-win-demo-master-20210301.zip)
 
 [Windows客户端 源码-GitHub](https://github.com/ucloud/urtc-win-demo)
 
