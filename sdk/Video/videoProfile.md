@@ -157,7 +157,7 @@ public UCloudRtcSdkErrorCode setVideoProfile(UCloudRtcSdkVideoProfile profile);
 
 ```java
 //设置720P分辨率
-sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720;
+sdkEngine.setVideoProfile(UCLOUD_RTC_SDK_VIDEO_PROFILE_1280_720);
 
 ``` 
 
