@@ -15,7 +15,7 @@
 
 下表中的浏览器，可以使用无插件屏幕分享。   
 
-| windows 系统 | macOS 系统 |
+| Windows 系统 | macOS 系统 |
 |-|-|
 | Chrome 72+ | Chrome 72+ |
 | Firefox 66+ | Firefox 66+|
