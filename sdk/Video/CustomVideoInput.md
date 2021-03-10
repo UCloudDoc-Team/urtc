@@ -167,7 +167,7 @@ self.manager.extendVideoFrame = videoFrame;
 
 ### 开发注意事项
 
-1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间前设置；
+1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间前设置；    
 2.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
 
 
