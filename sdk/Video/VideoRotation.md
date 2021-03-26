@@ -39,6 +39,8 @@ sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
 
 ## ** Android **
 
+
+
 ### 实现方法
 
 通过设置视频采集旋转方向，保证视频在采集端和播放端始终一致，设置模式一共有三种，横屏竖屏和自动旋转。
@@ -65,6 +67,42 @@ UCloudRtcSdkEnv.setPushOrientation(UCloudRtcSdkPushOrentation.UCLOUD_RTC_PUSH_LA
 
 //固定竖屏方式
 UCloudRtcSdkEnv.setPushOrientation(UCloudRtcSdkPushOrentation.UCLOUD_RTC_PUSH_PORTRAIT_MODE);
+```
+
+### 视频输出模式
+
+除了以上提供到采集端方向设置之外，sdk还提供了视频端输出方向模式，为防止视频因旋转出现大头、缩放或剪切的问题。
+
+setVideoOutputOrientation提供了UCloudRtcSdkVideoOutputOrientationMode参数，可以通过这个参数，结合视频场景需要，获取想要的视频渲染效果。
+
+UCloudRtcSdkVideoOutputOrientationMode参数一共有三种方向模式：
+
+1.Adaptive 模式
+
+该模式下 SDK 输出的视频方向与采集到的视频方向一致。接收端会根据收到的视频旋转信息对视频进行旋转。该模式适用于接收端可以调整视频方向的场景:
+
+如果采集的视频是横屏模式，则输出的视频也是横屏模式。
+如果采集的视频是竖屏模式，则输出的视频也是竖屏模式。
+
+2.FixedLandscape 模式
+
+该模式下，SDK 保证输出的视频相对 Status Bar 总是处于横屏模式；如果采集到的视频是竖屏模式，则相对于播放端 Status bar 平行方向的画面会被裁剪。
+
+3.FixedPortrait 模式
+
+该模式下，SDK 保证输出的视频相对 Status Bar 总是处于竖屏模式；如果采集到的视频是横屏模式，则相对于播放端 Status bar 垂直方向的画面会被裁剪。
+
+### 视频输出模式设置示例代码
+```java
+
+//视频输出方向与采集方向一致
+UCloudRtcSdkEnv.setVideoOutputOrientation(UCloudRtcSdkVideoOutputOrientationMode.UCLOUD_RTC_VIDEO_OUTPUT_ADAPTIVE_MODE);
+
+//固定横向视频输出模式
+UCloudRtcSdkEnv.setVideoOutputOrientation(UCloudRtcSdkVideoOutputOrientationMode.UCLOUD_RTC_VIDEO_OUTPUT_FIXED_LANDSCAPE_MODE);
+
+//固定垂直视频输出模式
+UCloudRtcSdkEnv.setVideoOutputOrientation(UCloudRtcSdkVideoOutputOrientationMode.UCLOUD_RTC_VIDEO_OUTPUT_FIXED_PORTRAIT_MODE);
 ```
 
 <!-- tabs:end -->
