@@ -12,14 +12,10 @@
 ```objectivec
 typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
     UCloudRtcOrientationModeAdaptive,       // 自适应模式
-    UCloudRtcOrientationModeLandscapeLeft,  // Home键位置向左
-    UCloudRtcOrientationModeLandscapeRight, // Home键位置向右
+    UCloudRtcOrientationModeFixedLandscape, //横屏布局
+    UCloudRtcOrientationModeFixedPortrait,//竖屏布局
 };
 ```
-
-- `UCloudRtcOrientationModeAdaptive`模式：采集方向会根据重力感应自动调整，使采集端和播放端始终一致。
-- `UCloudRtcOrientationModeLandscapeLeft`模式：设备横屏，固定Home键向左，输出的视频相对`StatusBar`总是处于横屏模式。
-- `UCloudRtcOrientationModeLandscapeRight`模式：设备横屏，固定Home键向右，输出的视频相对`StatusBar`总是处于横屏模式。
 
 ### 示例代码
 
@@ -33,8 +29,37 @@ typedef NS_ENUM(NSUInteger, UCloudRtcOrientationMode) {
 
 ``` objectivec
 // 根据屏幕旋转方向设置视频采集方向
-sdkEngine.orientationMode = UCloudRtcOrientationModeLandscapeLeft;
+//自适应模式
+sdkEngine.orientationMode = UCloudRtcOrientationModeAdaptive;
+
+//横屏布局
+sdkEngine.orientationMode = UCloudRtcOrientationModeFixedLandscape;
+
+//竖屏布局
+sdkEngine.orientationMode = UCloudRtcOrientationModeFixedPortrait;
 ```
+
+在视频旋转场景中，我们主要关注采集端和播放端的行为。其中：
+
+采集端采集并输出视频图像，以及视频相对于 Status Bar 的位置，即旋转信息。
+播放端渲染接收到的视频图像，并根据接收到的旋转信息，结合自身 Status Bar 的相对位置，旋转视频。
+为防止视频因旋转出现大头、缩放或剪切的问题， URTC SDK 在 sdkEngine 中还提供了一个 orientationMode 参数。你可以通过这个参数，结合视频场景需要，获取想要的视频渲染效果。
+
+1.Adaptive 模式
+
+该模式下 SDK 输出的视频方向与采集到的视频方向一致。接收端会根据收到的视频旋转信息对视频进行旋转。该模式适用于接收端可以调整视频方向的场景:
+
+如果采集的视频是横屏模式，则输出的视频也是横屏模式。
+如果采集的视频是竖屏模式，则输出的视频也是竖屏模式。
+
+2.FixedLandscape 模式
+
+该模式下，SDK 保证输出的视频相对 Status Bar 总是处于横屏模式；如果采集到的视频是竖屏模式，则相对于播放端 Status bar 平行方向的画面会被裁剪。
+
+3.FixedPortrait 模式
+
+该模式下，SDK 保证输出的视频相对 Status Bar 总是处于竖屏模式；如果采集到的视频是横屏模式，则相对于播放端 Status bar 垂直方向的画面会被裁剪。
+
 
 
 ## ** Android **
