@@ -1174,7 +1174,7 @@ urtcSdk.SetAudioOnlyMode(false) ;
 urtcSdk.SetAutoPubSub(false, false) ;
 urtcSdk.SetVideoProfile(1) ;
 urtcSdk.SetScreenOutProfile(2) ;
-urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
+urtcSdk.SetTokenSeckey("xxxxxxxxxxxxx") ;// appkey
 ```
 
 ## 5. 实现音视频通话
@@ -1185,7 +1185,7 @@ urtcSdk.SetTokenSeckey("9129304dbf8c5c4bf68d70824462409f") ;
 const jsonarg = {} ;
 jsonarg.uid = userid ;
 jsonarg.rid = roomid ;
-jsonarg.appid = "URtc-h4r1txxy" ;// test appid 
+jsonarg.appid = "urtc-xxxxxxxx" ;// appid 
 const jsonStr = JSON.stringify(jsonarg) ;
 console.log("joinroom : "+ jsonStr) ;
 urtcSdk.JoinRoom(jsonStr);
