@@ -15,17 +15,19 @@
 ### 2.1 Web开始录制
 
 ```js
+const bucket = 'xxx';
+const region = 'xxx';
 client.startRecord({
-  bucket: string  // 必传，存储的 bucket, URTC 使用 UCloud 的 US3 产品进行在存储，相关信息见控制台操作文档
-  region: string  // 必传，存储服务所在的地域
-}, function onSuccess(Record) {
-
-	//开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
-	//播放录制地址规则：const url = `http://${bucket}.${region}.ufileos.com/${Record.FileName}.mp4`;
-}, function(Err) {
-
-	//开始录制错误返回值
-
+  bucket: bucket,  // 必传，存储的 bucket, URTC 使用 UCloud 的 US3 产品进行在存储，相关信息见控制台操作文档
+  region: region   // 必传，存储服务所在的地域
+}, (err, record) => {
+  if (err) {
+    console.log('录制失败');
+  } else {
+    console.log(`录制成功, 文件地址：http://${bucket}.${region}.ufileos.com/${record.FileName}.mp4`);
+    //开始录制成功返回信息：录制的文件的名称FileName和录制编号RecordId
+    //播放录制地址规则：const url = `http://${bucket}.${region}.ufileos.com/${Record.FileName}.mp4`;
+  }
 })
 ```
 
@@ -36,14 +38,13 @@ client.startRecord({
 ### 2.2 Web停止录制
 
 ```js
-client.stopRecord(function onSuccess() {
-
-	//停止录制成功时执行的回调函数
-
-}, function(Err) {
-
-	//停止录制错误返回值
-	
+client.stopRecord((err) => {
+  //停止录制成功时执行的回调函数
+  if (err) {
+    console.log('停止失败')
+  } else {
+    console.log('停止成功')
+  }	
 })
 ```  
 
