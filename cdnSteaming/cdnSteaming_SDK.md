@@ -4,7 +4,7 @@
 ## SDK调用旁路推流的前提条件
 
 在实现**旁路推流**之前，请确保已经[集成SDK](urtc/sdk/VideoStart)，在项目中完成基本的音视频会议或者直播功能。
-
+<!-- {docsify-ignore-all} -->
 <!-- tabs:start -->
 
 ## ** Web **

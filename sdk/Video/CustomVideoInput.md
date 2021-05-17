@@ -1,5 +1,5 @@
 # 自定义视频采集
-
+<!-- {docsify-ignore-all} -->
 <!-- tabs:start -->
 
 ## ** Android **

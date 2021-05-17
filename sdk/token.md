@@ -10,7 +10,7 @@
 >  `AppKey`，UCloud控制台创建项目获取到的AppKey；    
 
 这里提供几种参考代码，供服务端直接使用，生成`Token`。
-
+<!-- {docsify-ignore-all} -->
 <!-- tabs:start -->
 
 ## ** Go **

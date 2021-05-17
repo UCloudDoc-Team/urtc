@@ -1,6 +1,6 @@
 # 视频采集旋转
 
-
+<!-- {docsify-ignore-all} -->
 <!-- tabs:start -->
 
 ## ** iOS **
