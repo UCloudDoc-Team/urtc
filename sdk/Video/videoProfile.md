@@ -189,10 +189,6 @@ sdkEngine.videoProfile = UCloudRtcEngine_VideoProfile_720P;
 
 <!-- tabs:end -->
 
-## 开发注意事项
-
-设置视频参数，需要在**发布之前**使用。
-
 
 ## 常用分辨率、帧率、码率
 
