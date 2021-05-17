@@ -13,15 +13,13 @@
 
 设置视频的 `profile` 限制 客户端 使用的视频大小、帧率、带宽等。 
 
-> 设置之前，可以先通过`getSupportProfileNames`获取到视频质量支持的值，不设置时，默认为 "640*480"。
+> 设置之前，可以先通过`getSupportProfileNames`获取到一些 sdk 预设的视频质量（针对不同视频宽高预设了较合理的码率及帧率），不设置时，默认为 "640*480"。
 
 ### 示例代码
 
 ```js
-client.setVideoProfile({
-  previewId?: string,   // 选填，本地（预览）流的 previewId，不填时，为修改全局的 video profile 设置，供后续创建或发布的流使用
-  profile: "1280*720"      // 必填，指定 video profile为 720P
-}, function() {
+client.setVideoProfile("1280*720"   // 指定全局的 video profile 为 720P，此外，还支持指定某条流的 video profile，以及自定义宽高、码率、帧率的 video profile，详见 sdk API 文档
+, function() {
  //成功时回调
 }, function(Err){
  //失败时回调，Err 为错误信息
