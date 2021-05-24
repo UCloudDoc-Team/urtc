@@ -167,14 +167,47 @@ self.manager.extendVideoFrame = videoFrame;
 
 ### 开发注意事项
 
-1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间前设置；    
-2.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
+1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间后，发流前设置； 
+2.外部采集有两种模式， 拉模式和推模式。  
+    2.1 拉模式使用摄像头采集线程回调UCloudIVideoFrameObserver接口获取数据，此模式会占用摄像头
+        设置顺序如下：
+        enableExtendVideocapture();
+        SetExtendMediaDataMode(UCloud_EMDM_PULL);
+        registerVideoFrameObserver();
+        
+    2.2 推模式外部直接调用接口pushVideoFrameData pushAudioFrameData 推送数据给SDK， 推送的数据里需要包含时间戳信息。
+        设置顺序如下：
+        enableExtendVideocapture();
+        enableExtendAudiocapture();
+        SetExtendMediaDataMode(UCloud_EMDM_PUSH);
+        发流成功送调用
+        pushVideoFrameData();
+        pushAudioFrameData();
+    2.3 模式的选择在发布UCLOUD_RTC_MEDIATYPE_VIDEO前设置，发布后不能切换。
+   
+3.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
 
 
 
 ## ** Windows **
 
 ```cpp
+
+///推送一帧外部采集的视频数据给SDK
+///@param video 视频数据
+///@return 0 succ
+virtual int pushVideoFrameData(tUCloudRtcVideoFrame *video) = 0;
+
+///推送一帧外部采集的音频数据给SDK
+///@param audio 视频数据
+///@return 0 succ
+virtual int pushAudioFrameData(tUCloudRtcAudioFrame *audio) = 0;
+
+///设置外部采集数据的获取方式 
+///@param mode  UCloud_EMDM_PUSH：推送数据给sdk   UCloud_EMDM_PULL：SDK拉数据
+///@return 0 succ
+virtual int SetExtendMediaDataMode(eUCloudExtendMediaDataMode mode) = 0;
+    
 //该方法用于注册视频观测器对象
 //@param codec 编码类型
 virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
