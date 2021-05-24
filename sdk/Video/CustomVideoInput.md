@@ -167,25 +167,8 @@ self.manager.extendVideoFrame = videoFrame;
 
 ### 开发注意事项
 
-1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间后，发流前设置； 
-2.外部采集有两种模式， 拉模式和推模式。  
-    2.1 拉模式使用摄像头采集线程回调UCloudIVideoFrameObserver接口获取数据，此模式会占用摄像头
-        设置顺序如下：
-        enableExtendVideocapture();
-        SetExtendMediaDataMode(UCloud_EMDM_PULL);
-        registerVideoFrameObserver();
-        
-    2.2 推模式外部直接调用接口pushVideoFrameData pushAudioFrameData 推送数据给SDK， 推送的数据里需要包含时间戳信息。
-        设置顺序如下：
-        enableExtendVideocapture();
-        enableExtendAudiocapture();
-        SetExtendMediaDataMode(UCloud_EMDM_PUSH);
-        发流成功送调用
-        pushVideoFrameData();
-        pushAudioFrameData();
-    2.3 模式的选择在发布UCLOUD_RTC_MEDIATYPE_VIDEO前设置，发布后不能切换。
-   
-3.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
+1.默认使用SDK的摄像头采集视频，即默认enableExtendVideoCapture=NO，若设置为YES，开启自定义视频源数据，并请在加入房间前设置；    
+2.UCloudRtcEngine提供 UCloudRtcVideoFrame 对象，可扩展自定义视频分辨率和帧率，若不设置，默认为原视频源数据；
 
 
 
@@ -193,6 +176,16 @@ self.manager.extendVideoFrame = videoFrame;
 
 ```cpp
 
+//该方法用于注册视频观测器对象
+//@param codec 编码类型
+virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
+
+//开启外部采集视频
+//@param enable 是否使用扩展的外部采集摄像头
+//@param videocapture 外部视频源
+//@return 0 succ
+virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
+    
 ///推送一帧外部采集的视频数据给SDK
 ///@param video 视频数据
 ///@return 0 succ
@@ -207,17 +200,7 @@ virtual int pushAudioFrameData(tUCloudRtcAudioFrame *audio) = 0;
 ///@param mode  UCloud_EMDM_PUSH：推送数据给sdk   UCloud_EMDM_PULL：SDK拉数据
 ///@return 0 succ
 virtual int SetExtendMediaDataMode(eUCloudExtendMediaDataMode mode) = 0;
-    
-//该方法用于注册视频观测器对象
-//@param codec 编码类型
-virtual void registerVideoFrameObserver(UCloudIVideoFrameObserver *observer) = 0;
 
-//开启外部采集视频
-//@param enable 是否使用扩展的外部采集摄像头
-//@param videocapture 外部视频源
-//@return 0 succ
-virtual int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* videocapture) = 0;
-    
 //视频监听回调
 class _EXPORT_API UCloudIVideoFrameObserver
     {
@@ -232,12 +215,21 @@ class _EXPORT_API UCloudIVideoFrameObserver
     
 ### 开发注意事项
    
-初始化引擎后：    
-1.调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。    
-2.当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
-3.在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换，拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。       
-4.当需要切换回内置数据采集时`enableExtendVideocapture(false,customCapture)`。    
+自定义采集有两种模式：PULL模式， PUSH模式
+####   PULL模式
+初始化引擎后,发布摄像头视频流前：    
+1. 调用`registerVideoFrameObserver` 注册相关的视频数据回调监听实例。
+2. 调用`SetExtendMediaDataMode` 设置送数据模式。    
+3. 当需要使用外置视频源时 调用`enableExtendVideocapture(true,nullptr)`。    
+4. 在回调类中实现`onCaptureFrame`接口，将自定义采集数据通过回调接口之间进行替换，拷贝到`videoFrame`的`mDataBuf`，并且返回true，即可完成外置源的数据送入。       
+5. 当需要切换回内置数据采集时`enableExtendVideocapture(false,customCapture)`。    
    
 > 注意：windows支持最大1920*1080p的yuvi420的数据，进行替换时需要先进行转成yuvi420数据进行替换。
+
+#### PUSH 模式
+初始化引擎后,发布摄像头视频流前: 
+1. 当需要使用外置视频源时，调用`enableExtendVideocapture(true,nullptr)`。 
+2. 调用`SetExtendMediaDataMode` 设置送数据模式。    
+3. UCLOUD_RTC_MEDIATYPE_VIDEO发布成功后， 调用`pushVideoFrameData` `pushAudioFrameData`把数据送给SDK， 送的数据中需要有时间戳信息。
 
 <!-- tabs:end -->
