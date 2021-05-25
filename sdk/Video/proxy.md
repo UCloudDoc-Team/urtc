@@ -42,14 +42,7 @@ UCloudRTC.setServers({
 ### 示例代码
 
 ```cpp
-engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
-tUCloudRtcAuth  auth；
-auth.mAppId = "xxx";    //your appid
-auth.mRoomId = "xxx";    //your roomid
-auth.mUserId = "xxx";    //your userid
-auth.mUserToken = "xxx";    //就这样写
 auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 云代理服务的域名
-engine->joinChannel(auth);
 ```
 
 ## ** Android **
