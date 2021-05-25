@@ -38,7 +38,14 @@ UCloudRTC.setServers({
 ### ** Windows **
 
 ```cpp
-auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 云代理服务的域名
+engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
+tUCloudRtcAuth  auth；
+auth.mAppId = "xxx";    //your appid
+auth.mRoomId = "xxx";    //your roomid
+auth.mUserId = "xxx";    //your userid
+auth.mUserToken = "xxx";    //your Token
+auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 URTC 实时音视频服务的IP或者域名
+engine->joinChannel(auth);
 ```
 
 ### ** Android **
