@@ -1,4 +1,4 @@
-# 版本说明
+# 版本发布说明
 <!-- {docsify-ignore-all} -->
 <!-- tabs:start -->
 
@@ -9,10 +9,10 @@
 
 该版本发布于 2021-5-24。
 
-1. 修复华为微信浏览器对音效处理导致音频异常的问题
+1. 修复华为手机上微信浏览器对音效处理导致音频异常的问题
 2. 修复 queryMix API 在无录制或转推任务时仍返回 MixId 的问题
 3. playEffect API 新增 onEnd 参数，用于通知业务侧音效播放完毕
-4. 新增对 electron 环境中发布屏幕共享流的支持
+4. 新增对 Electron 环境中发布屏幕共享流的支持
 5. 优化 previewId / streamId 造成的混淆问题
 
 ### 1.6.27版
@@ -56,7 +56,7 @@
 
 该版本发布于 2021-3-10。
 
-1. 针对 Chrome 新版本充用 plan-b SDP 标准的升级
+1. 针对 Chrome 新版本采用 plan-b SDP 标准的升级
 2. 修复 iOS 或 safari 中 preloadEffect 失败的问题
 
 ### 1.6.22版
