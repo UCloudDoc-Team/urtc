@@ -29,8 +29,6 @@
 
 ## ** Web **
 
-### 示例代码
-
 ```js
 UCloudRTC.setServers({
   signal: "wss://domain:5005" // domain 为 云代理服务的域名
@@ -39,21 +37,16 @@ UCloudRTC.setServers({
 
 ## ** Windows **
 
-### 示例代码
-
 ```cpp
 auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 云代理服务的域名
 ```
 
 ## ** Android **
 
-### 示例代码
-
 ```java
  UCloudRtcSdkEnv.setPrivateDeploy(true);
  UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://domain:5005/ws"); // domain 为 云代理服务的域名
 ```
-
 
 <!-- tabs:end -->
 
