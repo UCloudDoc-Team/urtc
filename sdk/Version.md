@@ -5,6 +5,25 @@
 
 ## ** Web **
 
+### 1.6.28版
+
+该版本发布于 2021-5-24。
+
+1. 修复华为微信浏览器对音效处理导致音频异常的问题
+2. 修复 queryMix API 在无录制或转推任务时仍返回 MixId 的问题
+3. playEffect API 新增 onEnd 参数，用于通知业务侧音效播放完毕
+4. 新增对 electron 环境中发布屏幕共享流的支持
+5. 优化 previewId / streamId 造成的混淆问题
+
+### 1.6.27版
+
+该版本发布于 2021-5-10。
+
+1. 移除 invoke too frequently 错误
+2. 将 PreviewStreamOptions 类型更名为 CreateStreamOptions
+3. 修正文档
+4. 其他内部优化
+
 
 ### 1.6.26版
 
