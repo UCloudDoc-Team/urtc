@@ -14,6 +14,15 @@
 1. 未部署Web后台服务器。运行本地服务时，Web客户端只能通过本机的 `http://localhost` 或者 `http://127.0.0.1`访问。
 2. 部署的是HTTP的Web后台服务器。由于浏览器的安全策略对除`http://localhost` 或者 `http://127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议，必须使用 HTTPS 访问。
 
+## Chrome谷歌浏览器93版本，URTC SDK无法推拉流
+Chrome谷歌浏览器中会有如图的报错信息。    
+![ ](images/SDP_PlanB.png)
+故障原因：    
+Chrome谷歌浏览器自93版本及以后，WebRTC在建立连接阶段将仅支持使用标准的 SDP （Session Description Protocol，是一种通用的会话描述协议）格式：Unified Plan，并彻底废弃 Plan B 语义，影响所有在 Chrome 中使用 Plan B 建立 WebRTC 连接的用户。https://www.chromestatus.com/feature/5823036655665152
+解决方案：    
+URTC web SDK 1.6.23及以上版本对此变更做了适配。    
+URTC web sdk 低于 1.6.23 版本的用户需要升级到最新版本。    
+
 ## 无法发布音视频流
 
 故障原因：  
