@@ -14,7 +14,7 @@
 1. 未部署Web后台服务器。运行本地服务时，Web客户端只能通过本机的 `http://localhost` 或者 `http://127.0.0.1`访问。
 2. 部署的是HTTP的Web后台服务器。由于浏览器的安全策略对除`http://localhost` 或者 `http://127.0.0.1`以外的 HTTP 地址作了限制，Web SDK 仅支持 HTTPS 协议，必须使用 HTTPS 访问。
 
-## Chrome谷歌浏览器93版本，URTC SDK无法推拉流
+## Chrome谷歌浏览器93版本中，使用URTC SDK无法推拉流
 Chrome谷歌浏览器中会有如图的报错信息。 
 
 ![ ](images/SDP_PlanB.png)
