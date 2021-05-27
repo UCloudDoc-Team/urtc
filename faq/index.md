@@ -20,10 +20,10 @@ Chrome谷歌浏览器中会有如图的报错信息。
 ![ ](images/SDP_PlanB.png)
 
 故障原因：    
-Chrome谷歌浏览器自93版本及以后，WebRTC在建立连接阶段将仅支持使用标准的 SDP （Session Description Protocol，是一种通用的会话描述协议）格式：Unified Plan，并彻底废弃 Plan B 语义，影响所有在 Chrome 中使用 Plan B 建立 WebRTC 连接的用户。官方通告链接：https://www.chromestatus.com/feature/5823036655665152。    
+Chrome谷歌浏览器自93版本及以后，WebRTC在建立连接阶段将仅支持使用标准的 SDP （Session Description Protocol，是一种通用的会话描述协议）格式：Unified Plan，并彻底废弃 Plan B 语义，影响所有在 Chrome谷歌浏览器 中使用 Plan B 建立 WebRTC 连接的用户。官方通告链接：https://www.chromestatus.com/feature/5823036655665152。    
 解决方案：    
-URTC web SDK 1.6.23及以上版本对此变更做了适配。    
-URTC web sdk 低于 1.6.23 版本的用户需要升级到最新版本。    
+URTC Web SDK 1.6.23及以上版本对此变更做了适配。    
+URTC Web SDK 低于 1.6.23 版本的用户需要升级到最新版本。    
 
 ## 无法发布音视频流
 
