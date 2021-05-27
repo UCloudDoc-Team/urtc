@@ -26,7 +26,7 @@
 
 扫描二维码下载 或 用手机浏览器输入这个网址：https://app.urtc.com.cn/91c1 
 
-[安卓 app 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-android-demo-master-20210301.zip) 
+[安卓 app 源码-UCloud云下载](http://urtcdemo.ufile.ucloud.com.cn/demo源码/urtc-android-demo-master-20210527.zip) 
 
 [安卓 app 源码-GitHub](https://github.com/ucloud/urtc-android-demo) 
 
