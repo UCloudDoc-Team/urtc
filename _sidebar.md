@@ -22,6 +22,7 @@
 		* [视频快照](/urtc/sdk/Video/videoSnap)   
 		* [视频采集旋转](urtc/sdk/Video/VideoRotation)   
 		* [自定义视频采集](/urtc/sdk/Video/CustomVideoInput)  
+		* [云代理服务](/urtc/sdk/Video/proxy)   
 		* [设备测试与切换](/urtc/sdk/Device/DeviceTestSwitch)     
 		* [通话前检测网络质量](/urtc/sdk/Device/TestQuality)   
 		* [通话中质量监测](/urtc/sdk/Device/CallQuality) 
