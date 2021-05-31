@@ -29,8 +29,10 @@
 ```js
 UCloudRTC.setServers({
   signal: "wss://domain:5005" // domain 为 云代理服务的域名
+  log: "https://log.urtc.com.cn" // log 为 URTC 日志服务的访问地址
 })
 ```
+
 ### ** Windows **
 ```cpp
 engine->setServerGetFrom(UCLOUD_RTC_SERVER_GET_FROM_USER_DIRECT); 
@@ -42,11 +44,13 @@ auth.mUserToken = "xxx";    //your Token
 auth.mServerUrl =  "wss://domain:5005/ws";// domain 为 云代理服务的域名
 engine->joinChannel(auth);
 ```
+
 ### ** Android **
 ```java
  UCloudRtcSdkEnv.setPrivateDeploy(true);
  UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://domain:5005/ws"); // domain 为 云代理服务的域名
 ```
+
 <!-- tabs:end -->
 ## 开发注意事项
 在加入房间前，设置云代理服务。
