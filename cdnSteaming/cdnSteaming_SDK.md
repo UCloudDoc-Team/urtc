@@ -13,7 +13,7 @@
 
 ```js
 client.startRelay({
-  pushURL: ['rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll'],
+  pushURL: ['rtmp://xxxxxxxx'],
   layout: {
     type: 'main',
     mainViewUid: 'user-xxx',
@@ -77,7 +77,7 @@ relayconfig.mStreams = nullptr;
 //混流的用户(默认混房间内全部流)
 relayconfig.mStreamslength = 0;
 //混流的用户人数，0是根据房间推流自动混流，1~16是设定的混流数量
-m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
+m_rtcengine->addPublishStreamUrl("rtmp://xxxxxxxx",&relayconfig);
 //旁路推流的CDN地址
 
 ```
@@ -116,7 +116,7 @@ relayconfig.mStreams = nullptr;
 relayconfig.mStreamslength = 0;
 //自定义风格串
 relayconfig.mStyle ="{\"custom\":[{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"0\",\"width\":\"1\",\"height\":\"1\"}}]},{\"region\":[{\"id\":\"1\",\"shape\":\"rectangle\",\"area\":{\"left\":\"0\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}},{\"id\":\"2\",\"shape\":\"rectangle\",\"area\":{\"left\":\"1/2\",\"top\":\"1/4\",\"width\":\"1/2\",\"height\":\"1/2\"}}]}]}";
-m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll",&relayconfig);
+m_rtcengine->addPublishStreamUrl("rtmp://xxxxxxxx",&relayconfig);
 
 ```
 
@@ -124,7 +124,7 @@ m_rtcengine->addPublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll
 ### Windows停止旁路推流
 
 ```cpp
-m_rtcengine->removePublishStreamUrl("rtmp://publish3.cdn.ucloud.com.cn/ucloud/mylll");
+m_rtcengine->removePublishStreamUrl("rtmp://xxxxxxxx");
 ```
 
 ### Windows状态回调
@@ -175,7 +175,7 @@ UCloudRtcSdkMixProfile mixProfile = UCloudRtcSdkMixProfile.getInstance().assembl
         //添加流列表，也可以后续调用MIX_TYPE_UPDATE 动态添加
         .addStream(mUserid,UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
         //设置转推cdn 的地址
-        .addPushUrl("rtmp://rtcpush.ugslb.com/rtclive/" + mRoomid)
+        .addPushUrl("rtmp://xxxxxxxx" + mRoomid)
         .build();
 sdkEngine.startRelay(mixProfile);
 ```
@@ -217,7 +217,7 @@ UCloudRtcSdkMixProfile mixProfile = UCloudRtcSdkMixProfile.getInstance().assembl
         //添加流列表，参数一用户id，参数二推流来源（屏幕或camera）
         .addStream("testId",UCLOUD_RTC_SDK_MEDIA_TYPE_VIDEO.ordinal())
         //设置转推cdn 的地址
-        .addPushUrl("rtmp://rtcpush.ugslb.com/rtclive/" + mRoomid)
+        .addPushUrl("rtmp://xxxxxxxx" + mRoomid)
         .build();
 sdkEngine.updateMixConfig(mixProfile);
 ```
@@ -231,7 +231,7 @@ sdkEngine.updateMixConfig(mixProfile);
 let mixConfig = UCloudRtcMixConfig.init();
 mixConfig.type = 1; //1 旁路推流
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
-mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yketwz111"]; //转推地址
+mixConfig.pushurl = @[@"rtmp://xxxxxxxx"]; //转推地址
 mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
 mixConfig.layouts = @[]; //可选多布局
 mixConfig.bgColor = @{@"r": @200,@"g": @100, @"b": @50}; //背景色
@@ -251,7 +251,7 @@ self.manager?.startMix(mixConfig);
 UCloudRtcMixConfig *mixConfig = [UCloudRtcMixConfig new];
 mixConfig.type = 1; //1 旁路推流
 mixConfig.streams = @[]; //如果指定了用户，则只添加该用户的指定流，新加入的流处理由addstreammode参数决定
-mixConfig.pushurl = @[@"rtmp://rtcpush.ugslb.com/rtclive/URtc-h4r1txxy12111151yketwz111"]; //转推地址
+mixConfig.pushurl = @[@"rtmp://xxxxxxxx"]; //转推地址
 mixConfig.layout = 1; //1 流式(均分)布局, 2 讲课模式，主讲人占大部分屏幕，其他人小屏居于右侧或底部 3 自定义布局 4 定制讲课模式 5 定制均分模式
 mixConfig.layouts = @[]; //可选多布局
 mixConfig.bgColor = @{@"r": @200,@"g": @100, @"b": @50}; //背景色
