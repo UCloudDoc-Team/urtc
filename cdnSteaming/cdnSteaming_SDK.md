@@ -306,7 +306,7 @@ self.manager?.deleteMixStream(streams);
 
 <!-- tabs:end -->
 
-## 4. 开发注意事项
+## 开发注意事项
 
  - 开启旁路推流时，房间内必须有人发布流。
  - 旁路推流，混流时的合成风格，可以参考 [混流风格](urtc/cloudRecord/RecordLaylout)。
