@@ -4,7 +4,7 @@ URTC私有化服务，分为URTC实时音视频服务、URTC录制服务，2个�
 
 这里介绍RTC私有化 单机部署的步骤方法。    
 
-## ** 部署URTC 实时音视频服务 **
+## 单机部署URTC 实时音视频服务
 
 ### 1. 服务安装前的准备工作
 <details>
@@ -226,7 +226,7 @@ URTC私有化服务，分为URTC实时音视频服务、URTC录制服务，2个�
   A: `rm -rf /var/lib/dpkg/info/urtc-media*`
   
 
-## ** 部署URTC录制服务 **
+## 单机部署URTC录制服务
 
 ### 1. 安装配置并启动urtc-record
 #### 1.1 安装urtc-record
