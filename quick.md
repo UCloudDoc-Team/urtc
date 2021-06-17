@@ -8,11 +8,11 @@
 
 在UCLOUD官网，[【登录控制台】](https://passport.ucloud.cn/?service=https://console.ucloud.cn/#login)。  
 
->? 使用URTC服务之前，首先需要[注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/identity_verification/README) 。  
+?> 使用URTC服务之前，首先需要[注册账号](https://passport.ucloud.cn/#register) 并且完成 [实名认证](https://docs.ucloud.cn/identity_verification/README) 。  
 
 ## 2．创建URTC应用
 
->? 每个账号最大支持创建5个URTC应用，需要创建更多URTC应用，请联系客户经理增加配额。
+?> 每个账号最大支持创建5个URTC应用，需要创建更多URTC应用，请联系客户经理增加配额。
 
 可以通过2种方法：控制台、API创建URTC应用。    
 
