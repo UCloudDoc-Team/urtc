@@ -377,6 +377,7 @@ URTC实时音视频服务IP  rtc.example.com
 ```js
 UCloudRTC.setServers({
   signal: "wss://domain:5005" // domain 为 URTC 实时音视频服务的域名，domain不能用IP
+  log: "https://log.urtc.com.cn" // log 为 URTC 日志服务的访问地址
 })
 ```
 
