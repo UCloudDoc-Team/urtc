@@ -1035,7 +1035,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 ### 2.0.1版
 更新于2021-6-18    
-1.修复部分实用camera1的机型，切换摄像头时会崩溃的问题    
+1.修复部分使用camera1的机型，切换摄像头时会崩溃的问题    
 2.增加硬件编码开关控制，并追加支持amlogic芯片的硬件编解码。    
 3.解决上下麦偶现native崩溃的问题。
 
