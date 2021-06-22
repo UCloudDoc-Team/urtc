@@ -1041,9 +1041,8 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 
 ### 2.0.0版
 更新于2021-5-27    
-1.sdk结构变动。    
-2.增加unPublishOnly接口，用于只取消发布不停止预览    
-3.修正部分类名、方法名、参数名等，具体修改内容如下    
+1.增加unPublishOnly接口，用于只取消发布不停止预览    
+2.修正部分类名、方法名、参数名等，具体修改内容如下    
 UCloudRtcSdkEngine接口：   
 `UCloudRtcSdkEngine.destory`->`UCloudRtcSdkEngine.destroy`    
 UCloudRtcSdkEnv类：    
