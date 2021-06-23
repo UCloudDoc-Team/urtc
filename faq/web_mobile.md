@@ -7,7 +7,7 @@ URTC Web SDK移动端兼容的浏览器，具体如下表所示：
 
 |平台 | 浏览器 |
 |-|-|
-|Android 5.0+  | Chrome 60+ <br> 华为手机浏览器 10+ <br> 微信公众号/微信浏览器 7+  <br>内嵌 WebView 的应用（部分设备） |
+|Android 5.0+  | Chrome 60+ <br> 华为浏览器 10+ <br> 微信公众号/微信浏览器 7+  <br>内嵌 WebView 的应用（部分设备） |
 |iOS 11+   | 苹果Safari 11+ <br> 微信公众号/微信浏览器 7+（仅支持接收）<br> Chrome 60+（仅支持接收）  <br> 内嵌 WebView 的应用（仅支持接收）|
 |iOS 14.3+   | 苹果Safari 11+ <br> 微信公众号/微信浏览器 7+  <br> Chrome 60+   <br> 内嵌 WebView 的应用 |
 
