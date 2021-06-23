@@ -6,7 +6,7 @@ Web SDK兼容的浏览器，具体如下表所示：
 |-|-|
 |Windows 7+  | Chrome 60+ <br> Firefox 56+ <br> Opera 50+ <br> Edge 浏览器 79+ <br> QQ 浏览器 10+ <br> 360 安全浏览器 10+ <br> 360 极速浏览器 12+  |
 |macOS 10+    | Chrome 60+ <br> Firefox 56+ <br> Opera 50+  <br> Edge 浏览器 79+ <br> 360 极速浏览器 1+  <br> 苹果Safari 11+ |
-|Android 5.0+  | Chrome 60+ <br> 华为手机浏览器 10+ <br> 微信浏览器 7+ |
+|Android 5.0+  | Chrome 60+ <br> 华为浏览器 10+ <br> 微信浏览器 7+ |
 |iOS 11+   | 苹果Safari 11+ <br> Chrome 60+（仅支持接收） <br> 微信浏览器 7+（仅支持接收） |
 |iOS 14.3+   | 苹果Safari 11+ <br> Chrome 60+  <br> 微信浏览器 7+|
 
