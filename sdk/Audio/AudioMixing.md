@@ -10,7 +10,6 @@
 可以播放本地或者在线音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。    
 Web提供以下两种方法可以满足 播放音乐、播放混音音效的需求。
 
-
 ## 1. 播放音乐
 
 播放音乐是指用户分享本地播放器或者Web浏览器播放的音频，让房间内的其用户听到此音频。    
@@ -146,7 +145,7 @@ m_rtcengine->startAudioMixing(const char* filepath(本地文件), bool replace�
 可以播放音乐文件，实现播放背景音乐的功能，支持单独本地播放和同时播放给房间内的其他人。
 目前支持wav,mp3和aac格式的音频文件。
 
-### 2.1  播放音乐
+### 播放音乐
 
 ```java
 sdkEngine.startPlayAudioFile(
@@ -157,21 +156,21 @@ sdkEngine.startPlayAudioFile(
 
 ```
 
-### 2.2  暂停播放
+### 暂停播放
 
 ```java
 sdkEngine.pauseAudioFile();
 
 ```
 
-### 2.3  恢复播放
+### 恢复播放
 
 ```java
 sdkEngine.resumeAudioFile();
 
 ```
 
-### 2.4  停止播放
+### 停止播放
 
 ```java
 sdkEngine.stopPlayAudioFile();
@@ -182,28 +181,28 @@ sdkEngine.stopPlayAudioFile();
 
 可以播放本地音乐文件到房间，分享音频或者作为背景音乐，给房间内的其他人。  
 
-### 2.1  播放音乐
+### 播放音乐
 
 ```objectivec
 待更新
 
 ```
 
-### 2.2  暂停播放
+### 暂停播放
 
 ```objectivec
 待更新
 
 ```
 
-### 2.3  恢复播放
+### 恢复播放
 
 ```objectivec
 待更新
 
 ```
 
-### 2.4  停止播放
+### 停止播放
 
 ```objectivec
 待更新
