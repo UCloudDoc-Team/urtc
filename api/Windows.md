@@ -70,7 +70,13 @@ URTC Windows SDK API包含以下方法：
 |  [regDeviceChangeCallback](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-regDeviceChangeCallback) |  注册设备热插拔回调通知 |  
 |  [addPublishStreamUrl](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-addPublishStreamUrl) |  旁路推流 |  
 |  [removePublishStreamUrl](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-removePublishStreamUrl) |  停止旁路推流 |  
-|  [updateRtmpMixStream](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-updateRtmpMixStream) |  更新旁路推流合流的流 |  
+|  [updateRtmpMixStream](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class-updateRtmpMixStream) |  更新旁路推流合流的流 | 
+|  [ setServerGetFrom](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class- setServerGetFrom) |  设置接入方式  | 
+|  [ pushVideoFrameData](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class- pushVideoFrameData) |  推送视频数据  | 
+|  [ pushAudioFrameData](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class- pushAudioFrameData) |  推送音频数据  | 
+|  [ SetExtendMediaDataMode](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class- SetExtendMediaDataMode) |  设置外部源送数据模式  | 
+|  [ setAudioProfile](https://github.com/ucloud/urtc-win-demo/tree/master/doc#class- setAudioProfile) |  设置音频编码模式  | 
+
 
 ## 2. UcloudMediaDevice设备引擎接口类
 
