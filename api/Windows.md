@@ -212,4 +212,10 @@ typedef enum _tUCloudRtcReturnErrCode {
 | [eUCloudRtcNetworkQuality](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcNetworkQuality) | 上下行网络类型 | 
 | [eUCloudRtcQualityType](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudRtcQualityType) | 网络评分 | 
 | [UcloudRtcDeviceChanged](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-UcloudRtcDeviceChanged) | 热插拔回调 | 
+| [UCloudRtcExtendAudioCaptureSource](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-UCloudRtcExtendAudioCaptureSource) |  音频外部采集 |
+| [UCloudRtcRelayStream](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-UCloudRtcRelayStream) |  转推的流 |
+| [eUCloudMixLayout](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudMixLayout) |  转推混流操作类型 |
+| [UCloudRtcTranscodeConfig](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-UCloudRtcTranscodeConfig) |  转推配置 |
+| [eUCloudExtendMediaDataMode](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudExtendMediaDataMode) |  外部源模式 |
+| [eUCloudAudioProfile](https://github.com/ucloud/urtc-win-demo/tree/master/doc#struct-eUCloudAudioProfile) |  音频编码属性 |
 
