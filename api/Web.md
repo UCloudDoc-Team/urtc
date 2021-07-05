@@ -81,5 +81,5 @@ Client 类包含以下方法：
 |[publishStream 方法 ](https://github.com/ucloud/urtc-sdk-web#client-publishstream) | 发布一条本地流 |
 |[unpublishStream 方法 ](https://github.com/ucloud/urtc-sdk-web#client-unpublishstream) | 取消发布一条本地流 |
 |[destroyStream 方法 ](https://github.com/ucloud/urtc-sdk-web#client-destroystream) | 销毁一条本地流 |
-
+|[enableAudioVolumeIndicator 方法 ](https://github.com/ucloud/urtc-sdk-web#client-enableAudioVolumeIndicator) | 开启远程流音量指示器 |
 
