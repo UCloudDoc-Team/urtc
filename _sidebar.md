@@ -4,7 +4,9 @@
     * [产品功能](/urtc/introduction/functions)
     * [产品架构](/urtc/introduction/structure)
     * [应用场景](/urtc/introduction/scenario)
-* [产品价格](/urtc/price)
+* 产品价格
+    * [计费说明](/urtc/price/index)
+    * [预付费套餐](/urtc/price/prepay)
 * [开通 URTC 服务](/urtc/quick)
 * [URTC SDK 集成指南](/urtc/sdk/index)
     * [URTC常用术语](urtc/sdk/term)
