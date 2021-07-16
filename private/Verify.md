@@ -70,6 +70,13 @@ engine->joinChannel(auth);
  UCloudRtcSdkEnv.setPrivateDeployRoomURL("wss://domain:5005/ws"); // domain 为 URTC 实时音视频服务的IP或者域名
 ```
 
+#### 1.4 iOS客户端
+
+示例如下：   
+```
+
+```
+
 ## 2. URTC录制的验证
 使用以上客户端，录制一段音视频内容；关闭录制后，生成录制文件。    
 结束录制时，客户端返回的录制地址，为云存储的地址。    
