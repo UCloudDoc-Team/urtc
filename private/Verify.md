@@ -71,10 +71,10 @@ engine->joinChannel(auth);
 ```
 
 #### 1.4 iOS客户端
-
+如对接SDK，需要设置引擎的customeWS参数为URTC实时音视频服务的IP或者域名。      
 示例如下：   
-```
-
+``` objc
+_rtcEngine.customeWS = @"wss://domain:5005/ws";// domain 为 URTC 实时音视频服务的IP或者域名
 ```
 
 ## 2. URTC录制的验证
