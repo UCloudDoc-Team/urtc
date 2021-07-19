@@ -4,8 +4,8 @@
 
 ## 操作步骤
 
-1. 在UCloud控制台，【全部产品】-【视频服务】-【实时音视频】，找到[套餐包管理](https://console.ucloud.cn/urtc/shop)。    
+1. 在UCloud控制台，【全部产品】-【视频服务】-【实时音视频】，找到[套餐包管理](https://console.ucloud.cn/urtc/shop)，点击【购买套餐包】。    
 ![](/images/priceImage/01.png)
-2. 点击【购买套餐包】，选择 套餐包 时长、数量。    
+2. 在购买页面，选择 套餐包的时长、数量。    
 ![](/images/priceImage/02.png)
 3. 确认信息，并完成支付。    
