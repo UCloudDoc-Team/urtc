@@ -6,7 +6,7 @@
     * [应用场景](/urtc/introduction/scenario)
 * 产品价格
     * [计费说明](/urtc/price/index)
-    * [预付费套餐 说明](/urtc/price/prepay)
+    * [时长套餐包 说明](/urtc/price/prepay)
     * [时长套餐包 购买指南](/urtc/price/PrepayGuide)
     * [时长套餐包 退费说明](/urtc/price/refund)
 * [开通 URTC 服务](/urtc/quick)
