@@ -19,7 +19,7 @@ URTC SDK支持Web、Android、iOS、macOS、Windows、Electron多种客户端的
 URTC产品，按照客户端的接收的音视频（客户端的下行），实时计费，默认后付费。
 购买 URTC 的 `时长套餐包`可直接享受到 折扣优惠，购买`时长套餐包`的时长越高，享受的 折扣优惠 越多，最高可直接享受 **8 折** 优惠价。     
 * [计费说明](/urtc/price/index)
-* [预付费套餐 说明](/urtc/price/prepay)
+* [时长套餐包 说明](/urtc/price/prepay)
 * [时长套餐包 购买指南](/urtc/price/PrepayGuide)
 * [时长套餐包 退费说明](/urtc/price/refund)
 
