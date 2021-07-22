@@ -32,9 +32,9 @@
 
 ### iOS DEMO
 
-![](/images/demoImage/iOSdemoV1.2.png)
+![](/images/demoImage/iOSdemoV1.3.png)
 
-扫描二维码下载 或 用手机浏览器输入这个网址：https://app.urtc.com.cn/6bfw
+扫描二维码下载 或 用手机浏览器输入这个网址：https://app.urtc.com.cn/pxzy
 
 [iOS app 源码-UCloud云下载](http://urtcdemo.cn-bj.ufileos.com/demo%E6%BA%90%E7%A0%81%2Furtc-ios-demo-master-20200831.zip)
 
