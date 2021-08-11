@@ -12,9 +12,9 @@
   
     [下载Demo](https://github.com/ucloud/urtc-linux-demo)      
   
-    [下载SDK](http://urtcsdk.cn-bj.ufileos.com/urtclib.zip)     
+    [下载SDK](http://urtcsdk.cn-bj.ufileos.com/urtclib202108.zip)     
     
-    [下载SDK接口文档](http://urtcsdk.cn-bj.ufileos.com/URTC%20linux%20sdk%20api%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3.tar.gz)    
+    [下载SDK接口文档](http://urtcsdk.cn-bj.ufileos.com/Linux_SDK_API_202108.md)    
 
 ## 3. 开发语言以及系统要求
 
