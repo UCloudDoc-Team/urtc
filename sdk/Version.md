@@ -1047,7 +1047,7 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 ## ** Android **
 
 ### 2.0.4版
-更新于2021-8-4       
+发布于2021-8-4       
 1.解决本地停止本地渲染会造成内存泄漏问题。       
 2.解决在connecting状态下调用startLocalRender无效，造成本地回显黑屏的问题。       
 3.实现部分设备切换前后摄时，跳过同侧其他Camera。       
@@ -1055,25 +1055,25 @@ int enableExtendVideocapture(bool enable, UCloudRtcExtendVideoCaptureSource* vid
 5.解决单音频发布时，权限检测错误导致无法发布的问题。       
 
 ### 2.0.3版
-更新于2021-7-13       
+发布于2021-7-13       
 1.支持控制拉流音量的功能。       
 2.解决获取帧的头包错误导致崩溃问题。       
 3.修复订阅回调中获取mute状态不正确的问题。       
 
 ### 2.0.2版
-更新于2021-7-2       
+发布于2021-7-2       
 1.修复部分使用camera1的机型，翻转前后摄像头失效的问题。       
 2.支持后摄闪光灯开关功能。       
 3.支持远端和本地镜像功能。       
 	
 ### 2.0.1版
-更新于2021-6-18    
+发布于2021-6-18    
 1.修复部分使用camera1的机型，切换摄像头时会崩溃的问题    
 2.增加硬件编码开关控制，并追加支持amlogic芯片的硬件编解码。    
 3.解决上下麦偶现native崩溃的问题。
 
 ### 2.0.0版
-更新于2021-5-27    
+发布于于2021-5-27    
 1.增加unPublishOnly接口，用于只取消发布不停止预览    
 2.修正部分类名、方法名、参数名等，具体修改内容如下    
 UCloudRtcSdkEngine接口：   
