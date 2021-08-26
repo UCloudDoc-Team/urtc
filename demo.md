@@ -2,9 +2,7 @@
 
 支持演示 视频会议/直播、在线教育的班课/直播课。不同客户端，加入同一个房间就可以互通，现在开始体验DEMO吧。
 
-## ** URTC DEMO **
-
-### WEB DEMO
+## WEB DEMO
 
 ![](/images/demoImage/webImage.png)
 
@@ -17,7 +15,7 @@
 [WEB DEMO 源码-GitHub](https://github.com/ucloud/urtc-web-demo) 
 
 
-### 安卓 DEMO
+## 安卓 DEMO
 
 ![](/images/demoImage/andrioddemo0409.png)
 
@@ -27,7 +25,7 @@
 
 [安卓 app 源码-GitHub](https://github.com/ucloud/urtc-android-demo) 
 
-### iOS DEMO
+## iOS DEMO
 
 ![](/images/demoImage/iOSdemoV1.3.png)
 
@@ -37,7 +35,7 @@
 
 [iOS app 源码-GitHub](https://github.com/ucloud/urtc-ios-demo)
 
-### Windows DEMO
+## Windows DEMO
 
 ![](/images/demoImage/windowsImage.png)
 
@@ -47,7 +45,7 @@
 
 [Windows客户端 源码-GitHub](https://github.com/ucloud/urtc-win-demo)
 
-### macOS DEMO
+## macOS DEMO
 
 ![](/images/demoImage/macOSImage.png)
 
