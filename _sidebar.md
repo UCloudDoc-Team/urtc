@@ -34,6 +34,7 @@
 		* [断网自动重连策略](/urtc/sdk/Device/ReConnect)  
 * [开通云端录制服务](/urtc/cloudRecord/index)  
     * [云端录制SDK代码示例](/urtc/cloudRecord/RecordStart)    
+    * [云端录制RESTful 调用方法](/urtc/cloudRecord/RestfulAPI)  
     * [录制回放](/urtc/cloudRecord/PlayRecordFile)
     * [录制混流风格说明](/urtc/cloudRecord/RecordLaylout)  
     * [录制水印说明](/urtc/cloudRecord/RecordWatermark)  
