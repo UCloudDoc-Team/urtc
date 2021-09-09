@@ -1651,11 +1651,11 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 
   - ucloud_record_warning.
       EventType 表示单流录制服务状态发生变化
-      - WarnCode: int 类型，告警码，根据当前服务模块类型，查看具体模块的告警码。[16.5 告警码](#)。
+      - WarnCode: int 类型，告警码，根据当前服务模块类型，查看具体模块的[告警码](### 14.5 告警码)。
 
   - ucloud_record_error
   	 EventType 表示单流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[16.3 错误码](#)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](### 14.3 错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_record_file_infos.
@@ -1671,11 +1671,11 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 
   - ucloud_living_warning.
       EventType 表示直播转推服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码。[16.4 状态码](#)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[状态码](### 14.4 状态码)。
 
   - ucloud_living_error.
   	 EventType 表示直播转推服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[16.3 错误码](#)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_living_stream_update.
@@ -1690,11 +1690,11 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 
   - ucloud_mixer_warning.
       EventType 表示合流录制服务状态发生变化
-      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的告警码。[16.4 告警码](#)。
+      - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[告警码](### 14.5 告警码)。
 
   - ucloud_mixer_error.
   	 EventType 表示合流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[16.3 错误码](#)。
+    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
     - ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_mixer_stream_update.
