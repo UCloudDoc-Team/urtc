@@ -223,8 +223,8 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -364,8 +364,8 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -752,8 +752,8 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -784,8 +784,8 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -809,7 +809,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
     "Action":"job.update",
     "Token": "xxx",
     "Internal": {
-        "JobId": "URtc-h4r1txxy-testa-1-1620888861-89"
+        "JobId": "xxxxxxxxx-testa-1-1620888861-89"
     },
     "Data": {
         "NotifyConfig": [ 
@@ -849,8 +849,8 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -959,8 +959,8 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -1061,8 +1061,8 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac",
@@ -1392,8 +1392,8 @@ MuteAudio     |bool类型    |必填   |音频的状态。
     "Action":"job.start",
     "Token": "xxxxxxx",
     "Internal": {
-        "JobId": "URtc-h4r1txxy-123-yInVQgRk",
-        "AppId": "URtc-h4r1txxy",
+        "JobId": "xxxxxxxxx-123-yInVQgRk",
+        "AppId": "xxxxxxxxx",
         "RoomId": "123",
         "Mode": 1,
         "ChannelType": 1
@@ -1410,8 +1410,8 @@ MuteAudio     |bool类型    |必填   |音频的状态。
                 "Width":1920,
                 "Height": 1080,
                 "Fps": 15,
-                "BitRate": 1000,
-                "Profile": "baseline"
+                "BitRate": 2000,
+                "Profile": "highprofile"
             },
             "Audio": {
                 "Codec": "aac_48000_2",
@@ -1807,8 +1807,8 @@ SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
  "Action":"job.start",
  "Token":"用户token",
  "Internal":{
-     "JobId":"URtc-h4r1txxy-2234-1-1613994034",
-     "AppId":"URtc-h4r1txxy",
+     "JobId":"xxxxxxxxx-2234-1-1613994034",
+     "AppId":"xxxxxxxxx",
      "RoomId":"2234",
      "Mode":1,
      "ChannelType":0,
