@@ -24,7 +24,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 - `job`开启之后，`单流录制`不能和`合流录制`功能共同使用。
 但是可以同时启动两个`job`，一个`job`用来`单流录制`，一个`job`用来`合流录制`。
 
-- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考 [https://docs.ucloud.cn/urtc/sdk/Token](https://docs.ucloud.cn/urtc/sdk/Token)
+- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考 [Token生成指导](https://docs.ucloud.cn/urtc/sdk/Token)
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
 
@@ -36,15 +36,15 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 
 接口 | 请求 | 返回 | 描述
 --- | --- | --- | ---
-获取资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的jobId。
-开启任务 | job.start | job.stat | 将任务开启，通过此命令可以指定是否使用`合流录制`、`转推`、`单流录制`功能。当然，你也可以在此阶段只开启其中一项功能，后面通过下面的接口开启你需要的功能。
+获取录制资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的jobId。
+开启录制任务 | job.start | job.stat | 将任务开启，通过此命令可以指定是否使用`合流录制`、`转推`、`单流录制`功能。当然，你也可以在此阶段只开启其中一项功能，后面通过下面的接口开启你需要的功能。
 更新用户信息 | job.subscribe.update | job.subscribe.stat | 更新云端录制的用户信息，可以通过该命令传入白名单或者黑名单，需要注意的是，白名单和黑名单不允许共存。
 更新视频转码参数 | job.transcoding.update | job.transcoding.stat | 更新视频转码参数，通过该命令可以更流合流的码率 宽 高 帧率等信息。
 更新合流布局 | job.mixer.update | job.mixer.stat | 通过改命令更新合流布局的模板，以及合流后的样式、水印等。
-批量更新操作 | job.update | job.update.stat | 通过改命令更新任务参数，支持对应ActionId的有 `job.subscribe.update`，`job.transcoding.update`，`job.mixer.update`，`job.stream.update`，`job.notify.update`等接口.
+批量更新操作 | job.update | job.update.stat | 通过改命令更新任务参数，支持对应ActionId的有 `job.subscribe.update`，`job.transcoding.update`，`job.mixer.update`，`job.notify.update`等接口.
 开启消息通知 | job.notify.update | job.notify.stat | 更新消息通知服务状态
-查询接口 | job.query | job.query.stat | 查询当前的任务参数信息
-关闭任务 | job.stop | job.destroyed | 关闭`job`，回收资源。
+查询录制任务 | job.query | job.query.stat | 查询当前的任务参数信息
+关闭录制任务 | job.stop | job.destroyed | 关闭`job`，回收资源。
 
 
 ---
@@ -69,7 +69,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](#)。
+Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](### 2.1 接口列表)。
 Internal    | json对象      | 必填  | 不同Action需要携带的与频道、房间等配置有关的参数。
 Data        | json对象      | 必填  | 不同Action需要携带的跟录制、转码、合流、直播等配置有关的参数。
 
@@ -95,7 +95,7 @@ Data        | json对象      | 必填  | 不同Action需要携带的跟录制�
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Ack         | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](#)。
+Ack         | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](### 2.1 接口列表)。
 RetCode     | int类型       | 必填  | 错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message     | string类型    | 必填  | 错误的文本提示。
 Internal    | json对象      | 选填  | 不同Action需要携带的与频道、房间等配置有关的参数。
@@ -104,7 +104,7 @@ Data        | json对象      | 必填  | 根据不同的请求类型，data中�
 ---
 
 
-## 3. 获取云端资源
+## 3. 获取录制资源
 
 ### 3.1 请求
 
@@ -327,7 +327,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
        }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 
 ### 4.2 开始云端录制的返回
@@ -464,7 +464,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ---
 
@@ -495,7 +495,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ### 5.2 更新云端录制的用户的返回
 
@@ -530,7 +530,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 
 
@@ -721,7 +721,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ## 7. 更新合流录制的视频参数
 ### 7.1 更新合流录制的视频参数的请求
@@ -754,7 +754,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
 }
 ```
 
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ### 7.2 更新合流录制的视频参数的返回
 
@@ -786,7 +786,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
 }
 ```
 
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 
 ## 8. 批量更新录制
@@ -1022,7 +1022,7 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
     "Data": {}
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ### 9.2 查询录制任务状态的返回
 ```json
@@ -1158,7 +1158,7 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 
 ## 10. 停止录制任务
@@ -1258,7 +1258,7 @@ SampleRate   |int类型    |必填   |音频采样率，目前仅支持 48khz。
 MaxResolutionStream        |string类型 |选填   |指定合流模板中最大分辨率的子画面显示的流，如`user1_type`。
 BackgroundColor            |json对象   |选填   |默认 `{"R": 0, "G": 0, "B": 0}`代表黑色, 只支持开启任务时候指定，中间更新不支持。
 ResizeMode                 |int类型    |选填   |合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边， 默认2。
-MixedVideoLayout           |int类型    |必填   |合流布局模板选择，`0` 为自定义模板需参考，其他风格模板请查阅,[https://docs.ucloud.cn/urtc/cloudRecord/RecordLaylout]。
+MixedVideoLayout           |int类型    |必填   |合流布局模板选择，`0` 为自定义模板需参考，其他风格模板请查阅[录制混流风格](https://docs.ucloud.cn/urtc/cloudRecord/RecordLaylout)。
 Layouts                    |array类型  |选填   |这是一个二维数组，由不同画面数的模板组成的数组，只有当`MixedVideoLayout`为`0`时服务器才加载该参数，其他情况下可以不填此参数。
 PositionConfig             |json对象  |选填   |合成画面每条流的显示位置信息，仅对手动模式有效，自动模式下可以不填。
 WaterMark                  |array类型  |选填   |水印信息，默认不加载。
@@ -1503,7 +1503,7 @@ MuteAudio     |bool类型    |必填   |音频的状态。
     }
 }
 ```
-字段具体标识请阅读配置参数详解。
+字段具体标识请阅读[配置参数详解](## 11. 配置参数详解)。
 
 ### Internal 配置
 
@@ -1516,7 +1516,7 @@ Mode        | int类型       | 必填  | 任务模式，0 单流录制模式，
 ChannelType | int类型       | 必填  | 0 会议模式（小班课）,1 直播模式（大班课）。
 RequestId   | string类型    | 必填  | 请求的标识ID
 
- 离线参数请参考[11. 配置参数详解](#)。
+ 离线参数请参考[配置参数详解](## 11. 配置参数详解)。
 
 ## 13. 更新消息通知服务
 
@@ -1841,7 +1841,7 @@ SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
     }
 }
 ```
-  具体参数说明请查询配置参数详解。
+  具体参数说明请查询[配置参数详解](## 11. 配置参数详解)。
   
 #### 停止云端录制
 
