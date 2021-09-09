@@ -326,11 +326,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
             }
         },
 
-        "LiveConfig": {
-            "Type": "rtmp",
-            "Url": "rtmp://xxxxx"
-        }
-    }
+       }
 }
 ```
 字段具体标识请阅读配置参数详解。
@@ -467,10 +463,6 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
             }
         },
 
-        "LiveConfig": {
-            "Type": "rtmp",
-            "Url": "rtmp://xxxxx"
-        }
     }
 }
 ```
@@ -1164,10 +1156,7 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
             }
         },
 
-        "LiveConfig": {
-            "Type": "rtmp",
-            "Url": "rtmp://xxxxx"
-        }
+
     }
 }
 ```
