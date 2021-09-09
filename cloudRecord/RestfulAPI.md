@@ -38,11 +38,9 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 --- | --- | --- | ---
 获取资源 | job.acquire | job.init | 服务器分配任务资源，返回jobId，后续所有请求必须携带此处的jobId。
 开启任务 | job.start | job.stat | 将任务开启，通过此命令可以指定是否使用`合流录制`、`转推`、`单流录制`功能。当然，你也可以在此阶段只开启其中一项功能，后面通过下面的接口开启你需要的功能。
-开启云存 | job.record.start | job.record.stat | 开启云端录制功能
-关闭云存 | job.record.stop | job.record.stat | 关闭云端录制功能
-更新订阅流名单 | job.subscribe.update | job.subscribe.stat | 更新订阅流名单，可以通过该命令传入白名单或者黑名单，需要注意的是，白名单和黑名单不允许共存。
-更新转码参数 | job.transcoding.update | job.transcoding.stat | 更新转码参数，通过次命令可以更流合流的码率 宽 高 帧率等信息。
-更新合流配置 | job.mixer.update | job.mixer.stat | 通过改命令更新合流模板，以及合流后的样式、水印等。
+更新用户信息 | job.subscribe.update | job.subscribe.stat | 更新云端录制的用户信息，可以通过该命令传入白名单或者黑名单，需要注意的是，白名单和黑名单不允许共存。
+更新视频转码参数 | job.transcoding.update | job.transcoding.stat | 更新视频转码参数，通过该命令可以更流合流的码率 宽 高 帧率等信息。
+更新合流布局 | job.mixer.update | job.mixer.stat | 通过改命令更新合流布局的模板，以及合流后的样式、水印等。
 批量更新操作 | job.update | job.update.stat | 通过改命令更新任务参数，支持对应ActionId的有 `job.subscribe.update`，`job.transcoding.update`，`job.mixer.update`，`job.stream.update`，`job.notify.update`等接口.
 开启消息通知 | job.notify.update | job.notify.stat | 更新消息通知服务状态
 查询接口 | job.query | job.query.stat | 查询当前的任务参数信息
@@ -1213,7 +1211,7 @@ KeyStream   |string类型     |选填   |指定房间内的关键流，如果设
 
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
-VideoStreamType     | int类型       | 必填  | 合流任务的加流模式， 0 `自动模式`，1 `手动模式`。
+VideoStreamType     | int类型       | 必填  | 合流任务的加流模式， 0 自动添加视频流（默认） 1 手动添加视频流
 MaxSubscriptions    | int类型       | 选填  | 一个房间里最大的录像流数目，默认 32。
 SubscribeAudio      | arrary类型    | 选填  | 音频白名单，除了该名单以外的流都不录制音频，不能与`UnsubscribeAudio`共用。
 SubscribeVideo      | array类型     |选填   | 视频白名单，除了该名单以外的流都不录制视频，不能与`UnsubscribeVideo`共用。
