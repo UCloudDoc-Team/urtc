@@ -24,7 +24,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 - `job`开启之后，`单流录制`不能和`合流录制`功能共同使用。
 但是可以同时启动两个`job`，一个`job`用来`单流录制`，一个`job`用来`合流录制`。
 
-- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考 [Token生成指导](https://docs.ucloud.cn/urtc/sdk/Token)
+- `restful api`使用POST接口类型，关于`鉴权token`的生成规则请参考 [Token生成指导](https://docs.ucloud.cn/urtc/sdk/token)
 
 - `restful api`的http返回值永远是HTTP 200，所以不能根据HTTP 返回值判断指令是否成功，需要解析http body中的json内容判断指令是否成功。详细内容请参考下文。
 
@@ -69,7 +69,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](### 2.1 接口列表)。
+Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](?id=_### 2.1 接口列表)。
 Internal    | json对象      | 必填  | 不同Action需要携带的与频道、房间等配置有关的参数。
 Data        | json对象      | 必填  | 不同Action需要携带的跟录制、转码、合流、直播等配置有关的参数。
 
