@@ -95,7 +95,7 @@ Data        | json对象      | 必填  | 不同Action需要携带的跟录制�
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Ack         | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](urtc/cloudRecord/RestfulAPI?id=_21-接口列表)。
+Ack         | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](/urtc/cloudRecord/RestfulAPI?id=_21-接口列表)。
 RetCode     | int类型       | 必填  | 错误代码，0 成功，非零代表失败，具体错误代码请参考错误代码总结。
 Message     | string类型    | 必填  | 错误的文本提示。
 Internal    | json对象      | 选填  | 不同Action需要携带的与频道、房间等配置有关的参数。
