@@ -897,7 +897,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
 ```
 
 job.update 更新接口，如果客户需要更新哪个子选项，可以在Data字段中带上所要更新的子项，如果不填默认不更新。    
-目前支持支持更新的接口有 `job.subscribe.update`，`job.transcoding.update`，`job.mixer.update`，`job.notify.update`等接口.
+目前支持更新的接口有 `job.subscribe.update`，`job.transcoding.update`，`job.mixer.update`，`job.notify.update`等接口.
 
 ### 8.2 批量更新录制的返回
 
@@ -1226,10 +1226,10 @@ MediaChannel        |int类型    |必填   | 1 只录音频，2 只录视频，
 FileType            |array类型  |必填   | 允许服务器生成的文件类型，如果同时设置了`mp4`、`webm`，单流模式下如果视频编码为h264则生成mp4文件，如果视频编码为vp8则生成webm文件。`(目前mode=0 单流录制模式下必须设置为 mp4和webm并存)`.
 Vendor              |string类型 |选填   | 云录制厂商，目前仅支持ucloud。
 PublicKey           |string类型 |必填   | 云录制公钥，请参照us3文档真实填写。
-SecretKey           |string类型 |必填   | 云录制私钥，请参照ufile文档真实填写。
-Region              |string类型 |必填   | 云录制的region，请参照ufile文档真实填写。
-Bucket              |string类型 |必填   | 云录制的bucket，请参照ufile文档真实填写。
-FileNamePrefix      |string类型 |必填   | 单流录制指文件在ufile中的存储位置。举个例子，fileNamePrefix/stream.webm，合流录制指是生成的文件名。可以是数字，字母，下划线和特殊字符。
+SecretKey           |string类型 |必填   | 云录制私钥，请参照US3文档真实填写。 
+Region              |string类型 |必填   | 云录制的region，请参照US3文档真实填写。 
+Bucket              |string类型 |必填   | 云录制的bucket，请参照US3文档真实填写。 
+FileNamePrefix      |string类型 |必填   | 单流录制指文件在US3中的存储位置。举个例子，fileNamePrefix/stream.webm，合流录制指是生成的文件名。可以是数字，字母，下划线和特殊字符。 
 
 ### TranscodingConfig：转码配置
 
@@ -1661,7 +1661,7 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 
   - ucloud_record_file_infos.
 
-  	 EventType 表示单流录制文件生成并上传，录制过程中如果mp4文件或者webm文件在ufile中存在，会被覆盖。
+  	 EventType 表示单流录制文件生成并上传，录制过程中如果mp4文件或者webm文件在US3中存在，会被覆盖。
   	- FileList: Array 类型，生成文件索引 ["example1.mp4", "example2.mp4"]。
 
   - ucloud_session_failover.
@@ -1713,7 +1713,7 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 
   - ucloud_mixer_file_infos.
 
-  	 EventType 表示合流录制文件生成，录制过程中如果mp4文件或者webm文件在ufile中存在，会被覆盖。
+  	 EventType 表示合流录制文件生成，录制过程中如果mp4文件或者webm文件在US3中存在，会被覆盖。
   	- FileList: Array 类型，生成文件索引。
 
   - ucloud_upload_status.
