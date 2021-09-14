@@ -69,7 +69,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](/urtc/cloudRecord/RestfulAPI?id=_### 2.1 接口列表)。
+Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](urtc/cloudRecord/RestfulAPI?id=_### 2.1 接口列表)。 
 Internal    | json对象      | 必填  | 不同Action需要携带的与频道、房间等配置有关的参数。
 Data        | json对象      | 必填  | 不同Action需要携带的跟录制、转码、合流、直播等配置有关的参数。
 
@@ -1370,8 +1370,8 @@ MuteAudio     |bool类型    |必填   |音频的状态。
 
 用户执行以下命令后，合并任务开启运行，任务结束自动退出：
 - ./bin/owt-main ./mixer/cfg.json  &
-   
- 
+  
+
 在用户使用转码合并工具之前，用户需要修改用户的合流信息文件，具体参数依据用户实际使用场景。
 ```json
 {
@@ -1559,9 +1559,9 @@ Status          | string类型    | 必填  | 表示要更新的状态  open 开
         ]
  }
  ```
- 
+
  #### 返回
- 
+
  ```json
  {
      "Version": "1.0",
@@ -1609,7 +1609,7 @@ Status          | string类型    | 必填  | 表示要更新的状态  open 开
         "ErrorCode": 0,
         "ErrorMsg": "record started successfully"
      }
-  ```
+   ```
 
   参数     | 类型  | 性质 | 描述
  --  | --- | --- | ---
@@ -1623,7 +1623,7 @@ ErrorMsg      | string类型    | 必填  | Restful服务通知的事件提示�
 
 
 Data 字段中的ServiceType, EventType 为请求包体重公共字段，所有回调重都包含这些字段，公共字段的含义详见 消息回调事件。
-  
+
 ### 14.2 消息回调事件
   本节详细介绍云端录制每种回调事件对应的 ServiceType 以及 Data 包含的具体字段。
 
@@ -1646,7 +1646,7 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
 ### 错误码说明
 
   - ucloud_record_status_update.
-   EventType 表示单流录制服务状态发生变化。
+      EventType 表示单流录制服务状态发生变化。
     - Status: string 类型， 云端录制当前状态，请参考模块状态服务码。
 
   - ucloud_record_warning.
@@ -1654,17 +1654,20 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
       - WarnCode: int 类型，告警码，根据当前服务模块类型，查看具体模块的[告警码](### 14.5 告警码)。
 
   - ucloud_record_error
+
   	 EventType 表示单流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](### 14.3 错误码)。
-    - ErrorMsg: string 类型，具体的事件信息。
+  	- ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的错误码[错误码](### 14.3 错误码)。
+  	- ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_record_file_infos.
+
   	 EventType 表示单流录制文件生成并上传，录制过程中如果mp4文件或者webm文件在ufile中存在，会被覆盖。
-    - FileList: Array 类型，生成文件索引 ["example1.mp4", "example2.mp4"]。
+  	- FileList: Array 类型，生成文件索引 ["example1.mp4", "example2.mp4"]。
 
   - ucloud_session_failover.
+
   	EventType 表示服务启动高可用。启动高可用之后，服务端崩溃之后会重新开启一个以原始JodId为标识的服务，默认开启。
-    - Status: int 类型， 0 启用成功 1 启用失败。
+  	- Status: int 类型， 0 启用成功 1 启用失败。
   - ucloud_living_status_update
       EventType 表示直播转推服务状态发生变化
     - Status: int 类型， 云端录制当前状态，请参考模块状态服务码。
@@ -1674,15 +1677,17 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
       - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[状态码](### 14.4 状态码)。
 
   - ucloud_living_error.
+
   	 EventType 表示直播转推服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
-    - ErrorMsg: string 类型，具体的事件信息。
+  	- ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
+  	- ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_living_stream_update.
+
   	 EventType 表示直播转推服务视频流状态发生变化。
-    - StreamUid: string类型，表示当前更新流的uid.
-    - Status: string 类型，open 表示开始接收 close 表示停止接收
-    - TimeStamp: string 类型，当前操作的时间戳。
+  	- StreamUid: string类型，表示当前更新流的uid.
+  	- Status: string 类型，open 表示开始接收 close 表示停止接收
+  	- TimeStamp: string 类型，当前操作的时间戳。
 
   - ucloud_mixer_status_update.
       EventType 表示合流录制服务状态发生变化
@@ -1693,25 +1698,29 @@ ucloud_upload_status   			| job.oss     (上传模块）	    | 录制文件上�
       - WarnCode: int 类型，警告码，根据当前服务模块类型，查看具体模块的[告警码](### 14.5 告警码)。
 
   - ucloud_mixer_error.
+
   	 EventType 表示合流录制服务发生错误
-    - ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
-    - ErrorMsg: string 类型，具体的事件信息。
+  	- ErrorCode: int 类型，错误码。根据当前服务模块类型，查看具体模块的[错误码](### 14.3 错误码)。
+  	- ErrorMsg: string 类型，具体的事件信息。
 
   - ucloud_mixer_stream_update.
+
   	 EventType 表示合流录制服务视频流状态发生变化。
-    - StreamUid: string类型，表示当前更新流的uid.
-    - Status: string 类型，open 表示开始接收 close 表示停止接收
-    - TimeStamp: string 类型，当前操作的时间戳。
+  	- StreamUid: string类型，表示当前更新流的uid.
+  	- Status: string 类型，open 表示开始接收 close 表示停止接收
+  	- TimeStamp: string 类型，当前操作的时间戳。
 
 
   - ucloud_mixer_file_infos.
+
   	 EventType 表示合流录制文件生成，录制过程中如果mp4文件或者webm文件在ufile中存在，会被覆盖。
-    - FileList: Array 类型，生成文件索引。
+  	- FileList: Array 类型，生成文件索引。
 
   - ucloud_upload_status.
+
   	 EventType 为31表示上传启动。
-    - Status: int 类型，0 表示成功，1 表示上传失败
-    - FileList: Array 类型，生成文件索引。
+  	- Status: int 类型，0 表示成功，1 表示上传失败
+  	- FileList: Array 类型，生成文件索引。
 
 
 ---
@@ -1743,11 +1752,11 @@ SERVICE_STATUS_INTERRUPT    	| 服务中断退出
 告警码 |  描述
 ------ |  ---
 SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
- 
+
 ## 15. 示例DEMO
-  
+
 ### 15.1 开启云端录制示例
- 
+
 #### 申请资源Id
 
  ```json
@@ -1763,10 +1772,10 @@ SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
             "RequestId": "0"
         }
    }
-  ```
-  
+ ```
+
   申请返回的字段，后续操作都得带上这个jobid
-  
+
    ```json
   {
     "Ack" : "job.init",
@@ -1784,10 +1793,10 @@ SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
     "RetCode" : 0,
     "Version" : "1.0"
     }
-```
-  
+   ```
+
 #### 开启云端录制任务
-  
+
    ```json
  {
  "Version":"1.0",
@@ -1840,9 +1849,9 @@ SERVICE_WARN_PROCESS_RESTART    	| 任务异常重启
      },
     }
 }
-```
+   ```
   具体参数说明请查询[配置参数详解](## 11. 配置参数详解)。
-  
+
 #### 停止云端录制
 
 ```json
