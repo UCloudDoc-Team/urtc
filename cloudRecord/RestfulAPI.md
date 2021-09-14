@@ -884,7 +884,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
             ],
             "WaterMark": {
                 "Type": 1,
-                "Image": "http://urtcdemo.US3上.ucloud.com.cn/urtc_icon.png",
+                "Image": "http://xxxxxx.ufile.ucloud.com.cn/urtc_icon.png",
                 "Text": "this is a text WaterMark.",
                 "X": 0,
                 "Y": 0,
@@ -994,7 +994,7 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
             ],
             "WaterMark": {
                 "Type": 1,
-                "Image": "http://urtcdemo.US3上.ucloud.com.cn/urtc_icon.png",
+                "Image": "http://xxxxxx.ufile.ucloud.com.cn/urtc_icon.png",
                 "Text": "this is a text WaterMark.",
                 "X": 0,
                 "Y": 0,
