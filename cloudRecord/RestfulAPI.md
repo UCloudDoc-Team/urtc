@@ -884,7 +884,7 @@ JobId       | string类型    | 必填  | 申请到的任务标识，后续所�
             ],
             "WaterMark": {
                 "Type": 1,
-                "Image": "http://urtcdemo.ufile.ucloud.com.cn/urtc_icon.png",
+                "Image": "http://urtcdemo.US3上.ucloud.com.cn/urtc_icon.png",
                 "Text": "this is a text WaterMark.",
                 "X": 0,
                 "Y": 0,
@@ -994,7 +994,7 @@ job.update 更新接口，如果客户需要更新哪个子选项，可以在Dat
             ],
             "WaterMark": {
                 "Type": 1,
-                "Image": "http://urtcdemo.ufile.ucloud.com.cn/urtc_icon.png",
+                "Image": "http://urtcdemo.US3上.ucloud.com.cn/urtc_icon.png",
                 "Text": "this is a text WaterMark.",
                 "X": 0,
                 "Y": 0,
@@ -1355,11 +1355,11 @@ MuteAudio     |bool类型    |必填   |音频的状态。
 
 ### 12.1 离线合流的功能描述
 
-离线合流需要从ufile下载录像文件，将多个uid对应的单路录制文件以画中画的方式合成一个录制文件，可以使用我们音视频合并转码的工具，具体需要以下几个步骤：
+离线合流需要从US3上下载录像文件，将多个uid对应的单路录制文件以画中画的方式合成一个录制文件，可以使用我们音视频合并转码的工具，具体需要以下几个步骤：
 
-- 从ufile上获取每个uid对应的录制文件和房间记录所有流信息的info文件。
+- 从US3上上获取每个uid对应的录制文件和房间记录所有流信息的info文件。
 - 将多个单流文件进行转码合成一个完成画中画录制文件。
-- 将生成的画中画录制文件上传到ufile上。
+- 将生成的画中画录制文件上传到US3上上。
 
 ### 12.2 用户使用工具方法
  登录部署好的机器，默认部署在/home/urtc-owt/目录下，具体下面包括以下几个子目录。
