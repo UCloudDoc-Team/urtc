@@ -69,7 +69,7 @@ restful api 中用`“$userId_$mediaType”`标记一路流：
 参数     | 类型  | 性质 | 描述
 ---  | --- | --- | ---
 Version     | string类型    | 选填  | 服务版本，如果后台服务版本升级，可通过此字段完成向前兼容，当前服务版本`1.0`。
-Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](/cloudRecord/RestfulAPI?id=_### 2.1 接口列表)。
+Action      | string类型    | 必填  | 请求类型，详情参看上文 [2.1 接口列表](/urtc/cloudRecord/RestfulAPI?id=_### 2.1 接口列表)。
 Internal    | json对象      | 必填  | 不同Action需要携带的与频道、房间等配置有关的参数。
 Data        | json对象      | 必填  | 不同Action需要携带的跟录制、转码、合流、直播等配置有关的参数。
 
