@@ -393,7 +393,7 @@ token = header+ “.”+ signture\\
 
 ## 4. 验证Token正确性
 
-后台服务器生成的`Token`，可以与 https://tools.urtc.com.cn 生成的`Token`对比校验，判断`Token`生成方法是否正确。    
+在加入房间时，如果收到`加入房间失败，Token无效`的提示，可以使用在线token生成工具 https://tools.urtc.com.cn ，对比校验`Token`，判断`Token`生成的方法是否正确。    
 
 ## 5. 申明
 
