@@ -22,4 +22,3 @@ URTC支持`RTMP`推流作为一个发送源，发送到`RTC`房间内。所有�
 - room_id：房间号码，由业务决定。加入房间，就可开始实时通话、互动直播，同一个`AppID`同一个`room`的用户才可以通话。    
 - room_type：房间类型，可选rtc、live。URTC支持2种房间类型：实时通话房间rtc、互动直播房间live。查看[URTC常用术语](https://docs.ucloud.cn/urtc/sdk/term?id=%e6%88%bf%e9%97%b4)了解房间不同。
 - token：鉴权码，必须使用合法的鉴权码，才能正常的推流，鉴权码的生成规则查看[Token生成指导](https://docs.ucloud.cn/urtc/sdk/token)，也可以直接通过 https://tools.urtc.com.cn/ 临时获取`token`用来测试。    
-
