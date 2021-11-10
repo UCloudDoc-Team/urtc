@@ -2,7 +2,7 @@
 
 URTC支持`RTMP`推流作为一个发送源，发送到`RTC`房间内。所有用户可以一起实时收听/观看该媒体流，并实时互动。     
 
-![](/images/rtsImage/rts.png)
+![](/images/rts.png)
 
 支持的推流方式有：
  - OBS推`RTMP`音视频源
