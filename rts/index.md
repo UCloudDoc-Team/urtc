@@ -9,10 +9,10 @@ URTC支持`RTMP`推流作为一个发送源，发送到`RTC`房间内。所有�
  - 网络摄像头推`RTMP`音视频源
  - 自定义的`RTMP`服务推音视频源
 
-支持的编码格式：音频 `AAC`，视频 `H.264`。    
-纯音频流也可作为在线媒体流输入房间。     
+支持的编码格式：音频 `AAC`，视频 `H.264`。纯音频流也可直接推到房间。     
 
 `RTMP`推流地址拼接方式：    
+
 `rtmp://push.urtc.com.cn/live/stream_id?room=xxx&app=xxx&user=xxx&token=xxx`
 
 **说明**    
