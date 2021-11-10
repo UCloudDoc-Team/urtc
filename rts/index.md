@@ -16,8 +16,8 @@ URTC支持`RTMP`推流作为一个发送源，发送到`RTC`房间内。所有�
 `rtmp://push.urtc.com.cn/live/stream_id?room=xxx&app=xxx&user=xxx&token=xxx`
 
 ?> 说明    
-?>  room：房间号码，由业务决定。加入房间，就可开始实时通话、互动直播，同一个`AppID`同一个`room`的用户才可以通话。    
-?>  app：是[UCloud控制台](https://console.ucloud.cn/)创建`URTC`应用时生成的随机字符串，是`URTC`后台服务器识别`URTC`客户身份的唯一标识。     
-?>  user：用户号码，由业务决定。客户端加入房间时的身份标识，同一个房间内的用户必须唯一。    
-?> token：鉴权码，必须使用合法的鉴权码，才能正常的推流，鉴权码的生成规则查看[Token生成指导](https://docs.ucloud.cn/urtc/sdk/token)，也可以直接通过 https://tools.urtc.com.cn/ 临时获取`token`用来测试。    
+- room：房间号码，由业务决定。加入房间，就可开始实时通话、互动直播，同一个`AppID`同一个`room`的用户才可以通话。    
+- app：是[UCloud控制台](https://console.ucloud.cn/)创建`URTC`应用时生成的随机字符串，是`URTC`后台服务器识别`URTC`客户身份的唯一标识。     
+- user：用户号码，由业务决定。客户端加入房间时的身份标识，同一个房间内的用户必须唯一。    
+- token：鉴权码，必须使用合法的鉴权码，才能正常的推流，鉴权码的生成规则查看[Token生成指导](https://docs.ucloud.cn/urtc/sdk/token)，也可以直接通过 https://tools.urtc.com.cn/ 临时获取`token`用来测试。    
 
