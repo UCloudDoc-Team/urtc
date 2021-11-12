@@ -1258,7 +1258,7 @@ SampleRate   |int类型    |必填   |音频采样率，目前仅支持 48khz。
 MaxResolutionStream        |string类型 |选填   |指定合流模板中最大分辨率的子画面显示的流，如`user1_type`。
 BackgroundColor            |json对象   |选填   |默认 `{"R": 0, "G": 0, "B": 0}`代表黑色, 只支持开启任务时候指定，中间更新不支持。
 ResizeMode                 |int类型    |选填   |合流视频的显示策略 0 非等比拉伸 1裁剪 2 加黑边， 默认2。
-MixedVideoLayout           |int类型    |必填   |合流布局模板选择，`0` 为自定义模板需参考，其他风格模板请查阅[录制混流风格](https://docs.ucloud.cn/urtc/cloudRecord/RecordLaylout)。
+MixedVideoLayout           |int类型    |必填   |合流布局模板选择，`0` 为自定义模板需参考，1-5分别代表：平铺、垂直、单画面、平铺2、垂直2。具体的风格模板请查阅[录制混流风格](https://docs.ucloud.cn/urtc/cloudRecord/RecordLaylout)。
 Layouts                    |array类型  |选填   |这是一个二维数组，由不同画面数的模板组成的数组，只有当`MixedVideoLayout`为`0`时服务器才加载该参数，其他情况下可以不填此参数。
 PositionConfig             |json对象  |选填   |合成画面每条流的显示位置信息，仅对手动模式有效，自动模式下可以不填。
 WaterMark                  |array类型  |选填   |水印信息，默认不加载。
